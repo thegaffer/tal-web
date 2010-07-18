@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * Copyright 2010 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.tpspencer.org/schema/mvc"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd">
+	
+	<!--
+	 | menuWindow.xml
+	 | Spring Context for the menu Window and its controllers 
+	 -->
+				
+	<!-- Windows & Views -->
+	<mvc:simpleWindow id="menuWindow" view="menuView">
+		<mvc:controllers>
+			<mvc:controllerMapping controller="protoController" action="onMenu"/>
+		</mvc:controllers>
+	</mvc:simpleWindow>
+	
+	<bean id="protoController" class="org.tpspencer.tal.mvc.commons.controllers.PrototypeController">
+		<constructor-arg value="ok" />
+		<constructor-arg>
+			<map>
+				<entry key="showContact" value="showContact" />
+				<entry key="showOrders" value="showOrders" />
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="menuView" class="org.tpspencer.tal.mvc.commons.views.menu.MenuView">
+		<constructor-arg value="menuView" />
+		<constructor-arg>
+			<list>
+				<bean class="org.tpspencer.tal.mvc.commons.views.menu.MenuItem">
+					<constructor-arg value="Contact" />
+					<constructor-arg value="label.menu.Contact" />
+					<constructor-arg value="onMenu" />
+					<constructor-arg value="showContact" />
+				</bean>
+				<bean class="org.tpspencer.tal.mvc.commons.views.menu.MenuItem">
+					<constructor-arg value="Orders" />
+					<constructor-arg value="label.menu.Orders" />
+					<constructor-arg value="onMenu" />
+					<constructor-arg value="showOrders" />
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>

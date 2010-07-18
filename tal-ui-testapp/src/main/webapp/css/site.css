@@ -1,0 +1,136 @@
+/*
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@IMPORT url("site-menu.css");
+@IMPORT url("site-form.css");
+@IMPORT url("site-view.css");
+@IMPORT url("site-table.css");
+
+body {
+	font-family: Verdana, Arial;
+	font-size: 10pt;
+}
+
+/* ****************************************
+ * Common Elements
+ * **************************************** */
+
+/* Div surrounding all messages typically at top of view */
+div.messages {
+	background-color: #ffffee;
+	border: 1px solid black;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+/* Div surrounding each individual message */
+div.message {
+	background-image: url('images/message.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+	font-style: italic; 
+}
+
+/* Div surrounding each individual message */
+div.warning {
+	background-image: url('images/warning.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+	font-style: italic; 
+}
+
+/* Div surrounding each individual message */
+div.error {
+	background-image: url('images/error.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+	color: red;
+	font-style: italic; 
+}
+
+/* ****************************************
+ * Standard Window
+ * **************************************** */
+ 
+div.window {
+	margin-bottom: 5px;
+	margin-right: 5px;
+	border: solid 1px #eeeeff;
+}
+
+div.window-header {
+	padding: 2px;
+	background-color: #eeeeff;
+	
+	position: relative;
+    height: 1.4em;
+}
+
+span.window-title {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 1.4em;
+	
+	text-align: left;
+	vertical-align: middle;
+}
+
+span.window-actions {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 1.4em;
+	/*width: 20px;*/
+	
+	text-align: right;
+	vertical-align: middle;
+}
+
+/* A refresh window link */
+span.window-refresh {
+	background-image: url("images/refresh.png");
+	background-position: top center;
+	background-repeat: no-repeat;
+	
+	display: inline-block;
+	width: 20px;
+}
+
+span.window-refresh:hover {
+	cursor: pointer;
+}
+
+div.window-content {
+	padding: 5px;
+}
+
+
+/* ****************************************
+ * Silent Window
+ * **************************************** */
+ 
+div.silent-window {
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+div.silent-window-header {
+	display: none;
+}

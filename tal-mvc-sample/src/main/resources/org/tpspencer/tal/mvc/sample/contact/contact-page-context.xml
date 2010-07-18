@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.tpspencer.org/schema/mvc"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd">
+	
+	<!--
+	 | Pages
+	 | *****
+	 | contactPage - The main contact page
+	 | viewCallerPage - Simple readonly view caller 
+	 -->
+	 
+	<mvc:page id="viewCallerPage" windows="viewCallerWindow=clr">
+		<mvc:model>
+			<mvc:simpleAttribute name="callerId" />
+			<mvc:resolvedAttribute name="caller" resolver="currentCallerResolver" />
+		</mvc:model>
+	</mvc:page>
+	
+	<mvc:page id="contactPage" windows="contactWindow=con, callerLookupWindow=clrs, accountLookupWindow=accs">
+		<mvc:model>
+			<mvc:simpleAttribute name="contact" type="org.tpspencer.tal.mvc.sample.model.contact.Contact" flash="true" eventable="true" />
+			<mvc:simpleAttribute name="caller" type="org.tpspencer.tal.mvc.sample.model.contact.Caller" flash="true" eventable="true" />
+			<mvc:simpleAttribute name="account" type="org.tpspencer.tal.mvc.sample.model.account.Account" flash="true" eventable="true" />
+		</mvc:model>
+	</mvc:page>
+	
+	<mvc:simpleWindow id="viewCallerWindow" view="callerView" />
+	
+	<bean id="contactWindow" class="org.tpspencer.tal.mvc.sample.contact.ContactWindow" />
+	<bean id="callerLookupWindow" class="org.tpspencer.tal.mvc.sample.contact.CallerLookupWindow" />
+	<bean id="accountLookupWindow" class="org.tpspencer.tal.mvc.sample.contact.AccountLookupWindow" />
+	
+	<!-- Model -->
+	<bean id="currentContactResolver" p:repository-ref="contactRepository" p:modelAttribute="selectedContact" class="org.tpspencer.tal.mvc.commons.repository.RepositoryFindResolver" />
+	<bean id="currentCallerResolver" p:repository-ref="callerRepository" p:modelAttribute="callerId" class="org.tpspencer.tal.mvc.commons.repository.RepositoryFindResolver" />
+	
+	<bean id="callerSearchResolver" class="org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResolver">
+		<property name="searchCriteriaAttributes">
+			<list><value>firstName</value><value>lastName</value></list>
+		</property>
+		<property name="searchService">
+			<bean p:repository-ref="callerRepository" class="org.tpspencer.tal.mvc.commons.service.search.PrototypeSearchService" />
+		</property>
+	</bean>
+	<bean id="accountSearchResolver" class="org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResolver">
+		<property name="searchCriteriaAttributes">
+			<list><value>accountId</value><value>companyName</value></list>
+		</property>
+		<property name="searchService">
+			<bean p:repository-ref="accountRepository" class="org.tpspencer.tal.mvc.commons.service.search.PrototypeSearchService">
+				<property name="criteriaNameMapping"><map>
+					<entry key="accountId" value="id" />
+					<entry key="companyName" value="company" />
+				</map></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- Controllers -->
+	<bean id="submitContactController" p:service-ref="contactService" class="org.tpspencer.tal.mvc.sample.contact.controllers.SubmitContactController" />
+	<bean id="callerSelectedController" p:service-ref="contactService" class="org.tpspencer.tal.mvc.sample.contact.controllers.CallerSelectedController" />
+	<bean id="accountSelectedController" p:service-ref="contactService" class="org.tpspencer.tal.mvc.sample.contact.controllers.AccountSelectedController" />
+	
+	<bean id="selectCallerController" p:repository-ref="callerRepository" p:modelAttribute="caller" p:result="callerSelected" class="org.tpspencer.tal.mvc.commons.repository.RepositorySelectController" />
+	<bean id="callerContactUpdatedController" class="org.tpspencer.tal.mvc.sample.contact.controllers.CallerContactUpdatedController" />
+	
+	<bean id="selectAccountController" p:repository-ref="accountRepository" p:modelAttribute="account" p:result="accountSelected" class="org.tpspencer.tal.mvc.commons.repository.RepositorySelectController" />
+	<bean id="accountContactUpdatedController" class="org.tpspencer.tal.mvc.sample.contact.controllers.AccountContactUpdatedController" />
+	
+	<bean id="contactView" class="org.tpspencer.tal.mvc.sample.contact.views.ContactView" />
+	<bean id="callerView" class="org.tpspencer.tal.mvc.sample.contact.views.CallerView" />
+	<bean id="accountLookupView" class="org.tpspencer.tal.mvc.sample.contact.views.AccountLookupView" />
+	<bean id="callerLookupView" class="org.tpspencer.tal.mvc.sample.contact.views.CallerLookupView" />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- Contact Windows 
+	<mvc:simpleWindow id="contactWindow" view="contact">
+		<mvc:model>
+			<mvc:simpleAttribute name="state" />
+			<mvc:simpleAttribute name="selectedContact" />
+			<mvc:resolvedAttribute name="currentContact" resolver="currentContactResolver" />
+		</mvc:model>
+		<mvc:controllers>
+			<mvc:controllerMapping action="submitContact" controller="submitContactController" />
+			<mvc:controllerMapping action="callerSelected" controller="callerSelectedController" />
+			<mvc:controllerMapping action="accountSelected" controller="accountSelectedController" />
+		</mvc:controllers>
+		<mvc:events>
+			<mvc:event attr="caller" action="callerSelected" newValueName="caller" />
+			<mvc:event attr="account" action="accountSelected" newValueName="account" />
+		</mvc:events>
+	</mvc:simpleWindow>
+	
+	<mvc:simpleWindow id="callerLookupWindow" view="callerLookup">
+		<mvc:model>
+			<mvc:simpleAttribute name="state" />
+			<mvc:simpleAttribute name="firstName" />
+			<mvc:simpleAttribute name="lastName" />
+			<mvc:resolvedAttribute name="callers" resolver="callerSearchResolver" />
+		</mvc:model>
+		<mvc:controllers>
+			<mvc:controllerMapping action="selectCaller" controller="selectCallerController" />
+			<mvc:controllerMapping action="contactUpdated" controller="callerContactUpdatedController" />
+		</mvc:controllers>
+		<mvc:events>
+			<mvc:event attr="contact" action="contactUpdated" newValueName="contact" />
+		</mvc:events>
+	</mvc:simpleWindow>
+	
+	<mvc:simpleWindow id="accountLookupWindow" view="accountLookup">
+		<mvc:model>
+			<mvc:simpleAttribute name="state" />
+			<mvc:simpleAttribute name="accountId" />
+			<mvc:simpleAttribute name="companyName" />
+			<mvc:resolvedAttribute name="accounts" resolver="accountSearchResolver" />
+		</mvc:model>
+		<mvc:controllers>
+			<mvc:controllerMapping action="selectAccount" controller="selectAccountController" />
+			<mvc:controllerMapping action="contactUpdated" controller="accountContactUpdatedController" />
+		</mvc:controllers>
+		<mvc:events>
+			<mvc:event attr="contact" action="contactUpdated" newValueName="contact" />
+		</mvc:events>
+	</mvc:simpleWindow> -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- Views -->
+	
+	<!-- Contact View 
+	<bean id="contact" class="org.tpspencer.tal.mvc.commons.views.form.FormView" init-method="init">
+		<property name="primaryBean" value="org.tpspencer.tal.mvc.sample.model.contact.Contact" />
+		<property name="initialFormBean" value="currentContact" />
+		<property name="templateFile" value="/org/tpspencer/tal/mvc/sample/contact/Contact.xml" />
+	</bean>
+	
+	<bean id="callerLookup" class="org.tpspencer.tal.mvc.commons.views.table.TableView" init-method="init">
+		<property name="primaryBean" value="org.tpspencer.tal.mvc.sample.model.contact.Caller" />
+		<property name="viewBeanName" value="callers" />
+		<property name="templateFile" value="/org/tpspencer/tal/mvc/sample/contact/CallerList.xml" />
+	</bean>
+	
+	<bean id="accountLookup" class="org.tpspencer.tal.mvc.commons.views.table.TableView" init-method="init">
+		<property name="primaryBean" value="org.tpspencer.tal.mvc.sample.model.account.Account" />
+		<property name="viewBeanName" value="accounts" />
+		<property name="templateFile" value="/org/tpspencer/tal/mvc/sample/contact/AccountList.xml" />
+	</bean>
+	
+	<bean id="callerView" class="org.tpspencer.tal.mvc.commons.views.form.FormView" init-method="init">
+		<property name="primaryBean" value="org.tpspencer.tal.mvc.sample.model.contact.Caller" />
+		<property name="asForm" value="false" />
+		<property name="initialFormBean" value="caller" />
+	</bean>
+	-->
+</beans>

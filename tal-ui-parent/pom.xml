@@ -1,0 +1,161 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+  	<groupId>org.tpspencer.talui</groupId>
+  	<artifactId>tal-ui</artifactId>
+  	<version>0.9-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>org.tpspencer.talui</groupId>
+  <artifactId>tal-ui-parent</artifactId>
+  <name>Tal UI Parent POM</name>
+  <description>The parent POM</description>
+  
+  <packaging>pom</packaging>
+  
+  <properties>
+  	<dep.junit>4.8.1</dep.junit>
+  	<dep.commons-logging>1.1.1</dep.commons-logging>
+  	<dep.log4j>1.2.13</dep.log4j>
+  	<dep.jmock>2.5.1</dep.jmock>
+  	<dep.spring>2.5.6</dep.spring>
+  	<dep.jasperel>6.0.26</dep.jasperel>
+  </properties>
+  
+  <dependencies>
+  	<!-- All Projects should use JUnit 4 for Testing -->
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>${dep.junit}</version>
+		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+  
+  <dependencyManagement>
+  	<dependencies>
+	  	<dependency>
+			<groupId>org.tpspencer.tal</groupId>
+			<artifactId>tal-aspects</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		
+  		<!-- Commons Logging Version -->
+  		<dependency>
+  			<groupId>commons-logging</groupId>
+  			<artifactId>commons-logging</artifactId>
+  			<version>${dep.commons-logging}</version>
+  		</dependency>
+  		
+  		<!-- Log4J Version -->
+  		<dependency>
+  			<groupId>log4j</groupId>
+  			<artifactId>log4j</artifactId>
+  			<version>${dep.log4j}</version>
+  		</dependency>
+  		
+  		<!-- JMock (Preferred Mocking Library) -->
+  		<dependency>
+	  		<groupId>org.jmock</groupId>
+	  		<artifactId>jmock-junit4</artifactId>
+	  		<version>${dep.jmock}</version>
+	  	</dependency>
+
+		<!-- Spring Elements -->
+	  	<dependency>
+	  		<groupId>org.springframework</groupId>
+	  		<artifactId>spring-context</artifactId>
+	  		<version>${dep.spring}</version>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>org.springframework</groupId>
+	  		<artifactId>spring-beans</artifactId>
+	  		<version>${dep.spring}</version>
+	  	</dependency>
+	  	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${dep.spring}</version>
+	    </dependency>
+	    <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${dep.spring}</version>
+	    </dependency>
+	    <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${dep.spring}</version>
+	    </dependency>
+
+		<!-- Jasper EL Expression Evaluation -->	    
+	    <dependency>
+	  		<groupId>org.apache.tomcat</groupId>
+	  		<artifactId>jasper-el</artifactId>
+	  		<version>${dep.jasperel}</version>
+	  	</dependency>
+	  	
+	  	<!-- Spec API -->
+	  	<dependency>
+			<groupId>geronimo-spec</groupId>
+			<artifactId>geronimo-spec-servlet</artifactId>
+			<version>2.4-rc4</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+	    </dependency>
+		<dependency>
+		   	<groupId>javax.servlet.jsp</groupId>
+      		<artifactId>jsp-api</artifactId>
+      		<version>2.1</version>
+      		<scope>provided</scope>
+			<optional>true</optional>
+    	</dependency>
+  	</dependencies>
+  </dependencyManagement>
+  
+  <reporting> 
+	<outputDirectory>${basedir}/../target/site/${project.artifactId}</outputDirectory>
+	
+	<plugins>
+	  <plugin>
+      	<artifactId>maven-surefire-report-plugin</artifactId>
+      	<configuration>
+      		<xrefLocation>${project.reporting.outputDirectory}/../xref-test</xrefLocation>
+      	</configuration>
+      </plugin>
+      <plugin>
+      	<groupId>org.apache.maven.plugins</groupId>
+      	<artifactId>maven-pmd-plugin</artifactId>
+      	<configuration>
+      		<targetJdk>1.5</targetJdk>
+      		<rulesets>
+      			<ruleset>/rulesets/basic.xml</ruleset>
+				<ruleset>/rulesets/controversial.xml</ruleset>
+      		</rulesets>
+      		<format>xml</format>
+      		<linkXref>true</linkXref>
+      		<sourceEncoding>utf-8</sourceEncoding>
+      		<minimumTokens>100</minimumTokens>
+      		<xrefLocation>${project.reporting.outputDirectory}/../xref</xrefLocation>
+      	</configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <xrefLocation>${project.reporting.outputDirectory}/../xref</xrefLocation>
+          <configLocation>C:\Dev\Data\Site\checkstyle\tal_checks.xml</configLocation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javancss-maven-plugin</artifactId>
+        <version>2.0-beta-2</version>
+        <configuration>
+          <xrefLocation>${project.reporting.outputDirectory}/../xref</xrefLocation>
+        </configuration>
+      </plugin>
+	  
+	</plugins> 
+  </reporting>
+</project>

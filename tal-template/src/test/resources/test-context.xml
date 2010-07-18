@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd" >
+			
+	<import resource="classpath:/org/tpspencer/tal/template/web-template-context.xml" />
+
+	<!-- Static list of country codes for testing purposes -->
+	<bean class="org.tpspencer.tal.template.render.codes.SimpleCodeTypeFactory" >
+		<constructor-arg>
+			<bean class="org.tpspencer.tal.template.render.codes.SimpleCodeType">
+				<constructor-arg value="countryCodeList" />
+				<constructor-arg>
+					<map>
+						<entry key="UK" value="United Kingdom" />
+						<entry key="US" value="United States" />
+						<entry key="FR" value="France" />
+					</map>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+	</bean>
+
+	<bean id="testForm" class="org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration" init-method="init" >
+		<property name="name" value="TestResources" />
+		<property name="templateResource" value="/testTemplate.xml" />
+		<property name="rootTemplate" value="form" />
+		<property name="compilers">
+			<map>
+				<entry key="html" value-ref="tpsweb.htmlCompiler" />
+				<entry key="form-html" value-ref="tpsweb.htmlFormCompiler" />
+				<!-- <entry key="view-form-html" value-ref="tpsweb.htmlReadOnlyFormCompiler" /> -->
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="testResults" class="org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration" init-method="init">
+		<property name="name" value="TestResources" />
+		<property name="templateResource" value="/testTemplate.xml" />
+		<property name="rootTemplate" value="results" />
+		<property name="compilers">
+			<map>
+				<entry key="html" value-ref="tpsweb.htmlCompiler" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="simpleForm" class="org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration" init-method="init">
+		<property name="name" value="TestResources" />
+		<property name="templateResource" value="/simpleTemplate.xml" />
+		<property name="rootTemplate" value="form" />
+		<property name="compilers">
+			<map>
+				<entry key="html" value-ref="tpsweb.htmlCompiler" />
+				<entry key="form-html" value-ref="tpsweb.htmlFormCompiler" />
+				<!-- <entry key="view-form-html" value-ref="tpsweb.htmlReadOnlyFormCompiler" /> -->
+			</map>
+		</property>
+	</bean>
+
+</beans>

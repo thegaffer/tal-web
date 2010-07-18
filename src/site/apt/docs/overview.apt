@@ -1,0 +1,20 @@
+Tal UI Framework Documentation
+
+ The Tal UI Framework documentation is a combination of theory explaining why
+ each element exists and simple examples of usage. It is arranged as follows:
+ 
+ [[a]] The Tal Template - Learn how to write HTML and JavaScript (and others) by
+ providing only a logical structure to the output and let your rules determine 
+ the rest.
+ 
+ [[b]] The Tal MVC Framework - Explains the underpinnings of the MVC framework
+ and provides simple examples on it's use.
+ 
+ [[c]] MVC Commons - Provides mainly through examples, documentation on how to 
+ use the common set of controllers and views to really speed up UI development.
+ 
+ [[d]] MVC Deployment - Explains how to use the MVC framework inside a Web App
+ and a Portlet App.
+ 
+ [[e]] Documentation - Determines how to generate documentation for any 
+ application you create using the framework.

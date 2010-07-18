@@ -1,0 +1,23 @@
+/* Default Menu Class Styles */
+
+/* Overall div for each menu item */
+div.menuItem {
+	/*color: #0066cc;*/
+    font-weight: bold;
+    
+    border-left: 5px solid #dbdbdb;	/* ph_CRN */
+    border-bottom: 1px solid #dbdbdb;	/* ph_CRN */
+    border-right: 1px solid #ffffff;	/* White */
+    
+    padding: 5px 10px 5px 10px;
+}
+
+/* Actual menu link */
+div.menuItem a {
+	text-decoration: none;
+}
+
+/* Hover over for a menu link */
+div.menuItem a:hover {
+	color: #ff6600;
+}

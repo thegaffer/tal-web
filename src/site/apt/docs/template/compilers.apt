@@ -1,0 +1,8 @@
+Customer Compilers
+
+ As a core principle it is possible to replace everything in Tal and particularly
+ in the Template module. This section describes how to write your own compiler.
+ 
+* Compiler Interface
+
+ Todo

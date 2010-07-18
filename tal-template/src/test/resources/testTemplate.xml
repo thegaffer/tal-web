@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<!--
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<templates>
+
+<!-- A Table template -->
+<template name="results">
+	<grid-group name="resultTable" headings="address value date" wrapperOnFocus="onResultsFocus">
+		<member-prop name="results" template="SimpleBeanA" />
+	</grid-group>
+</template>
+
+<!-- A Fake Form template -->
+<template name="form">
+	<form-group name="formGroup" action="submitBeanA">
+		<member-prop name="form" template="SimpleBeanA" />
+	</form-group>
+</template>
+
+<!-- Template for BeanA -->
+<template templateClass="org.tpspencer.tal.template.test.SimpleBeanA">
+	<member-prop name="address" template="SimpleBeanB" headings="a b c"/>
+	
+	<group name="value">
+		<prop name="amount" wrapperOnBlur="onAmountBlur" wrapperOnFocus="onAmountFocus" />
+		<prop name="currency" fieldOnChange="onCurrencyChange" />
+	</group>
+	
+	<date-prop name="date" />
+</template>
+
+<!-- Template for BeanB -->
+<template templateClass="org.tpspencer.tal.template.test.SimpleBeanB">
+	<prop name="address1" />
+	<prop name="postCode" valueOnDblClick="onPostCodeDblClick"/>
+	<choice-prop name="country" codeType="countryCodeList" />
+</template>
+
+</templates>

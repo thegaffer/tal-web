@@ -1,0 +1,14 @@
+Custom Render Molds
+
+ A render mold inside Tal Template takes relevant template elements and turns
+ them into Render Elements that are then used at render time to generate the
+ output. You can create you own molds and use them to augment the default molds
+ or to replace them completely.
+ 
+* Compilers & Molds
+
+* Creating a Mold
+
+* Registering the Mold
+
+* Understanding Recursive vs Iterative Compilers

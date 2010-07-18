@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!--
+ | OrderBeanForm.xml
+ | Overrides for the OrderBean inside the FormView 
+ -->
+
+<templates>
+
+<template templateClass="org.tpspencer.tal.mvc.sample.model.order.Order">
+	<prop name="id" />
+	<composite-group name="collectionAddress" label="label.Order.collectionAddress">
+		<member-prop name="collection" template="Address" />
+	</composite-group> 
+	<composite-group name="deliveryAddress" label="label.Order.deliveryAddress">
+		<member-prop name="delivery" template="Address" />
+	</composite-group>
+	<group name="collectionDetails">
+		<date-prop name="collectionDate" />
+		<date-prop name="collectionTime" dateStyle="-1" timeStyle="short" />
+	</group>
+	<group name="goodsDetails">
+		<number-prop name="goodsNumber" wrapperOnMouseMove="orderWrapper_onGoodsMouseMove" fieldOnBlur="order_onGoodsBlur" /> <!-- Spinner?! -->
+		<choice-prop name="goodsType" codeType="goodsCodeType" />
+		<choice-prop name="goodsWeight" codeType="weightCodeType" />
+	</group>
+	<choice-prop name="service" codeType="serviceCodeType" dynamic="true" fieldShowId="true" fieldMinChars="0" />
+</template>
+
+<template templateClass="org.tpspencer.tal.mvc.sample.model.common.Address">
+	<string-prop name="address" maxLength="30" />
+	<choice-prop name="town" codeType="townCodeType" unbounded="true" />
+	<string-prop name="postCode" format="(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})" />
+	<choice-prop name="country" codeType="countryCodeType" unbounded="false" fieldShowId="true" />
+</template>
+
+</templates>

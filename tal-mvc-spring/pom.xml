@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+  	<groupId>org.tpspencer.talui</groupId>
+  	<artifactId>tal-ui-parent</artifactId>
+  	<version>0.9-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>org.tpspencer.talui</groupId>
+  <artifactId>tal-mvc-spring</artifactId>
+  <name>Tal MVC Spring</name>
+  <description>Spring extensions to the MVC framework</description>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.tpspencer.talui</groupId>
+  		<artifactId>tal-mvc</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-context</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-logging</groupId>
+  		<artifactId>commons-logging</artifactId>
+  	</dependency>
+  	
+  	<!-- Test Dependencies -->
+  	<dependency>
+  		<groupId>org.jmock</groupId>
+  		<artifactId>jmock-junit4</artifactId>
+  		<scope>test</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>log4j</groupId>
+  		<artifactId>log4j</artifactId>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+</project>

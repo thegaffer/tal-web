@@ -1,0 +1,11 @@
+/* CSS Overrides for the Order List View */
+
+/* Sample showing constraining the table width */
+/*#ord-orderList {
+	width: 500px;
+}*/
+
+/* Hide cols we are not interested in */
+td.Order-delivery, td.Order-goodsType, td.Order-goodsNumber, td.Order-goodsWeight, td.Order-id {
+	display: none;
+}

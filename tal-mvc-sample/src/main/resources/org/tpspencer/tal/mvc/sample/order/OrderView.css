@@ -1,0 +1,58 @@
+/* CSS Overrides for the Order Form View */
+
+/* Ensures the addresses are inline as there is no label */
+div.Address {
+	margin-left: 8em;
+	background-color: #eeeedd;
+}
+
+/* Makes the addresses form a row */
+div.Address div.role-wrapper {
+	display: inline-block;
+}
+
+/* No labels inside address */
+div.Address label {
+	display: none;
+}
+
+/* Reduce size of fields as appropriate */
+div.Address span.role-value {
+	min-width: 0em;
+	padding-right: 0px;
+	margin-right: 0px;
+}
+
+div.Address div.Address-address span.role-value:after, 
+div.Address div.Address-town span.role-value:after, 
+div.Address div.Address-postCode span.role-value:after {
+	content: ",";
+}
+
+/* Separator below ID */
+div.Order-id {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: thin ridge gray;
+}
+
+/* Separator above coll details */
+div.Order-collectionDetails {
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: thin ridge gray;
+}
+
+/* Separator above goods details */
+div.Order-goodsDetails {
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: thin ridge gray;
+}
+
+/* Separator above service */
+div.Order-service {
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: thin ridge gray;
+}

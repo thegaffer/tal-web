@@ -1,0 +1,174 @@
+Tal Template
+
+ The Tal Template is essentially a way of quickly and efficient rendering out
+ views of the same structural set of data. It aims to be fast, efficient and
+ flexible. But, most of all it aims to be logical and deterministic. 
+ 
+* Motivation
+
+ I have an extremely logical mind. When I apply this to writing out, say, HTML
+ views I typically go through a pattern. Lets say I use JSP to render out a view:
+ 
+   [[a]] Start just writing inside the JSP.
+   
+   [[b]] Start identifying the different types of things I am outputting. I then
+   re-factor to make these elements the same.
+   
+   [[c]] Start abstracting these common elements away. For instance in JSPs I will
+   use TagLibs.
+   
+ At the end of this process I am often using the JSP to construct the structure
+ of my output, but then using Taglibs to generate the actual output. However, I
+ can't easily re-use that structure to generate a different output. And besides
+ I can still put in any HTML using the JSP I want.
+ 
+ Although I picked JSPs other templates are similar including Velocity and 
+ Freemarker. 
+ 
+ What I really want is a framework that allows me to describe the structure of the
+ output independently from what actually gets rendered out. I then want to apply
+ rules to the actual output so that when we see Element X in the structure we
+ render out snippet Y.
+ 
+ Tal Template is an attempt to do just that.
+ 
+* Core Design
+
+ The core design of Tal Templates is quite simple and is shown below.
+ 
+ << Todo: Template Elements, Molds and Render Elements >>
+ 
+ The idea is that the structure of output is composed of Template Elements
+ composed into Templates. The Template Element could be anything, but just 
+ represents some element of your view. 
+ 
+ Once created the structure is then passed to one or more Compilers. The compilers
+ use different kinds of Molds to generate Render Elements based on each type of
+ Template Element they come across. The Render Elements are then used at render
+ time to actually produce the output.
+ 
+ Using this design it is possible to take the same structural definition and render
+ it in HTML, XML, JavaScript, JSON etc, etc.
+ 
+ Tal Template comes built with molds for HTML and JavaScript. It can be extended
+ to support more formats, or the HTML and JavaScript molds can be customised or
+ replaced entirely. 
+ 
+* Simple Example
+
+ So a brief example is in order. Templates can be created programatically or they
+ can be created in an XML representation. Here is a simple template:
+ 
++--
+<?xml version="1.0" ?>
+
+<templates>
+<template name="simple">
+  <prop name="name" />
+  <group name="group1">
+  	<prop name="val1" />
+  	<prop name="val2" />
+  </group>
+  <prop name="active" />
+</template>
+</templates>
++--
+
+ This defines a template called "simple" that contains 4 properties. Two of them,
+ "val1" and "val2" are grouped together. Whether this grouping makes any visual
+ difference is purely down to the rules that determines what should be output when
+ you encounter a group.
+ 
+ The element <template> is an instance or a, erm, Template and the elements <prop>
+ and <group> are instances of TemplateElements. There are many more in-built 
+ Template Element types and you can create your own.
+ 
+* Outputting the Simple Example
+
+ The steps to output the simple example involve 3 things. First we have to load
+ the template. Second we have to compile the template into a renderer. Third we
+ have to use the renderer to generate output.
+ 
+ ** Loading the Template
+ 
+ All templates are created or loaded in the context of a TemplateConfiguration.
+ This holds all the templates, any compilers and provides access to the renderers,
+ compiling as neccessary. For instance to use the Basic Template Configuration 
+ class:
+ 
++--
+BasicTemplateConfiguration config = new BasicTemplateConfiguration();
+config.setTemplateName(someUniqueName);
+config.setRootTemplate("simple");
+
+// Load the templates
+config.setTemplates(XmlTemplateReader.getStdReader().loadTemplates(templateFile));
++--
+
+ This snippet very simply creates a new BasicTemplateConfiguration instance. You
+ can create your own version of this interface if you require. The template
+ name is simply a unique handle to the template. This is given so that the 
+ template can be located by this name in future situations. The root template is
+ simply the name of the template we should begin rendering from.
+ 
+ The final line actually loads the templates and adds them to the configuration.
+ XmlTemplateReader is an internally provided class that loads template XML files.
+ It supports in-built template element types, but can be extended to support more.
+
+ ** Compiling the Template
+ 
+ The next job is to compile the template. To do this we need to add in the
+ compilers to the template configuration:
+ 
++--
+Map<String, Compiler> compilers = new HashMap<String, Compiler>();
+compilers.put("html", new HtmlCompiler(false));
+compilers.put("js", new JsCompiler(false));
+config.setCompilers(compilers);
+
+config.init();
++--
+
+ This snippet creates an instance of the Html and JavaScript compilers. The 'false'
+ argument tells the compiler not to treat the template as a form. You can also 
+ create your own compilers as you need.
+ 
+ Notice also that we initialise the Basic Template Configuration. By default this
+ class will compile the templates at initialisation time. This promotes a fail-fast
+ philosophy - any problems are reported now rather than wait until use when you
+ might get issues. You can turn this feature off.
+
+ ** Outputting the Template
+ 
+ Now we can get hold of the renderers the compilers have created and use them.
+ When rendering we have to setup a RenderModel. This simple interface provides
+ all the underlying render elements with access to the set of model objects we
+ want to render, a writer to write into, the current locale, user etc, etc. 
+ 
++--
+StringWriter writer = new StringWriter();
+SimpleRenderModel renderModel = new SimpleRenderModel(writer, urlGenerator);
+config.getRenderer("html").render(model);
++--
+
+ And that is it. Chances are that is pretty useless because there is no dynamic
+ content going in. To do this you can add a model into the render model. A 
+ model is simple a map of objects keyed by name. During rendering they can be
+ obtained and iterated over to drive the actual output.
+
+* Further Reading
+
+  * Built In Templates
+  
+  * HTML Compiler and Renderer
+  
+  * JavaScript Compiler and Renderer
+
+  * Adding in new custom Template Elements
+  
+  * Adding in new custom molds
+  
+  * Replacing how the default molds output
+  
+  * Writing your own compilers
+

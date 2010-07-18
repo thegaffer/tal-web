@@ -1,0 +1,148 @@
+/* Default Tables Class Styles */
+
+/* The overall table */
+div.window table {
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+	border-spacing: 0px;
+	empty-cells: show;		/* Unfortunately, IE ignores this!! */
+	
+	border-left: 1px solid #d5deee;			/* color_bghead */
+    border-bottom: 1px solid #d5deee;	/* color_bghead */ 	
+    border-right: 1px solid #d5deee;	/* color_bghead */ 	
+    border-top: 1px solid #d5deee;	/* color_bghead */ 	
+}
+
+/* Headings row in a table */
+div.window table tr.headings {
+	background-color: #d5deee;		/* color_bghead */
+}
+
+/* Heading cells in a table */
+div.window table th {
+	text-color: #333333;		/* Dark Grey */
+	font-size: 1em;			/* 12pt according to Complete */
+	text-align: left;
+}
+
+div.window table th + th {
+	border-left: thin ridge;
+	padding-left: 3px;
+}
+
+/* This 'id' column */
+div.window table th.id {
+	width: 2px;
+	white-space: nowrap;
+	
+	border-left: none;
+}
+
+/* The 'row actions' column */
+div.window table th.actions {
+	width: 2%;
+	white-space: nowrap;
+	background-color: #d5deee;		/* color_bghead */
+}
+
+/* normal/visited sort link in heading */
+div.window table th a:link, div.window table th a:visited {
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* Hover/active sort link in heading */
+div.window table th a:hover, div.window table th a:active {
+	text-decoration: underline;
+	color: #008800;
+}
+
+/* Rows in a table */
+div.window table tr {
+}
+
+/* Odd row in a table */
+div.window table tr.oddRow {
+	background-color: #f4f4f4;		/* color_bg */
+}
+
+/* Even row in a table */
+div.window table tr.evenRow {
+	background-color: #ffffff;		/* color_bgeven */	
+}
+
+/* Selected row - regardless of odd/even */
+div.window table tr.selected {
+	background-color: #fbebdb ! important;		/* Light Orange */
+}
+
+/* Cells in a table */
+div.window table td {
+	padding-left: 5px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border: 0px 0px 0px 0px;
+}
+
+/* Cells in selected row */
+div.window table tr.selected td {
+	border-top: 2px solid #ff6600 ! important;	/* Orange */
+	border-bottom: 2px solid #ff6600 ! important;	/* Orange */
+}
+
+/* Link in a cell */
+div.window table td a:link, div.window table td a:visited {
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+	/*font-style: italic;*/
+	font-weight: bold;
+}
+
+/* Hover/active link in a cell */
+div.window table td a:hover, div.window table td a:active {
+	text-decoration: underline;
+}
+
+div.window table td.id {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	
+	width: 2px;
+	white-space: nowrap;
+}
+
+/* The row actions in a table row */
+div.window table td.row-actions {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-align: right;
+	white-space: nowrap;
+}
+
+/* The spacing for row actions in a table row */
+div.window table td.row-actions a:link, div.window table td.row-actions a:visited {
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+	font-style: italic;
+	font-weight: normal ! important;
+}
+
+div.window table td.row-actions a:hover, div.window table td.row-actions a:active {
+	text-decoration: underline;
+}
+
+/* Add in extra | for spacing - TODO: Prefix is part of link, not nice! */ 
+div.window table td.row-actions a + a:before {
+	content: "| ";
+}
+
+/* A inactive row action
+div.window table td.row-actions span.inactive {
+	color: #666666;
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+	font-style: italic;
+	font-weight: normal ! important;
+}

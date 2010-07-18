@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.tpspencer.org/schema/mvc"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd">
+	
+	<!--
+	 | order-page-context.xml
+	 | Spring Context for the order Window and its controllers 
+	 -->
+	 
+	<mvc:page id="orderPage" model-ref="orderPageModel" windows="menuWindow=menu,orderWindow=ord" template="/pages/orderPage.jsp" />
+	
+	<mvc:page id="viewOrderPage" model-ref="orderPageModel" windows="menuWindow=menu,orderViewWindow=ord" template="/pages/orderViewPage.jsp"/>
+	<mvc:page id="editOrderPage" model-ref="orderPageModel" windows="menuWindow=menu,orderEditWindow=ord" template="/pages/orderEditPage.jsp"/>
+	<mvc:page id="createOrderPage" model-ref="orderPageModel" windows="menuWindow=menu,orderCreateWindow=ord" template="/pages/orderCreatePage.jsp"/>
+	
+	<mvc:model id="orderPageModel">
+		<mvc:simpleAttribute name="selectedOrder" />
+		<mvc:resolvedAttribute name="currentOrder" resolver="currentOrderResolver" />
+	</mvc:model>
+	
+	<!-- Windows - Self Configured Objects -->
+	<bean id="orderWindow" class="org.tpspencer.tal.mvc.sample.order.OrderWindow" />
+	<bean id="orderViewWindow" class="org.tpspencer.tal.mvc.sample.order.OrderViewWindow" />
+	<bean id="orderEditWindow" class="org.tpspencer.tal.mvc.sample.order.OrderEditWindow" />
+	<bean id="orderCreateWindow" class="org.tpspencer.tal.mvc.sample.order.OrderCreateWindow" />
+
+	<!-- Resolvers -->	
+	<bean id="currentOrderResolver" class="org.tpspencer.tal.mvc.sample.order.CurrentOrderResolver" />
+	<bean id="ordersResolver" class="org.tpspencer.tal.mvc.sample.order.OrdersResolver" />
+	
+	<!-- Views -->
+	<bean id="orderList" class="org.tpspencer.tal.mvc.sample.order.views.OrderListView" />
+	<bean id="orderView" class="org.tpspencer.tal.mvc.sample.order.views.OrderView" />
+	<bean id="orderForm" class="org.tpspencer.tal.mvc.sample.order.views.OrderFormView" />
+	<bean id="newOrderForm" class="org.tpspencer.tal.mvc.sample.order.views.NewOrderFormView" />
+	
+	<!-- Controllers -->
+	<bean id="orderCreateController" class="org.tpspencer.tal.mvc.sample.order.controllers.OrderCreateController" />
+	<bean id="orderUpdateController" class="org.tpspencer.tal.mvc.sample.order.controllers.OrderUpdateController" />
+	<bean id="closeOrderViewController" p:result="orderCancelled" class="org.tpspencer.tal.mvc.commons.controllers.SimpleController" />
+	<bean id="selectOrderViewController" p:parameter="id" p:attribute="selectedOrder" p:result="viewOrder" class="org.tpspencer.tal.mvc.commons.controllers.SelectController" />
+	<bean id="selectOrderEditController" p:parameter="id" p:attribute="selectedOrder" p:result="editOrder" class="org.tpspencer.tal.mvc.commons.controllers.SelectController" />
+	<bean id="selectCreateOrderController" p:result="createOrder" class="org.tpspencer.tal.mvc.commons.controllers.SimpleController" />
+</beans>

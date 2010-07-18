@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+    <parent>
+		<groupId>org.tpspencer.talui</groupId>
+		<artifactId>tal-ui</artifactId>
+		<version>0.9-SNAPSHOT</version>
+	</parent>
+  
+  	<groupId>org.tpspencer.talui</groupId>
+  	<artifactId>tal-ui-release</artifactId>
+    <name>Tal UI Framework Release</name>
+    <description>Releases the Tal UI Framework into a ZIP file for distribution</description>
+    <packaging>pom</packaging>
+
+    <properties>
+	</properties>
+
+    <dependencies>
+    	<!--  Ideally just want these from parent! -->
+    	<dependency>
+    		<groupId>org.tpspencer.talui</groupId>
+			<artifactId>tal-mvc</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.tpspencer.talui</groupId>
+			<artifactId>tal-mvc-spring</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.tpspencer.talui</groupId>
+			<artifactId>tal-mvc-commons</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.tpspencer.talui</groupId>
+			<artifactId>tal-mvc-servlet</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.tpspencer.talui</groupId>
+			<artifactId>tal-template</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.tpspencer.talui</groupId>
+			<artifactId>tal-ui-testapp</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+    </dependencies>
+
+    <build>
+    	<plugins>
+	        <!-- Documentation -->
+			<!-- <plugin>
+		      	<groupId>org.tpspencer</groupId>
+		      	<artifactId>web-mvc-maven-plugin</artifactId>
+		      	<version>${project.version}</version>
+		      	<configuration>
+		      		<appName>adcv</appName>
+		      		<appConfig>org/tpspencer/tal/mvc/sample/sample-app-context.xml</appConfig>
+		      	</configuration>
+		      	<executions>
+					<execution>
+		 				<phase>pre-integration-test</phase>
+		 				<goals>
+		 					<goal>app-document</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+			    		<groupId>org.tpspencer.talui</groupId>
+						<artifactId>web-mvc-sample</artifactId>
+						<version>${project.version}</version>
+					</dependency>
+				</dependencies>
+		    </plugin> -->
+		    
+		    <!-- Assembly -->
+		    <plugin>
+		        <artifactId>maven-assembly-plugin</artifactId>
+		        <version>2.2-beta-5</version>
+		        <configuration>
+		          <descriptors>
+		            <descriptor>src/main/assembly/assembly.xml</descriptor>
+		          </descriptors>
+		        </configuration>
+		        <executions>
+		          <execution>
+		            <id>make-assembly</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>single</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+			</plugin>
+        </plugins>
+    </build>
+
+</project>

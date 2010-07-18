@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+			
+	<!-- 
+	 | Compilers
+	 | The following beans are the default compilers provided by
+	 | the web template project. There exact behaviour is not
+	 | documented here, but there are a number of ways to change
+	 | the output ...
+	 |
+	 | 1 - Redefine these beans with your own compilers (lots of work)
+	 | 2 - Change the default molds by re-defining the tpsweb.[type]MoldFactory (see below) (where type is html or js etc)
+	 | 3 - Copy these definitions and augment the molds with extra molds
+	 | 4 - HTML only re-define the individual fragments, such as a label in tpsweb.htmlFragmentFactory (see below)
+	 |
+	 | These options are in reverse order in terms of preference.
+	 | Note: Option 3 is a TODO item
+	 -->
+	
+	<!-- Simple HTML Compiler, everything is just divs and spans (tables are still allow) -->
+	<bean id="tpsweb.htmlCompiler" class="org.tpspencer.tal.template.compiler.html.HtmlCompiler" depends-on="tpsweb.htmlMoldFactory">
+		<constructor-arg value="false" />
+	</bean>
+	
+	<!-- Form HTML Compiler, will output forms if found -->
+	<bean id="tpsweb.htmlFormCompiler" class="org.tpspencer.tal.template.compiler.html.HtmlCompiler" depends-on="tpsweb.htmlMoldFactory">
+		<constructor-arg value="true" />
+	</bean>
+	
+	<!-- Simple JS Compiler -->
+	<bean id="tpsweb.jsCompiler" class="org.tpspencer.tal.template.compiler.js.JsCompiler">
+		<constructor-arg value="false" />
+	</bean>
+	
+	<!-- Form Javascript Compiler -->
+	<bean id="tpsweb.jsFormCompiler" class="org.tpspencer.tal.template.compiler.js.JsCompiler">
+		<constructor-arg value="true" />
+	</bean>
+	
+	
+	<!-- 
+	 | HTML Overrides
+	 | The beans below over the standard factories that the HtmlCompiler
+	 | uses. By overridding the elements on this bean you can affect the 
+	 | behaviour of the HTML compilers above
+	 -->
+	
+	<bean id="tpsweb.htmlMoldFactory" class="org.tpspencer.tal.template.compiler.html.HtmlTemplateElementRenderMoldFactory" factory-method="getInstance" depends-on="tpsweb.htmlFragmentFactory">
+		<!-- Provides the molds. -->
+		<!-- See TemplateElementRenderMoldFactory for each mold supported -->
+		<!-- There is a setter for each getter -->
+	
+		<!-- Example to override -->
+		<!-- <property name="defaultMold"><bean class="your.mold" /></property> -->
+	</bean>
+	
+	<bean id="tpsweb.htmlFragmentFactory" class="org.tpspencer.tal.template.compiler.html.DefaultHtmlFragmentFactory" factory-method="getInstance">
+		<!-- Provides the individual fragments that the default molds use -->
+		<!-- See HtmlFragmentFactory for each mold supported -->
+		<!-- There is a setter for each getter -->
+		
+		<!-- You can override, for example to override the label -->
+		<!-- <property name="labelMold"><bean class="your.fragment.class" /></property> -->
+	</bean>
+	
+	
+	<!-- 
+	 | Javascript Overrides
+	 | The beans below over the standard factories that the JsCompiler
+	 | uses. By overridding the elements on this bean you can affect the 
+	 | behaviour of the Js compilers above
+	 -->
+
+	<bean id="tpsweb.jsMoldFactory" class="org.tpspencer.tal.template.compiler.js.JsTemplateElementRenderMoldFactory" factory-method="getInstance">
+		<!-- Provides the molds. -->
+		<!-- See TemplateElementRenderMoldFactory for each mold supported -->
+		<!-- There is a setter for each getter -->
+	
+		<!-- Example to override -->
+		<!-- <property name="defaultMold"><bean class="your.mold" /></property> -->
+	</bean>	
+</beans>
+

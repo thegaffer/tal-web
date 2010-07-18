@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<xsd:schema xmlns="http://www.tpspencer.org/schema/mvc"
+    		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    		xmlns:beans="http://www.springframework.org/schema/beans"
+    		targetNamespace="http://www.tpspencer.org/schema/mvc"
+    		elementFormDefault="qualified"
+    		attributeFormDefault="unqualified">
+
+	<xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+	<!-- ********************************************
+		 *** App Config                           ***
+		 ******************************************** -->
+   
+	<!-- A Application -->
+	<xsd:element name="app">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs="1">
+				<xsd:choice minOccurs="0" maxOccurs="1">
+					<xsd:element name="model" type="modelType" />
+				</xsd:choice>
+				<xsd:choice minOccurs="0">
+					<xsd:element name="pageEvents" type="pageEventsType" />
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required" />
+			<xsd:attribute name="model-ref" type="xsd:string" use="optional" />
+			<xsd:attribute name="pages" type="xsd:string" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+   
+	<!-- A Page -->
+	<xsd:element name="page">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs="1">
+				<xsd:choice minOccurs="0" maxOccurs="1">
+					<xsd:element name="model" type="modelType" />
+				</xsd:choice>
+				<xsd:choice minOccurs="0">
+					<xsd:element name="pageEvents" type="pageEventsType" />
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required" />
+			<xsd:attribute name="name" type="xsd:string" use="optional" /> <!-- Uses the ID of no parent set -->
+			<xsd:attribute name="parent" type="xsd:string" use="optional" /> <!-- Parent mvc:page to override -->
+			<xsd:attribute name="template" type="xsd:string" use="optional" /> <!-- Template for the page -->
+			<xsd:attribute name="model-ref" type="xsd:string" use="optional" /> <!-- Reference to a model config -->
+			<xsd:attribute name="windows" type="xsd:string" use="optional" /> <!-- The windows in ref=namespace, where ref is either a window config or a window. Will add as extra windows if parent is set -->
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- A Window Config -->
+	<xsd:element name="window">
+		<xsd:complexType>
+			<xsd:attribute name="id" type="xsd:ID" use="required" />
+			<xsd:attribute name="namespace" type="xsd:string" use="optional" />
+			<xsd:attribute name="window" type="xsd:string" use="optional" />
+		</xsd:complexType>
+	</xsd:element>
+		
+		
+	<!-- ********************************************
+		 *** Events                               ***
+		 ******************************************** -->
+		 
+	<!-- A collection of page events -->
+	<xsd:complexType name="pageEventsType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="pageEvent" type="pageEventType" />
+			<xsd:element name="backEvent" type="backEventType" />
+			<xsd:element name="selectEvent" type="selectEventType" />
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<!-- A Page Event -->
+	<xsd:complexType name="pageEventType">
+		<xsd:attribute name="result" type="xsd:string" use="required" />
+		<xsd:attribute name="page" type="xsd:string" use="required" />
+		<xsd:attribute name="attributes" type="xsd:string" use="optional" />
+		<xsd:attribute name="window" type="xsd:string" use="optional" />
+		<xsd:attribute name="action" type="xsd:string" use="optional" />
+		<xsd:attribute name="selectWindow" type="xsd:string" use="optional" />
+		<xsd:attribute name="selectAction" type="xsd:string" use="optional" />
+		<xsd:attribute name="passThrough" type="xsd:boolean" default="false" />
+	</xsd:complexType>
+	
+	<!-- A Back Page Event -->
+	<xsd:complexType name="backEventType">
+		<xsd:attribute name="result" type="xsd:string" use="required" />
+	</xsd:complexType>
+	
+	<!-- A Select Page Event -->
+	<xsd:complexType name="selectEventType">
+		<xsd:attribute name="result" type="xsd:string" use="required" />
+		<xsd:attribute name="attributes" type="xsd:string" use="required" />
+	</xsd:complexType>
+	
+	<!-- A collection of events -->
+	<xsd:complexType name="eventsType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="event" type="eventType" />
+		</xsd:choice>
+	</xsd:complexType>
+		 
+	<!-- A Window Event -->
+	<xsd:complexType name="eventType">
+		<xsd:attribute name="attr" type="xsd:string" use="required" />
+		<xsd:attribute name="action" type="xsd:string" use="required" />
+		<xsd:attribute name="newValueName" type="xsd:string" use="required" />
+		<xsd:attribute name="oldValueName" type="xsd:string" use="optional" />
+	</xsd:complexType>
+	
+	<!-- ********************************************
+		 *** Model                                ***
+		 ******************************************** -->
+	
+	<!-- Element for defining a standalone model -->
+	<xsd:element name="model">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="modelType">
+					<xsd:attribute name="id" type="xsd:ID" use="required" />
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+		 
+	<!-- Type for embedded models -->
+	<xsd:complexType name="modelType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="simpleAttribute" type="simpleAttributeType" />
+			<xsd:element name="resolvedAttribute" type="resolvedAttributeType" />
+			<xsd:element name="configAttribute" type="configAttributeType" />
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<!-- Base Types for a Model Attribute -->
+	<xsd:complexType name="modelAttributeType">
+		<xsd:attribute name="name" type="xsd:string" use="required" />
+		<xsd:attribute name="alias" type="xsd:string" use="optional"/>
+		<xsd:attribute name="type" type="xsd:string" use="optional"/>
+		<xsd:attribute name="default-value" type="xsd:string" use="optional"/>
+		<xsd:attribute name="default-ref" type="xsd:string" use="optional"/>
+		<xsd:attribute name="eventable" type="xsd:boolean" use="optional"/>
+		<xsd:attribute name="auto-clear" type="xsd:boolean" use="optional"/>
+		<xsd:attribute name="aliasable" type="xsd:boolean" use="optional"/>
+		<xsd:attribute name="alias-expected" type="xsd:boolean" use="optional"/>
+	</xsd:complexType>
+	
+	<!-- Simple attribute type -->
+	<xsd:complexType name="simpleAttributeType">
+		<xsd:complexContent>
+			<xsd:extension base="modelAttributeType">
+				<xsd:attribute name="flash" type="xsd:boolean" use="optional" />
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!-- Resolved attribute type -->
+	<xsd:complexType name="resolvedAttributeType">
+		<xsd:complexContent>
+			<xsd:extension base="modelAttributeType">
+				<xsd:attribute name="resolver" type="xsd:IDREF" use="required"/>
+				<xsd:attribute name="parameter" type="xsd:boolean" use="optional"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!-- Config attribute type -->
+	<xsd:complexType name="configAttributeType">
+		<xsd:complexContent>
+			<xsd:extension base="modelAttributeType">
+				<xsd:attribute name="resolver" type="xsd:IDREF" use="required"/>
+				<xsd:attribute name="parameter" type="xsd:boolean" use="optional"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!-- A type holding proxy attributes -->
+	<xsd:complexType name="proxyModelType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="proxyAttribute" type="proxyAttributeType" />
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<!-- Represents a proxy attribute -->
+	<xsd:complexType name="proxyAttributeType">
+		<xsd:complexContent>
+			<xsd:extension base="modelAttributeType">
+				<xsd:attribute name="proxy" type="xsd:string" use="required" />
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!-- ********************************************
+		 *** Controller                           ***
+		 ******************************************** -->
+   
+   	<!-- A Generic Controller -->
+   	<xsd:element name="genericController">
+		<xsd:complexType>
+			<xsd:attribute name="id" type="xsd:ID" use="required" />
+			<xsd:attribute name="controller" type="xsd:string" use="required" />
+			<xsd:attribute name="sub-action" type="xsd:string" use="optional" />
+			<xsd:attribute name="error-attribute" type="xsd:string" use="optional" />
+			<xsd:attribute name="binder" type="xsd:string" use="optional" />
+		</xsd:complexType>
+	</xsd:element>
+   
+   	<!-- ********************************************
+		 *** View                                 ***
+		 ******************************************** -->
+   	
+   	<!-- A Template View -->
+	<xsd:element name="templateView">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0">
+				<xsd:element name="model" type="modelType" />
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required" />
+			<xsd:attribute name="template" type="xsd:string" use="optional" />
+			<xsd:attribute name="model-ref" type="xsd:string" use="optional" />
+		</xsd:complexType>
+	</xsd:element>
+   
+	<!-- ********************************************
+		 *** Windows                                ***
+		 ******************************************** -->
+   
+   	<!-- A Simple Window -->
+   	<xsd:element name="simpleWindow">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0">
+				<xsd:choice minOccurs="0" maxOccurs="1">
+					<xsd:element name="model" type="modelType" />
+				</xsd:choice>
+				<xsd:choice minOccurs="0" maxOccurs="1">
+					<xsd:element name="controllers" type="controllersType" />
+				</xsd:choice>
+				<xsd:choice minOccurs="0" maxOccurs="1">
+					<xsd:element name="events" type="eventsType" />
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required" />
+			<xsd:attribute name="view" type="xsd:string" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+
+   	<!-- A Multi-View Window -->
+   	<xsd:element name="complexWindow">
+   		<xsd:complexType>
+   			<xsd:sequence minOccurs="1">
+   				<xsd:choice minOccurs="0" maxOccurs="1">
+					<xsd:element name="model" type="modelType" />
+				</xsd:choice>
+				<xsd:element name="views" type="viewsType" />
+				<xsd:element name="controllers" type="controllersType" />
+				<xsd:element name="results" type="resultsType" />
+				<xsd:choice minOccurs="0" maxOccurs="1">
+					<xsd:element name="events" type="eventsType" />
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required" />
+			<xsd:attribute name="default-view" type="xsd:string" use="required" />
+		</xsd:complexType>
+   	</xsd:element>
+   	
+   	<!-- A controller mapping for use in windows -->
+   	<xsd:complexType name="controllersType">
+		<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="controllerMapping" type="controllerMappingType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="controllerMappingType">
+		<xsd:attribute name="action" type="xsd:string" use="required" />
+		<xsd:attribute name="controller" type="xsd:string" use="required" />
+	</xsd:complexType>
+	
+	<!-- Map results to views -->
+	<xsd:complexType name="resultsType">
+		<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="resultMapping" type="resultMappingType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="resultMappingType">
+		<xsd:attribute name="result" type="xsd:string" use="required" />
+		<xsd:attribute name="view" type="xsd:string" use="required" />
+	</xsd:complexType>
+	
+	<!-- Map of views with a local name -->
+	<xsd:complexType name="viewsType">
+		<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="viewMapping" type="viewMappingType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="viewMappingType">
+		<xsd:attribute name="view-name" type="xsd:string" use="optional" />
+		<xsd:attribute name="view" type="xsd:string" use="required" />
+	</xsd:complexType>
+	
+</xsd:schema>

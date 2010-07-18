@@ -1,0 +1,25 @@
+Tal UI Framework Overview
+
+ The development work is full of UI frameworks. In just the Java world there must
+ be getting on for 50 frameworks of one sort or another. However, none of them
+ really quite tick all the boxes as far as I am concerned. 
+ 
+ The Tal UI Framework captures what I think the UI frameworks should be providing.
+ I have created this over many years, honing what I have discovered as a developer
+ to this point. I now intend to maintain it. I do not intend it as another 
+ mainstream framework out there, but it would be nice if the ideas in here
+ provoke thought and discussion and do make there way into the major frameworks.
+
+* Overview
+
+ The framework really boils down to 2 major ideas.
+ 
+ * The Template concept.
+    
+ * The MVC concept.
+
+* The Template Concept
+
+ I have a very logical mind. Although
+
+* The MVC Concept

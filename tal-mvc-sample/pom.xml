@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.tpspencer.talui</groupId>
+    <artifactId>tal-ui-parent</artifactId>
+    <version>0.9-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>org.tpspencer.talui</groupId>
+  <artifactId>tal-mvc-sample</artifactId>
+  <name>Tal MVC Sample</name>
+  <description>Sample App using the Tal MVC (&amp; Commons)</description>
+  
+  <properties>
+  	<objex.version>0.1-SNAPSHOT</objex.version>
+  </properties>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.tpspencer.talui</groupId>
+  		<artifactId>tal-mvc</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.tpspencer.talui</groupId>
+  		<artifactId>tal-mvc-commons</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.tpspencer.talui</groupId>
+  		<artifactId>tal-mvc-spring</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+
+	<dependency>
+		<groupId>javax.annotation</groupId>
+		<artifactId>jsr250-api</artifactId>
+		<version>1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.tpspencer.tal</groupId>
+		<artifactId>tal-aspects</artifactId>
+	</dependency>  	
+  	
+  	<dependency>
+  		<groupId>log4j</groupId>
+  		<artifactId>log4j</artifactId>
+  		<version>1.2.13</version>
+  		<scope>test</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.jmock</groupId>
+  		<artifactId>jmock-junit4</artifactId>
+  		<version>2.5.1</version>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  	  <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>aspectj-maven-plugin</artifactId>
+        <configuration>
+            <complianceLevel>1.5</complianceLevel>
+            <aspectLibraries>
+                <aspectLibrary>
+                    <groupId>org.tpspencer.tal</groupId>
+                    <artifactId>tal-aspects</artifactId>
+                </aspectLibrary>
+            </aspectLibraries>
+        </configuration>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>compile</goal>
+                </goals>
+            </execution>
+        </executions>
+	  </plugin>
+  	</plugins>
+  </build>
+
+</project>

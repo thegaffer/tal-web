@@ -1,0 +1,40 @@
+/* CSS Overrides for the Order Form View */
+
+/* Makes the addresses form a row */
+div.Address div.role-wrapper {
+	display: inline-block;
+}
+
+/* With of the Address.postCode field */
+div.Address-postCode input {
+	width: 8em ! important;
+}
+
+
+/* Separator below ID */
+div.Order-id {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: thin ridge gray;
+}
+
+/* Separator above coll details */
+div.Order-collectionDetails {
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: thin ridge gray;
+}
+
+/* Separator above goods details */
+div.Order-goodsDetails {
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: thin ridge gray;
+}
+
+/* Separator above service */
+div.Order-service {
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: thin ridge gray;
+}

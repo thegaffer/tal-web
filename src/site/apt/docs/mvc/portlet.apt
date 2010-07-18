@@ -1,0 +1,48 @@
+Tal MVC in a Portlet App
+
+ Tal MVC sits very neatly with the concept of Portals. Portals aggregate content
+ and allow you to define pages on which are placed multiple windows (or portlets).
+ Because of this similarity it has been a core aim of the framework to allow it
+ to run inside a Portal environment, particularly a JSR168/286 Portal.
+ 
+ This section explains the elements of this support. It should be noted that that
+ a Portal App is still also a Web Application. Therefore, everything that is needed
+ to make a tal-mvc app a Web App is still true here.
+ 
+* Conceptual
+
+ ** Windows
+ 
+ A Tal MVC application consists of pages and windows. This maps directly on to a
+ Portals concept of Pages and Portlets. Therefore, when we talk about a Window
+ we are talking about a Portlet.
+ 
+ ** Navigational Model 
+ 
+ In a Tal MVC application we can define user or navigational state. In a normal
+ Web Application this state is typically mapped either to cookies or session. In
+ a portal application storing state in cookies is not available. However, we do
+ have another source open to us and that is Render Parameters. The session is still
+ available although we have to take care to use what is called the 
+ ApplicationScope session and not the PortletScope so the elements are available
+ when shared across windows and pages in the MVC app. 
+
+* Infrastructure
+
+ To-do
+
+* Generating Portlet.xml
+
+ A key artefact of a Portal App is the portlet.xml artefact. There may also be
+ other Container specific deployment files. Where ever possible we would like
+ to generate this from our single application configuration so that we do not have
+ to maintain multiple configurations. For this a number of Mojo's have been written
+ to aid with this.
+ 
+ ** IBM WebSphere Portal Plugin
+ 
+  To-do: Include XML Access?
+  
+ ** JBoss Portal Plugin
+ 
+  To-do: Must write JBoss extensions as well 

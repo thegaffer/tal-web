@@ -1,0 +1,28 @@
+Tal Principles
+
+ Tal UI Framework is built on a number of key principles:
+ 
+ [[I]] Doing Less is good.
+  A core principle is that when it comes to application or functionally specific
+  code the less that you have to write is better. Any framework exists to make
+  it easier to write the functional code.
+  
+ [[I]] Non-obstrusive Framework Code.
+  Where ever possible the use of the framework should not leak into the application
+  code. It should be possible to use the application code with other frameworks.
+  
+ [[I]] Most things can be customised, everything can be replaced.
+  Just because you are using the framework this should not obscure the
+  underlying details or prevent you from replacing any part of them.
+  
+ [[I]] Purity of the Pattern.
+  Because Tal is essentially trying to prove that certain theories hold up in 
+  practice I try and aim for purity of the pattern where ever possible.
+  
+ [[I]] Testability
+  Tal itself and application code based on it should be infinitely testable.
+  I write this because I am notoriously bad at writing a few tests early on and
+  whilst they are maintained I do not keep up with the coverage!
+  
+ [[I]] Extensibility
+  A core goal of the Tal UI Framework is that is should be easily extendable.

@@ -1,0 +1,74 @@
+/*
+ * Copyright 2005 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+Other Libraries used by Tal UI Framework.
+-----------------------------------------
+
+Refer to project POM's for versions ...
+
+Project: commons-logging:commons-logging
+License: Apache License 2.0
+Notes: Not distributed with Tal UI Framework, but source is compiled against this
+library and it (or a surrogate) needs to be available at run-time.
+
+Project: org.springframework:spring
+License: Apache License 2.0
+Notes: Used by the tal-mvc-spring module directly. If not using Spring then the
+tal-mvc-spring module should not be used. Optional use within tal-template that
+does not apply if spring is not available at run time. Spring itself is not
+distributed directly with this framework.
+
+Project: org.apache.tomcat:jasper-el
+License: Apache License 2.0
+Notes: Optionally used in tal-template for EL Expression evaluation. Usage is not
+mandatory and can be not used or replaced with another library. Is not distributed
+with Tal UI Framework.
+
+Project: com.lowagie:itext
+License: Affero General Public License (AGPL) v3
+Notes: Used in the documentation generation elements only. Not distributed 
+directly with the Tal UI Framework.
+
+Project: org.apache.maven:maven-plugin-api
+License: Apache License 2.0
+Notes: Used for the Maven Plugin module (Mojo).
+
+In addition Tal UI Framework uses the J2EE specification APIs when used in a
+Web Container. Again it does not distribute these elements, simply depends on
+them being available.
+
+Other Libraries used for Testing
+--------------------------------
+
+The following projects are or have been used during the testing of the Tal
+UI Framework. They have not been modified and are not distributed by the
+Tal UI Framework. They are not required to use the Tal UI Framework.
+
+Project: junit:junit
+License: CPL 1.0
+
+Project: log4j:log4j
+License: Apache License 2.0
+
+Project: org.jmock:jmock
+License: jMock Project License, http://www.jmock.org/license.html.
+
+Project: Selenium
+License: Apache License 2.0 
+
+
+In addition the Maven build system is used to build the Tal UI Framework. Maven
+itself is licensed under Apache License 2.0

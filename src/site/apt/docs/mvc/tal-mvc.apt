@@ -1,0 +1,220 @@
+Introduction
+
+ The Tal MVC module is my attempt at a true MVC framework for Web Applications.
+ Having said that since it's original construction there is nothing particularly
+ specific to Web applications in it's basic construction so Tal MVC is potentially
+ more general purpose.
+ 
+* Motivation
+
+ The motivation for Tal MVC is derived from my frustration with other MVC based
+ frameworks. You can read about this frustration {{{mvc-pattern.html}here}}.
+
+* The Basic Framework
+
+ The framework consists of 4 key elements.
+ 
+   * Controller - An interface that represents any class that can take user input and act upon it.
+   
+   * View - An interface that represents a class that can gather from the model everything needed to render and dispatch to a template for actual rendering.
+   
+   * Model - An interface that represents the available model to a controller or a view.
+   
+   * Window - An interface that represents the glue between controllers and views
+   
+ Each of these elements below is taken and expanded upon. But, the key point is that
+ the Model needs close attention. Normally the 'Model' is simply a map of objects,
+ but in Tal MVC the model is closely monitored and defined.
+ 
+ Additionally another key distinction is the concept of a Window. Although not
+ part of MVC itself, a Window represent the group of Controllers and Views. A
+ window dispatches the user request to a controller and then determines the view
+ to use based on the state of the model. This is the tip of the application
+ infrastructure required.
+ 
+* The Window
+
+ Like all patterns MVC cannot just sit there by itself. It describes a general
+ approach, but in order for it to be real we need glue around the application to
+ make it work. The glue in Tal MVC is the Window and a number of other contructs.
+ Below are the elements that make up a Tal based application.
+ 
+   * Application - The application represents the entire system from the point
+   of view of the UI. For me an application is more about user profiles. Two
+   different kinds of users may have different applications, but share much of
+   the model, views and controllers.
+   
+   * Page - An application is separated into a number of pages. Some apps may
+   only have a single page, but they will have at least one page. I also classify
+   'popup' windows and similar constructs to be sitting on pages.
+   
+   * Window - A window displays the views. A window may just display a single
+   view and never change (although what is in the view may). Or it may display one
+   of many views and use the results of processing actions (via Controllers) to
+   determine which view to display.
+   
+ None of these elements are part of the MVC pattern. They are clearly not specific
+ to the Tal UI Framework - the concept of an Application made up of one or more pages
+ which are made up on one of more windows is hardly a dramatic leap of understanding!
+ 
+ However, in the context of Web Application frameworks these concepts are not 
+ accurately covered. Often the construct of a view is left open to interpretation - 
+ is the view a page or a part of a page.
+ 
+ So when using Tal UI Framework we for you to define you application, pages and
+ windows. In pure Java the snippet below shows how this would be done. The worked
+ example shows this using a Spring configuration.
+ 
++--
+AppConfig app = AppConfig.createApp("myApp");
+PageConfig page = PageConfig.createPage(app, "myPage");
+page.addWindow("myWindow", someWindow);
+
+// Initialise the app
+app.init();
++--
+
+ This example is pretty much the simplest you can get, but it serves the point.
+ All the configuration objects contain a static creation method that takes in a
+ variable argument list to make construction a little easier when doing it in
+ code. Essentially though the snippet of code above has:
+ 
+ * Constructed an app and a page and given them names. This is mandatory - the
+ constructors simply take the first string argument to be name.
+ 
+ * Told the page to associate it with an app. Although common it is possible for 
+ the same page to be added to multiple different applications so it is not 
+ mandatory to pass in the page at this point.
+ 
+ * Added a window (construction of this is not shown in the snippet) to the page
+ with a given name on that page.
+ 
+ * Initialised the application. It is now locked down and ready for use.
+
+* The Model
+
+ As mentioned above the Model is considered uber-critical in Tal MVC. Normally
+ the model is just a Map (or similar construct) or objects. And whilst to a point
+ this is true inside Tal MVC, there is a lot more control over what goes inside
+ the model.
+ 
+ Before though it is worth while understanding what can go into the Model of an
+ application.
+ 
+   [[1]] Persistable Objects. All the entities upon which the application is built.
+   
+   [[2]] Configuration Settings. All the UI settings that are specific to this 
+   application and it's specific packaging.
+   
+   [[3]] Navigational State. All the state that describes what the user is doing
+   that the application needs to know about.
+   
+ All of this information collectively is the Model. It is important to realise
+ that no matter what is happening, conceptually this model exists at all times. If
+ its a Web application and the user is simply reading information on the screen and
+ not doing anything, the Model still exists.
+ 
+ The key part of Tal MVC is that you must define what the potential Model is.
+ Nothing can go in or out of the model unless you have defined it as part of the
+ model for the application. A 'ModelConfiguration' is created against the app as
+ a whole, each page, each window and each view. Pages, Windows and Views may share
+ their ModelConfiguration with other Pages, Windows and Views.
+ 
+ The model is presented to your controllers and views - the bits you write! When
+ you are presented with a model it is actually a layered collection of all the
+ different model configurations that are applicable. So when implementing a 
+ controller, the model presented is made up of ... 
+ 
+  * The model of the view the window the controller is acting on is in.
+  
+  * The model of the window the controller is acting on
+  
+  * The model of the page the window is in
+  
+  * The model of the application the page is in
+  
+ The controller does not need to worry about this layering. The controller is free
+ to get 'named' attributes from the model. It will be served up from the appropriate
+ layer (the order seen above). So lets look at an example.
+ 
++--
+ModelConfiguration appModel = new ModelConfiguration("appModel", new ArrayList(){{
+  add(new SimpleModelAttribute("attr1"));
+}});
+
+ModelConfiguration pageModel = new ModelConfiguration("pageModel", new ArrayList(){{
+  add(new SimpleModelAttribute("attr2"));
+}});
+
+AppConfig app = AppConfig.createApp("myApp", appModel);
+PageConfig page = PageConfig.createPage(app, "myPage", pageModel);
+// Add windows
+
+app.init();
++--
+
+ In this code we have explicitly created a couple of ModelConfigurations. One for
+ the application and another for the page. We are showing the use of a Simple Model
+ Attribute. However, 'ModelAttribute' is just an interface so we can create our
+ own. There are three types of in-built attribute:
+ 
+  * Simple Model Attribute - Holds a single value with an optional type. This
+  is analageous to a navigational item of the model or something that is very
+  short-lived (like a form backing object).
+  
+  * Config Model Attribute - Represents something that is configured. A
+  SimpleModelResolver is provided to allow you to inject in something that can
+  actually get the underlying configuration attribute - be that a property file,
+  a database etc, etc.
+  
+  * Resolved Model Attribute - Represents the underlying model of persisted entites.
+  As with the configuration attributes you must provide a ModelResolver instance
+  to actually go and get the attribute. The difference is that the ModelResolver is
+  given full access to the model - so for example you can have one (simple) model 
+  attribute holding the ID of a selected entity and another Resolved Attribute that
+  reads the ID and goes and get the actual object that ID represents.
+  
+ Outside the scope of this article, but Model Attributes will merge. So if you have
+ the same attribute in a page and an application it will 'merge' so that all pages
+ share the same value of this attribute. Additionally the full details are not shown
+ right now, but you can also 'event' on changes to the model.
+ 
+ Finally it should also be noted that mutliple pages can share the same Model
+ Configuration. As can mutliple windows or views share the same configuration. So 
+ if the attributes are changes in one page, those changes are visible in other pages
+ using the same model - only 1 set of the attributes are stored away. 
+ 
+* The Controller
+
+ The controller interface in Tal MVC contains a single method to perform the
+ operation that the user has requested. Passed in is the current model and the
+ input from the user. This is abstracted away to remove the controllers from
+ the Web world, although some care has to be taken with parameters which could
+ be multi-valued.
+ 
+ Controllers do not need to implement the interface given in the framework. Instead
+ there are a set of annotations that can be used to describe the controllers
+ methods. The input and the model can both be passed as Map's if required.
+ 
+ << To-do: Describe the annotations + examples >>
+ 
+ Controllers should simply obtain and basically test the input sent from the user
+ and then update the model accordingly (either directly or via some surrogate). 
+ They then return a result. The result should not be the 'view' to go to, it 
+ should simply be the result of what has happened - "ok" is an acceptable response.
+ The Window is charged with mapping result codes to the appropriate views so that
+ controllers do not have to and can be shared in numerous different windows.
+ 
+* The View
+
+ Finally we have the views themselves. Views main job is to prepare for the 
+ rendering. This basically means to go and get all the objects from the model
+ that are required for the view. A view could at this point directly write the
+ output, i.e. render itself. But typically it will employ the services of a 
+ template - so that is can render the same view differently to different clients.
+ 
+ Additionally, we recognise the fact that a view is initially entered and when
+ we move to another view is exited. There may be things that need to happen to
+ the model at these points so a view is given opportunity to perform these tasks.
+ A view that shared it's ModelConfiguration with the new view the Window is moving
+ to does not get exited.

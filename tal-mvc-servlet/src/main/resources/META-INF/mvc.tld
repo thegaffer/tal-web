@@ -1,0 +1,68 @@
+<!-- 
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+  <description>TPS Web MVC Utility Tag Library</description>
+  <display-name>MVCTags</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>mvc</short-name>
+  <uri>http://www.tpspencer.org/mvctags</uri>
+  
+  <!-- Window -->
+  <tag>
+  	<description>Outputs a window on a page</description>
+    <name>window</name>
+    <tag-class>org.tpspencer.tal.mvc.servlet.tag.WindowTag</tag-class>
+    <body-content>JSP</body-content>
+    
+    <attribute>
+        <description>The name of the window in the MVC content to display</description>
+        <name>window</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <description>The style class to use for the window (default is window)</description>
+        <name>style</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <description>The style to add to an outer div wrapping entire window (optional, not output if not set)</description>
+        <name>outerStyle</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <description>If true then the window is asycnchronously rendered</description>
+        <name>initialAsync</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <description>If true then a header with title and action area is output, false by default</description>
+        <name>header</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+</taglib>
+  

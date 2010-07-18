@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="TAL UI">
+  <bannerLeft>
+    <name>TAL UI Framework</name>
+    <src>http://maven.apache.org/images/apache-maven-project.png</src>
+    <href>http://maven.apache.org/</href>
+  </bannerLeft>
+  <bannerRight>
+    <src>http://maven.apache.org/images/maven-small.gif</src>
+  </bannerRight>
+  <body>
+    <links>
+      <item name="Tom Spencer" href="http://www.tpspencer.com/" />
+    </links>
+
+    <menu name="Tal UI Framework">
+      <item name="What is Tal UI" href="index.html"/>
+      <item name="Overview" href="overview.html"/>
+      <item name="Download" href="download.html"/>
+      <item name="Release Notes" href="release-notes.html" />
+      <item name="General Information" href="about.html"/>
+      <item name="Road Map" href="roadmap.html" />
+    </menu>
+    
+    <menu name="Documentation">
+      <item name="Overview" href="docs/overview.html"/>
+      
+      <!-- The Template -->
+      <item name="Template" collapse="true" href="docs/template/tal-template.html">
+      	<item name="Built In Templates" href="docs/template/builtin.html" />
+      	<item name="HTML Renderer" href="docs/template/html.html" />
+      	<item name="JavaScript Renderer" href="docs/template/javascript.html" />
+      	<item name="Custom Elements" href="docs/template/customelements.html" />
+      	<item name="Custom Molds" href="docs/template/custommolds.html" />
+      	<item name="Replacing Molds" href="docs/template/replacemolds.html" />
+      	<item name="Custom Compilers" href="docs/template/compilers.html" />
+      </item>
+      
+      <!-- The MVC Pattern -->
+      <item name="MVC" collapse="true" href="docs/mvc/tal-mvc.html">
+      	<item name="MVC Pattern" href="docs/mvc/mvc-pattern.html" />
+      	<item name="Example" href="docs/mvc/example.html"/>
+      	<item name="Commons" href="docs/mvc/commons.html"/>
+	    <item name="Servlet" href="docs/mvc/servlet.html"/>
+	    <item name="Portlet" href="docs/mvc/portlet.html"/>
+      </item>
+    </menu>
+
+    <menu ref="reports"/>
+  </body>
+</project>

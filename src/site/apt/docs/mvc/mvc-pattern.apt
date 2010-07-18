@@ -1,0 +1,70 @@
+Introduction
+
+ One of the main motiviations for writing the Tal UI Framework extends from my
+ frustration with the MVC pattern when applied to the Web world. I've been 
+ developing for many years and several different languages and technologies have
+ come and gone. However, the are certain patterns that validate themselves by
+ being ever-present - and I believe the MVC pattern is one of those.
+ 
+ However, I increasingly cannot wrestle my view of the MVC pattern with what is
+ becoming mainstream meaning of the term. This is largely because it is difficult
+ to reconcile the real MVC pattern with the world of the Request and Response
+ Web. However, I don't think it is impossible and tal-mvc is my contribution to
+ this debate to demonstrate how we can wrestle back the idea of the MVC pattern.
+ 
+* What is MVC?
+
+ My view of the MVC pattern can be view in the following diagram.
+ 
+ << To-do: MVC Pattern >>
+ 
+ Essentially we have three core elements:
+ 
+   * Controller - Whose job it is to take user input and apply changes to the model
+   
+   * Model - Which represents the sum of all data and documents the application acts upon
+   
+   * View - Which observes changes in the model and renders the views of it as appropriate.
+ 
+ The key to this pattern is separation of concern. Controllers are not concerned
+ with how to render things or even what they are rendering or when. Controllers
+ just act upon user input, translating it into a set of actions on the model.
+ If a change comes in to a system to say 'when a users does x, change y' you are
+ probably going to go a change a controller.
+ 
+ The Model is not concerned with anything UI related. The model just represents
+ everything that we act upon and render. The model draws from numerous different
+ sources including databases, possible user or navigation state, configuration
+ informations etc, etc.
+ 
+ Views on the other hand know what parts of the model they are rendering, they 
+ observe changes in the Model and render themselves. If you get a change to say
+ 'when I view x, I want to see field y' chances are you are going to at least
+ change a View.
+ 
+* What is Wrong with Web MVC Frameworks?
+
+ The key element that is 'wrong' with Web based MVC frameworks is they typically
+ do not honour the separation between controller and view which I think is the key
+ element of the MVC patterns.
+ 
+ Frameworks such as Spring MVC confuse the controller by making it responsible for
+ naming the view and gathering the appropriate model for the view. Very testable,
+ but if you've got 3 controllers that can all end up at the same 'view' then you've
+ got to make any changes in what this view displays in 4 places - the view and each
+ of the 3 controllers. 
+ 
+ Spring is by no means the only framework that goes down this route.
+ 
+ I think the key element that many developers struggle with is that because the
+ Web is a Request/Response architecture, the idea of a View 'observing' the Model
+ is difficult to take in. The view cannot just observe the Model and render when
+ it feels like - it can only render if the page is being rendered and further when
+ the page is rendered it must render itself (if it is on that page).
+ 
+ I have some sympathy with this distinction. But, I still feel the MVC pattern
+ has value to us in a Web world, principally because of its separation of concerns.
+ Besides as we more and more embrace the concept of 'Web 2.0' we are moving away
+ from this fixed (Page) Request/Response of HTTP and back to a world where we can
+ think of rendering if something has changed even in a Web App.
+ 

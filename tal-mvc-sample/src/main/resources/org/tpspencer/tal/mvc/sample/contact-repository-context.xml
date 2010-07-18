@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.tpspencer.org/schema/mvc"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd">
+	
+	<!--
+	 | The Spring Context contains the default objects in the
+	 | contact related repositories
+	 -->
+	
+	<bean id="contactService" p:repository-ref="contactRepository" p:accountRepository-ref="accountRepository" class="org.tpspencer.tal.mvc.sample.service.test.ContactServiceImpl" />
+	
+	<bean id="contactRepository" class="org.tpspencer.tal.mvc.commons.repository.PrototypeRepository" />
+	
+	<bean id="callerRepository" class="org.tpspencer.tal.mvc.commons.repository.PrototypeRepository">
+		<property name="lastId" value="1000" />
+		<property name="objects"><map>
+			<entry key="1"><bean p:id="1" p:account="123456" p:firstName="Tom" p:lastName="Spencer" class="org.tpspencer.tal.mvc.sample.model.contact.CallerBean" /></entry>
+			<entry key="2"><bean p:id="2" p:account="123456" p:firstName="Anton" p:lastName="Spencer" class="org.tpspencer.tal.mvc.sample.model.contact.CallerBean" /></entry>
+			<entry key="3"><bean p:id="3" p:account="123456" p:firstName="Phillene" p:lastName="Nel" class="org.tpspencer.tal.mvc.sample.model.contact.CallerBean" /></entry>
+		</map></property>
+	</bean>
+	
+	<bean id="accountRepository" class="org.tpspencer.tal.mvc.commons.repository.PrototypeRepository">
+		<property name="objects"><map>
+			<entry key="123456"><bean p:id="123456" p:company="Test Inc" class="org.tpspencer.tal.mvc.sample.model.account.AccountBean" /></entry>
+		</map></property>
+	</bean>
+	
+</beans>

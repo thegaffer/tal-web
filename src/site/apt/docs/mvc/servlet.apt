@@ -1,0 +1,22 @@
+Tal MVC in a Servlet
+
+ The tal-mvc element was conceived largely as a direct response to the supposed
+ MVC frameworks application to Web development. Therefore, the natural first 
+ container for tal-mvc is to wrap it in a servlet container. This section describes
+ everything you need to make a tal-mvc app function in a Web App.
+ 
+* Conceptual
+
+  ** URLs
+  
+  ** Pages
+
+* Spring
+
+* Dispatch Servlet
+
+* Web Template Servlet
+
+* Resource Servlet
+
+* Search Servlet

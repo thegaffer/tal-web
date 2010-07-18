@@ -1,0 +1,332 @@
+Tal MVC Commons
+
+ One of the core aspects of the MVC pattern is that because the elements are
+ so loosely coupled from one another it is easy to start to see opportunities 
+ for common controllers and views to be abstracted out. 
+ 
+ With many frameworks this becomes much more difficult because the controllers 
+ and views tend to become bound together. Only when we truly separate these concerns, 
+ such that the same controller can (indirectly) be used by multiple different views, 
+ and the result of multiple different controllers can end up at the same view, can 
+ we really start to realise the benefits of re-use.
+ 
+ The Tal MVC Commons modules then aim to provide you with a number of elements
+ that can be re-used. The tools are seperated into a number of different elements.
+ 
+  * Spring - Use of Spring for the plumbing of MVC Apps
+  
+  * Commons - Genuine re-usable elements
+  
+  * Prototype - Elements that can be used whilst prototyping, but should be replaced
+  
+* Spring
+
+ Despite my objection to Spring-MVC (indeed pretty much to most Web based MVC
+ implementations) I like Spring a lot. So it is my personal choice for the
+ configuration of any app, the DI engine and more. If it is your personal choice
+ and you'd like to use Tal MVC then your in luck!
+ 
+ ** Configuration
+ 
+  to-do
+ 
+ ** Binding
+ 
+  to-do
+  
+* Prototype
+
+ One of the uses for Tal MVC for me has been to prototype applications. Because I
+ can construct the mechanics of Pages and Windows very quickly I want to be able
+ to start showing people straight away. However, there are a number of elements that
+ will take time, but are not neccessarily critical to getting the first view.
+ 
+ Therefore, I've put a lot of these elements into a prototyping module that 
+ enables you to use them when prototyping and replace them completely in the actual
+ application.
+ 
+ ** Prototype Resources
+ 
+ The prototype resource bundle makes sensible names out of resource keys and
+ uses these as the message value. Generally speaking we will often used the
+ following for a label ...
+ 
+ label.field
+ label.form.field
+ label.form.someField
+ 
+ The prototype resource bundle would evaulate these as ...
+ 
+ Field
+ Field
+ Some Field
+ 
+ If only evaluates the end portion of the resource key (after last period). It
+ then will convert a string into Title Case, using any capital character as the
+ marker the next space.
+ 
+ The prototype resource bundle is used in other commons elements when no other
+ resource bundle is used. It can be used explicity simply by using the normal
+ resource bundle mechanisms, for example ...
+ 
++--
+ResourceBundle.getBundle(PrototypeResourceBundle.class.getName());
++--
+ 
+ ** Prototype View
+ 
+ The pages in many Web applications, particularly Enterprise web apps, can be
+ broken down into pages, and on the pages exist on or more panels (or in the 
+ parlance of Tal MVC, Windows). 
+ 
+ The visual representation of the windows at any one time typically takes on
+ one of a distinct number of forms. These are typically a form, a table, a
+ structured view (a readonly form) or an image.
+ 
+ The prototype view aims to provide a very quick and easy way to represent these
+ views by outputting a stock form, table, view and image. In addition to the
+ basic view the prototype view can output some links, buttons or a combo box with
+ the actions that it is anticpated can be performed from the view. These can
+ be clicked to actually generate that action so you can very quickly gain a feel
+ for the entire application with very little effort. 
+ 
+ To define a prototype view ...
+ 
++--
+<bean id="someView" class="com.tpspencer.tal.mvc.commons.views.prototype.PrototypeView">
+	<property name="type" value="Form|Table|View" />
+	<property name="commands">
+		<list>
+			<bean class="com.tpspencer.tal.mvc.commons.views.prototype.PrototypeCommand">
+				<property name="action" value="myAction" />
+				<property name="caption" value="Invoke My Action" />
+			</bean>
+		</list>
+	</property>
+</bean>
++--
+
+ This snippet above creates a prototype view (you need to set the actual type
+ you want as appropriate). It will then create a drop-down with a single action
+ inside it. This will appear as "Invoke My Action", but in reality it will invoke
+ the "myAction" action.
+ 
+ In addition we can specify parameters for the prototype commands so that when
+ they are invoked they will pass one (or more) parameters. This enables you to
+ enrich the functionality of the app whilst still in prototype stage, but to allow
+ you to easily replace each part of the system bit by bit. 
+ 
+ Below is an example command ...
+ 
++--
+<!-- Single parameter action -->
+<bean class="com.tpspencer.tal.mvc.commons.views.prototype.PrototypeCommand">
+	<property name="action" value="myAction" />
+	<property name="caption" value="Invoke My Action" />
+	<property name="paramName" value="param" />
+	<property name="paramValue" value="value" />
+</bean>
+
+<!-- Multi parameter action -->
+<bean class="com.tpspencer.tal.mvc.commons.views.prototype.PrototypeCommand">
+	<property name="action" value="myAction" />
+	<property name="caption" value="Invoke My Action" />
+	<property name="params>
+		<map>
+			<entry key="param1" value="value1" />
+			<entry key="param2" value="value2" />
+			...
+		</map>
+	</property>
+</bean>
++-- 
+ 
+ ** Prototype Controller
+ 
+ The final part of the application we need to provide a mechanism for is the
+ controllers. The commons has lots of easy to use in built controllers that
+ are not prototype controllers, but instead can be used whenever a similar 
+ controller is needed.
+
+* Commons
+
+ Commons is a general collection of all sorts of elements I use in applications
+ that I've abstract away for general use.
+ 
+ ** Simple Controller
+ 
+ Often when a user clicks on a link or a button in your application it is simply
+ an instruction to move somewhere. Therefore, the controller that interprets that
+ action needs not to update anything in the model, but to simply generate a 
+ result that in turn is mapped to a target view. The simple controller allows
+ you to do this.
+ 
+ The following snippet of Spring Configuration (using the p namespace) shows this.
+ 
++--
+<bean id="myController" p:result="somethingHappened" class="org.tpspencer.tal.mvc.commons.controllers.SimpleController" />
++--
+
+ This snippet generates a result called "somethingHappened", which can be
+ mapped in a windows configuration to the appropriate view.
+ 
+ ** Select Controller
+ 
+ Following hot on the heals of the simple controller is the select controller.
+ Here the action performed by the user is 'on' some entity and the ID or other
+ piece of information about the entity is passed in the action, which requires
+ adding or updating in the model before a result is generated. 
+ 
+ The following snippet of Spring Configuration shows this:
+ 
++--
+<bean id="myController"
+	  p:parameter="inputParam" p:attribute="modelAttribute"
+	  p:result="goodResult" p:failureResult="badResult"
+	  class="org.tpspencer.tal.mvc.commons.controllers.SelectController" />
++--
+
+ So this will inspect the input for "inputParam" and then immediately copy it's
+ value into the model under the name "modelAttribute". If that works then 
+ "goodResult" is set and if is doesn't (i.e. the parameter is missing) then
+ "badResult" is generated. The default for the failureResult is "fail".
+ 
+ ** Update Controller
+ 
+ The update controller takes the select controller to another level and allows
+ you to map multiple input paramters into model attributes and then return either
+ a success result or a failure result that depends on the input that was missing.
+ 
++--
+<bean id="myController" class="org.tpspencer.tal.mvc.commons.controllers.UpdateController">
+	<property name="result" value="goodResult" />
+	<property name="inputToModelMappings">
+		<map>
+			<entry key="inputA" value="attr1" />
+			<entry key="inputB" value="attr2" />
+			...
+		</map>
+	</property>
+	<property name="missingInputResults">
+		<map>
+			<entry key="inputA" value="missingAResult" />
+			...
+		</map>
+	</property>
+</bean>
++--
+ 
+ ** Menu View
+ 
+ ** Form View
+ 
+ A common type of view is a Form View. A form view typically displays the
+ fields of a bean object. It is either editable (a true form) or read-only,
+ although the structure of it is the same in both cases. This is a classic use
+ case for using the Tal Template. The common form view has been created to
+ automate the creation of these views using the Tal Template mechanism.
+ 
+ An example of how to configure the most basic Form View is ...
+ 
++--
+<bean id="formView" class="org.tpspencer.tal.mvc.commons.views.form.FormView">
+	<property name="viewBeanName" value="form" />
+	<property name="primaryBean" value="org.your.BeanClass" />
+</bean>
++--
+
+ This is the simplest form view, but there are additional options described
+ below. In the basic setting the FormView class will generate a MVC view that
+ at render time will extract, in this example, from the model the bean "form"
+ and pass it to a Tal Template it created a initialisation time for rendering.
+ The template will be named after the views name (formView) and the package of
+ your primary bean (org.your.BeanClass). 
+ 
+ Behind the scenes it will create a Tal Template and will read the class
+ definition of your primary bean class (and any classes it directly references)
+ to create the default view. You can of course augment this by providing a 
+ template file. If the template file contains an entry for any individual bean
+ class then one will not be generated. In addition the view will create a 
+ template named after the view that contains the template that generates the
+ form. The following file shows a template file you might create to override
+ this.
+ 
++--
+<?xml version="1.0"?>
+
+<templates>
+
+<!-- The view creates this main template as follows, but can be overridden -->
+<template name="formView">
+	<form-group name="formView" action="submitForm" >
+		<messages-group />
+		<member-prop name="form" template="BeanClass" />
+		<group name="commands">
+			<command-prop name="submit" action="submit" />
+			<command-prop name="cancel" action="cancel" />
+		</group>
+	</form-group>
+</template>
+
+<!-- Overridden template for BeanClass -->
+<template templateClass="org.your.BeanClass">
+	<prop name="field1" />
+	<prop name="field2" />
+</template>
+
+</templates>
++--
+ 
+ The important point to notice in the above snippet is that the template named
+ "formView" is not required to be created by you. This is generated automatically
+ by the common view. However, if you prefer to create it you can - honouring one
+ of the core principles of the Tal framework.
+ 
+ The other properties you can vary on the form view include:
+ 
+  * templateFile - The classpath location of a template file to override the
+  default templates created.
+  
+  * resourceBase - Default is to find resources in the same package as the
+  primary bean with the name of the view (i.e. fromView) otherwise an override
+  can be specified.
+  
+  * asForm - For a form view this is true by default, but if set to false then a
+  read only view is generated instead of the form.
+  
+  * renderAttributes - By default the only bean added to the render model at 
+  render time is the primary bean under the name "form" in our example. You
+  can, however, specify additional attributes from the model to be added to
+  the render model. This attribute is a map where each entries key is the name
+  of the model attribute and the value is the name of that attribute in the
+  render model.
+  
+  * initialFormBean - If the form bean (form in our example) does not exist in
+  the model then we can specify an alternative model attribute to get the form
+  bean from. This can be useful to specify a model attribute that holds (or can
+  be resolve) the default values for a new entity.
+  
+  * initialFormOnEnter - This states that the initial form bean should be created
+  on entry into the view and not wait until the first render.
+  
+  * primaryAction - By default the form will submit to submitForm, but this
+  can be overridden in this property.
+  
+  * commands - By default you get two commands in an editable form; submit and
+  cancel. And one if a non-editable form; close. However, you can specify any
+  number of commands as a property - or you could override the "formView" template
+  as shown in the snippet above.
+ 
+ ** Table View
+ 
+ The table view is very similar to the form view in concept in that it attempts
+ to generate a Tal Template represent a list of items from minimal information.
+ 
+ An example of how to specify this is ...
+ 
++--
+TODO:!!
++--
+ 
+ ** Model Resolvers
+

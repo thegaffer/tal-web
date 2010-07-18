@@ -1,0 +1,32 @@
+Example
+
+ This section takes you through an example of using the tal-mvc framework. Wherever
+ possible this section does not assume anything outside of the main framework
+ although this is not always possible. 
+ 
+ Once you have a feel for the basics then viewing the Commons elements is advisable
+ as these elements try to take a lot more of the work away.
+ 
+* Web App Wrapper
+
+ In order to view or see this example we are going to need to package it in
+ something. The easiest is to package it as a Web App and use Tomcat or similar
+ to view it.
+ 
+ Todo: Web App archetype.
+ 
+ Normally the Web App would just be a packaging module and not contain any app
+ specific code. Our app code would exist in a seperately library so we are free
+ to package it in a number of different forms. However, for the purpose of this
+ example we will just directly maintain any code in this project.
+ 
+ Finally the archetype pre-selects Spring as the configuration and dependency 
+ injection engine. This may or may not be your choice. The core tal-mvc framework
+ does not care about or use Spring. But, we need to configure our app so we will
+ use Spring in this example.
+ 
+* The Application
+
+* Controllers
+
+* Views

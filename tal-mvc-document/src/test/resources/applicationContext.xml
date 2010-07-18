@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * Copyright 2010 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.tpspencer.org/schema/mvc"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd">
+	
+	<!-- Test App Configuration -->
+	<mvc:app id="test" pages="orderPage_app, viewOrderPage_app, contactPage_app, viewCallerPage_app">
+		<mvc:pageEvents>
+			<mvc:pageEvent result="menuWindow.showContact" page="contactPage" />
+			<mvc:pageEvent result="menuWindow.showOrders" page="orderPage" />
+		</mvc:pageEvents>
+	</mvc:app>
+	
+	<mvc:page id="contactPage_app" parent="contactPage" template="/pages/contactPage.jsp" windows="menuWindow=menu" />
+	<mvc:page id="viewCallerPage_app" parent="viewCallerPage" template="/pages/viewCaller.jsp" />
+	
+	<mvc:page id="orderPage_app" parent="orderPage" template="/pages/orderPage.jsp" windows="menuWindow=menu" />
+	<mvc:page id="viewOrderPage_app" parent="viewOrderPage" template="/pages/viewOrder.jsp" />
+	
+	<!-- <mvc:page id="notificationPage_app" parent="notificationPage" template="/notificationPage.jsp" windows="menuWindow=menu" />
+	<mvc:page id="trackPage_app" parent="trackPage" template="/trackPage.jsp" windows="menuWindow=menu" />
+	<mvc:page id="quotePage_app" parent="quotePage" template="/quotePage.jsp" windows="menuWindow=menu" /> -->
+	
+	
+	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-testdata.xml"/>
+			
+	<import resource="classpath:/org/tpspencer/tal/mvc/sample/order/order-page-context.xml"/>
+	<import resource="classpath:/org/tpspencer/tal/mvc/sample/contact/contact-page-context.xml"/>
+			
+	
+	
+</beans>

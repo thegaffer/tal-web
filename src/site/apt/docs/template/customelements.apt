@@ -1,0 +1,9 @@
+Custom Template Elements
+
+ Although Tal Template comes with a load of built in template elements it can be
+ extended at any time. This section describes how you can create a template element
+ and how it will be treated if you do.
+ 
+* Creating a Custom Element
+
+* Understanding Behaviours

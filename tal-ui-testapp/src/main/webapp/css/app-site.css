@@ -1,0 +1,247 @@
+@IMPORT url("app-site-menu.css");
+@IMPORT url("app-site-form.css");
+@IMPORT url("app-site-view.css");
+@IMPORT url("app-site-table.css");
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 77%;
+    /*font-size: 10pt;*/
+    background-color: #FFFFFF;
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a {
+    color: #3366CC;
+}
+
+a:visited { 
+    /*color: #666699;*/
+    color: #3366CC;
+}
+
+a:hover, a:active { 
+    /* color: #6699CC; */
+    color: #ff6600;
+}
+
+/* General label style for entire theme */
+label {
+	font-weight: bold;
+	font-size: 0.93em;
+}
+
+/* H3 style for theme - 1.1, bold and blue */
+h3 {
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #0066cc;
+}
+
+/* H4 style for thene, 1em, bold and orange */
+h4 {
+	font-size: 1em;
+	font-weight: bold;
+	color: #ff6600;
+}
+
+/* ****************************************
+ * Common Elements
+ * **************************************** */
+
+/* Div surrounding all messages typically at top of view */
+div.messages {
+	margin: 0px 5px 0px 5px;
+	border-bottom: thin groove;
+	padding-bottom: 10px;
+	text-align: left;
+	
+	display: block;
+}
+
+/* Div surrounding each individual message */
+div.message {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 20px;
+	font-size: 94%;
+	font-weight: bold;
+	color: #333333;						/* Always Grey in all portlets */
+	
+	width: 100%;
+		
+	background-image: url("images/message.gif");
+	background-position: top left;
+	background-repeat: no-repeat;
+}
+
+/* Div surrounding each individual message */
+div.warning {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 20px;
+	font-size: 94%;
+	/*font-weight: bold;*/
+	color: #333333;						/* Always Grey in all portlets */
+	
+	width: 100%;
+		
+	background-image: url("images/warning.gif");
+	background-position: top left;
+	background-repeat: no-repeat;
+}
+
+/* Div surrounding each individual message */
+div.error {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 20px;
+	font-size: 94%;
+	font-weight: bold;
+	color: #ff0000;						/* Always Red in all portlets */
+	
+	width: 100%;
+		
+	background-image: url("images/error.gif");
+	background-position: top left;
+	background-repeat: no-repeat;
+}
+
+/* ****************************************
+ * Standard Window
+ * **************************************** */
+ 
+div.window {
+	background-color: #f4f4f4;		/* color_bg */
+	margin-bottom: 3px;
+}
+
+div.window-header {
+	background-color: #e7e7e7;		/* color_skin */
+    color: #0066cc;			/* color_title2 */
+    font-weight: bold;
+    border-width: 0px 1px 0px 0px;
+    
+    position: relative;
+    height: 1.4em;
+    
+    padding-top: 3px;				/* Complete 6/3/06, was 3px */
+    padding-bottom: 3px;			/* Complete 6/3/06, was 3px */
+}
+
+span.window-title {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 1.4em;
+	
+	text-align: left;
+	vertical-align: middle;
+	
+	padding-top: 3px;				/* Complete 6/3/06, was 3px */
+    padding-bottom: 3px;			/* Complete 6/3/06, was 3px */
+    padding-left: 18px;				/* Complete 6/3/06, was not present */
+    padding-right: 5px;
+}
+
+span.window-actions {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 1.4em;
+	/*width: 20px;*/
+	
+	text-align: right;
+	vertical-align: middle;
+	
+	padding-top: 3px;				/* Complete 6/3/06, was 3px */
+    padding-bottom: 3px;			/* Complete 6/3/06, was 3px */
+    padding-left: 3px;
+    padding-right: 3px;
+	
+	/*background-color: #e7e7e7;*/		/* color_skin */
+    color: #FFFFFF;			/* color_bgeven */
+    border-left: 1px solid #FFFFFF;	/* color_bgeven */
+    /*background-color: #ffffff;*/
+}
+
+/* A refresh window link */
+span.window-refresh {
+	background-image: url("images/refresh.png");
+	background-position: top center;
+	background-repeat: no-repeat;
+	
+	display: inline-block;
+	width: 20px;
+}
+
+span.window-refresh:hover {
+	cursor: pointer;
+}
+
+div.window-content {
+	border-width: 1px 0px 0px 0px;
+    border-top-color: #ffffff;		/* color_bgeven */
+    border-top-style: solid;
+    padding: 5px;
+}
+
+/* ****************************************
+ * Tool Window
+ * **************************************** */
+ 
+.tool div.window {
+	background-color: #e9edf4;		/* color_bg */
+}
+
+.tool div.window-header {
+	background-color: #ced6e8;		/* color_skin */
+}
+
+/* ****************************************
+ * Nav Window
+ * **************************************** */
+ 
+div.nav-window {
+	border-width: 1px 0px 0px 0px;
+    border-top-color: #ffffff;		/* White */
+    border-top-style: solid;
+    background-color: #ffffff;		/* White */
+}
+
+div.nav-window-header {
+	background-color: #dbdbdb;		/* ph_CRN */
+    color: #0066cc;			/* Dark Blue */
+    font-weight: bold;
+    border-width: 0px 1px 0px 0px;
+    padding-top: 4px;				/* Complete 6/3/06, was 3px */
+    padding-bottom: 4px;			/* Complete 6/3/06, was 3px */
+    padding-left: 18px;				/* Complete 6/3/06, was not present */
+}
+
+div.nav-window-actions {
+	background-color: #dbdbdb;		/* ph_CRN */
+    color: #FFFFFF;
+    border-left: 0px solid #FFFFFF;
+}
+
+div.nav-window-content {
+	padding: 5px;
+}
+
+/* ****************************************
+ * Silent Window
+ * **************************************** */
+ 
+div.silent-window {
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+div.silent-window-header {
+	display: none;
+}

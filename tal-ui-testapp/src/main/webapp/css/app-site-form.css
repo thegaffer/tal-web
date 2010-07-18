@@ -1,0 +1,119 @@
+/* Default Site Form Class Styles */
+
+form {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+form .role-wrapper {
+	border: 0px;
+	margin: 0px 0px 5px 0px;
+	padding: 0px 0px 0px 0px;
+	/*white-space: nowrap;*/
+}
+
+/* Default Label */
+form label {
+	display: block;
+	text-align: left;
+	width: auto;
+	color: #333333;
+}
+
+/* Checkbox input */
+form input.checkbox {
+	margin-left: -4px;
+	margin-top: -1px;
+	margin-right: -7px;
+}
+
+/* A reverse label for checkboxes and radio buttons */
+form .field-reverse label {
+	display: inline ! important;
+	vertical-align: 2px;
+	font-weight: normal ! important;
+	margin-left: 7px;
+}
+
+/* A readonly fields label */
+form .field-readonly label {
+	color: #666666 ! important;
+}
+
+/* A readonly field */
+form .field-readonly input {
+	background-color: #ffffff;		/* color_bgoff */
+	border-color: #ffffff;			/* color_bgoff */
+	border: 1px solid;
+	padding: 2px 3px 2px 3px;
+}
+
+/* A readonly testarea */
+form .field-readonly textarea {
+	background-color: #ffffff;		/* color_bgoff */
+	border-color: #ffffff;			/* color_bgoff */
+	border: 1px solid;
+	padding: 2px 3px 2px 3px;
+}
+
+/* A mandatory fields label */
+form .field-mandatory label {
+	color: #ff6600 ! important;
+}
+
+/* A field in errors label extra */
+form .field-error label {
+	background-image: url('images/field_error.gif');
+	background-repeat: no-repeat;
+	background-position: top left;
+	padding-left: 20px;
+}
+
+/* This makes immediate spans of a group go across the page */
+div.group > span {
+	display: inline-block;
+}
+
+/* Default Button */
+form .form-buttons {
+	margin: 10px 5px 10px 5px;
+	
+	border-top: thin groove;
+	padding-top: 10px;
+	text-align: right;
+	
+	clear: both;
+	display: block;
+}
+
+/* Submit button */
+form .form-buttons button.submit {
+	height: 1.7em;
+	margin-left: 10px;
+	margin-top: 5px;
+	
+	background-color: #ff6600;
+	border: 1px solid;
+	border-color: #ff6600;
+	
+	font-weight: bold;
+	color: #333333;
+	
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#ffffffff',EndColorStr='#ffff6600');
+}
+
+/* Any button */
+form .form-buttons button {
+	height: 1.7em;
+	margin-left: 10px;
+	margin-top: 5px;
+	
+	background-color: #d5deee;
+	border: 1px solid;
+	border-color: #d5deee;
+	
+	font-weight: bold;
+	color: #333333;
+	
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#ffffffff',EndColorStr='#d5deee');
+}
