@@ -365,6 +365,29 @@ public class StandardModel implements Model {
 		throw new UnsupportedModelAttributeException(name);
 	}
 	
+	public boolean containsValueFor(String name) {
+		boolean ret = false;
+		
+		Iterator<ModelConfiguration> it = this.layers.iterator();
+		while( it.hasNext() && !ret ) {
+			ModelConfiguration layer = it.next();
+			if( layer.hasAttribute(name) ) {
+				ModelAttribute attr = layer.getAttribute(name);
+				if( !attr.isResolved() ) {
+					Map<String, Object> attributes = getModelAttributes(layer);
+					ret = attributes != null && attributes.containsKey(attr.getName());
+				}
+				else {
+					ret = true;
+				}
+				
+				break;
+			}
+		}
+		
+		return ret;
+	}
+	
 	/**
 	 * This private method gets the value of the attribute
 	 * from the ModelAttribute description. It will pass the

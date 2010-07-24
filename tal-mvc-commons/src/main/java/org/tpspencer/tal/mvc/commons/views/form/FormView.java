@@ -178,7 +178,7 @@ public class FormView extends AbstractTemplateView {
 	protected Object getBean(Model model) {
 		Object ret = null;
 		
-		if( model.containsKey(getViewBeanName()) ) {
+		if( model.containsValueFor(getViewBeanName()) ) {
 			ret = model.get(getViewBeanName());
 		}
 		

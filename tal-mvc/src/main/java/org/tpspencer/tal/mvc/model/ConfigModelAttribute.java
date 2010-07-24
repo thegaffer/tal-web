@@ -86,6 +86,13 @@ public final class ConfigModelAttribute extends BaseModelAttribute {
 		if( !flash ) throw new IllegalArgumentException("You cannot set a config model attribute to be non-flash");
 		super.setFlash(true);
 	}
+	
+	/**
+	 * Is alwayes resolved
+	 */
+	public boolean isResolved() {
+		return true;
+	}
 
 	/*
 	 * (non-Javadoc)

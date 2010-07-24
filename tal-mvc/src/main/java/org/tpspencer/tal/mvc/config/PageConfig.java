@@ -289,7 +289,7 @@ public final class PageConfig {
 				config = new WindowConfig(name, (Window)possibleWindow);
 			}
 			else {
-				Window window = WindowCompiler.compileWindow(possibleWindow);
+				Window window = WindowCompiler.getInstance().compileWindow(possibleWindow);
 				config = new WindowConfig(name, window);
 			}
 			

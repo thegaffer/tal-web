@@ -19,8 +19,6 @@ import java.lang.annotation.Target;
 public @interface When {
 	/** The action to operate on */
 	public String action();
-	/** The name of a handler/controller */
-	public String handler() default "";
-	/** Class of the controller */
+	/** Class of the controller - recommended you use DI and not set in window */
 	public Class<?> controller() default Object.class;
 }

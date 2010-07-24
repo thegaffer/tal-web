@@ -8,10 +8,13 @@ import java.lang.annotation.Target;
 /**
  * Base attribute for all model attributes
  * 
+ * Deprecated for now in favour of single Model Attr
+ * 
  * @author Tom Spencer
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.ANNOTATION_TYPE, ElementType.FIELD})
+@Deprecated
 public @interface ModelAttr {
 	/** The name of the attribute */
 	public String name() default "";

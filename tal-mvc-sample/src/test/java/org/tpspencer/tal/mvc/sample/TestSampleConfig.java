@@ -21,7 +21,7 @@ public class TestSampleConfig {
 		Assert.assertNotNull(ctx.getBean("test"));
 		
 		// Quick check to make sure autowiring is working
-		OrderCreateController ctrl = (OrderCreateController)ctx.getBean("orderCreateController");
+		OrderCreateController ctrl = (OrderCreateController)ctx.getBean("sample.order.orderCreateController");
 		Assert.assertNotNull(ctrl.getService());
 	}
 }

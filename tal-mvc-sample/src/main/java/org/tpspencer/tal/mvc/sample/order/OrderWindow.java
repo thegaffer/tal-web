@@ -3,10 +3,10 @@ package org.tpspencer.tal.mvc.sample.order;
 import javax.annotation.Resource;
 
 import org.tpspencer.tal.mvc.View;
-import org.tpspencer.tal.mvc.model.ModelResolver;
+import org.tpspencer.tal.mvc.model.ModelConfiguration;
 import org.tpspencer.tal.mvc.sample.order.views.NewOrderFormView;
 import org.tpspencer.tal.mvc.sample.order.views.OrderFormView;
-import org.tpspencer.tal.mvc.window.annotations.ModelAttr;
+import org.tpspencer.tal.mvc.window.annotations.Model;
 import org.tpspencer.tal.mvc.window.annotations.When;
 import org.tpspencer.tal.mvc.window.annotations.WindowView;
 
@@ -33,67 +33,57 @@ public class OrderWindow {
 	//////////////////////////////////////////////////
 	// Model
 	
-	@ModelAttr
-	public String state;
-	
-	@ModelAttr
-	@Resource(name="ordersResolver")
-	public ModelResolver orders;
-	
-	@ModelAttr
-	public String selectedOrder;
-	
-	@ModelAttr
-	@Resource(name="currentOrderResolver")
-	public ModelResolver currentOrder;
+	@Model
+	@Resource(name="sample.order.orderWindowModel")
+	public ModelConfiguration model;
 	
 	//////////////////////////////////////////////////
 	// Views
 	
 	/** Holds the order list view for the window */
 	@WindowView(name="listView", results={"orderCreated", "orderCancelled"})
-	@Resource(name="orderList")
+	@Resource(name="sample.order.orderList")
 	public View listView;
 	
 	/** Holds the order view for the window */
 	@WindowView(name="orderView", results={"viewOrder", "orderUpdated"})
-	@Resource(name="orderView")
+	@Resource(name="sample.order.orderView")
 	public View orderView;
 	
 	/** Holds the order form view for the window */
 	@WindowView(name="orderForm", view=OrderFormView.class, results={"editOrder"})
-	@Resource(name="orderForm")
+	@Resource(name="sample.order.orderForm")
 	public View orderForm;
 	
 	/** Holds the new order view for the window */
 	@WindowView(name="newOrderForm", view=NewOrderFormView.class, results={"createOrder"})
-	@Resource(name="newOrderForm")
+	@Resource(name="sample.order.newOrderForm")
 	public View newOrderForm;
 	
 	//////////////////////////////////////////////////
 	// Controllers
 	
 	@When(action="viewOrder")
-	@Resource(name="selectOrderViewController")
+	@Resource(name="sample.order.selectOrderViewController")
 	public Object selectOrderView;
 	
 	@When(action="editOrder")
-	@Resource(name="selectOrderEditController")
+	@Resource(name="sample.order.selectOrderEditController")
 	public Object selectOrderEdit;
 	
 	@When(action="createOrder")
-	@Resource(name="selectCreateOrderController")
+	@Resource(name="sample.order.selectCreateOrderController")
 	public Object selectCreateOrder;
 	
 	@When(action="submitOrderView")
-	@Resource(name="closeOrderViewController")
+	@Resource(name="sample.order.closeOrderViewController")
 	public Object submitOrderView;
 	
 	@When(action="submitOrderForm")
-	@Resource(name="orderUpdateController")
+	@Resource(name="sample.order.orderUpdateController")
 	public Object submitOrderForm;
 	
 	@When(action="submitNewOrder")
-	@Resource(name="orderCreateController")
+	@Resource(name="sample.order.orderCreateController")
 	public Object submitNewOrder;
 }

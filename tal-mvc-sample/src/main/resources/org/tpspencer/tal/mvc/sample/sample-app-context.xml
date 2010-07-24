@@ -27,8 +27,11 @@
 			
 	<context:annotation-config />
 	
+	<!-- Binder to use -->
+	<bean class="org.tpspencer.tal.mvc.spring.controller.SpringInputBinder" />
+	
 	<!-- Test App Configuration -->
-	<mvc:app id="test" pages="orderPage, viewOrderPage, contactPage_app, viewCallerPage_app">
+	<mvc:app id="test" pages="orderPage, contactPage_app, viewCallerPage_app">
 		<mvc:pageEvents>
 			<mvc:pageEvent result="menuWindow.showContact" page="contactPage" />
 			<mvc:pageEvent result="menuWindow.showOrders" page="orderPage" />

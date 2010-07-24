@@ -98,6 +98,7 @@ public class ModelParserHelper {
 		String name = element.getAttribute("name");
 		String defRef = ParserHelper.getAttribute(element, "default-ref");
 		String defValue = ParserHelper.getAttribute(element, "default-value");
+		String defClass = ParserHelper.getAttribute(element, "default-class");
 		
 		// Constructor
 		attr.addConstructorArgValue(name);
@@ -106,6 +107,14 @@ public class ModelParserHelper {
 		parseAttributeBase(element, attr);
 		if( defRef != null ) attr.addPropertyReference("defaultValue", defRef);
 		else if( defValue != null ) attr.addPropertyValue("defaultValue", defValue);
+		else if( defClass != null ) {
+			try {
+				attr.addPropertyValue("defaultValue", Class.forName(defClass));
+			} 
+			catch( ClassNotFoundException e ) {
+				throw new IllegalArgumentException("Cannot set default value as class, because class not found: " + defClass, e);
+			}
+		}
 		
 		return attr.getBeanDefinition();
 	}

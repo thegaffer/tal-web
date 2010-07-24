@@ -5,15 +5,11 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.tpspencer.tal.mvc.View;
 import org.tpspencer.tal.mvc.Window;
-import org.tpspencer.tal.mvc.controller.MethodController;
-import org.tpspencer.tal.mvc.model.ModelResolver;
-import org.tpspencer.tal.mvc.model.SimpleModelResolver;
+import org.tpspencer.tal.mvc.model.ModelConfiguration;
 import org.tpspencer.tal.mvc.window.annotations.Mappings;
-import org.tpspencer.tal.mvc.window.annotations.ModelAttr;
+import org.tpspencer.tal.mvc.window.annotations.Model;
 import org.tpspencer.tal.mvc.window.annotations.OnChange;
 import org.tpspencer.tal.mvc.window.annotations.When;
 import org.tpspencer.tal.mvc.window.annotations.WindowView;
@@ -22,13 +18,30 @@ import org.tpspencer.tal.mvc.window.annotations.WindowView;
  * Given a class that is a possible window this class
  * contains helpers to construct it into a real class.
  * 
- * TODO: Test
- * 
  * @author Tom Spencer
  */
 public class WindowCompiler {
+	/** Holds single instance of compiler */
+	private static final WindowCompiler INSTANCE = new WindowCompiler();
 	
-	public static Window compileWindow(Object possibleWindow) {
+	public static WindowCompiler getInstance() {
+		return INSTANCE;
+	}
+	
+	/**
+	 * Constructor, which is public if required, but otherwise
+	 * can use getInstance to get the main instance.
+	 */
+	public WindowCompiler() {
+	}
+	
+	/**
+	 * Call to compiler the possibleWindow into a real window object.
+	 * 
+	 * @param possibleWindow The possible window
+	 * @return The compiled window
+	 */
+	public Window compileWindow(Object possibleWindow) {
 		BaseWindow ret = null;
 		
 		// Get elements of window
@@ -58,7 +71,7 @@ public class WindowCompiler {
 			ret = window;
 		}
 		
-		addAttributes(ret, possibleWindow);
+		addModel(ret, possibleWindow);
 		addControllers(ret, possibleWindow);
 		
 		ret.init();
@@ -71,7 +84,7 @@ public class WindowCompiler {
 	 * @param possibleWindow The candidate window object
 	 * @return The default view for window
 	 */
-	private static View getDefaultView(Object possibleWindow) {
+	private View getDefaultView(Object possibleWindow) {
 		View ret = null;
 		
 		Field[] fields = possibleWindow.getClass().getFields();
@@ -103,7 +116,7 @@ public class WindowCompiler {
 	 * @param possibleWindow The candidate window object
 	 * @return All views if there is more than 1, otherwise null
 	 */
-	private static Map<String, View> getViews(Object possibleWindow) {
+	private Map<String, View> getViews(Object possibleWindow) {
 		Map<String, View> ret = new HashMap<String, View>();
 		
 		Field[] fields = possibleWindow.getClass().getFields();
@@ -125,11 +138,36 @@ public class WindowCompiler {
 	}
 	
 	/**
-	 * Helper to add model attributes
+	 * Helper to add the model
 	 * 
-	 * TODO: Not constructing the attribute correctly
+	 * @param window
+	 * @param possibleWindow
 	 */
-	private static void addAttributes(BaseWindow window, Object possibleWindow) {
+	private void addModel(BaseWindow window, Object possibleWindow) {
+		Field[] fields = possibleWindow.getClass().getFields();
+		if( fields != null ) {
+			for( int i = 0 ; i < fields.length ; i++ ) {
+				if( fields[i].getAnnotation(Model.class) != null ||
+						ModelConfiguration.class.isAssignableFrom(fields[i].getType()) ) {
+					ModelConfiguration val = getField(possibleWindow, fields[i], ModelConfiguration.class);
+					window.setModel(val);
+				}
+			}
+		}
+	}
+	
+	/*
+	 * TPS: Initially I envisiaged putting attributes directly on the
+	 * window config java classes. In trying to implement the same UI
+	 * using the simple repositories and an Objex back-end I've realised
+	 * that the model needs to be more generic, therefore, I've removed
+	 * this method of compilation for now. I am not totally convinced
+	 * that there is not a use for this style of compilation so I am 
+	 * being naughty and leaving this in code, but commented out. If this
+	 * is here still commented in a significant period of time (its now
+	 * Jul 09) then we should get rid.
+	 */
+	/*private void addAttributes(BaseWindow window, Object possibleWindow) {
 		Field[] fields = possibleWindow.getClass().getFields();
 		if( fields != null ) {
 			for( int i = 0 ; i < fields.length ; i++ ) {
@@ -158,12 +196,12 @@ public class WindowCompiler {
 				}
 			}
 		}
-	}
+	}*/
 	
 	/**
 	 * Adds the controllers to the real window
 	 */
-	private static void addControllers(BaseWindow window, Object possibleWindow) {
+	private void addControllers(BaseWindow window, Object possibleWindow) {
 		// First check fields for injected controllers
 		Field[] fields = possibleWindow.getClass().getFields();
 		if( fields != null ) {
@@ -176,17 +214,11 @@ public class WindowCompiler {
 				if( ctrl == null ) ctrl = createController(when.controller());
 				
 				window.addController(action, ctrl);
-			}
-		}
-		
-		// Now methods for simple controllers
-		Method[] methods = possibleWindow.getClass().getMethods();
-		if( methods != null ) {
-			for( int i = 0 ; i < methods.length ; i++ ) {
-				When w = methods[i].getAnnotation(When.class);
-				if( w != null ) {
-					String action = w.action();
-					window.addController(action, new MethodController(possibleWindow, methods[i]));
+				
+				// Events
+				OnChange handler = fields[i].getAnnotation(OnChange.class);
+				if( handler != null ) {
+					window.addEvent(handler.attribute(), when.action(), handler.newValueParam(), handler.oldValueParam());
 				}
 			}
 		}
@@ -195,7 +227,7 @@ public class WindowCompiler {
 	/**
 	 * Adds the mappings from the window to the real window
 	 */
-	private static void addMappings(MultiViewWindow window, Object possibleWindow) {
+	private void addMappings(MultiViewWindow window, Object possibleWindow) {
 		Field[] fields = possibleWindow.getClass().getFields();
 		if( fields != null ) {
 			for( int i = 0 ; i < fields.length ; i++ ) {
@@ -217,7 +249,7 @@ public class WindowCompiler {
 		}
 	}
 	
-	private static <T> T getField(Object obj, Field field, Class<T> expected) {
+	private <T> T getField(Object obj, Field field, Class<T> expected) {
 		try {
 			Object ret = field.get(obj);
 			return expected.cast(ret);
@@ -230,7 +262,7 @@ public class WindowCompiler {
 	/**
 	 * Helper to create the view instance for the window
 	 */
-	private static View createView(Class<?> view) {
+	private View createView(Class<?> view) {
 		if( View.class.isAssignableFrom(view) ) {
 			return View.class.cast(createInitObject(view));
 		}
@@ -244,11 +276,11 @@ public class WindowCompiler {
 	/**
 	 * Helper to create the controller instance for the window
 	 */
-	private static Object createController(Class<?> controller) {
+	private Object createController(Class<?> controller) {
 		return createInitObject(controller);
 	}
 	
-	private static <T> T createInitObject(Class<T> expected) {
+	private <T> T createInitObject(Class<T> expected) {
 		T ret = null;
 		try {
 			ret = expected.newInstance();

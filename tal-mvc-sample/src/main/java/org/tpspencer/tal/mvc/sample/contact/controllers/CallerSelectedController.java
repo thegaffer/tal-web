@@ -19,8 +19,8 @@ package org.tpspencer.tal.mvc.sample.contact.controllers;
 import java.util.Map;
 
 import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.BindInput;
 import org.tpspencer.tal.mvc.controller.annotations.Controller;
+import org.tpspencer.tal.mvc.controller.annotations.Input;
 import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
 import org.tpspencer.tal.mvc.sample.model.contact.Caller;
 import org.tpspencer.tal.mvc.sample.model.contact.Contact;
@@ -41,7 +41,7 @@ public class CallerSelectedController {
 
 	@Action(result="contactUpdated")
 	public void contactUpdated(
-			@BindInput(prefix="caller") Caller caller, 
+			@Input(param="caller") Caller caller, 
 			@ModelInput Map<String, Object> model) {
 		
 		String contactId = (String)model.get("selectedContact");

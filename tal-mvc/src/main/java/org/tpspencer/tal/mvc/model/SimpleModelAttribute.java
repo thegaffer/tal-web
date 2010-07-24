@@ -54,6 +54,13 @@ public final class SimpleModelAttribute extends BaseModelAttribute {
 		return null;
 	}
 	
+	/**
+	 * Is always not resolved
+	 */
+	public boolean isResolved() {
+		return false;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()

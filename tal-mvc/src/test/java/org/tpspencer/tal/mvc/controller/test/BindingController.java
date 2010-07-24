@@ -19,21 +19,27 @@ package org.tpspencer.tal.mvc.controller.test;
 import java.util.Date;
 import java.util.List;
 
+import org.tpspencer.tal.mvc.controller.InputBinder;
 import org.tpspencer.tal.mvc.controller.annotations.Action;
 import org.tpspencer.tal.mvc.controller.annotations.BindInput;
 import org.tpspencer.tal.mvc.controller.annotations.Controller;
 import org.tpspencer.tal.mvc.controller.annotations.ErrorInput;
+import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
 
 /**
  * A controller that uses bindings
  * 
  * @author Tom Spencer
  */
-@Controller(binderType=InputBinderStub.class)
+@Controller(binder="binder")
 public interface BindingController {
+	
+	public InputBinder getBinder();
+	
+	public void setBinder(InputBinder binder);
 
 	@Action(validationMethod="validate", errorResult="errors")
-	public String magic(@BindInput(prefix="dt", modelAttribute="date") Date dt, @ErrorInput List<Object> errors);
+	public String magic(@ModelBindInput(prefix="dt", modelAttribute="date", saveAttribute="date") Date dt, @ErrorInput List<Object> errors);
 	
 	@Action(action="bindClass")
 	public String classMagic(@BindInput(type=BindInterface.class) BindInterface obj);

@@ -14,8 +14,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface OnChange {
-	/** The name of the action to fire when changed */
-	public String action();
+	/** The name of the attribute this event should fire on */
+	public String attribute();
 	/** The name of the parameter passed to action holding new value */
 	public String newValueParam();
 	/** The name of the parameter passed to action holding old value */

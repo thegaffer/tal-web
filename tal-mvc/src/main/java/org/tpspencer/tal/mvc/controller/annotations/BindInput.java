@@ -22,13 +22,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * This annotation indicates the parameter is a bind
- * parameter, which is bound by either by the controllers
- * binder (@Binder) or the binder given as an attribute.
- * An optional prefix can be given that indicates a 
- * common prefix to all elements, i.e. if the prefix is
- * "form", then the input parameters prefixed "form." are
- * used in the binding. 
+ * This annotation indicates the parameter is bound from
+ * the input. A new instance of the class is created and
+ * optionally saved onto the model (replacing any value
+ * at that place in the model). The input will be bound
+ * using the named binder on the controller or using the
+ * controllers default binder. 
  * 
  * @author Tom Spencer
  */
@@ -37,8 +36,10 @@ import java.lang.annotation.Target;
 public @interface BindInput {
 	/** Holds the prefix to use */
 	public String prefix() default "";
-	/** The name of the model attribute to retreive/store */
-	public String modelAttribute() default "";
 	/** The type of object - if default (Object) then type of param is used */
 	public Class<?> type() default Object.class;
+	/** The optional name of the model attribute to save bound object into */
+	public String saveAttribute() default "";
+	/** The name of an attribute holding binder on controller class - if null uses controller default */
+	public String binderName() default "";
 }

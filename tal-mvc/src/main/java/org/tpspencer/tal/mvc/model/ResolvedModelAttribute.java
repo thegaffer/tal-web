@@ -86,6 +86,13 @@ public final class ResolvedModelAttribute extends BaseModelAttribute {
 		super.setFlash(true);
 	}
 
+	/**
+	 * Is alwayes resolved
+	 */
+	public boolean isResolved() {
+		return true;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()

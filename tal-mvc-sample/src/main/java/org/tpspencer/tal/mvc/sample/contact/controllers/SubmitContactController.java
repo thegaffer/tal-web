@@ -18,13 +18,14 @@ package org.tpspencer.tal.mvc.sample.contact.controllers;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.tpspencer.tal.mvc.controller.InputBinder;
 import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.BindInput;
 import org.tpspencer.tal.mvc.controller.annotations.Controller;
+import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
 import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
 import org.tpspencer.tal.mvc.sample.model.contact.Contact;
 import org.tpspencer.tal.mvc.sample.service.ContactService;
-import org.tpspencer.tal.mvc.spring.controller.SpringInputBinder;
 
 /**
  * This controller handles a submit of the contact form.
@@ -34,15 +35,17 @@ import org.tpspencer.tal.mvc.spring.controller.SpringInputBinder;
  * 
  * @author Tom Spencer
  */
-@Controller(binderType=SpringInputBinder.class)
+@Controller(binder="binder")
 public class SubmitContactController {
 	
 	/** Holds the contact service, which performs the business logic */
 	private ContactService service = null;
+	/** Holds the input binder for this controller */
+	private InputBinder binder = null;
 
 	@Action(result="contactSubmitted", errorResult="contactSubmitFailed")
 	public void submit(
-			@BindInput(prefix="form", modelAttribute="contact") Contact contact, 
+			@ModelBindInput(prefix="form", modelAttribute="contact") Contact contact, 
 			@ModelInput Map<String, Object> model) {
 		contact = service.saveContact(contact);
 		
@@ -65,7 +68,23 @@ public class SubmitContactController {
 	/**
 	 * @param service the service to set
 	 */
+	@Autowired
 	public void setService(ContactService service) {
 		this.service = service;
+	}
+
+	/**
+	 * @return the input binder for controller
+	 */
+	public InputBinder getBinder() {
+		return binder;
+	}
+
+	/**
+	 * @param binder The binder to use
+	 */
+	@Autowired
+	public void setBinder(InputBinder binder) {
+		this.binder = binder;
 	}
 }

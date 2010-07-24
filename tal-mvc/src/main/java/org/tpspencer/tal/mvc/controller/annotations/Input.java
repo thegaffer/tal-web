@@ -22,13 +22,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * This annotation indicates the parameter holds the
- * raw input. This should either be a InputModel or a
- * Map<String, String[]> instances.
+ * This annotation indicates the parameter holds a value
+ * from the input - or the input itself as an InputModel
+ * or as a Map<String, String[]> or as map of inputs from
+ * a given prefix.
  * 
  * @author Tom Spencer
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.PARAMETER)
 public @interface Input {
+	/** The name of a specific input parameter */
+	public String param() default "";
+	/** The prefix to extract all attributes from - ignored if param is provided */
+	public String prefix() default "";
 }

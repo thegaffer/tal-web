@@ -228,7 +228,7 @@ public abstract class AbstractTemplateView extends AbstractView implements BeanN
 	 */
 	protected Object getBean(Model model) {
 		Object ret = null;
-		if( getViewBeanName() != null && model.containsKey(getViewBeanName()) ) {
+		if( getViewBeanName() != null && model.containsValueFor(getViewBeanName()) ) {
 			ret = model.get(getViewBeanName());
 		}
 		return ret;

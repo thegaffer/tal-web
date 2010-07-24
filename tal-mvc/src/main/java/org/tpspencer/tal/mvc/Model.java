@@ -85,4 +85,15 @@ public interface Model extends Map<String, Object> {
 	 * @param name The name of the attribute to remove
 	 */
 	public void removeAttribute(String name);
+	
+	/**
+	 * This method determines if we have a value stored for a
+	 * particular model attribute (as opposed to a default 
+	 * value). This only works for simple attributes as there
+	 * is no easy/quick way to determine if there is truly
+	 * a value against a resolved attribute.
+	 * 
+	 * @param name The name of the attribute we are checking
+	 */
+	public boolean containsValueFor(String name);
 }

@@ -28,6 +28,7 @@ import org.tpspencer.tal.mvc.View;
 import org.tpspencer.tal.mvc.Window;
 import org.tpspencer.tal.mvc.config.EventConfig;
 import org.tpspencer.tal.mvc.controller.GenericController;
+import org.tpspencer.tal.mvc.controller.compiler.ControllerCompiler;
 import org.tpspencer.tal.mvc.input.InputModel;
 import org.tpspencer.tal.mvc.model.ConfigModelAttribute;
 import org.tpspencer.tal.mvc.model.ModelAttribute;
@@ -177,9 +178,7 @@ public abstract class BaseWindow implements Window {
 		Controller ctrl = null;
 		if( controller instanceof Controller ) ctrl = (Controller)controller;
 		else {
-			GenericController genericController = new GenericController(controller);
-			genericController.init();
-			ctrl = genericController;
+			ctrl = ControllerCompiler.getCompiler().compile(controller);
 		}
 		
 		if( this.controllers == null ) this.controllers = new HashMap<String, Controller>(); 
@@ -267,7 +266,7 @@ public abstract class BaseWindow implements Window {
 			
 			if( v instanceof Controller ) this.controllers.put(k, (Controller)v);
 			else {
-				GenericController ctrl = new GenericController(v);
+				GenericController ctrl = ControllerCompiler.getCompiler().compile(v);
 				ctrl.init();
 				this.controllers.put(k, ctrl);
 			}

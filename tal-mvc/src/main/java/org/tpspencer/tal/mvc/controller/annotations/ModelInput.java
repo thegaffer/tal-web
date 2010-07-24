@@ -22,13 +22,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * This annotation simply indicates the parameter represents
- * the model. The parameter must be either a Model or a 
- * Map<String, Object>.
+ * This annotation simply indicates the parameter on the action
+ * should be bound from a model attribute or to the model itself. 
  * 
  * @author Tom Spencer
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.PARAMETER)
 public @interface ModelInput {
+	/** The name of the attribute from model to bind from */
+	public String value() default "";
 }

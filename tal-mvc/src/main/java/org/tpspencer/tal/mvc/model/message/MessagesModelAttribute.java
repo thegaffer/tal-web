@@ -167,6 +167,13 @@ public class MessagesModelAttribute implements ModelAttribute {
 	}
 	
 	/**
+	 * Messages are never resolved
+	 */
+	public boolean isResolved() {
+		return false;
+	}
+	
+	/**
 	 * Messages are always cleared with a new action
 	 */
 	public boolean isClearOnAction() {

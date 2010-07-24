@@ -19,21 +19,23 @@ package org.tpspencer.tal.mvc.sample.order.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.tpspencer.tal.mvc.controller.InputBinder;
 import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.BindInput;
 import org.tpspencer.tal.mvc.controller.annotations.Controller;
+import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
 import org.tpspencer.tal.mvc.sample.model.order.Order;
 import org.tpspencer.tal.mvc.sample.service.OrderService;
-import org.tpspencer.tal.mvc.spring.controller.SpringInputBinder;
 
-@Controller(binderType=SpringInputBinder.class)
+@Controller(binder="binder")
 public class OrderCreateController {
 	
 	/** Holds the service instance the controller should use */
 	private OrderService service = null;
+	/** Holds the input binder for this controller */
+	private InputBinder binder = null;
 	
 	@Action(result="orderCreated", errorResult="orderCreateFailed", validationMethod="validate")
-	public void submit(@BindInput(prefix="newOrder", modelAttribute="newOrder") Order order) {
+	public void submit(@ModelBindInput(prefix="newOrder", modelAttribute="newOrder") Order order) {
 		order = getService().createOrder(order);
 	}
 	
@@ -60,5 +62,20 @@ public class OrderCreateController {
 	@Autowired
 	public void setService(OrderService service) {
 		this.service = service;
+	}
+	
+	/**
+	 * @return the input binder for controller
+	 */
+	public InputBinder getBinder() {
+		return binder;
+	}
+
+	/**
+	 * @param binder The binder to use
+	 */
+	@Autowired
+	public void setBinder(InputBinder binder) {
+		this.binder = binder;
 	}
 }

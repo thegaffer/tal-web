@@ -30,11 +30,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.tpspencer.tal.mvc.Model;
 import org.tpspencer.tal.mvc.controller.GenericController;
+import org.tpspencer.tal.mvc.controller.compiler.ControllerCompiler;
 import org.tpspencer.tal.mvc.controller.test.BasicController;
 import org.tpspencer.tal.mvc.controller.test.BindClass;
 import org.tpspencer.tal.mvc.controller.test.BindInterface;
 import org.tpspencer.tal.mvc.controller.test.BindingController;
 import org.tpspencer.tal.mvc.controller.test.ComplexController;
+import org.tpspencer.tal.mvc.controller.test.InputBinderStub;
 import org.tpspencer.tal.mvc.controller.test.InvalidController;
 import org.tpspencer.tal.mvc.controller.test.InvalidControllerNoActions;
 import org.tpspencer.tal.mvc.controller.test.InvalidControllerNoValidation;
@@ -62,6 +64,25 @@ public class TestGenericController {
 		basic = context.mock(BasicController.class);
 		complex = context.mock(ComplexController.class);
 		binding = context.mock(BindingController.class);
+		
+		context.checking(new Expectations() {{
+			allowing(binding).getBinder(); will(returnValue(new InputBinderStub()));
+		}});
+	}
+	
+	/**
+	 * Ensures the compiler works
+	 */
+	@Test
+	public void compilation() {
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(basic);
+		Assert.assertNotNull(ctrl);
+		
+		ctrl = ControllerCompiler.getCompiler().compile(binding);
+		Assert.assertNotNull(ctrl);
+		
+		ctrl = ControllerCompiler.getCompiler().compile(complex);
+		Assert.assertNotNull(ctrl);
 	}
 	
 	/**
@@ -69,8 +90,7 @@ public class TestGenericController {
 	 */
 	@Test
 	public void simple() {
-		GenericController ctrl = new GenericController(basic);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(basic);
 		
 		context.checking(new Expectations() {{
 			oneOf(model).containsKey("errors"); will(returnValue(true));
@@ -91,8 +111,7 @@ public class TestGenericController {
 	 */
 	@Test
 	public void complex() {
-		GenericController ctrl = new GenericController(complex);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(complex);
 		
 		final Map<String, String> params = new HashMap<String, String>();
 		
@@ -116,8 +135,7 @@ public class TestGenericController {
 	 */
 	@Test
 	public void complexAlternative() {
-		GenericController ctrl = new GenericController(complex);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(complex);
 		
 		final Map<String, String> params = new HashMap<String, String>();
 		params.put("subAction", "alt");
@@ -142,8 +160,7 @@ public class TestGenericController {
 	 */
 	@Test
 	public void complexAnother() {
-		GenericController ctrl = new GenericController(complex);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(complex);
 		
 		final Map<String, String> params = new HashMap<String, String>();
 		params.put("subAction", "another");
@@ -169,8 +186,7 @@ public class TestGenericController {
 	 */
 	@Test
 	public void complexAnotherFailValidation() {
-		GenericController ctrl = new GenericController(complex);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(complex);
 		
 		final Map<String, String> params = new HashMap<String, String>();
 		params.put("subAction", "another");
@@ -198,17 +214,15 @@ public class TestGenericController {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void binding() {
-		GenericController ctrl = new GenericController(binding);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(binding);
 		
-		final Map<String, String> params = new HashMap<String, String>();
 		final Date dt = new Date();
 		
 		context.checking(new Expectations() {{
 			allowing(input).hasParameter(with(any(String.class))); will(returnValue(false));
-			oneOf(input).getParameterObject("dt"); will(returnValue(params));
 			
 			oneOf(model).getAttribute("date"); will(returnValue(dt));
+			oneOf(model).setAttribute(with("date"), with(any(Date.class)));
 			oneOf(model).getAttribute("errors"); will(returnValue(null));
 			oneOf(binding).validate(with(any(Date.class)), with(any(List.class))); will(returnValue(null));
 			oneOf(model).containsKey("errors"); will(returnValue(true));
@@ -225,15 +239,12 @@ public class TestGenericController {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void bindingValidationFailure() {
-		GenericController ctrl = new GenericController(binding);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(binding);
 		
-		final Map<String, String> params = new HashMap<String, String>();
 		final List<Object> errors = new ArrayList<Object>(); errors.add(new Date());
 		
 		context.checking(new Expectations() {{
 			allowing(input).hasParameter(with(any(String.class))); will(returnValue(false));
-			oneOf(input).getParameterObject("dt"); will(returnValue(params));
 			
 			oneOf(model).getAttribute("date"); will(returnValue(null));
 			oneOf(model).setAttribute(with("date"), with(any(Date.class)));
@@ -252,8 +263,7 @@ public class TestGenericController {
 	
 	@Test
 	public void bindingClass() {
-		GenericController ctrl = new GenericController(binding);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(binding);
 		
 		final Map<String, String> params = new HashMap<String, String>();
 		params.put("bindClass", "bindClass");
@@ -275,8 +285,7 @@ public class TestGenericController {
 	
 	@Test
 	public void bindingInterface() {
-		GenericController ctrl = new GenericController(binding);
-		ctrl.init();
+		GenericController ctrl = ControllerCompiler.getCompiler().compile(binding);
 		
 		final Map<String, String> params = new HashMap<String, String>();
 		params.put("bindInterface", "bindInterface");
@@ -306,8 +315,7 @@ public class TestGenericController {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void invalidController() {
-		GenericController ctrl = new GenericController(context.mock(InvalidController.class));
-		ctrl.init();
+		ControllerCompiler.getCompiler().compile(context.mock(InvalidController.class));
 	}
 	
 	/**
@@ -316,8 +324,7 @@ public class TestGenericController {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void controllerWithNoActions() {
-		GenericController ctrl = new GenericController(context.mock(InvalidControllerNoActions.class));
-		ctrl.init();
+		ControllerCompiler.getCompiler().compile(context.mock(InvalidControllerNoActions.class));
 	}
 	
 	/**
@@ -327,7 +334,6 @@ public class TestGenericController {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void controllerWithInvalidValidation() {
-		GenericController ctrl = new GenericController(context.mock(InvalidControllerNoValidation.class));
-		ctrl.init();
+		ControllerCompiler.getCompiler().compile(context.mock(InvalidControllerNoValidation.class));
 	}
 }

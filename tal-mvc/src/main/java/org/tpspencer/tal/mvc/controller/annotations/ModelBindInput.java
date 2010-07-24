@@ -22,20 +22,22 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * This annotation marks that the class as a whole is a
- * controller.
+ * This annotation indicates that the given parameter should
+ * be set to the result of binding the input to a model
+ * attribute. The attribute is optionally stored back into 
+ * the model.
  * 
  * @author Tom Spencer
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface Controller {
-	/** @return The name of the subaction parameter */
-	public String subActionParameter() default "";
-	
-	/** @return The class that can be used as the binder for the controller */
-	public String binder() default "";
-	
-	/** @return The name of the model attribute to store errors away */
-	public String errorAttribute() default "errors";
+@Target(ElementType.PARAMETER)
+public @interface ModelBindInput {
+	/** Holds the optional prefix to use */
+	public String prefix() default "";
+	/** The name of the model attribute to retreive and bind to */
+	public String modelAttribute();
+	/** The optional name of the model attribute to save bound object into */
+	public String saveAttribute() default "";
+	/** The name of an attribute holding binder on controller class - if null uses controller default */
+	public String binderName() default "";
 }

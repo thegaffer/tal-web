@@ -19,6 +19,8 @@ package org.tpspencer.tal.mvc.model;
 import java.util.Arrays;
 
 import org.tpspencer.tal.mvc.Model;
+import org.tpspencer.tal.mvc.model.def.FixedDefaultResolver;
+import org.tpspencer.tal.mvc.model.def.SimpleDefaultResolver;
 
 /**
  * This abstract class is a basic implementation for any kind
@@ -39,7 +41,7 @@ public abstract class BaseModelAttribute implements ModelAttribute {
 	/** Member holds if the attribute is simple (as determined from type) */
 	private boolean simple = false;
 	/** Member holds the default value to be supplied */
-	private Object defaultValue;
+	private DefaultModelResolver defaultValue = null;
 	/** Member determines if the attribute should raise an event when changed */
 	private boolean eventable = false;
 	/** Member determines if the attribute should be discarded at end of action request */
@@ -126,15 +128,19 @@ public abstract class BaseModelAttribute implements ModelAttribute {
 	 * @return the defaultValue
 	 */
 	public Object getDefaultValue(Model model) {
-		return defaultValue;
+		return defaultValue != null ? defaultValue.getDefault(model) : null;
 	}
 	
 	/**
 	 * @param defaultValue the defaultValue to set
 	 */
 	public void setDefaultValue(Object defaultValue) {
-		this.defaultValue = defaultValue;
-		if( defaultValue != null ) setType(defaultValue.getClass());
+		if( defaultValue == null ) this.defaultValue = null;
+		else if( defaultValue instanceof DefaultModelResolver ) this.defaultValue = (DefaultModelResolver)defaultValue;
+		else if( defaultValue instanceof Class<?> ) this.defaultValue = new SimpleDefaultResolver((Class<?>)defaultValue); 
+		else this.defaultValue = new FixedDefaultResolver(defaultValue);
+		
+		if( this.defaultValue != null ) setType(this.defaultValue.getType());
 	}
 	
 	/**

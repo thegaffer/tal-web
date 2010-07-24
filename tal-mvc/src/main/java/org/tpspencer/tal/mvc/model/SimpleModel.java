@@ -136,6 +136,19 @@ public class SimpleModel implements Model {
 	}
 	
 	/**
+	 * Determines if we are holding a value for the attribute
+	 */
+	public boolean containsValueFor(String name) {
+		boolean ret = false;
+		if( model.hasAttribute(name) ) {
+			ModelAttribute attr = model.getAttribute(name);
+			if( !attr.isResolved() ) ret = attrs.containsKey(name);
+			else ret = true;
+		}
+		return ret;
+	}
+	
+	/**
 	 * This private method gets the value of the attribute
 	 * from the ModelAttribute description. It will pass the
 	 * model unless we have already inside getting another

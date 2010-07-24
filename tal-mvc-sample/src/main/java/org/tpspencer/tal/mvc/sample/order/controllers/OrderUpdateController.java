@@ -20,25 +20,26 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.tpspencer.tal.mvc.controller.InputBinder;
 import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.BindInput;
 import org.tpspencer.tal.mvc.controller.annotations.Controller;
+import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
 import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
 import org.tpspencer.tal.mvc.sample.model.order.Order;
-import org.tpspencer.tal.mvc.sample.model.order.OrderBean;
 import org.tpspencer.tal.mvc.sample.service.OrderService;
-import org.tpspencer.tal.mvc.spring.controller.SpringInputBinder;
 
-@Controller(binderType=SpringInputBinder.class)
+@Controller(binder="binder")
 public class OrderUpdateController {
 	
 	/** Holds the service instance the controller should use */
 	private OrderService service = null;
+	/** Holds the input binder for this controller */
+	private InputBinder binder = null;
 	
 	@Action(result="orderUpdated", errorResult="orderSubmitFailed", validationMethod="validate")
 	public void submit(
 			@ModelInput Map<String, Object> model,
-			@BindInput(prefix="form", type=OrderBean.class) Order order) {
+			@ModelBindInput(prefix="form", modelAttribute="form") Order order) {
 		order = getService().updateOrder(order);
 		model.put("currentOrder", order); // Update model so we can get events done
 		model.put("messages", new String[]{"message.order.updated"});
@@ -67,5 +68,20 @@ public class OrderUpdateController {
 	@Autowired
 	public void setService(OrderService service) {
 		this.service = service;
+	}
+	
+	/**
+	 * @return the input binder for controller
+	 */
+	public InputBinder getBinder() {
+		return binder;
+	}
+
+	/**
+	 * @param binder The binder to use
+	 */
+	@Autowired
+	public void setBinder(InputBinder binder) {
+		this.binder = binder;
 	}
 }

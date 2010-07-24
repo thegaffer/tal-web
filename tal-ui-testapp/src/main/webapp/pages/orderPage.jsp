@@ -28,7 +28,7 @@
 
 <!-- RHS -->
 <div style="display: inline-block; width: 74%; vertical-align: top">
-	<mvc:window window="orderWindow" header="true" />
+	<mvc:window window="sample.order.orderWindow" header="true" />
 </div>
 
 <jsp:include page="common/footer.jsp" />

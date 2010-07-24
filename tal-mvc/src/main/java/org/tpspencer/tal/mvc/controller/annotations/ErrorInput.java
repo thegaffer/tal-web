@@ -23,7 +23,10 @@ import java.lang.annotation.Target;
 
 /**
  * This annotation indicates the parameter represents the
- * errors.
+ * errors. No checking is done of the type of this input
+ * because this is dependent on your config. However, this
+ * should match the type of errors in your windows model.
+ * This is shorthand for a ModelInput pointing to "errors"
  * 
  * @author Tom Spencer
  */

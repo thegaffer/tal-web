@@ -169,6 +169,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="modelAttributeType">
 				<xsd:attribute name="flash" type="xsd:boolean" use="optional" />
+				<xsd:attribute name="default-class" type="xsd:string" use="optional"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>

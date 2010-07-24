@@ -95,6 +95,11 @@ public interface ModelAttribute {
 	public boolean isSimple();
 	
 	/**
+	 * @return True if the attribute is resolved from some external 
+	 */
+	public boolean isResolved();
+	
+	/**
 	 * Flash attributes are held on temporarily in the request.
 	 * 
 	 * @return True if the attribute is a flash attribute
