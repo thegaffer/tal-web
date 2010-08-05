@@ -108,7 +108,8 @@ public class RenderRequestHandler implements MVCRequestHandler {
 				while( e.hasMoreElements() ) {
 					String attr = (String)e.nextElement();
 					if( model.containsKey(attr) ) {
-						model.setAttribute(attr, req.getParameter(attr));
+						String val = req.getParameter(attr);
+						if( val != null && val.length() != 0 ) model.setAttribute(attr, val);
 					}
 				}
 			}
