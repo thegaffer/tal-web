@@ -29,6 +29,7 @@ import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
 import org.tpspencer.tal.mvc.Model;
+import org.tpspencer.tal.mvc.Model.ModelCleanupTask;
 import org.tpspencer.tal.mvc.model.ModelAttribute;
 import org.tpspencer.tal.mvc.model.ModelConfiguration;
 import org.tpspencer.tal.mvc.model.ModelEvent;
@@ -81,7 +82,11 @@ public class TestStandardModel {
 				add(layered);
 				add(parent); }});
 		
-		ModelResolver resolver = context.mock(ModelResolver.class);
+		final ModelResolver resolver = context.mock(ModelResolver.class);
+		context.checking(new Expectations() {{
+            allowing(resolver).canNestResolver(); will(returnValue(false));
+        }});
+		
 		resolved = new ResolvedModelAttribute("resolved", resolver, null, null);
 		
 		final ModelAttribute nestedResolved = new ResolvedModelAttribute("nestedResolved", new NestedResolver(), null, null);
@@ -182,6 +187,31 @@ public class TestStandardModel {
 	}
 	
 	/**
+	 * Ensures a cleanup task is run
+	 */
+	@Test
+	public void cleanupTask() {
+	    final StandardModel model = new StandardModel(new SimpleModelAttributeResolver(), false);
+        model.pushLayer(layer1);
+        model.pushLayer(layer2);
+        
+        final ModelCleanupTask task = context.mock(ModelCleanupTask.class);
+        model.registerCleanupTask(task, "simple");
+        
+        // This will not cause cleanup task to run
+        model.popLayer(layer2);
+        
+        context.checking(new Expectations() {{
+            oneOf(task).cleanup(model);
+        }});
+        
+        // This will cause cleanup task to run
+        model.popLayer(layer1);
+        
+        context.assertIsSatisfied();
+	}
+	
+	/**
 	 * Tests we get an exception on nested resolved attributes
 	 */
 	@Test(expected = NestedResolvedAttributeException.class)
@@ -242,6 +272,9 @@ public class TestStandardModel {
 	private class NestedResolver implements ModelResolver {
 		public Object getModelAttribute(Model model, String name, Object param) {
 			return model.getAttribute("resolved");
+		}
+		public boolean canNestResolver() {
+			return false;
 		}
 	}
 }

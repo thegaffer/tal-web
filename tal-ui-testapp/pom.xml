@@ -28,7 +28,7 @@
   	</dependency>
   	<dependency>
   		<groupId>org.tpspencer.talui</groupId>
-  		<artifactId>tal-mvc-sample</artifactId>
+  		<artifactId>tal-mvc-sample-objex</artifactId>
   		<version>${project.version}</version>
   	</dependency>
   	
@@ -97,7 +97,8 @@
  		<version>0.5.7</version>
  	  </plugin> -->
       
-      <plugin>
+      <!-- To remove, staying so we have an example to work with -->
+      <!-- <plugin>
       	<groupId>org.tpspencer.talui</groupId>
       	<artifactId>tal-ui-maven-plugin</artifactId>
       	<configuration>
@@ -114,11 +115,17 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.tpspencer.talui</groupId>
-  				<artifactId>tal-mvc-sample</artifactId>
+  				<artifactId>tal-mvc-sample-objex</artifactId>
   				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+		  		<groupId>org.talframework.objex</groupId>
+		  		<artifactId>tal-objex-gae</artifactId>
+		  		<version>0.1-SNAPSHOT</version>
+		  		<scope>runtime</scope>
+		  	</dependency>
 		</dependencies>
-      </plugin>
+      </plugin>  -->
       
       <!-- 
       <plugin>

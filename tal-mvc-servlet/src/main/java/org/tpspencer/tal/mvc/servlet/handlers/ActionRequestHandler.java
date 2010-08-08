@@ -32,7 +32,7 @@ import org.tpspencer.tal.mvc.input.InputModel;
 import org.tpspencer.tal.mvc.input.WebInputModel;
 import org.tpspencer.tal.mvc.model.StandardModel;
 import org.tpspencer.tal.mvc.process.ActionProcessor;
-import org.tpspencer.tal.mvc.process.ModelAttributeResolver;
+import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
 import org.tpspencer.tal.mvc.servlet.MVCRequestHandler;
 import org.tpspencer.tal.mvc.servlet.RequestCoordinates;
 import org.tpspencer.tal.mvc.servlet.UrlGenerator;
@@ -72,7 +72,7 @@ public class ActionRequestHandler implements MVCRequestHandler {
 	 * been invoked and passes on to the performAction method.
 	 */
 	@SuppressWarnings("unchecked")
-	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelAttributeResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
+	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelLayerAttributesResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
 		RequestLogUtils.debugRequestParameters(req, logger);
 		
 		String forward = null; // The page to redirect to

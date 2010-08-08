@@ -22,6 +22,7 @@ import org.tpspencer.tal.mvc.commons.util.SimpleObjectCloner;
 import org.tpspencer.tal.mvc.sample.model.order.Order;
 import org.tpspencer.tal.mvc.sample.model.order.OrderBean;
 import org.tpspencer.tal.mvc.sample.service.OrderService;
+import org.tpspencer.tal.mvc.sample.service.transfer.SaveOrderResult;
 
 /**
  * Simple implementation of the order service using the
@@ -36,10 +37,10 @@ public class OrderServiceImpl extends RepositoryHolder implements OrderService {
 	 * Simply uses the repository to create the order
 	 * and then copies the supplied order into it.
 	 */
-	public Order createOrder(Order order) {
+	public SaveOrderResult createOrder(Order order) {
 		OrderBean bean = getRepository().create(OrderBean.class);
 		SimpleObjectCloner.getInstance().clone(order, bean, "id");
-		return bean;
+		return new SaveOrderResult(bean.getId(), bean);
 	}
 	
 	/**
@@ -47,9 +48,9 @@ public class OrderServiceImpl extends RepositoryHolder implements OrderService {
 	 * it from order. If order is the object from the repo
 	 * then nothing happens.
 	 */
-	public Order updateOrder(Order order) {
+	public SaveOrderResult updateOrder(Order order) {
 		OrderBean bean = getRepository().findById(order.getId(), OrderBean.class);
 		if( !bean.equals(order) ) SimpleObjectCloner.getInstance().clone(order, bean, "id");
-		return bean;
+		return new SaveOrderResult(bean.getId(), bean);
 	}
 }

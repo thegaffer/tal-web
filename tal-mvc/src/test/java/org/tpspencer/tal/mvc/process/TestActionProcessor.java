@@ -44,7 +44,7 @@ import org.tpspencer.tal.mvc.model.ModelAttribute;
 import org.tpspencer.tal.mvc.model.ModelConfiguration;
 import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
 import org.tpspencer.tal.mvc.process.ActionProcessor;
-import org.tpspencer.tal.mvc.process.ModelAttributeResolver;
+import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
 import org.tpspencer.tal.mvc.process.NoViewException;
 
 /**
@@ -66,7 +66,7 @@ public class TestActionProcessor {
 	/** The test window2 instance */
 	private WindowConfig window2 = null;
 	/** A (mocked) resolver that by default is setup to return null to any request */
-	private ModelAttributeResolver resolver = null;
+	private ModelLayerAttributesResolver resolver = null;
 	
 	/** 
 	 * A (mocked) window setup in the config during setup<br />
@@ -145,7 +145,7 @@ public class TestActionProcessor {
 		window1 = page.getWindow("window1");
 		window2 = page.getWindow("window2");
 		
-		resolver = context.mock(ModelAttributeResolver.class);
+		resolver = context.mock(ModelLayerAttributesResolver.class);
 		context.checking(new Expectations() {{
 			allowing(resolver).getModelAttributes(with(any(ModelConfiguration.class))); 
 				will(returnValue(null));

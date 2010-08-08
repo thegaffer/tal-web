@@ -31,12 +31,16 @@
 	<bean class="org.tpspencer.tal.mvc.spring.controller.SpringInputBinder" />
 	
 	<!-- Test App Configuration -->
-	<mvc:app id="test" pages="orderPage, contactPage_app, viewCallerPage_app">
+	<mvc:app id="test" pages="orderPage, contactPage_app, viewCallerPage_app" model-ref="testAppModel">
 		<mvc:pageEvents>
 			<mvc:pageEvent result="menuWindow.showContact" page="contactPage" />
 			<mvc:pageEvent result="menuWindow.showOrders" page="orderPage" />
 		</mvc:pageEvents>
 	</mvc:app>
+	
+	<mvc:model id="testAppModel">
+		<mvc:simpleAttribute name="currentAccount" default-value="12345" />
+	</mvc:model>
 	
 	<mvc:page id="contactPage_app" parent="contactPage" template="/pages/contactPage.jsp" windows="menuWindow=menu" />
 	<mvc:page id="viewCallerPage_app" parent="viewCallerPage" template="/pages/viewCaller.jsp" />

@@ -100,6 +100,22 @@ public interface ModelAttribute {
 	public boolean isResolved();
 	
 	/**
+	 * Often resolving an attribute involves obtaining other model
+	 * attributes. When you have two resolvable attributes and one
+	 * calls the other this can lead to performance issues if the
+	 * two resolvers make expensive remote calls and in the worst
+	 * case could call recursive resolution. Tal MVC includes a 
+	 * feature to stop this and will not pass the model into the
+	 * getValue call if it is already resolving another attribute.
+	 * This feature can be turned off by returning true from this
+	 * method. Doing so on a resolved attribute should only be done
+	 * with care.
+	 * 
+	 * @return True if the resolver is nestable
+	 */
+	public boolean isResolverNestable();
+	
+	/**
 	 * Flash attributes are held on temporarily in the request.
 	 * 
 	 * @return True if the attribute is a flash attribute

@@ -60,6 +60,13 @@ public final class SimpleModelAttribute extends BaseModelAttribute {
 	public boolean isResolved() {
 		return false;
 	}
+	
+	/**
+	 * Always false
+	 */
+	public boolean isResolverNestable() {
+		return false;
+	}
 
 	/*
 	 * (non-Javadoc)

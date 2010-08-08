@@ -31,7 +31,7 @@ import org.tpspencer.tal.mvc.View;
 import org.tpspencer.tal.mvc.config.WindowConfig;
 import org.tpspencer.tal.mvc.model.ModelAttribute;
 import org.tpspencer.tal.mvc.model.StandardModel;
-import org.tpspencer.tal.mvc.process.ModelAttributeResolver;
+import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
 import org.tpspencer.tal.mvc.render.BasicRenderModel;
 import org.tpspencer.tal.mvc.servlet.RequestCoordinates;
 import org.tpspencer.tal.mvc.servlet.util.RequestAttributeUtils;
@@ -70,7 +70,7 @@ public class AsyncRenderRequestHandler extends RenderRequestHandler {
 	 * If this returns a template then the template is included.
 	 */
 	@SuppressWarnings("unchecked")
-	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelAttributeResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
+	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelLayerAttributesResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
 		RequestLogUtils.traceRequestAttributes(req, logger);
 		
 		StandardModel model = new StandardModel(resolver, false);

@@ -46,4 +46,18 @@ public interface ModelResolver {
 	 */
 	public Object getModelAttribute(Model model, String name, Object param);
 	
+	/**
+	 * This allows the resolver to determine if it is ok to nest
+	 * access to this resolver when trying to determine another
+	 * resolved attribute. Normally once in a nested resolver you
+	 * cannot normally access another resolved attribute from the
+	 * model. This helps to ensure we don't have a recursive 
+	 * model attribute lookup and ensure we don't do multiple 
+	 * potentially expensive operations. Returning true from this
+	 * method breaks that protection so you should only do it
+	 * with care.
+	 * 
+	 * @return True if it's ok to nest access to this resolver.
+	 */
+	public boolean canNestResolver();
 }

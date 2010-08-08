@@ -27,30 +27,9 @@
 	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-testdata.xml"/>
 	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-context.xml"/>
 	
-	<!-- Test App Configuration
-	<mvc:app id="test" pages="orderPage_app, viewOrderPage_app, contactPage_app, viewCallerPage_app">
-		<mvc:pageEvents>
-			<mvc:pageEvent result="menuWindow.showContact" page="contactPage" />
-			<mvc:pageEvent result="menuWindow.showOrders" page="orderPage" />
-		</mvc:pageEvents>
-	</mvc:app>
+	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-context-overrides.xml"/>
 	
-	<mvc:page id="contactPage_app" parent="contactPage" template="/pages/contactPage.jsp" windows="menuWindow=menu" />
-	<mvc:page id="viewCallerPage_app" parent="viewCallerPage" template="/pages/viewCaller.jsp" />
-	
-	<mvc:page id="orderPage_app" parent="orderPage" template="/pages/orderPage.jsp" windows="menuWindow=menu" />
-	<mvc:page id="viewOrderPage_app" parent="viewOrderPage" template="/pages/viewOrder.jsp" />
-	
-	<mvc:page id="notificationPage_app" parent="notificationPage" template="/notificationPage.jsp" windows="menuWindow=menu" />
-	<mvc:page id="trackPage_app" parent="trackPage" template="/trackPage.jsp" windows="menuWindow=menu" />
-	<mvc:page id="quotePage_app" parent="quotePage" template="/quotePage.jsp" windows="menuWindow=menu" />
-	
-	
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-testdata.xml"/>
-			
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/order/order-page-context.xml"/>
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/contact/contact-page-context.xml"/>
-	-->
-	
+	<!-- GAE Middleware Factory -->
+	<bean id="objexMiddlewareFactory" class="org.tpspencer.tal.objexj.gae.GAEMiddlewareFactory" />
 	
 </beans>

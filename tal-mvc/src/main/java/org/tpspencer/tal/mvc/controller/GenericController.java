@@ -193,4 +193,5 @@ public final class GenericController implements Controller {
 	public void setActions(Map<String, ControllerAction> actions) {
 		this.actions = actions;
 	}
+	
 }

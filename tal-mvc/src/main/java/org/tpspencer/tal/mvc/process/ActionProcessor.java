@@ -70,7 +70,7 @@ public final class ActionProcessor {
 	public ActionProcessor(
 			AppConfig app,
 			PageConfig page,
-			ModelAttributeResolver resolver) {
+			ModelLayerAttributesResolver resolver) {
 		if( app == null ) throw new IllegalArgumentException("No app for action to act upon!");
 		if( page == null ) throw new IllegalArgumentException("No page for action to act upon!");
 		if( resolver == null ) throw new IllegalArgumentException("No model resolver for action to use!");
@@ -84,6 +84,8 @@ public final class ActionProcessor {
 	/**
 	 * Call to process an incoming action. This method processes 
 	 * the action and any subsequent model change events.
+	 * 
+	 * TODO: Should we try/catch here?!?
 	 * 
 	 * @param input The input for the action
 	 * @param window The window to operate on
@@ -116,6 +118,10 @@ public final class ActionProcessor {
 				model.getResolver().saveModelAttributes(config, modelAttributes.get(config));
 			}
 		}
+		
+		// Pop the layers to any cleanup tasks are run
+		model.popLayer(page.getModel());
+		model.popLayer(app.getModel());
 		
 		return event;
 	}

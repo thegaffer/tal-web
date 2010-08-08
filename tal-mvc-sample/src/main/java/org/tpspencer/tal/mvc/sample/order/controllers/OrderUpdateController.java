@@ -27,6 +27,7 @@ import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
 import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
 import org.tpspencer.tal.mvc.sample.model.order.Order;
 import org.tpspencer.tal.mvc.sample.service.OrderService;
+import org.tpspencer.tal.mvc.sample.service.transfer.SaveOrderResult;
 
 @Controller(binder="binder")
 public class OrderUpdateController {
@@ -40,8 +41,9 @@ public class OrderUpdateController {
 	public void submit(
 			@ModelInput Map<String, Object> model,
 			@ModelBindInput(prefix="form", modelAttribute="form") Order order) {
-		order = getService().updateOrder(order);
-		model.put("currentOrder", order); // Update model so we can get events done
+		SaveOrderResult res = getService().updateOrder(order);
+		model.put("selectedOrder", res.getOrderId());
+		model.put("currentOrder", res.getOrder()); // Update model so we can get events done
 		model.put("messages", new String[]{"message.order.updated"});
 	}
 	

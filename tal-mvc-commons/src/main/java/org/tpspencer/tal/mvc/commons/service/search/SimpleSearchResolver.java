@@ -100,6 +100,13 @@ public class SimpleSearchResolver implements ModelResolver {
 	}
 	
 	/**
+	 * No nesting as this represents a remote call
+	 */
+	public boolean canNestResolver() {
+		return false;
+	}
+	
+	/**
 	 * Helper to get an int value from an object
 	 * 
 	 * @param val The value to check

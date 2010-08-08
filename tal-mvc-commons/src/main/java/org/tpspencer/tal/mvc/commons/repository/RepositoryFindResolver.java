@@ -53,4 +53,11 @@ public class RepositoryFindResolver extends RepositoryHolder implements ModelRes
 		
 		return getRepository().findById(model.getAttribute(modelAttribute), Object.class);
 	}
+	
+	/**
+	 * Cannot nest as this represents a potentially remote call
+	 */
+	public boolean canNestResolver() {
+		return false;
+	}
 }

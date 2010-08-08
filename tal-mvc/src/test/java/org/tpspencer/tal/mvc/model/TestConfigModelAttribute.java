@@ -44,7 +44,7 @@ public class TestConfigModelAttribute {
 		ConfigModelAttribute attr = new ConfigModelAttribute("test", resolver, "test.param", "default");
 		
 		assertEquals("test", attr.getName());
-		assertEquals("default", attr.getDefaultValue());
+		assertEquals("default", attr.getDefaultValue().toString());
 		assertEquals(resolver, attr.getResolver());
 		assertEquals("test.param", attr.getParameter());
 		assertTrue(attr.isFlash());

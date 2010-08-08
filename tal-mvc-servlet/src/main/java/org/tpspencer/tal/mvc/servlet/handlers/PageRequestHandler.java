@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.tpspencer.tal.mvc.model.StandardModel;
-import org.tpspencer.tal.mvc.process.ModelAttributeResolver;
+import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
 import org.tpspencer.tal.mvc.servlet.MVCRequestHandler;
 import org.tpspencer.tal.mvc.servlet.RequestCoordinates;
 import org.tpspencer.tal.mvc.servlet.model.CookieModelAttributeResolver;
@@ -59,7 +59,7 @@ public class PageRequestHandler implements MVCRequestHandler {
 	 * Simply forwards request to the page template
 	 */
 	@SuppressWarnings("unchecked")
-	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelAttributeResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
+	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelLayerAttributesResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
 		RequestLogUtils.traceRequestParameters(req, logger);
 		
 		StandardModel model = null;

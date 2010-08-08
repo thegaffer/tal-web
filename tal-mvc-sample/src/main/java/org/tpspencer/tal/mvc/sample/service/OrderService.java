@@ -17,6 +17,7 @@
 package org.tpspencer.tal.mvc.sample.service;
 
 import org.tpspencer.tal.mvc.sample.model.order.Order;
+import org.tpspencer.tal.mvc.sample.service.transfer.SaveOrderResult;
 
 /**
  * The service interface for orders
@@ -31,7 +32,7 @@ public interface OrderService {
 	 * @param order The order
 	 * @return The created order is returned back
 	 */
-	public Order updateOrder(Order order);
+	public SaveOrderResult updateOrder(Order order);
 	
 	/**
 	 * Call to create a new order
@@ -39,5 +40,5 @@ public interface OrderService {
 	 * @param order The order
 	 * @return The created order is returned back
 	 */
-	public Order createOrder(Order order);
+	public SaveOrderResult createOrder(Order order);
 }

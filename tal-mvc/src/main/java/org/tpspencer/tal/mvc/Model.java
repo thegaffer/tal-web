@@ -96,4 +96,35 @@ public interface Model extends Map<String, Object> {
 	 * @param name The name of the attribute we are checking
 	 */
 	public boolean containsValueFor(String name);
+	
+	/**
+	 * Some model attributes, particularly those that are
+	 * resolved from external sources, may need to ensure
+	 * that cleanup occurs when the model is unwound. This
+	 * method allows those resolvers to place a cleanup
+	 * task against any individual model attribute. 
+	 * 
+	 * @param task The task to perform when the given attribute is unwound
+	 * @param attribute The attribute upon which this task should be placed.
+	 */
+	public void registerCleanupTask(ModelCleanupTask task, String attribute);
+
+	/**
+	 * This interface represents a cleanup task - see 
+	 * registerCleanupTask on the Model interface.
+	 *
+	 * @author Tom Spencer
+	 */
+	public static interface ModelCleanupTask {
+
+	    /**
+	     * Called when the attribute the task is registered 
+	     * on is about to be unwound. The model is passed
+	     * in before the unwinding takes place - i.e. the
+	     * attribute will still be valid.
+	     * 
+	     * @param model The model
+	     */
+	    public void cleanup(Model model);
+	}
 }

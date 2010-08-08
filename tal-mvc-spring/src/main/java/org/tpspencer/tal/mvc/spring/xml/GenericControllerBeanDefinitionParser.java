@@ -34,6 +34,8 @@ public class GenericControllerBeanDefinitionParser extends AbstractSingleBeanDef
 	
 	/**
 	 * Overridden to set the Apps name to the ID
+	 * 
+	 * FUTURE: Not sure we even want this anymore as compilers setup directly, if we do this has to change
 	 */
 	@Override
 	protected void doParse(Element element, BeanDefinitionBuilder bean) {
@@ -41,15 +43,13 @@ public class GenericControllerBeanDefinitionParser extends AbstractSingleBeanDef
 		
 		String subAction = ParserHelper.getAttribute(element, "sub-action");
 		String errorAttribute = ParserHelper.getAttribute(element, "error-attribute");
-		String binder = ParserHelper.getAttribute(element, "binder");
+		//String binder = ParserHelper.getAttribute(element, "binder");
 		
-		// Constructor
-		bean.addConstructorArgReference(controller);
-
 		// Properties
+		bean.addPropertyReference("controller", controller);
 		if( subAction != null ) bean.addPropertyValue("subAction", subAction);
 		if( errorAttribute != null ) bean.addPropertyValue("errorsModelAttribute", errorAttribute);
-		if( binder != null ) bean.addPropertyReference("binder", binder);
+		//if( binder != null ) bean.addPropertyReference("binder", binder);
 		
 		bean.setInitMethodName("init");
 	}

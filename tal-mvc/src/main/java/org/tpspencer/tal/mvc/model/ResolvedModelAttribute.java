@@ -32,6 +32,7 @@ public final class ResolvedModelAttribute extends BaseModelAttribute {
 	private final ModelResolver resolver;
 	/** Member holds an object that can help the resolver get the attribute */
 	private final Object parameter;
+	private final boolean nestable;
 	
 	/**
 	 * Constructs an attribute that is held externally to the 
@@ -53,6 +54,7 @@ public final class ResolvedModelAttribute extends BaseModelAttribute {
 		setDefaultValue(defaultValue);
 		if( defaultValue == null ) setType(Object.class); // Always just an object (non-simple)
 		setFlash(true);
+		this.nestable = resolver.canNestResolver();
 	}
 
 	/**
@@ -76,7 +78,7 @@ public final class ResolvedModelAttribute extends BaseModelAttribute {
 	public Object getParameter() {
 		return parameter;
 	}
-
+	
 	/**
 	 * Resolved attributes can never be non-flash
 	 */
@@ -87,12 +89,19 @@ public final class ResolvedModelAttribute extends BaseModelAttribute {
 	}
 
 	/**
-	 * Is alwayes resolved
+	 * Is always resolved
 	 */
 	public boolean isResolved() {
 		return true;
 	}
-
+	
+	/**
+	 * Depends on resolver
+	 */
+	public boolean isResolverNestable() {
+		return nestable;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()

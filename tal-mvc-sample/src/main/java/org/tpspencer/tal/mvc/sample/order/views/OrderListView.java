@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.tpspencer.tal.mvc.commons.views.table.TableAction;
 import org.tpspencer.tal.mvc.commons.views.table.TableView;
-import org.tpspencer.tal.mvc.sample.model.order.Order;
+import org.tpspencer.tal.mvc.sample.model.order.OrderSummary;
 
 /**
  * This class is the list view. This view could be 
@@ -19,11 +19,13 @@ public class OrderListView extends TableView {
 	public OrderListView() {
 		super();
 		setViewName("orderList");
-		setPrimaryBean(Order.class);
+		setPrimaryBean(OrderSummary.class);
 		setViewBeanName("orders");
-		setTableHeadings(new String[]{"account", "collection", "collectionDate", "collectionTime", "service", "actions"});
+		setTemplateFile("/org/tpspencer/tal/mvc/sample/order/OrderList.xml");
+		setTableHeadings(new String[]{"icon", "account", "date", "collection", "collectionDate", "service", "actions"});
 		setRowActions(getOrderRowActions());
 		setTableActions(getOrderTableActions());
+		setIdExpression("${this.orderId}");
 		
 		init();
 	}

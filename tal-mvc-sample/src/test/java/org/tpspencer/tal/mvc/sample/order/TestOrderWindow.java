@@ -7,6 +7,7 @@ import java.util.Map;
 
 import junit.framework.Assert;
 
+import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
@@ -35,9 +36,16 @@ public class TestOrderWindow {
 	public void setup() {
 		underTest = new OrderWindow();
 		
+		final ModelResolver currentOrderResolver = context.mock(ModelResolver.class, "currentOrder");
+        final ModelResolver ordersResolver = context.mock(ModelResolver.class, "orders");
+        context.checking(new Expectations() {{
+            allowing(currentOrderResolver).canNestResolver(); will(returnValue(false));
+            allowing(ordersResolver).canNestResolver(); will(returnValue(false));
+        }});
+        
 		List<ModelAttribute> attrs = new ArrayList<ModelAttribute>();
-		attrs.add(new ResolvedModelAttribute("currentOrder", context.mock(ModelResolver.class, "currentOrder"), null, null));
-		attrs.add(new ResolvedModelAttribute("orders", context.mock(ModelResolver.class, "orders"), null, null));
+		attrs.add(new ResolvedModelAttribute("currentOrder", currentOrderResolver, null, null));
+		attrs.add(new ResolvedModelAttribute("orders", ordersResolver, null, null));
 		ModelConfiguration config = new ModelConfiguration("mock", attrs);
 		underTest.model = config;
 		

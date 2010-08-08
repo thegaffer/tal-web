@@ -174,6 +174,13 @@ public class MessagesModelAttribute implements ModelAttribute {
 	}
 	
 	/**
+	 * As never resolver not nestable
+	 */
+	public boolean isResolverNestable() {
+		return false;
+	}
+	
+	/**
 	 * Messages are always cleared with a new action
 	 */
 	public boolean isClearOnAction() {

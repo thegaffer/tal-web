@@ -33,6 +33,16 @@
 		<servlet-class>org.tpspencer.tal.template.servlet.SearchServlet</servlet-class>
 	</servlet>
 	
+	<!-- Object Specifics -->
+	<servlet>
+		<servlet-name>objex-event-handler</servlet-name>
+		<servlet-class>org.tpspencer.tal.objexj.gae.event.GAEEventProcessor</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>objex-store-create</servlet-name>
+		<servlet-class>org.tpspencer.tal.objexj.gae.GAEStoreCreationServlet</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>mvc-dispatch-servlet</servlet-name>
 		<url-pattern>/test/*</url-pattern>
@@ -48,6 +58,14 @@
 	<servlet-mapping>
 		<servlet-name>web-search-servlet</servlet-name>
 		<url-pattern>/search/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>objex-event-handler</servlet-name>
+		<url-pattern>/_containerEvent</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>objex-store-create</servlet-name>
+		<url-pattern>/_storeCreate</url-pattern>
 	</servlet-mapping>
 	
     <session-config>

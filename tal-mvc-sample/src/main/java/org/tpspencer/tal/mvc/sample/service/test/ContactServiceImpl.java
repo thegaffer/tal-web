@@ -17,9 +17,6 @@
 package org.tpspencer.tal.mvc.sample.service.test;
 
 
-import org.tpspencer.tal.util.aspects.annotations.Trace;
-import org.tpspencer.tal.util.aspects.annotations.RuntimeProfile;
-
 import org.tpspencer.tal.mvc.commons.repository.RepositoryHolder;
 import org.tpspencer.tal.mvc.commons.repository.SimpleRepository;
 import org.tpspencer.tal.mvc.commons.util.SimpleObjectCloner;
@@ -29,6 +26,8 @@ import org.tpspencer.tal.mvc.sample.model.contact.Caller;
 import org.tpspencer.tal.mvc.sample.model.contact.Contact;
 import org.tpspencer.tal.mvc.sample.model.contact.ContactBean;
 import org.tpspencer.tal.mvc.sample.service.ContactService;
+import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
+import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * 
@@ -43,16 +42,16 @@ public class ContactServiceImpl extends RepositoryHolder implements ContactServi
 	/**
 	 * Simply adds or updates the contact in the repository
 	 */
-	public Contact saveContact(Contact contact) {
+	public SaveContactResult saveContact(Contact contact) {
 		ContactBean bean = findOrCreateContact(contact.getId() != null ? contact.getId().toString() : null);
 		if( !bean.equals(contact) ) SimpleObjectCloner.getInstance().clone(contact, bean, "id");
-		return bean;
+		return new SaveContactResult(bean.getId(), bean);
 	}
 	
 	/**
 	 * Obtains (or creates) contact and updates it with account info
 	 */
-	public Contact updateContactAccount(String contactId, Account account) {
+	public SaveContactResult updateContactAccount(String contactId, Account account) {
 		ContactBean bean = findOrCreateContact(contactId);
 		
 		// Update
@@ -60,13 +59,13 @@ public class ContactServiceImpl extends RepositoryHolder implements ContactServi
 		bean.setCompany(account.getCompany());
 		bean.setAddress(account.getAddress());
 		
-		return bean;
+		return new SaveContactResult(bean.getId(), bean);
 	}
 	
 	/**
 	 * Obtains (or creates) contact and updates it with caller info
 	 */
-	public Contact updateContactCaller(String contactId, Caller caller) {
+	public SaveContactResult updateContactCaller(String contactId, Caller caller) {
 		ContactBean bean = findOrCreateContact(contactId);
 		
 		// Update
@@ -81,7 +80,7 @@ public class ContactServiceImpl extends RepositoryHolder implements ContactServi
 			}
 		}
 		
-		return bean;
+		return new SaveContactResult(bean.getId(), bean);
 	}
 
 	/**

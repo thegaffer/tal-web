@@ -94,6 +94,13 @@ public final class ConfigModelAttribute extends BaseModelAttribute {
 		return true;
 	}
 
+	/**
+	 * Always false
+	 */
+	public boolean isResolverNestable() {
+		return false;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()

@@ -58,7 +58,7 @@ public class TestFormView {
 		view.init();
 		
 		context.checking(new Expectations() {{
-			oneOf(model).containsKey("form"); will(returnValue(false));
+			oneOf(model).containsValueFor("form"); will(returnValue(false));
 			oneOf(renderModel).setAttribute(with("form"), with(anything()));
 			oneOf(renderModel).setTemplate("org/tpspencer/tal/mvc/commons/views/BasicBeanForm");
 		}});

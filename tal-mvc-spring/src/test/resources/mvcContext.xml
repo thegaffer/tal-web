@@ -89,7 +89,7 @@
 	<mvc:templateView id="anotherView" />
 	
 	<!-- Controllers -->
-	<mvc:genericController id="simpleCtrl" controller="ctrl3" binder="beanBinder" />
+	<!-- <mvc:genericController id="simpleCtrl" controller="ctrl3" binder="beanBinder" /> -->
 	
 	<bean id="beanBinder" class="org.tpspencer.tal.mvc.spring.controller.SpringInputBinder" />
 	

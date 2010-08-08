@@ -26,6 +26,7 @@ import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
 import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
 import org.tpspencer.tal.mvc.sample.model.contact.Contact;
 import org.tpspencer.tal.mvc.sample.service.ContactService;
+import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
 
 /**
  * This controller handles a submit of the contact form.
@@ -47,9 +48,10 @@ public class SubmitContactController {
 	public void submit(
 			@ModelBindInput(prefix="form", modelAttribute="contact") Contact contact, 
 			@ModelInput Map<String, Object> model) {
-		contact = service.saveContact(contact);
+		SaveContactResult res = service.saveContact(contact);
 		
-		model.put("selectedContact", contact.getId());
+		model.put("selectedContact", res.getContactId());
+		model.put("contact", res.getContact());
 	}
 	
 	@Action(action="cancel", result="contactCancelled")

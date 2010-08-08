@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!--
+ | CallerList.xml
+ | Overrides for the list of callers 
+ -->
+
+<templates>
+
+<template templateClass="org.tpspencer.tal.mvc.sample.model.order.OrderSummary" autoDiscover="false">
+	<image-group name="icon" resource="resource/org/tpspencer/tal/mvc/sample/order/order.png" />
+	<string-prop name="accountId" />
+	<date-prop name="orderDate" />
+	<group name="collection">
+		<string-prop name="collectionTown" />
+		<string-prop name="collectionPostcode" />
+		<string-prop name="collectionCountry" />
+	</group>
+	<date-prop name="collectionDate" />
+	<choice-prop name="service" codeType="serviceCodeType" />
+</template>
+
+</templates>

@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 
 import org.tpspencer.tal.mvc.model.ModelAttribute;
 import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.process.ModelAttributeResolver;
+import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
 
 /**
  * This class implements the ModelLayerResolver interface
@@ -34,7 +34,7 @@ import org.tpspencer.tal.mvc.process.ModelAttributeResolver;
  * 
  * @author Tom Spencer
  */
-public class SessionModelAttributeResolver implements ModelAttributeResolver {
+public class SessionModelAttributeResolver implements ModelLayerAttributesResolver {
 	/** Determines if simple attributes should be ignored as well as flash */
 	private boolean ignoreSimple = false;
 	/** Determines if we are saving changes (renders do not save changes) */

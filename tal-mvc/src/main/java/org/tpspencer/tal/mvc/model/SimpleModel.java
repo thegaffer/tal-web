@@ -168,6 +168,10 @@ public class SimpleModel implements Model {
 		return ret;
 	}
 	
+	public void registerCleanupTask(ModelCleanupTask task, String attribute) {
+	    throw new IllegalArgumentException("Cannot register tasks on a simple model, this is part of the exitView where cleanup should be done manually");
+	}
+	
 	//////////////////////////////////////////
 	// Map Operations
 	

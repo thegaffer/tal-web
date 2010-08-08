@@ -36,7 +36,7 @@ public class OrderCreateController {
 	
 	@Action(result="orderCreated", errorResult="orderCreateFailed", validationMethod="validate")
 	public void submit(@ModelBindInput(prefix="newOrder", modelAttribute="newOrder") Order order) {
-		order = getService().createOrder(order);
+		getService().createOrder(order);
 	}
 	
 	@Action(action="cancel", result="orderCancelled")

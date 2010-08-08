@@ -153,8 +153,9 @@ public class TestXmlConfig {
 	
 	/**
 	 * Tests a simple controller is created correctly
+	 * 
+	 * TODO: This test needs completely removing or changing as compilers do the job
 	 */
-	@Test
 	public void testSimpleController() {
 		Controller ctrl = (Controller)ctx.getBean("simpleCtrl");
 		

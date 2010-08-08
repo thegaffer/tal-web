@@ -19,7 +19,7 @@ package org.tpspencer.tal.mvc.sample.service;
 import org.tpspencer.tal.mvc.sample.model.account.Account;
 import org.tpspencer.tal.mvc.sample.model.contact.Caller;
 import org.tpspencer.tal.mvc.sample.model.contact.Contact;
-import org.tpspencer.tal.mvc.sample.model.contact.ContactBean;
+import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
 
 /**
  * This interface represents the contact service that
@@ -35,7 +35,7 @@ public interface ContactService {
 	 * @param contact The contact to create or update
 	 * @return The contact
 	 */
-	public Contact saveContact(Contact contact);
+	public SaveContactResult saveContact(Contact contact);
 
 	/**
 	 * Updates the contact with given account details.
@@ -43,7 +43,7 @@ public interface ContactService {
 	 * @param id The ID of the contact to update (or null if we should create)
 	 * @param account The account to update with
 	 */
-	public Contact updateContactAccount(String contactId, Account account);
+	public SaveContactResult updateContactAccount(String contactId, Account account);
 	
 	/**
 	 * Updates the contact with given caller details.
@@ -51,5 +51,5 @@ public interface ContactService {
 	 * @param id The ID of the contact to update (or null if we should create)
 	 * @param caller The caller to update with
 	 */
-	public Contact updateContactCaller(String contactId, Caller caller);
+	public SaveContactResult updateContactCaller(String contactId, Caller caller);
 }

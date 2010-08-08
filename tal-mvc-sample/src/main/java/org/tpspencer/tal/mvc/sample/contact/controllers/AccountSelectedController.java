@@ -23,8 +23,8 @@ import org.tpspencer.tal.mvc.controller.annotations.Controller;
 import org.tpspencer.tal.mvc.controller.annotations.Input;
 import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
 import org.tpspencer.tal.mvc.sample.model.account.Account;
-import org.tpspencer.tal.mvc.sample.model.contact.Contact;
 import org.tpspencer.tal.mvc.sample.service.ContactService;
+import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
 
 /**
  * Event handler when shared account is updated. This
@@ -45,9 +45,9 @@ public class AccountSelectedController {
 			@ModelInput Map<String, Object> model) {
 		
 		String contactId = (String)model.get("selectedContact");
-		Contact contact = service.updateContactAccount(contactId, account);
-		model.put("selectedContact", contact.getId());
-		model.put("contact", contact);
+		SaveContactResult res = service.updateContactAccount(contactId, account);
+		model.put("selectedContact", res.getContactId());
+		model.put("contact", res.getContact());
 	}
 	
 	/**

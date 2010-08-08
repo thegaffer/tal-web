@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.process.ModelAttributeResolver;
+import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
 
 /**
  * This class implements the {@link Model} interfaice, but it
@@ -43,7 +43,7 @@ import org.tpspencer.tal.mvc.process.ModelAttributeResolver;
 public class StandardModel implements Model {
 	
 	/** Member holds the model layer resolver */
-	private final ModelAttributeResolver resolver;
+	private final ModelLayerAttributesResolver resolver;
 	/** Member holds the model layers that make up the model */
 	private List<ModelConfiguration> layers = new ArrayList<ModelConfiguration>();
 	/** Member holds a map of model attributes */
@@ -56,6 +56,8 @@ public class StandardModel implements Model {
 	private String source = null;
 	/** If set then auto clear attributes will be removed */
 	private boolean autoClear = false;
+	/** Holds any cleanup tasks registered */
+	private Map<String, ModelCleanupTask> cleanupTasks = null;
 
 	/**
 	 * Constructs a standard model with the given layers which are
@@ -63,7 +65,7 @@ public class StandardModel implements Model {
 	 * 
 	 * @param layers The layers of the model
 	 */
-	public StandardModel(ModelAttributeResolver resolver, boolean recordEvents) {
+	public StandardModel(ModelLayerAttributesResolver resolver, boolean recordEvents) {
 		this.resolver = resolver;
 		if( recordEvents ) events = new ArrayList<ModelEvent>();
 		else events = null;
@@ -72,7 +74,7 @@ public class StandardModel implements Model {
 	/**
 	 * @return The resolver
 	 */
-	public ModelAttributeResolver getResolver() {
+	public ModelLayerAttributesResolver getResolver() {
 		return resolver;
 	}
 	
@@ -130,6 +132,19 @@ public class StandardModel implements Model {
 		
 		ModelConfiguration layer = this.layers.size() > 0 ? this.layers.get(0) : null;
 		if( layer != null && layer.equals(model) ) {
+		    // Invoke any cleanup tasks (then remove the task)
+		    if( cleanupTasks != null ) {
+		        Iterator<ModelAttribute> it = model.getAttributes().iterator();
+		        while( it.hasNext() ) {
+		            String name = it.next().getName();
+		            ModelCleanupTask task = cleanupTasks.get(name);
+		            if( task != null ) {
+		                task.cleanup(this);
+		                cleanupTasks.remove(name);
+		            }
+		        }
+		    }
+		    
 			this.layers.remove(0);
 			return modelAttributes != null ? modelAttributes.get(model) : null;
 		}
@@ -389,6 +404,15 @@ public class StandardModel implements Model {
 	}
 	
 	/**
+	 * Simply adds or replaces the cleanup task against that model
+	 * attribute.
+	 */
+	public void registerCleanupTask(ModelCleanupTask task, String attribute) {
+	    if( cleanupTasks == null ) cleanupTasks = new HashMap<String, ModelCleanupTask>();
+	    cleanupTasks.put(attribute, task);
+	}
+	
+	/**
 	 * This private method gets the value of the attribute
 	 * from the ModelAttribute description. It will pass the
 	 * model unless we have already inside getting another
@@ -400,10 +424,13 @@ public class StandardModel implements Model {
 	private Object getNonLocalAttribute(ModelAttribute attribute) {
 		Object ret = null;
 		
-		boolean useResolver = canUseResolver;
-		if( useResolver ) canUseResolver = false;
-		ret = attribute.getValue(useResolver ? this : null);
-		if( useResolver ) canUseResolver = true;
+		// Only get if it's resolved
+		if( attribute.isResolved() ) {
+			boolean useResolver = canUseResolver;
+			if( useResolver ) canUseResolver = false;
+			ret = attribute.getValue(useResolver || attribute.isResolverNestable() ? this : null);
+			if( useResolver ) canUseResolver = true;
+		}
 		
 		return ret;
 	}

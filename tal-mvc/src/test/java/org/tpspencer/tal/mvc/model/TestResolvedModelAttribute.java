@@ -18,6 +18,7 @@ package org.tpspencer.tal.mvc.model;
 
 import static org.junit.Assert.*;
 
+import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Test;
@@ -41,10 +42,14 @@ public class TestResolvedModelAttribute {
 	public void resolverConstructor() {
 		final ModelResolver resolver = context.mock(ModelResolver.class);
 		
+		context.checking(new Expectations() {{
+		    allowing(resolver).canNestResolver(); will(returnValue(false));
+		}});
+		
 		ResolvedModelAttribute attr = new ResolvedModelAttribute("test", resolver, "test.param", "default");
 		
 		assertEquals("test", attr.getName());
-		assertEquals("default", attr.getDefaultValue());
+		assertEquals("default", attr.getDefaultValue().toString());
 		assertEquals(resolver, attr.getResolver());
 		assertEquals("test.param", attr.getParameter());
 		assertTrue(attr.isSimple());
@@ -71,6 +76,10 @@ public class TestResolvedModelAttribute {
 	@Test(expected=IllegalArgumentException.class)
 	public void testFailIfFlash() {
 		final ModelResolver resolver = context.mock(ModelResolver.class);
+		context.checking(new Expectations() {{
+            allowing(resolver).canNestResolver(); will(returnValue(false));
+        }});
+		
 		ResolvedModelAttribute attr = new ResolvedModelAttribute("test", resolver, "test.param", "default");
 		attr.setFlash(false);
 	}
@@ -81,6 +90,10 @@ public class TestResolvedModelAttribute {
 	@Test
 	public void testHashCode() {
 		final ModelResolver resolver = context.mock(ModelResolver.class);
+		context.checking(new Expectations() {{
+            allowing(resolver).canNestResolver(); will(returnValue(false));
+        }});
+		
 		ModelAttribute attr1 = new ResolvedModelAttribute("test", resolver, null, null);
 		ModelAttribute attr2 = new ResolvedModelAttribute("test2", resolver, null, null);
 		ModelAttribute attr3 = new ResolvedModelAttribute("test", resolver, null, null);
@@ -96,6 +109,10 @@ public class TestResolvedModelAttribute {
 	@Test
 	public void testEquals() {
 		final ModelResolver resolver = context.mock(ModelResolver.class);
+		context.checking(new Expectations() {{
+            allowing(resolver).canNestResolver(); will(returnValue(false));
+        }});
+		
 		ModelAttribute attr1 = new ResolvedModelAttribute("test", resolver, null, null);
 		ModelAttribute attr2 = new ResolvedModelAttribute("test2", resolver, null, null);
 		ModelAttribute attr3 = new ResolvedModelAttribute("test", resolver, null, null);
@@ -110,6 +127,10 @@ public class TestResolvedModelAttribute {
 	@Test
 	public void stringify() {
 		final ModelResolver resolver = context.mock(ModelResolver.class);
+		context.checking(new Expectations() {{
+            allowing(resolver).canNestResolver(); will(returnValue(false));
+        }});
+		
 		ResolvedModelAttribute attr1 = new ResolvedModelAttribute("test", resolver, "param", "def");
 		attr1.setEventable(true);
 		

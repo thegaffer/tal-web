@@ -29,7 +29,7 @@ import org.tpspencer.tal.mvc.model.ModelConfiguration;
  * 
  * @author Tom Spencer
  */
-public class SimpleModelAttributeResolver implements ModelAttributeResolver {
+public class SimpleModelAttributeResolver implements ModelLayerAttributesResolver {
 	
 	private Map<ModelConfiguration, Map<String, Object>> modelAttrs = null;
 

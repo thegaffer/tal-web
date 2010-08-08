@@ -28,7 +28,7 @@ import org.tpspencer.tal.mvc.model.ModelConfiguration;
  * 
  * @author Tom Spencer
  */
-public interface ModelAttributeResolver {
+public interface ModelLayerAttributesResolver {
 
 	/**
 	 * Called to get hold of this attributes for a model 

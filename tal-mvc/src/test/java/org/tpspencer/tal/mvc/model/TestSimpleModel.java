@@ -52,6 +52,11 @@ public class TestSimpleModel {
 	public void setup() {
 		final ModelResolver resolver = context.mock(ModelResolver.class);
 		
+		context.checking(new Expectations() {{
+            allowing(resolver).getModelAttribute(with(any(Model.class)), with("resolve1"), with((Object)null)); will(returnValue("resolved"));
+            allowing(resolver).canNestResolver(); will(returnValue(false));
+        }});
+		
 		SimpleModelAttribute simple1 = new SimpleModelAttribute("simple1");
 		SimpleModelAttribute simple2 = new SimpleModelAttribute("simple2");
 		simple2.setDefaultValue("test");
@@ -66,10 +71,6 @@ public class TestSimpleModel {
 		
 		config = new ModelConfiguration("test", modelAttributes);
 		attrs = new HashMap<String, Object>();
-		
-		context.checking(new Expectations() {{
-			allowing(resolver).getModelAttribute(with(any(Model.class)), with("resolve1"), with((Object)null)); will(returnValue("resolved"));
-		}});
 	}
 	
 	@Test
@@ -109,6 +110,9 @@ public class TestSimpleModel {
 	private class NestedResolver implements ModelResolver {
 		public Object getModelAttribute(Model model, String name, Object param) {
 			return model.getAttribute("resolve1");
+		}
+		public boolean canNestResolver() {
+			return false;
 		}
 	}
 }
