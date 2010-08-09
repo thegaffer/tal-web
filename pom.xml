@@ -4,11 +4,13 @@
   
   <groupId>org.tpspencer.talui</groupId>
   <artifactId>tal-ui</artifactId>
-  <name>TAL UI Framework</name>
   <version>0.9-SNAPSHOT</version>
-  <description>A framework for UI Development, in particular Web Applications</description>
   <packaging>pom</packaging>
-
+  
+  <name>TAL UI Framework</name>
+  <description>A framework for UI Development, in particular Web Applications</description>
+  <url>http://tps.tpspencer.com/home/tspencer/site/talui</url>
+  
   <!-- Reactor Build -->
   <modules>
   	<module>tal-ui-parent</module>
@@ -18,8 +20,7 @@
     <module>tal-mvc-commons</module>
     <module>tal-mvc-servlet</module>
     <module>tal-mvc-sample</module>
-    <module>tal-mvc-document</module>
-    <module>tal-ui-maven-plugin</module>
+    <module>tal-mvc-sample-objex</module>
     <module>tal-ui-testapp</module>
     <module>tal-ui-release</module>
   </modules>
@@ -40,7 +41,7 @@
   
     <site>
       <id>siteServer</id>
-      <url>scpexe://tps.tpspencer.com/home/tspencer/site/</url>
+      <url>scpexe://tps.tpspencer.com/home/tspencer/site/talui</url>
     </site>
   </distributionManagement>
   
@@ -58,9 +59,9 @@
   </developers>
   
   <scm>
-  	<connection>scm:svn:https://dev.tpspencer.org/svn/repo/tps-web/trunk/</connection>
-  	<developerConnection>scm:svn:https://dev.tpspencer.org/svn/repo/tps-web/trunk/</developerConnection>
-  	<url>https://dev.tpspencer.org/svn/repo/tps-web/trunk/</url>
+  	<connection>scm:svn:https://dev.tpspencer.org/svn/tal-web/trunk/</connection>
+  	<developerConnection>scm:svn:https://dev.tpspencer.org/svn/tal-web/trunk/</developerConnection>
+  	<url>https://dev.tpspencer.org/svn/tal-web/trunk/</url>
   </scm>
   
   <build>
@@ -79,7 +80,7 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.0</version>
         <configuration>
-          <tagBase>https://dev.tpspencer.org/svn/repo/tps-web/tags</tagBase>
+          <tagBase>https://dev.tpspencer.org/svn/tal-web/tags</tagBase>
         </configuration>
       </plugin>
     </plugins>
