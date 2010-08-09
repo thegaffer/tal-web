@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	
+	<!--
+		This file defines the Order Document Container and Orders Store Container
+		
+		Runtime Requires
+		- objexMiddlewareFactory - Factory for the middleware at runtime 
+	 -->
+
+	<bean id="orderContainerStrategy" class="org.tpspencer.tal.objexj.container.SimpleContainerStrategy">
+		<constructor-arg value="Order" />
+		<constructor-arg value="Order" />
+		<constructor-arg><list>
+			<bean class="org.tpspencer.tal.mvc.sample.objex.model.order.OrderStrategy" />
+			<bean class="org.tpspencer.tal.mvc.sample.objex.model.common.AddressStrategy" />
+		</list></constructor-arg>
+		<property name="standardListeners">
+			<list>
+				<bean p:container="Orders" p:eventProcessor="onOrderUpdate" p:onEdit="true" class="org.tpspencer.tal.objexj.events.SimpleEventListener" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="orderContainerFactory" class="org.tpspencer.tal.objexj.locator.SimpleContainerFactory">
+		<constructor-arg ref="orderContainerStrategy" />
+		<constructor-arg ref="objexMiddlewareFactory" />
+	</bean>
+	
+	<bean id="ordersContainerStrategy" class="org.tpspencer.tal.objexj.container.SimpleContainerStrategy">
+		<constructor-arg value="Orders" />
+		<constructor-arg value="Orders" />
+		<constructor-arg value="OrderSummary" />
+		<constructor-arg><list>
+			<bean class="org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryStrategy" />
+		</list></constructor-arg>
+		<property name="namedQueries">
+			<map>
+				<entry key="accountOrders">
+					<bean class="org.tpspencer.tal.objexj.gae.query.GAEFixedQuery">
+						<property name="kind" value="org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryBean" />
+						<property name="parameters"><map>
+							<entry key="accountId" value="="/>
+						</map></property>
+					</bean>
+				</entry>
+				<entry key="order">
+					<bean class="org.tpspencer.tal.objexj.gae.query.GAEFixedQuery">
+						<property name="kind" value="org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryBean" />
+						<property name="mandatoryParameters"><map>
+							<entry key="orderId" value="="/>
+						</map></property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+		<property name="eventHandlers">
+			<map>
+				<entry key="onOrderUpdate">
+					<bean class="org.tpspencer.tal.mvc.sample.objex.container.order.UpdateOrderEvent" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="ordersContainerFactory" class="org.tpspencer.tal.objexj.locator.SimpleContainerFactory">
+		<constructor-arg ref="ordersContainerStrategy" />
+		<constructor-arg ref="objexMiddlewareFactory" />
+	</bean>
+	 
+</beans>

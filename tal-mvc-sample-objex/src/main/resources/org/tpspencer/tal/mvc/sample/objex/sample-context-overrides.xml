@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.tpspencer.org/schema/mvc"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd">
+	
+	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-objex-context.xml"/>
+	
+	<!-- Contact -->
+	<bean id="contactService" p:factory-ref="contactContainerFactory" p:accountRepository-ref="accountRepository" class="org.tpspencer.tal.mvc.sample.objex.service.ContactServiceImpl" />
+	
+	<bean id="currentContactResolver" p:containerAttribute="selectedContact" p:factory-ref="contactContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
+	<bean id="editContactResolver" p:containerAttribute="selectedContact" p:editable="true" p:createIfEmpty="true" p:factory-ref="contactContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
+	
+	<mvc:model id="contactViewModel">
+		<mvc:resolvedAttribute name="contact" resolver="editContactResolver" />
+	</mvc:model>
+	
+	<!-- Callers -->
+	<bean id="callerSearchResolver" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjSearchResolver"
+		p:factory-ref="callersContainerFactory"
+		p:containerAttribute="Callers" p:fixedContainer="true"
+		p:queryName="callers" p:searchAttributes="firstName,lastName" />
+		
+	<!-- Order -->
+	<bean id="orderService" class="org.tpspencer.tal.mvc.sample.objex.service.OrderServiceImpl" />
+	
+	<bean id="sample.order.ordersResolver" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjSearchResolver"
+		p:factory-ref="ordersContainerFactory"
+		p:containerAttribute="Orders" p:fixedContainer="true"
+		p:queryName="accountOrders" p:searchAttributes="currentAccount">
+		<property name="searchParameters"><map><entry key="currentAccount" value="accountId" /></map></property>
+	</bean>
+		
+	<bean id="sample.order.currentOrderResolver" p:containerAttribute="selectedOrder" p:factory-ref="orderContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
+	<bean id="editOrderResolver" p:containerAttribute="selectedOrder" p:editable="true" p:factory-ref="orderContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
+	<bean id="newOrderResolver" p:containerAttribute="selectedOrder" p:editable="true" p:createIfEmpty="true" p:factory-ref="orderContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
+	
+	<mvc:model id="sample.order.orderViewModel">
+		<mvc:resolvedAttribute name="form" resolver="sample.order.currentOrderResolver" />
+	</mvc:model>
+	
+	<mvc:model id="sample.order.orderFormModel">
+		<mvc:resolvedAttribute name="form" resolver="editOrderResolver" />
+	</mvc:model>
+	
+	<mvc:model id="sample.order.newOrderFormModel">
+		<mvc:resolvedAttribute name="newOrder" resolver="newOrderResolver" />
+	</mvc:model>
+</beans>
