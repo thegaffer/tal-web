@@ -16,13 +16,12 @@
 
 package org.tpspencer.tal.mvc.sample.objex.service;
 
+import org.talframework.objexj.Container;
+import org.talframework.objexj.ObjexObj;
 import org.tpspencer.tal.mvc.commons.repository.RepositoryHolder;
 import org.tpspencer.tal.mvc.sample.model.order.Order;
 import org.tpspencer.tal.mvc.sample.service.OrderService;
 import org.tpspencer.tal.mvc.sample.service.transfer.SaveOrderResult;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.EditableContainer;
-import org.tpspencer.tal.objexj.ObjexObj;
 import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
@@ -51,9 +50,9 @@ public class OrderServiceImpl extends RepositoryHolder implements OrderService {
 	    if( !(order instanceof ObjexObj) ) throw new IllegalArgumentException("Cannot save order as provided order is not from a container");
         
         Container c = ((ObjexObj)order).getContainer();
-        if( !(c instanceof EditableContainer) ) throw new IllegalArgumentException("Cannot save order as not in a open transaction");
+        if( !c.isOpen() ) throw new IllegalArgumentException("Cannot save order as not in a open transaction");
         
-        ((EditableContainer)c).saveContainer();
+        c.saveContainer();
         
         return new SaveOrderResult(c.getId(), order);
 	}

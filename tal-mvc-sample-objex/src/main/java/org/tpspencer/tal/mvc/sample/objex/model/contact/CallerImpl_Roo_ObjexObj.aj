@@ -1,9 +1,11 @@
 package org.tpspencer.tal.mvc.sample.objex.model.contact;
 
 import java.lang.String;
+import org.talframework.objexj.ObjexObjStateBean;
+import org.talframework.objexj.ValidationRequest;
+import org.talframework.objexj.object.BaseObjexObj;
+import org.talframework.objexj.object.StateBeanUtils;
 import org.tpspencer.tal.mvc.sample.objex.model.contact.CallerBean;
-import org.tpspencer.tal.objexj.ObjexObjStateBean;
-import org.tpspencer.tal.objexj.object.BaseObjexObj;
 
 privileged aspect CallerImpl_Roo_ObjexObj {
     
@@ -15,33 +17,40 @@ privileged aspect CallerImpl_Roo_ObjexObj {
     
     public ObjexObjStateBean CallerImpl.getStateObject() {
         if( isUpdateable() ) return bean;
-        else return new CallerBean(bean);
+        else return bean.cloneState();
+    }
+    
+    public void CallerImpl.validate(ValidationRequest request) {
+        return;
     }
     
     public String CallerImpl.getFirstName() {
-        return bean.getFirstName();
+        return cloneValue(bean.getFirstName());
     }
     
     public void CallerImpl.setFirstName(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getFirstName(), val) ) return;
+        ensureUpdateable(bean);
         bean.setFirstName(val);
     }
     
     public String CallerImpl.getLastName() {
-        return bean.getLastName();
+        return cloneValue(bean.getLastName());
     }
     
     public void CallerImpl.setLastName(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getLastName(), val) ) return;
+        ensureUpdateable(bean);
         bean.setLastName(val);
     }
     
     public String CallerImpl.getAccount() {
-        return bean.getAccount();
+        return cloneValue(bean.getAccount());
     }
     
     public void CallerImpl.setAccount(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getAccount(), val) ) return;
+        ensureUpdateable(bean);
         bean.setAccount(val);
     }
     

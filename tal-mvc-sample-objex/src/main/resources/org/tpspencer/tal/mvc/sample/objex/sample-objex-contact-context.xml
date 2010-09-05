@@ -33,21 +33,21 @@
 		- objexMiddlewareFactory - Factory for the middleware at runtime 
 	 -->
 
-	<bean id="contactContainerStrategy" class="org.tpspencer.tal.objexj.container.SimpleContainerStrategy">
+	<bean id="contactContainerStrategy" class="org.talframework.objexj.container.impl.SimpleContainerStrategy">
 		<constructor-arg value="Contact" />
 		<constructor-arg value="Contact" />
 		<constructor-arg><list>
-			<bean class="org.tpspencer.tal.mvc.sample.objex.model.contact.ContactStrategy" />
-			<bean class="org.tpspencer.tal.mvc.sample.objex.model.common.AddressStrategy" />
+			<bean p:typeName="Contact" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.contact.ContactBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.contact.ContactImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
+			<bean p:typeName="Address" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.common.AddressBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.common.AddressImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
 		</list></constructor-arg>
 		<property name="standardListeners">
 			<list>
-				<bean p:container="Callers" p:eventProcessor="onContactUpdate" p:onEdit="true" class="org.tpspencer.tal.objexj.events.SimpleEventListener" />
+				<bean p:container="Callers" p:eventProcessor="onContactUpdate" p:onEdit="true" class="org.talframework.objexj.events.SimpleEventListener" />
 			</list>
 		</property>
 	</bean>
 	
-	<bean id="contactContainerFactory" class="org.tpspencer.tal.objexj.locator.SimpleContainerFactory">
+	<bean id="contactContainerFactory" class="org.talframework.objexj.locator.SimpleContainerFactory">
 		<constructor-arg ref="contactContainerStrategy" />
 		<constructor-arg ref="objexMiddlewareFactory" />
 	</bean>

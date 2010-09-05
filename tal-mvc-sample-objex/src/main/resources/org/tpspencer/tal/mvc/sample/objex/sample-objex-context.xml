@@ -38,7 +38,7 @@
 	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-objex-contact-context.xml" />
 	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-objex-order-context.xml" />
 	
-	<bean class="org.tpspencer.tal.objexj.locator.SingletonContainerLocator" factory-method="getInstance">
+	<bean class="org.talframework.objexj.locator.SingletonContainerLocator" factory-method="getInstance">
 		<property name="factories"><map>
 			<entry key="Accounts" value-ref="accountsContainerFactory" />
 			<entry key="Callers" value-ref="callersContainerFactory" />

@@ -1,8 +1,8 @@
 package org.tpspencer.tal.mvc.commons.objex;
 
+import org.talframework.objexj.Container;
+import org.talframework.objexj.ObjexObj;
 import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.ObjexObj;
 
 /**
  * Gets an object from a container. The container is either a 

@@ -36,11 +36,11 @@
 	<!-- Object Specifics -->
 	<servlet>
 		<servlet-name>objex-event-handler</servlet-name>
-		<servlet-class>org.tpspencer.tal.objexj.gae.event.GAEEventProcessor</servlet-class>
+		<servlet-class>org.talframework.objexj.runtime.gae.event.GAEEventProcessor</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>objex-store-create</servlet-name>
-		<servlet-class>org.tpspencer.tal.objexj.gae.GAEStoreCreationServlet</servlet-class>
+		<servlet-class>org.talframework.objexj.runtime.gae.GAEStoreCreationServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>

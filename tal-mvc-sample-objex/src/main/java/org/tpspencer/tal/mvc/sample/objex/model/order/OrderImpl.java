@@ -2,14 +2,17 @@ package org.tpspencer.tal.mvc.sample.objex.model.order;
 
 import java.util.Map;
 
+import org.talframework.objexj.annotations.ObjexObj;
 import org.tpspencer.tal.mvc.sample.model.common.Address;
-
 import org.tpspencer.tal.mvc.sample.model.order.Order;
-import org.tpspencer.tal.objexj.annotations.ObjexObj;
-import org.tpspencer.tal.objexj.RootObjexObj;
 
+/**
+ * TODO: Need to implement RootObjexObj
+ *
+ * @author Tom Spencer
+ */
 @ObjexObj(OrderBean.class)
-public class OrderImpl implements Order, RootObjexObj {
+public class OrderImpl implements Order {
 
 	private OrderBean bean;
 	
@@ -22,7 +25,7 @@ public class OrderImpl implements Order, RootObjexObj {
 		Address current = getCollection();
 		if( current == collection ) return; // Nothing to do
 		
-		if( current == null ) current = createCollection();
+		//if( current == null ) current = createCollection();
 		
 		current.setAddress(collection.getAddress());
 		current.setTown(collection.getTown());
@@ -50,9 +53,5 @@ public class OrderImpl implements Order, RootObjexObj {
 	public Map<String, String> getHeader() {
 	    // TODO: Add in header
 	    return null;
-	}
-	
-	public boolean validate() {
-	    return true;
 	}
 }

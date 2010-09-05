@@ -16,7 +16,6 @@
 
 package org.tpspencer.tal.mvc.sample.objex.model.notification;
 
-import org.tpspencer.tal.objexj.annotations.ObjexStateBean;
 
 //@ObjexStateBean(name="SuppliesBean")
 public class SuppliesBean {

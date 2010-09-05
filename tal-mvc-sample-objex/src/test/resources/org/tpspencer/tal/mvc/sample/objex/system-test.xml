@@ -27,7 +27,7 @@
 	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-context-overrides.xml"/>
 	
 	<!-- Don't like this being GAE in test -->
-	<bean id="objexMiddlewareFactory" class="org.tpspencer.tal.objexj.gae.GAEMiddlewareFactory" />
+	<bean id="objexMiddlewareFactory" class="org.talframework.objexj.runtime.gae.GAEMiddlewareFactory" />
 			
 	<bean id="accountRepository" class="org.tpspencer.tal.mvc.commons.repository.PrototypeRepository">
 		<property name="objects"><map>

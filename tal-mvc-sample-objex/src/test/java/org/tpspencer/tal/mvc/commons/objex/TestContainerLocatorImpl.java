@@ -10,10 +10,9 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
+import org.talframework.objexj.Container;
+import org.talframework.objexj.locator.ContainerFactory;
 import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.EditableContainer;
-import org.tpspencer.tal.objexj.locator.ContainerFactory;
 
 public class TestContainerLocatorImpl {
 	
@@ -30,9 +29,9 @@ public class TestContainerLocatorImpl {
 		ContainerLocator underTest = new ContainerLocatorImpl("test", true, factory);
 
 		// Setup
-		final EditableContainer container = context.mock(EditableContainer.class);
+		final Container container = context.mock(Container.class);
 		context.checking(new Expectations() {{
-			oneOf(factory).open("test"); will(returnValue(container));
+			oneOf(factory).get("test"); will(returnValue(container));
 		}});
 		
 		// Test
@@ -47,13 +46,13 @@ public class TestContainerLocatorImpl {
 		ContainerLocator underTest = new ContainerLocatorImpl("test", true, factory);
 
 		// Setup
-		final EditableContainer container = context.mock(EditableContainer.class);
+		final Container container = context.mock(Container.class);
 		context.checking(new Expectations() {{
 			oneOf(factory).open("test"); will(returnValue(container));
 		}});
 		
 		// Test
-		Container c = underTest.getEditableContainer(null);
+		Container c = underTest.getOpenContainer(null);
 		Assert.assertNotNull(c);
 		
 		context.assertIsSatisfied();
@@ -64,11 +63,11 @@ public class TestContainerLocatorImpl {
 		ContainerLocator underTest = new ContainerLocatorImpl("test", factory);
 		
 		// Setup
-		final EditableContainer container = context.mock(EditableContainer.class);
+		final Container container = context.mock(Container.class);
 		final SimpleBean bean = new SimpleBean();
 		
 		context.checking(new Expectations() {{
-			oneOf(factory).open(bean.getTest()); will(returnValue(container));
+			oneOf(factory).get(bean.getTest()); will(returnValue(container));
 			oneOf(factory).open(bean.getTest()); will(returnValue(container));
 		}});
 		
@@ -76,7 +75,7 @@ public class TestContainerLocatorImpl {
 		Container c = underTest.getContainer(bean);
 		Assert.assertNotNull(c);
 		
-		EditableContainer ec = underTest.getEditableContainer(bean);
+		Container ec = underTest.getOpenContainer(bean);
 		Assert.assertNotNull(ec);
 		
 		context.assertIsSatisfied();
@@ -90,12 +89,12 @@ public class TestContainerLocatorImpl {
 		underTest.setFactory(factory);
 		
 		// Setup
-		final EditableContainer container = context.mock(EditableContainer.class);
+		final Container container = context.mock(Container.class);
 		final Model model = context.mock(Model.class);
 		
 		context.checking(new Expectations() {{
 			oneOf(model).getAttribute("test"); will(returnValue("testContainer"));
-			oneOf(factory).open("testContainer"); will(returnValue(container));
+			oneOf(factory).get("testContainer"); will(returnValue(container));
 			oneOf(model).getAttribute("test"); will(returnValue("testContainer"));
 			oneOf(factory).open("testContainer"); will(returnValue(container));
 		}});
@@ -104,7 +103,7 @@ public class TestContainerLocatorImpl {
 		Container c = underTest.getContainer(model);
 		Assert.assertNotNull(c);
 		
-		EditableContainer ec = underTest.getEditableContainer(model);
+		Container ec = underTest.getOpenContainer(model);
 		Assert.assertNotNull(ec);
 		
 		context.assertIsSatisfied();
@@ -115,12 +114,12 @@ public class TestContainerLocatorImpl {
 		ContainerLocator underTest = new ContainerLocatorImpl("test", factory);
 		
 		// Setup
-		final EditableContainer container = context.mock(EditableContainer.class);
+		final Container container = context.mock(Container.class);
 		final Map<String, String> model = new HashMap<String, String>();
 		model.put("test", "testContainer");
 		
 		context.checking(new Expectations() {{
-			oneOf(factory).open("testContainer"); will(returnValue(container));
+			oneOf(factory).get("testContainer"); will(returnValue(container));
 			oneOf(factory).open("testContainer"); will(returnValue(container));
 		}});
 		
@@ -128,7 +127,7 @@ public class TestContainerLocatorImpl {
 		Container c = underTest.getContainer(model);
 		Assert.assertNotNull(c);
 		
-		EditableContainer ec = underTest.getEditableContainer(model);
+		Container ec = underTest.getOpenContainer(model);
 		Assert.assertNotNull(ec);
 		
 		context.assertIsSatisfied();

@@ -33,24 +33,24 @@
 		- objexMiddlewareFactory - Factory for the middleware at runtime 
 	 -->
 
-	<bean id="callersContainerStrategy" class="org.tpspencer.tal.objexj.container.SimpleContainerStrategy">
+	<bean id="callersContainerStrategy" class="org.talframework.objexj.container.impl.SimpleContainerStrategy">
 		<constructor-arg value="Callers" />
 		<constructor-arg value="Callers" />
 		<constructor-arg value="Caller" />
 		<constructor-arg><list>
-			<bean class="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerStrategy" />
+			<bean p:typeName="Caller" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
 		</list></constructor-arg>
 		<property name="namedQueries">
 			<map>
 				<entry key="callers">
-					<bean id="callersSearch" class="org.tpspencer.tal.objexj.gae.query.GAEFixedQuery">
+					<bean id="callersSearch" class="org.talframework.objexj.runtime.gae.query.GAEFixedQuery">
 						<property name="kind" value="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerBean" />
 						<property name="mandatoryParameters"><map><entry key="lastName" value="="/></map></property>
 						<property name="parameters"><map><entry key="firstName" value="="/></map></property>
 					</bean>
 				</entry>
 				<entry key="caller">
-					<bean id="callerSearch" class="org.tpspencer.tal.objexj.gae.query.GAEFixedQuery">
+					<bean id="callerSearch" class="org.talframework.objexj.runtime.gae.query.GAEFixedQuery">
 						<property name="kind" value="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerBean" />
 						<property name="parameters"><map>
 							<entry key="firstName" value="="/>
@@ -70,7 +70,7 @@
 		</property>
 	</bean>
 	
-	<bean id="callersContainerFactory" class="org.tpspencer.tal.objexj.locator.SimpleContainerFactory">
+	<bean id="callersContainerFactory" class="org.talframework.objexj.locator.SimpleContainerFactory">
 		<property name="strategy" ref="callersContainerStrategy" />
 		<property name="middlewareFactory" ref="objexMiddlewareFactory" />
 	</bean>

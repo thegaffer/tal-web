@@ -2,12 +2,14 @@ package org.tpspencer.tal.mvc.sample.objex.model.order;
 
 import java.lang.String;
 import java.util.Date;
+import org.talframework.objexj.ObjexObj;
+import org.talframework.objexj.ObjexObjStateBean;
+import org.talframework.objexj.ValidationRequest;
+import org.talframework.objexj.object.BaseObjexObj;
+import org.talframework.objexj.object.ObjectUtils;
+import org.talframework.objexj.object.StateBeanUtils;
 import org.tpspencer.tal.mvc.sample.model.common.Address;
 import org.tpspencer.tal.mvc.sample.objex.model.order.OrderBean;
-import org.tpspencer.tal.objexj.ObjexObj;
-import org.tpspencer.tal.objexj.ObjexObjStateBean;
-import org.tpspencer.tal.objexj.object.BaseObjexObj;
-import org.tpspencer.tal.objexj.object.ObjectUtils;
 
 privileged aspect OrderImpl_Roo_ObjexObj {
     
@@ -19,15 +21,20 @@ privileged aspect OrderImpl_Roo_ObjexObj {
     
     public ObjexObjStateBean OrderImpl.getStateObject() {
         if( isUpdateable() ) return bean;
-        else return new OrderBean(bean);
+        else return bean.cloneState();
+    }
+    
+    public void OrderImpl.validate(ValidationRequest request) {
+        return;
     }
     
     public String OrderImpl.getAccount() {
-        return bean.getAccount();
+        return cloneValue(bean.getAccount());
     }
     
     public void OrderImpl.setAccount(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getAccount(), val) ) return;
+        ensureUpdateable(bean);
         bean.setAccount(val);
     }
     
@@ -40,18 +47,18 @@ privileged aspect OrderImpl_Roo_ObjexObj {
     }
     
     public Address OrderImpl.createCollection() {
-        checkUpdateable();
+        ensureUpdateable(bean);
         if( bean.getCollection() != null )
-        	ObjectUtils.removeObject(this, bean.getCollection());
-        ObjexObj val = ObjectUtils.createObject(this, "Address");
+        	ObjectUtils.removeObject(this, bean, bean.getCollection());
+        ObjexObj val = ObjectUtils.createObject(this, bean, "Address");
         bean.setCollection(val.getId().toString());
         return val.getBehaviour(Address.class);
     }
     
     public void OrderImpl.removeCollection() {
-        checkUpdateable();
+        ensureUpdateable(bean);
         if( bean.getCollection() != null )
-        	ObjectUtils.removeObject(this, bean.getCollection());
+        	ObjectUtils.removeObject(this, bean, bean.getCollection());
     }
     
     public Address OrderImpl.getDelivery() {
@@ -63,53 +70,57 @@ privileged aspect OrderImpl_Roo_ObjexObj {
     }
     
     public Address OrderImpl.createDelivery() {
-        checkUpdateable();
+        ensureUpdateable(bean);
         if( bean.getDelivery() != null )
-        	ObjectUtils.removeObject(this, bean.getDelivery());
-        ObjexObj val = ObjectUtils.createObject(this, "Address");
+        	ObjectUtils.removeObject(this, bean, bean.getDelivery());
+        ObjexObj val = ObjectUtils.createObject(this, bean, "Address");
         bean.setDelivery(val.getId().toString());
         return val.getBehaviour(Address.class);
     }
     
     public void OrderImpl.removeDelivery() {
-        checkUpdateable();
+        ensureUpdateable(bean);
         if( bean.getDelivery() != null )
-        	ObjectUtils.removeObject(this, bean.getDelivery());
+        	ObjectUtils.removeObject(this, bean, bean.getDelivery());
     }
     
     public Date OrderImpl.getCollectionDate() {
-        return bean.getCollectionDate();
+        return cloneValue(bean.getCollectionDate());
     }
     
     public void OrderImpl.setCollectionDate(Date val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getCollectionDate(), val) ) return;
+        ensureUpdateable(bean);
         bean.setCollectionDate(val);
     }
     
     public Date OrderImpl.getCollectionTime() {
-        return bean.getCollectionTime();
+        return cloneValue(bean.getCollectionTime());
     }
     
     public void OrderImpl.setCollectionTime(Date val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getCollectionTime(), val) ) return;
+        ensureUpdateable(bean);
         bean.setCollectionTime(val);
     }
     
     public String OrderImpl.getService() {
-        return bean.getService();
+        return cloneValue(bean.getService());
     }
     
     public void OrderImpl.setService(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getService(), val) ) return;
+        ensureUpdateable(bean);
         bean.setService(val);
     }
     
     public String OrderImpl.getGoodsType() {
-        return bean.getGoodsType();
+        return cloneValue(bean.getGoodsType());
     }
     
     public void OrderImpl.setGoodsType(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getGoodsType(), val) ) return;
+        ensureUpdateable(bean);
         bean.setGoodsType(val);
     }
     
@@ -118,16 +129,18 @@ privileged aspect OrderImpl_Roo_ObjexObj {
     }
     
     public void OrderImpl.setGoodsNumber(int val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getGoodsNumber(), val) ) return;
+        ensureUpdateable(bean);
         bean.setGoodsNumber(val);
     }
     
     public String OrderImpl.getGoodsWeight() {
-        return bean.getGoodsWeight();
+        return cloneValue(bean.getGoodsWeight());
     }
     
     public void OrderImpl.setGoodsWeight(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getGoodsWeight(), val) ) return;
+        ensureUpdateable(bean);
         bean.setGoodsWeight(val);
     }
     

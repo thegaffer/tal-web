@@ -31,16 +31,16 @@
 		- objexMiddlewareFactory - Factory for the middleware at runtime 
 	 -->
 
-	<bean id="accountsContainerStrategy" class="org.tpspencer.tal.objexj.container.SimpleContainerStrategy">
+	<bean id="accountsContainerStrategy" class="org.talframework.objexj.container.impl.SimpleContainerStrategy">
 		<constructor-arg value="Accounts" />
 		<constructor-arg value="Accounts" />
 		<constructor-arg value="Account" />
 		<constructor-arg><list>
-			<bean class="org.tpspencer.tal.mvc.sample.objex.model.contact.AccountStrategy" />
+			<bean p:typeName="Account" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.contact.AccountBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.contact.AccountImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
 		</list></constructor-arg>
 	</bean>
 	
-	<bean id="accountsContainerFactory" class="org.tpspencer.tal.objexj.locator.SimpleContainerFactory">
+	<bean id="accountsContainerFactory" class="org.talframework.objexj.locator.SimpleContainerFactory">
 		<constructor-arg ref="accountsContainerStrategy" />
 		<constructor-arg ref="objexMiddlewareFactory" />
 	</bean>

@@ -1,7 +1,7 @@
 package org.tpspencer.tal.mvc.commons.objex;
 
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.EditableContainer;
+import org.talframework.objexj.Container;
+
 
 /**
  * Use this interface to obtain Objex containers.
@@ -32,6 +32,6 @@ public interface ContainerLocator {
 	 * @param obj The optional reference
 	 * @return The editable container
 	 */
-	public abstract EditableContainer getEditableContainer(Object obj);
+	public abstract Container getOpenContainer(Object obj);
 
 }

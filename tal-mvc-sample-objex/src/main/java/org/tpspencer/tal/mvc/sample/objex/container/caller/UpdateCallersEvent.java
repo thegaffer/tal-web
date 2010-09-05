@@ -3,14 +3,13 @@ package org.tpspencer.tal.mvc.sample.objex.container.caller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.talframework.objexj.Container;
+import org.talframework.objexj.Event;
+import org.talframework.objexj.events.EventHandler;
+import org.talframework.objexj.locator.ContainerFactory;
+import org.talframework.objexj.query.DefaultQueryRequest;
+import org.talframework.objexj.query.QueryResult;
 import org.tpspencer.tal.mvc.sample.model.contact.Caller;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.EditableContainer;
-import org.tpspencer.tal.objexj.events.Event;
-import org.tpspencer.tal.objexj.events.EventHandler;
-import org.tpspencer.tal.objexj.locator.ContainerFactory;
-import org.tpspencer.tal.objexj.query.DefaultQueryRequest;
-import org.tpspencer.tal.objexj.query.QueryResult;
 import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 @Trace
@@ -35,12 +34,13 @@ public class UpdateCallersEvent implements EventHandler {
         
         // Add new contact if not found
         if( result.getResults() == null || result.getResults().size() == 0 ) {
-            EditableContainer c = factory.open(container.getId());
-            Caller caller = c.newObject("Caller", c.getRootObject()).getBehaviour(Caller.class);
-            caller.setFirstName(firstName);
+            Container c = factory.open(container.getId());
+            Caller caller = null; // c.newObject("Caller", c.getRootObject()).getBehaviour(Caller.class);
+            throw new IllegalArgumentException("TODO: Creation of object in anon parent!");
+            /*caller.setFirstName(firstName);
             caller.setLastName(lastName);
             caller.setAccount(account);
-            c.saveContainer();
+            c.saveContainer();*/
         }
     }
 

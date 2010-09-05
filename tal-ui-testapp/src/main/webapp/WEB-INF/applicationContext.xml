@@ -22,7 +22,8 @@
        xmlns:mvc="http://www.tpspencer.org/schema/mvc"
        xsi:schemaLocation="
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd">
+			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd"
+	   default-lazy-init="true">
 			
 	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-testdata.xml"/>
 	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-context.xml"/>
@@ -30,6 +31,6 @@
 	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-context-overrides.xml"/>
 	
 	<!-- GAE Middleware Factory -->
-	<bean id="objexMiddlewareFactory" class="org.tpspencer.tal.objexj.gae.GAEMiddlewareFactory" />
+	<bean id="objexMiddlewareFactory" class="org.talframework.objexj.runtime.gae.GAEMiddlewareFactory" />
 	
 </beans>

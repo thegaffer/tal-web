@@ -1,12 +1,11 @@
 package org.tpspencer.tal.mvc.commons.objex;
 
+import org.talframework.objexj.Container;
+import org.talframework.objexj.locator.ContainerFactory;
+import org.talframework.objexj.locator.SingletonContainerLocator;
 import org.tpspencer.tal.mvc.Model;
 import org.tpspencer.tal.mvc.Model.ModelCleanupTask;
 import org.tpspencer.tal.mvc.model.ModelResolver;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.EditableContainer;
-import org.tpspencer.tal.objexj.locator.ContainerFactory;
-import org.tpspencer.tal.objexj.locator.SingletonContainerLocator;
 
 /**
  * This class is the base class for other objex resolvers.
@@ -67,7 +66,7 @@ public abstract class BaseObjexResolver implements ModelResolver {
         // TODO: See if this container has already been obtained on thread!
         
         if( editable ) {
-            EditableContainer container = null;
+            Container container = null;
             if( factory != null && containerId != null ) container = factory.open(containerId);
             else if( factory != null && containerId == null && createIfEmpty ) container = factory.create();
             else if( factory == null && containerId != null ) container = SingletonContainerLocator.getInstance().open(containerId);
@@ -177,11 +176,11 @@ public abstract class BaseObjexResolver implements ModelResolver {
      */
     private static class ContainerCleanupTask implements ModelCleanupTask {
         
-        private final EditableContainer container;
+        private final Container container;
         private final String containerAttribute;
         private final boolean suspend;
         
-        public ContainerCleanupTask(EditableContainer container, String attribute, boolean suspend) {
+        public ContainerCleanupTask(Container container, String attribute, boolean suspend) {
             this.container = container;
             this.containerAttribute = attribute;
             this.suspend = suspend;

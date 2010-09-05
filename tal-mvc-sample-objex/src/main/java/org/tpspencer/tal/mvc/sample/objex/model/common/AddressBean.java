@@ -16,7 +16,7 @@
 
 package org.tpspencer.tal.mvc.sample.objex.model.common;
 
-import org.tpspencer.tal.objexj.annotations.ObjexStateBean;
+import org.talframework.objexj.annotations.ObjexStateBean;
 
 /**
  * Simple bean for sample app

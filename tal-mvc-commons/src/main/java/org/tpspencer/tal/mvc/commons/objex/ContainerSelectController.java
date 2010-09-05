@@ -1,10 +1,10 @@
 package org.tpspencer.tal.mvc.commons.objex;
 
+import org.talframework.objexj.Container;
+import org.talframework.objexj.ObjexObj;
 import org.tpspencer.tal.mvc.Controller;
 import org.tpspencer.tal.mvc.Model;
 import org.tpspencer.tal.mvc.input.InputModel;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.ObjexObj;
 
 /**
  * Standard controller selects an objex object and then puts

@@ -2,9 +2,11 @@ package org.tpspencer.tal.mvc.sample.objex.model.order;
 
 import java.lang.String;
 import java.util.Date;
+import org.talframework.objexj.ObjexObjStateBean;
+import org.talframework.objexj.ValidationRequest;
+import org.talframework.objexj.object.BaseObjexObj;
+import org.talframework.objexj.object.StateBeanUtils;
 import org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryBean;
-import org.tpspencer.tal.objexj.ObjexObjStateBean;
-import org.tpspencer.tal.objexj.object.BaseObjexObj;
 
 privileged aspect OrderSummaryImpl_Roo_ObjexObj {
     
@@ -16,78 +18,90 @@ privileged aspect OrderSummaryImpl_Roo_ObjexObj {
     
     public ObjexObjStateBean OrderSummaryImpl.getStateObject() {
         if( isUpdateable() ) return bean;
-        else return new OrderSummaryBean(bean);
+        else return bean.cloneState();
+    }
+    
+    public void OrderSummaryImpl.validate(ValidationRequest request) {
+        return;
     }
     
     public String OrderSummaryImpl.getOrderId() {
-        return bean.getOrderId();
+        return cloneValue(bean.getOrderId());
     }
     
     public void OrderSummaryImpl.setOrderId(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getOrderId(), val) ) return;
+        ensureUpdateable(bean);
         bean.setOrderId(val);
     }
     
     public Date OrderSummaryImpl.getOrderDate() {
-        return bean.getOrderDate();
+        return cloneValue(bean.getOrderDate());
     }
     
     public void OrderSummaryImpl.setOrderDate(Date val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getOrderDate(), val) ) return;
+        ensureUpdateable(bean);
         bean.setOrderDate(val);
     }
     
     public String OrderSummaryImpl.getAccountId() {
-        return bean.getAccountId();
+        return cloneValue(bean.getAccountId());
     }
     
     public void OrderSummaryImpl.setAccountId(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getAccountId(), val) ) return;
+        ensureUpdateable(bean);
         bean.setAccountId(val);
     }
     
     public String OrderSummaryImpl.getCollectionTown() {
-        return bean.getCollectionTown();
+        return cloneValue(bean.getCollectionTown());
     }
     
     public void OrderSummaryImpl.setCollectionTown(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getCollectionTown(), val) ) return;
+        ensureUpdateable(bean);
         bean.setCollectionTown(val);
     }
     
     public String OrderSummaryImpl.getCollectionPostcode() {
-        return bean.getCollectionPostcode();
+        return cloneValue(bean.getCollectionPostcode());
     }
     
     public void OrderSummaryImpl.setCollectionPostcode(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getCollectionPostcode(), val) ) return;
+        ensureUpdateable(bean);
         bean.setCollectionPostcode(val);
     }
     
     public String OrderSummaryImpl.getCollectionCountry() {
-        return bean.getCollectionCountry();
+        return cloneValue(bean.getCollectionCountry());
     }
     
     public void OrderSummaryImpl.setCollectionCountry(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getCollectionCountry(), val) ) return;
+        ensureUpdateable(bean);
         bean.setCollectionCountry(val);
     }
     
     public Date OrderSummaryImpl.getCollectionDate() {
-        return bean.getCollectionDate();
+        return cloneValue(bean.getCollectionDate());
     }
     
     public void OrderSummaryImpl.setCollectionDate(Date val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getCollectionDate(), val) ) return;
+        ensureUpdateable(bean);
         bean.setCollectionDate(val);
     }
     
     public String OrderSummaryImpl.getService() {
-        return bean.getService();
+        return cloneValue(bean.getService());
     }
     
     public void OrderSummaryImpl.setService(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getService(), val) ) return;
+        ensureUpdateable(bean);
         bean.setService(val);
     }
     

@@ -16,9 +16,9 @@
 
 package org.tpspencer.tal.mvc.sample.objex.model.contact;
 
+import org.talframework.objexj.annotations.ObjexObj;
 import org.tpspencer.tal.mvc.sample.model.account.Account;
 import org.tpspencer.tal.mvc.sample.model.common.Address;
-import org.tpspencer.tal.objexj.annotations.ObjexObj;
 
 @ObjexObj(AccountBean.class)
 public class AccountImpl implements Account {

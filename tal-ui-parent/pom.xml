@@ -21,15 +21,19 @@
   	<dep.jmock>2.5.1</dep.jmock>
   	<dep.spring>2.5.6</dep.spring>
   	<dep.jasperel>6.0.26</dep.jasperel>
+  	<dep.objex>0.9</dep.objex>
+  	<dep.tal.beans>0.9</dep.tal.beans>
+  	<dep.tal.test>0.9</dep.tal.test>
+  	<dep.tal.aspect>0.9</dep.tal.aspect>
   </properties>
   
   <dependencies>
-  	<!-- All Projects should use JUnit 4 for Testing -->
+  	<!-- All Projects should use TAL Test for Testing (brings in JUnit) -->
   	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>${dep.junit}</version>
-		<scope>test</scope>
+  		<groupId>org.talframework.tal</groupId>
+  		<artifactId>tal-util-test</artifactId>
+  		<version>${dep.tal.test}</version>
+  		<scope>test</scope>
   	</dependency>
   </dependencies>
   
@@ -38,7 +42,7 @@
 	  	<dependency>
 			<groupId>org.tpspencer.tal</groupId>
 			<artifactId>tal-aspects</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>${dep.tal.aspect}</version>
 		</dependency>
 		
   		<!-- Commons Logging Version -->
@@ -111,6 +115,32 @@
       		<scope>provided</scope>
 			<optional>true</optional>
     	</dependency>
+    	
+    	<!--  Tal -->
+    	<dependency>
+	  		<groupId>org.talframework.tal</groupId>
+	  		<artifactId>tal-util-beans</artifactId>
+	  		<version>${dep.tal.beans}</version>
+	  	</dependency>
+	  	
+    	<dependency>
+	  		<groupId>org.talframework.objex</groupId>
+	  		<artifactId>tal-objex-core</artifactId>
+	  		<version>${dep.objex}</version>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>org.talframework.objex</groupId>
+	  		<artifactId>tal-objex-annotations</artifactId>
+	  		<version>${dep.objex}</version>
+	  		<optional>true</optional>
+	  		<scope>provided</scope>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>org.talframework.objex</groupId>
+	  		<artifactId>tal-objex-gae</artifactId>
+	  		<version>${dep.objex}</version>
+	  	</dependency>
+	  	
   	</dependencies>
   </dependencyManagement>
   

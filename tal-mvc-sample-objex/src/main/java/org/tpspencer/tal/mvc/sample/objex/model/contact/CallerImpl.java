@@ -16,8 +16,8 @@
 
 package org.tpspencer.tal.mvc.sample.objex.model.contact;
 
+import org.talframework.objexj.annotations.ObjexObj;
 import org.tpspencer.tal.mvc.sample.model.contact.Caller;
-import org.tpspencer.tal.objexj.annotations.ObjexObj;
 
 @ObjexObj(CallerBean.class)
 public class CallerImpl implements Caller {

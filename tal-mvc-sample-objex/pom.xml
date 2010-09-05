@@ -12,10 +12,6 @@
   <name>Tal MVC Objex Sample</name>
   <description>Extends the Sample App to use an Objex generated Model</description>
   
-  <properties>
-  	<objex.version>0.1-SNAPSHOT</objex.version>
-  </properties>
-  
   <dependencies>
   	<dependency>
   		<groupId>org.tpspencer.talui</groupId>
@@ -26,20 +22,17 @@
   	<!-- Objex -->
   	<dependency>
   		<groupId>org.talframework.objex</groupId>
-  		<artifactId>tal-objex-core</artifactId>
-  		<version>${objex.version}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.talframework.objex</groupId>
   		<artifactId>tal-objex-annotations</artifactId>
-  		<version>${objex.version}</version>
   		<optional>true</optional>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
+  		<groupId>org.talframework.objex</groupId>
+  		<artifactId>tal-objex-core</artifactId>
+  	</dependency>
+  	<dependency>
   		<groupId>org.talframework.tal</groupId>
   		<artifactId>tal-util-beans</artifactId>
-  		<version>1.0-SNAPSHOT</version>
   	</dependency>
   	
   	<!-- JDO -->
@@ -79,7 +72,6 @@
   	<dependency>
   		<groupId>org.talframework.objex</groupId>
   		<artifactId>tal-objex-gae</artifactId>
-  		<version>${objex.version}</version>
   		<scope>runtime</scope>
   	</dependency>
   </dependencies>

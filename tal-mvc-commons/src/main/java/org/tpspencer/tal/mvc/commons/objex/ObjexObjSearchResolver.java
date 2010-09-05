@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.talframework.objexj.Container;
+import org.talframework.objexj.ObjexObj;
+import org.talframework.objexj.query.DefaultQueryRequest;
+import org.talframework.objexj.query.QueryRequest;
+import org.talframework.objexj.query.QueryResult;
 import org.talframework.util.properties.PropertyUtil;
 import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.ObjexObj;
-import org.tpspencer.tal.objexj.query.DefaultQueryRequest;
-import org.tpspencer.tal.objexj.query.QueryRequest;
-import org.tpspencer.tal.objexj.query.QueryResult;
 
 /**
  * This model resolver performs a search against using a query

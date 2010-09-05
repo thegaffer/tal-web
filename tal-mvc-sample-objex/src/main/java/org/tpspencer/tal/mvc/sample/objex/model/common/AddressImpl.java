@@ -1,7 +1,7 @@
 package org.tpspencer.tal.mvc.sample.objex.model.common;
 
+import org.talframework.objexj.annotations.ObjexObj;
 import org.tpspencer.tal.mvc.sample.model.common.Address;
-import org.tpspencer.tal.objexj.annotations.ObjexObj;
 
 @ObjexObj(AddressBean.class)
 public class AddressImpl implements Address {

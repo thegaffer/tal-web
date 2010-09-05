@@ -2,7 +2,7 @@ package org.tpspencer.tal.mvc.sample.objex.model.order;
 
 import java.util.Date;
 
-import org.tpspencer.tal.objexj.annotations.ObjexStateBean;
+import org.talframework.objexj.annotations.ObjexStateBean;
 
 @ObjexStateBean(name="OrderSummary")
 public class OrderSummaryBean {

@@ -4,10 +4,9 @@ import java.util.Map;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.talframework.objexj.Container;
+import org.talframework.objexj.locator.ContainerFactory;
 import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.EditableContainer;
-import org.tpspencer.tal.objexj.locator.ContainerFactory;
 
 /**
  * This is a helper class that finds a container.
@@ -45,13 +44,13 @@ public class ContainerLocatorImpl implements ContainerLocator {
 	 */
 	public Container getContainer(Object obj) {
 		String id = getContainerId(obj);
-		return factory.open(id);
+		return factory.get(id);
 	}
 	
 	/* (non-Javadoc)
 	 * @see org.tpspencer.tal.mvc.commons.objex.ContainerLocator#getEditableContainer(java.lang.Object)
 	 */
-	public EditableContainer getEditableContainer(Object obj) {
+	public Container getOpenContainer(Object obj) {
 		String id = getContainerId(obj);
 		return factory.open(id);
 	}

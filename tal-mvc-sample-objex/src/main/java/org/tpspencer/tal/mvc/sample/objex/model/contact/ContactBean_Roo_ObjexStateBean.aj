@@ -4,13 +4,13 @@ import java.lang.Object;
 import java.lang.String;
 import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.NotPersistent;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
-import org.tpspencer.tal.mvc.sample.objex.model.contact.ContactBean;
-import org.tpspencer.tal.objexj.ObjexID;
-import org.tpspencer.tal.objexj.ObjexObjStateBean;
-import org.tpspencer.tal.objexj.object.ObjectUtils;
+import org.talframework.objexj.ObjexID;
+import org.talframework.objexj.ObjexObjStateBean;
+import org.talframework.objexj.object.ObjectUtils;
 
 privileged aspect ContactBean_Roo_ObjexStateBean {
     
@@ -23,28 +23,15 @@ privileged aspect ContactBean_Roo_ObjexStateBean {
     @Extension(vendorName = "datanucleus", key = "gae.encoded-pk", value = "true")
     private String ContactBean.id;
     
+    @Persistent(column = "parentId")
     private String ContactBean.parentId;
+    
+    @NotPersistent
+    private transient boolean ContactBean._editable;
     
     public ContactBean.new() {
         super();
-        // Nothing
-    }
-
-    public ContactBean.new(ContactBean src) {
-        super();
-        this.firstName = src.firstName;
-        this.lastName = src.lastName;
-        this.account = src.account;
-        this.company = src.company;
-        this.address = src.address;
-        this.previousCrn = src.previousCrn;
-        this.id = src.id;
-        this.parentId = src.parentId;
-    }
-
-    public ContactBean.new(ObjexID parentId) {
-        super();
-        this.parentId = parentId != null ? parentId.toString() : null;
+        _editable = false;
     }
 
     public String ContactBean.getId() {
@@ -55,17 +42,42 @@ privileged aspect ContactBean_Roo_ObjexStateBean {
         return this.parentId;
     }
     
+    public boolean ContactBean.isEditable() {
+        return _editable;
+    }
+    
+    public void ContactBean.setEditable() {
+        _editable = true;
+    }
+    
     public String ContactBean.getObjexObjType() {
         return "Contact";
     }
     
-    public void ContactBean.init(Object id) {
+    public void ContactBean.create(ObjexID parentId) {
+        this.parentId = parentId != null ? parentId.toString() : null;
+    }
+    
+    public void ContactBean.preSave(Object id) {
         this.id = id != null ? id.toString() : null;
     }
     
     public void ContactBean.updateTemporaryReferences(java.util.Map<ObjexID, ObjexID> refs) {
         parentId = ObjectUtils.updateTempReferences(parentId, refs);
         address = ObjectUtils.updateTempReferences(address, refs);
+    }
+    
+    public ObjexObjStateBean ContactBean.cloneState() {
+        ContactBean ret = new ContactBean();
+        ret.firstName = this.firstName;
+        ret.lastName = this.lastName;
+        ret.account = this.account;
+        ret.company = this.company;
+        ret.address = this.address;
+        ret.previousCrn = this.previousCrn;
+        ret.id = this.id;
+        ret.parentId = this.parentId;
+        return ret;
     }
     
 }

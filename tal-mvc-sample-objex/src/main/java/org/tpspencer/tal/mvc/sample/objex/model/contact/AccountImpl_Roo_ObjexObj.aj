@@ -1,12 +1,14 @@
 package org.tpspencer.tal.mvc.sample.objex.model.contact;
 
 import java.lang.String;
+import org.talframework.objexj.ObjexObj;
+import org.talframework.objexj.ObjexObjStateBean;
+import org.talframework.objexj.ValidationRequest;
+import org.talframework.objexj.object.BaseObjexObj;
+import org.talframework.objexj.object.ObjectUtils;
+import org.talframework.objexj.object.StateBeanUtils;
 import org.tpspencer.tal.mvc.sample.model.common.Address;
 import org.tpspencer.tal.mvc.sample.objex.model.contact.AccountBean;
-import org.tpspencer.tal.objexj.ObjexObj;
-import org.tpspencer.tal.objexj.ObjexObjStateBean;
-import org.tpspencer.tal.objexj.object.BaseObjexObj;
-import org.tpspencer.tal.objexj.object.ObjectUtils;
 
 privileged aspect AccountImpl_Roo_ObjexObj {
     
@@ -18,24 +20,30 @@ privileged aspect AccountImpl_Roo_ObjexObj {
     
     public ObjexObjStateBean AccountImpl.getStateObject() {
         if( isUpdateable() ) return bean;
-        else return new AccountBean(bean);
+        else return bean.cloneState();
+    }
+    
+    public void AccountImpl.validate(ValidationRequest request) {
+        return;
     }
     
     public String AccountImpl.getAccountNos() {
-        return bean.getAccountNos();
+        return cloneValue(bean.getAccountNos());
     }
     
     public void AccountImpl.setAccountNos(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getAccountNos(), val) ) return;
+        ensureUpdateable(bean);
         bean.setAccountNos(val);
     }
     
     public String AccountImpl.getCompany() {
-        return bean.getCompany();
+        return cloneValue(bean.getCompany());
     }
     
     public void AccountImpl.setCompany(String val) {
-        checkUpdateable();
+        if( !StateBeanUtils.hasChanged(bean.getCompany(), val) ) return;
+        ensureUpdateable(bean);
         bean.setCompany(val);
     }
     
@@ -48,18 +56,18 @@ privileged aspect AccountImpl_Roo_ObjexObj {
     }
     
     public Address AccountImpl.createAddress() {
-        checkUpdateable();
+        ensureUpdateable(bean);
         if( bean.getAddress() != null )
-        	ObjectUtils.removeObject(this, bean.getAddress());
-        ObjexObj val = ObjectUtils.createObject(this, "Address");
+        	ObjectUtils.removeObject(this, bean, bean.getAddress());
+        ObjexObj val = ObjectUtils.createObject(this, bean, "Address");
         bean.setAddress(val.getId().toString());
         return val.getBehaviour(Address.class);
     }
     
     public void AccountImpl.removeAddress() {
-        checkUpdateable();
+        ensureUpdateable(bean);
         if( bean.getAddress() != null )
-        	ObjectUtils.removeObject(this, bean.getAddress());
+        	ObjectUtils.removeObject(this, bean, bean.getAddress());
     }
     
 }

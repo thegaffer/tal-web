@@ -1,6 +1,6 @@
 package org.tpspencer.tal.mvc.sample.objex.model.contact;
 
-import org.tpspencer.tal.objexj.annotations.ObjexStateBean;
+import org.talframework.objexj.annotations.ObjexStateBean;
 
 @ObjexStateBean(name="Caller")
 public class CallerBean {

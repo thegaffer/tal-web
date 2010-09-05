@@ -17,6 +17,9 @@
 package org.tpspencer.tal.mvc.sample.objex.service;
 
 
+import org.talframework.objexj.Container;
+import org.talframework.objexj.ObjexObj;
+import org.talframework.objexj.locator.ContainerFactory;
 import org.tpspencer.tal.mvc.commons.repository.SimpleRepository;
 import org.tpspencer.tal.mvc.sample.model.account.Account;
 import org.tpspencer.tal.mvc.sample.model.account.AccountBean;
@@ -24,10 +27,6 @@ import org.tpspencer.tal.mvc.sample.model.contact.Caller;
 import org.tpspencer.tal.mvc.sample.model.contact.Contact;
 import org.tpspencer.tal.mvc.sample.service.ContactService;
 import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
-import org.tpspencer.tal.objexj.Container;
-import org.tpspencer.tal.objexj.EditableContainer;
-import org.tpspencer.tal.objexj.ObjexObj;
-import org.tpspencer.tal.objexj.locator.ContainerFactory;
 import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
@@ -50,9 +49,9 @@ public class ContactServiceImpl implements ContactService {
 		// SUGGEST: Could use id to open the container (or create!?!)
 		
 		Container c = ((ObjexObj)contact).getContainer();
-		if( !(c instanceof EditableContainer) ) throw new IllegalArgumentException("Cannot save contact as not in a open transaction");
+		if( !c.isOpen() ) throw new IllegalArgumentException("Cannot save contact as not in a open transaction");
 		
-		((EditableContainer)c).saveContainer();
+		c.saveContainer();
 		return new SaveContactResult(c.getId(), contact);
 	}
 	
@@ -99,7 +98,7 @@ public class ContactServiceImpl implements ContactService {
 	 * @return The contact
 	 */
 	private Contact findOrCreateContact(String contactId) {
-		EditableContainer container = null;
+		Container container = null;
 		if( contactId != null ) container = factory.open(contactId);
 		else container = factory.create();
 		
