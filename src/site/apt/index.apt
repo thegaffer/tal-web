@@ -1,0 +1,53 @@
+Tal UI
+
+  Welcome to the site for the Tal Framework UI (called talui, tal-oo-ee) project.
+  
+  Tal UI has two main components; an implementation of the MVC pattern that works for
+  Web Applications and is still true to the original MVC pattern, and a template based
+  approach for creating views from simple and concise definitions of their structure.
+  
+  Tal UI represents my thinking and application of best practices for both creating and,
+  crucially, maintaining UI applications. It is focused right now on Web Applications,
+  where I believe the MVC pattern in particular has been mutated from its original 
+  purpose. 
+  
+  I also think that far too much time, effort and rework goes into the UI layer of many
+  Web applications and Tal UI represents my ideas on how projects can minimise the
+  effort to create and maintain what should be a thin part of the application when
+  compared to its real business logic.
+  
+  I use Tal UI for development and therefore, support it for that purpose. Although
+  licensed as Open Source, it is not aimed as mass open-source framework. I'd welcome
+  comments and would like the framework to provoke thought and perhaps for some of
+  the ideas to make their way into mainstream frameworks.
+  
+Releases
+
+  The current release is 0.9. See {{{./releases.apt}Releases}} page for information.
+
+Installation
+
+  See {{{./download.apt}Download}} page for information.
+
+Roadmap
+
+  The roadmap right now is to get to a 1.0 release. See {{{./roadmap.apt}Roadmap}} for
+  more information.
+
+License
+
+  Copyright 2010 Thomas Spencer.
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+      http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  The license is also available {{{./license.apt}here}}

@@ -1,0 +1,25 @@
+Releases
+
+  The current release is 0.9 and was made in April 2010. However, due to an environment
+  issue I had to re-release this in September 2010.
+  
+Release 0.9 - April 2010
+
+  This is the first version I have released via Maven into my own repository. It is
+  the first version that I have used on a number of other projects. The key features
+  are:
+  
+    * Basic template support for HTML and JavaScript
+    
+    * Core MVC pattern
+    
+    * Commons package support basic form views, table views, menus and simple controllers
+    
+    * Optional Objex support inside the Commons package
+    
+    * Spring based extensions for easier use in the Spring environment
+    
+    * Servlet container runtime  
+    
+    * Sample App created as part of the project, this will need to be expanded
+    

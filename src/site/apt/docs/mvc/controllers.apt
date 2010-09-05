@@ -1,0 +1,119 @@
+Tal MVC Controllers
+
+ Controllers are an essential part of any application. Put simply they take any input
+ from the user and process it. Typically they will update some component of the model - 
+ if they didn't there would be very little purpose in the action being available to 
+ the user.
+ 
+ It is very important to understand that central to MVC is that the controller has no
+ real knowledge of the views. Ideally a controller should not be aware of what view
+ we have come from or what view we are going to. It is this separation of concern that
+ is so important to the pattern.
+ 
+* Basic Controllers
+
+ The controller interface is very simple and is simply a single method:
+ 
++--
+String performAction(Model model, InputModel input);
++--
+
+ The controller is called to perform an action and is given access to the current Model
+ and the Input. The controller must then return a result. A result will typically be a
+ statement about the outcome, i.e. "customerSelected" or "orderSaved".
+ 
+ You are free to create classes that implement this interface. Inside your performAction
+ you have complete access to read and, more importantly, change the model. Your controller
+ is entirely oblivious to what kind of model attributes it has access to or where they
+ ultimately come from. This is important as it allows you to construct you model separately
+ and easily switch in different implementations.
+
+* Common Controllers
+
+ As described above, a controller handles any input from the user. When described like that
+ many developers will instinctively think of the scenario where a form is submitted by the
+ user and the controller accept, validate and orchestrate the saving of the information in
+ the form via some service.
+ 
+ However, controllers apply whenever the user does something. So a user selecting an item
+ in a row of results still needs a controller. The controller in this scenario is very
+ likely to only going to extract the 'ID' of the row from the input and store it in some
+ Model attribute that represents the current selected row. Whilst this doesn't seem like
+ very much it is important to note it still requires a controller.
+ 
+ The types of simple controllers are so common there are many common controllers built in
+ to Tal MVC via the Commons module. These controllers include:
+ 
+  [[a]] Simple Controller - which does nothing, but returns a result. This can be useful
+  when prototyping systems initially. Also because the Window will look at the result
+  and use it to potentially change the current view (or state) it has it's uses to connect
+  up to Navigational links inside the app.
+  
+  [[b]] Select Controller - Extracts a 'ID' value from the input and sets it in a model
+  attribute. Of course this will 'fire' events if that attribute is configured to be
+  eventable. This is very useful for controllers that respond to users selecting a row
+  in a table. 
+  
+  [[c]] Update Controller - Similar to a select controller but allows the extraction of
+  multiple input parameters into model attributes, optionally validating if they exist.
+
+* Annotated Controllers
+
+ Once you get out of the realm of the simple controllers, our simple single method interface
+ is not serving us well. Many controllers, and particularly the complex ones, will take
+ actual input from the user, bind it into objects, validate the input and update the model 
+ (often through services that contain the real business logic). A common scenario in these
+ types of controllers is that there can be a range of sub-actions, for instance a form with
+ a 'Save' and a 'Save and Quit' button is still the 'submitForm' controller, but the
+ behaviour is slightly different between these two sub-actions.
+ 
+ Once you are in to this type of controller Tal MVC has a series of annotations that can
+ be used to mark otherwise very simple classes in such a way as the plumbing of the
+ parameters to the controller and the controller can be separated to simplify their
+ construction.
+ 
+ Here is an example ...
+ 
++--
+... To-do: Annotated controller example
++-- 
+
+ The key to this class is to look at all the various annotations.
+ 
+  ** Controller
+  
+  ** Action
+  
+  ** ModelInput
+  
+  ** ModelBindInput
+  
+  ** BindInput
+  
+   This annotation is applied to parameters to the action or validate methods.
+   
+   It tells Tal MVC to create a new instance of a given object (by default the type
+   of the parameter itself) and bind the input parameters into this object using
+   a custom binder (or the default binder from the controller).
+   
+   A crucial distinction should be made between BindInput and ModelBindInput. BindInput
+   is when you want to bind into a pure presentation object and pass it on to the 
+   controller. ModelBindInput is used when you want to bind into an object that is part
+   of the wider model. The different is that you do not specify the type of object to
+   bind into when using a ModelBindInput - meaning the model can be configured with 
+   different types leaving the controller to work with different back-ends easily.
+  
+  ** Input
+  
+   This annotation is applied to parameters to the action or validate methods. 
+   
+   It tells Tal MVC to simply extract the attribute from the input without performing 
+   any binding.
+  
+  ** ErrorInput
+  
+   This annotation is applied to the parameters to the action or validate methods.
+   
+   It simply tells Tal MVC to place the current errors model attribute into the parameter.
+   Because the type of the errors attribute is platform dependent no 'config' checking is
+   made on the type of this parameter so run time failures are possible.

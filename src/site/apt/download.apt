@@ -1,0 +1,61 @@
+Installation
+
+  I use Maven to build and release my software and encourage you to do this same. To
+  get hold of Tal UI you need to point to my Maven repository. There are two ways to
+  do this; firstly by adding the repository definition to your pom.xml files, or
+  secondly (and more preferred) is to use Nexus or similar and point that to proxy
+  my repository.
+  
+  * Release Repository - http://dev.tpspencer.org/maven/repo/
+  
+  * Snapshot Repository - http://dev.tpspencer.org/maven/snap_repo/
+  
+  Both are standard Maven2 layouts.
+  
+  The relevant Maven declarations (excluding version) then are:
+  
++--
+<!-- The template package by itself -->
+<dependency>
+  <groupId>org.talframework.talui</groupId>
+  <artifactId>tal-template</artifactId>
+</dependency>
+
+<!-- The core MVC pattern --> 
+<dependency>
+  <groupId>org.talframework.talui</groupId>
+  <artifactId>tal-mvc/artifactId>
+</dependency>
+
+<!-- The Commons Package for common MVC elements -->
+<dependency>
+  <groupId>org.talframework.talui</groupId>
+  <artifactId>tal-mvc-commons/artifactId>
+</dependency>
+
+<!-- The Spring package for better support of Spring configuration of MVC -->
+<dependency>
+  <groupId>org.talframework.talui</groupId>
+  <artifactId>tal-mvc-spring/artifactId>
+  <scope>runtime</scope> <!-- Recommended, do not compile against this runtime orientated package -->
+</dependency>
+
+<!-- The Servlet package to host a Tal UI MVC App inside a standard Web Container -->
+<dependency>
+  <groupId>org.talframework.talui</groupId>
+  <artifactId>tal-mvc-servlet/artifactId>
+  <scope>runtime</scope> <!-- Recommended, do not compile against this runtime orientated package -->
+</dependency>
+
+<!-- The Portlet package to host a Tal UI MVC App inside a portlet Web Container -->
+<dependency>
+  <groupId>org.talframework.talui</groupId>
+  <artifactId>tal-mvc-portlet/artifactId>
+  <scope>runtime</scope> <!-- Recommended, do not compile against this runtime orientated package -->
+</dependency>
++--
+
+  In addition to the modules where runtime support is highly recommended it should be
+  possible, when using a suitable DI container to not have any compile time dependencies
+  of TAL UI with the exception of the annotations, which are in the tal-mvc package. I
+  will try and separate these in future releases to make even that bundling clearer.
