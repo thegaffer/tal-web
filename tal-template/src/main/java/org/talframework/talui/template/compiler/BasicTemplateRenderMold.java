@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler;
+package org.talframework.talui.template.compiler;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,15 +24,15 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.CommandElement;
-import org.tpspencer.tal.template.behaviour.DynamicProperty;
-import org.tpspencer.tal.template.behaviour.GroupElement;
-import org.tpspencer.tal.template.behaviour.InnerTemplateElement;
-import org.tpspencer.tal.template.behaviour.MemberProperty;
-import org.tpspencer.tal.template.render.elements.special.EmptyElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.CommandElement;
+import org.talframework.talui.template.behaviour.DynamicProperty;
+import org.talframework.talui.template.behaviour.GroupElement;
+import org.talframework.talui.template.behaviour.InnerTemplateElement;
+import org.talframework.talui.template.behaviour.MemberProperty;
+import org.talframework.talui.template.render.elements.special.EmptyElement;
 
 
 /**

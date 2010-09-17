@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.objex.model.order;
+package org.talframework.talui.mvc.sample.objex.model.order;
 
 import java.util.Date;
 
 import org.talframework.objexj.annotations.ObjexRefProp;
 import org.talframework.objexj.annotations.ObjexStateBean;
-import org.tpspencer.tal.mvc.sample.model.common.Address;
+import org.talframework.talui.mvc.sample.model.common.Address;
 
 /**
  * Simple Bean for prototyping

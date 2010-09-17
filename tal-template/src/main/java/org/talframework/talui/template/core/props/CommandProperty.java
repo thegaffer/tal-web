@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.props;
+package org.talframework.talui.template.core.props;
 
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.behaviour.CommandElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.behaviour.CommandElement;
 
 /**
  * A simple action property represents an action that

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.apacheel;
+package org.talframework.talui.template.render.apacheel;
 
 import java.util.Map;
 
@@ -35,8 +35,8 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.el.ExpressionFactoryImpl;
 import org.apache.el.lang.FunctionMapperImpl;
 import org.apache.el.lang.VariableMapperImpl;
-import org.tpspencer.tal.template.RenderNode;
-import org.tpspencer.tal.template.render.ExpressionEvaluator;
+import org.talframework.talui.template.RenderNode;
+import org.talframework.talui.template.render.ExpressionEvaluator;
 
 /**
  * This class implements the ExpressionEvaluator using the

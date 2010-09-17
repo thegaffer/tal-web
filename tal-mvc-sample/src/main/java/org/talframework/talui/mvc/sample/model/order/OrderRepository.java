@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.model.order;
+package org.talframework.talui.mvc.sample.model.order;
 
-import org.tpspencer.tal.mvc.commons.repository.PrototypeRepository;
-import org.tpspencer.tal.mvc.sample.model.common.AddressBean;
+import org.talframework.talui.mvc.commons.repository.PrototypeRepository;
+import org.talframework.talui.mvc.sample.model.common.AddressBean;
 
 /**
  * This class is a specialised repository that creates some

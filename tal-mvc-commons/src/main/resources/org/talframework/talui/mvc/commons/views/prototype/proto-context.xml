@@ -28,29 +28,29 @@
 	 -->
 	
 	<!-- Simple HTML Compiler, everything is just divs and spans (tables are still allow) -->
-	<bean id="mvccommons.defaultProtoCompiler" class="org.tpspencer.tal.template.compiler.SimpleGenericCompiler">
+	<bean id="mvccommons.defaultProtoCompiler" class="org.talframework.talui.template.compiler.SimpleGenericCompiler">
 		<property name="mold">
-			<bean class="org.tpspencer.tal.template.compiler.html.HtmlTemplateMold">
+			<bean class="org.talframework.talui.template.compiler.html.HtmlTemplateMold">
 				<property name="namedMolds">
 					<map>
 						<!-- Outputs the member prop with no wrapper -->
 						<entry key="commands">
-							<bean class="org.tpspencer.tal.template.compiler.SimpleTemplateElementMold">
+							<bean class="org.talframework.talui.template.compiler.SimpleTemplateElementMold">
 								<property name="wrapper">
-									<bean class="org.tpspencer.tal.template.compiler.html.fragments.MemberFragment" />
+									<bean class="org.talframework.talui.template.compiler.html.fragments.MemberFragment" />
 								</property>
 							</bean>
 						</entry>
 						
 						<!-- Output the menu item action group as a link -->
 						<entry key="command">
-							<bean class="org.tpspencer.tal.template.compiler.SimpleTemplateElementMold">
+							<bean class="org.talframework.talui.template.compiler.SimpleTemplateElementMold">
 								<property name="wrapper">
-									<bean class="org.tpspencer.tal.template.compiler.html.fragments.ActionFragment" />
+									<bean class="org.talframework.talui.template.compiler.html.fragments.ActionFragment" />
 								</property>
 								<property name="fragments">
 									<list>
-										<bean class="org.tpspencer.tal.template.compiler.html.fragments.ChildrenFragment" />
+										<bean class="org.talframework.talui.template.compiler.html.fragments.ChildrenFragment" />
 									</list>
 								</property>
 							</bean>
@@ -58,9 +58,9 @@
 						
 						<!-- Output the menu item with no wrapper -->
 						<entry key="caption">
-							<bean class="org.tpspencer.tal.template.compiler.SimpleTemplateElementMold">
+							<bean class="org.talframework.talui.template.compiler.SimpleTemplateElementMold">
 								<property name="wrapper">
-									<bean class="org.tpspencer.tal.template.compiler.html.fragments.ValueFragment" />
+									<bean class="org.talframework.talui.template.compiler.html.fragments.ValueFragment" />
 								</property>
 							</bean>
 						</entry>

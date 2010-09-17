@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render;
+package org.talframework.talui.template.render;
 
 import org.hamcrest.Description;
 import org.jmock.api.Action;

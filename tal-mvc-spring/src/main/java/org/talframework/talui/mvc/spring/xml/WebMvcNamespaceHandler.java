@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml;
+package org.talframework.talui.mvc.spring.xml;
 
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 

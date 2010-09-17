@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.objex.model.notification;
+package org.talframework.talui.mvc.sample.objex.model.notification;
 
 
 //@ObjexStateBean(name="CallbackBean")

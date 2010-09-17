@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -25,12 +25,12 @@ import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.render.MockStringBufferAction;
-import org.tpspencer.tal.template.render.UrlGenerator;
-import org.tpspencer.tal.template.render.elements.html.Script;
-import org.tpspencer.tal.template.render.elements.html.TemplateScript;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.render.MockStringBufferAction;
+import org.talframework.talui.template.render.UrlGenerator;
+import org.talframework.talui.template.render.elements.html.Script;
+import org.talframework.talui.template.render.elements.html.TemplateScript;
+import org.talframework.talui.util.htmlhelper.GenericElement;
 
 public class TestScript {
 

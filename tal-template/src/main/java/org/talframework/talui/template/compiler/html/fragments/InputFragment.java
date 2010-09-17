@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html.fragments;
+package org.talframework.talui.template.compiler.html.fragments;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.CommandElement;
-import org.tpspencer.tal.template.behaviour.DynamicProperty;
-import org.tpspencer.tal.template.behaviour.property.CheckedProperty;
-import org.tpspencer.tal.template.behaviour.property.CodedProperty;
-import org.tpspencer.tal.template.behaviour.property.DateProperty;
-import org.tpspencer.tal.template.behaviour.property.NumberProperty;
-import org.tpspencer.tal.template.behaviour.property.TextProperty;
-import org.tpspencer.tal.template.compiler.FragmentMold;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.render.elements.DynamicParameter;
-import org.tpspencer.tal.template.render.elements.html.AbstractHtmlElement;
-import org.tpspencer.tal.template.render.elements.html.ButtonInput;
-import org.tpspencer.tal.template.render.elements.html.Input;
-import org.tpspencer.tal.template.render.elements.html.Select;
-import org.tpspencer.tal.template.render.elements.html.TextArea;
-import org.tpspencer.tal.template.render.elements.special.EmptyElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.CommandElement;
+import org.talframework.talui.template.behaviour.DynamicProperty;
+import org.talframework.talui.template.behaviour.property.CheckedProperty;
+import org.talframework.talui.template.behaviour.property.CodedProperty;
+import org.talframework.talui.template.behaviour.property.DateProperty;
+import org.talframework.talui.template.behaviour.property.NumberProperty;
+import org.talframework.talui.template.behaviour.property.TextProperty;
+import org.talframework.talui.template.compiler.FragmentMold;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.render.elements.DynamicParameter;
+import org.talframework.talui.template.render.elements.html.AbstractHtmlElement;
+import org.talframework.talui.template.render.elements.html.ButtonInput;
+import org.talframework.talui.template.render.elements.html.Input;
+import org.talframework.talui.template.render.elements.html.Select;
+import org.talframework.talui.template.render.elements.html.TextArea;
+import org.talframework.talui.template.render.elements.special.EmptyElement;
 
 /**
  * This fragment outputs a HTML input for the template

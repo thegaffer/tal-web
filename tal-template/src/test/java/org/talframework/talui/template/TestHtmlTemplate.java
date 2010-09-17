@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template;
+package org.talframework.talui.template;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -34,13 +34,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.render.SimpleRenderModel;
-import org.tpspencer.tal.template.render.SpringRenderNodeFactory;
-import org.tpspencer.tal.template.render.TestUrlGenerator;
-import org.tpspencer.tal.template.render.UrlGenerator;
-import org.tpspencer.tal.template.test.SimpleBeanA;
-import org.tpspencer.tal.template.test.SimpleBeanB;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.render.SimpleRenderModel;
+import org.talframework.talui.template.render.SpringRenderNodeFactory;
+import org.talframework.talui.template.render.TestUrlGenerator;
+import org.talframework.talui.template.render.UrlGenerator;
+import org.talframework.talui.template.test.SimpleBeanA;
+import org.talframework.talui.template.test.SimpleBeanB;
 
 /**
  * This class tests the basic html rendering given a

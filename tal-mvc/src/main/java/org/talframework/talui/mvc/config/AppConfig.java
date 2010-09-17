@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.config;
+package org.talframework.talui.mvc.config;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.ModelConfiguration;
 
 /**
  * This configuration class represents a UI application.

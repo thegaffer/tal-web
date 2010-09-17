@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.view;
+package org.talframework.talui.mvc.view;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -27,12 +27,12 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
-import org.tpspencer.tal.mvc.render.RenderModel;
-import org.tpspencer.tal.mvc.view.TemplateView;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.render.RenderModel;
+import org.talframework.talui.mvc.view.TemplateView;
 
 /**
  * Tests the template window

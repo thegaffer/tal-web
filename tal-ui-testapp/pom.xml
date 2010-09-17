@@ -2,12 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-  	<groupId>org.tpspencer.talui</groupId>
+  	<groupId>org.talframework.talui</groupId>
   	<artifactId>tal-ui-parent</artifactId>
   	<version>0.9-SNAPSHOT</version>
   </parent>
   
-  <groupId>org.tpspencer.talui</groupId>
   <artifactId>tal-ui-testapp</artifactId>
   <name>Web MVC Test Web</name>
   <description>A full Web Application that packages the sample project into a WAR</description>
@@ -17,17 +16,17 @@
   
   <dependencies>
   	<dependency>
-  		<groupId>org.tpspencer.talui</groupId>
+  		<groupId>org.talframework.talui</groupId>
   		<artifactId>tal-mvc-servlet</artifactId>
   		<version>${project.version}</version>
   	</dependency>
   	<dependency>
-  		<groupId>org.tpspencer.talui</groupId>
+  		<groupId>org.talframework.talui</groupId>
   		<artifactId>tal-mvc-commons</artifactId>
   		<version>${project.version}</version>
   	</dependency>
   	<dependency>
-  		<groupId>org.tpspencer.talui</groupId>
+  		<groupId>org.talframework.talui</groupId>
   		<artifactId>tal-mvc-sample-objex</artifactId>
   		<version>${project.version}</version>
   	</dependency>
@@ -36,7 +35,6 @@
   	<dependency>
   		<groupId>org.talframework.objex</groupId>
   		<artifactId>tal-objex-gae</artifactId>
-  		<version>0.1-SNAPSHOT</version>
   		<scope>runtime</scope>
   	</dependency>
   	<dependency> 
@@ -99,8 +97,7 @@
       
       <!-- To remove, staying so we have an example to work with -->
       <!-- <plugin>
-      	<groupId>org.tpspencer.talui</groupId>
-      	<artifactId>tal-ui-maven-plugin</artifactId>
+      	<groupId>org.taorg.taorg.talframework.talui  	<artifactId>tal-ui-maven-plugin</artifactId>
       	<configuration>
       		<appName>test</appName>
       	</configuration>
@@ -114,8 +111,7 @@
 		</executions>
 		<dependencies>
 			<dependency>
-				<groupId>org.tpspencer.talui</groupId>
-  				<artifactId>tal-mvc-sample-objex</artifactId>
+				<groupId>org.talforg.talforg.talframework.taluirtifactId>tal-mvc-sample-objex</artifactId>
   				<version>${project.version}</version>
 			</dependency>
 			<dependency>

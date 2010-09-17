@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.handlers;
+package org.talframework.talui.mvc.servlet.handlers;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -28,25 +28,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.mvc.View;
-import org.tpspencer.tal.mvc.Window;
-import org.tpspencer.tal.mvc.config.AppConfig;
-import org.tpspencer.tal.mvc.config.PageConfig;
-import org.tpspencer.tal.mvc.config.WindowConfig;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.StandardModel;
-import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
-import org.tpspencer.tal.mvc.render.BasicRenderModel;
-import org.tpspencer.tal.mvc.servlet.MVCRequestHandler;
-import org.tpspencer.tal.mvc.servlet.RequestCoordinates;
-import org.tpspencer.tal.mvc.servlet.UrlGenerator;
-import org.tpspencer.tal.mvc.servlet.util.RequestAttributeUtils;
-import org.tpspencer.tal.mvc.servlet.util.RequestLogUtils;
-import org.tpspencer.tal.mvc.servlet.util.ServletUrlGenerator;
-import org.tpspencer.tal.template.core.TemplateConfigurationLocator;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
-import org.tpspencer.tal.util.htmlhelper.HtmlConstants;
+import org.talframework.talui.mvc.View;
+import org.talframework.talui.mvc.Window;
+import org.talframework.talui.mvc.config.AppConfig;
+import org.talframework.talui.mvc.config.PageConfig;
+import org.talframework.talui.mvc.config.WindowConfig;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.StandardModel;
+import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
+import org.talframework.talui.mvc.render.BasicRenderModel;
+import org.talframework.talui.mvc.servlet.MVCRequestHandler;
+import org.talframework.talui.mvc.servlet.RequestCoordinates;
+import org.talframework.talui.mvc.servlet.UrlGenerator;
+import org.talframework.talui.mvc.servlet.util.RequestAttributeUtils;
+import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
+import org.talframework.talui.mvc.servlet.util.ServletUrlGenerator;
+import org.talframework.talui.template.core.TemplateConfigurationLocator;
+import org.talframework.talui.util.htmlhelper.GenericElement;
+import org.talframework.talui.util.htmlhelper.HtmlConstants;
 
 /**
  * This class aids the dispatcher servlet in a window

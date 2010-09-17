@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.special;
+package org.talframework.talui.template.render.elements.special;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,11 +25,11 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.RenderNode;
-import org.tpspencer.tal.template.behaviour.MemberProperty;
-import org.tpspencer.tal.template.render.elements.special.CollectionElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.RenderNode;
+import org.talframework.talui.template.behaviour.MemberProperty;
+import org.talframework.talui.template.render.elements.special.CollectionElement;
 
 /**
  * Tests the special Array render element.

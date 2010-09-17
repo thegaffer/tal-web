@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc;
+package org.talframework.talui.mvc;
 
-import org.tpspencer.tal.mvc.input.InputModel;
+import org.talframework.talui.mvc.input.InputModel;
 
 
 /**

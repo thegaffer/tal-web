@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller;
+package org.talframework.talui.mvc.controller;
 
 /**
  * This runtime exception indicates there was a problem invoking

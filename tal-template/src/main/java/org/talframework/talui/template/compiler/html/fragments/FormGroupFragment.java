@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html.fragments;
+package org.talframework.talui.template.compiler.html.fragments;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.compiler.FragmentMold;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.render.elements.html.Form;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.compiler.FragmentMold;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.render.elements.html.Form;
 
 /**
  * This fragment is matched to explicitly to a group or element

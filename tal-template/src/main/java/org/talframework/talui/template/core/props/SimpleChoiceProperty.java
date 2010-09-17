@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.props;
+package org.talframework.talui.template.core.props;
 
 import java.util.List;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.property.CodedProperty;
-import org.tpspencer.tal.template.render.codes.CodeType;
-import org.tpspencer.tal.template.render.codes.CodeTypeFactoryLocator;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.property.CodedProperty;
+import org.talframework.talui.template.render.codes.CodeType;
+import org.talframework.talui.template.render.codes.CodeTypeFactoryLocator;
 
 /**
  * Extends simple property for a simple choices field.

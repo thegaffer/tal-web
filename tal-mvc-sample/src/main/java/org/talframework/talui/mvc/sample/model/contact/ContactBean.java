@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.model.contact;
+package org.talframework.talui.mvc.sample.model.contact;
 
-import org.tpspencer.tal.mvc.sample.model.common.Address;
+import org.talframework.talui.mvc.sample.model.common.Address;
 
 public class ContactBean implements Contact {
 	
@@ -33,13 +33,13 @@ public class ContactBean implements Contact {
 	private String previousCrn = null;
 	
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#getId()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#getId()
 	 */
 	public Object getId() {
 		return id;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#setId(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#setId(java.lang.String)
 	 */
 	public void setId(Object id) {
 		if( id == null ) this.id = null;
@@ -47,73 +47,73 @@ public class ContactBean implements Contact {
 		else this.id = id.toString();
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#getFirstName()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#getFirstName()
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#setFirstName(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#setFirstName(java.lang.String)
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#getLastName()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#getLastName()
 	 */
 	public String getLastName() {
 		return lastName;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#setLastName(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#setLastName(java.lang.String)
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#getAccount()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#getAccount()
 	 */
 	public String getAccount() {
 		return account;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#setAccount(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#setAccount(java.lang.String)
 	 */
 	public void setAccount(String account) {
 		this.account = account;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#getCompany()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#getCompany()
 	 */
 	public String getCompany() {
 		return company;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#setCompany(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#setCompany(java.lang.String)
 	 */
 	public void setCompany(String company) {
 		this.company = company;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#getAddress()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#getAddress()
 	 */
 	public Address getAddress() {
 		return address;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#setAddress(org.tpspencer.tal.mvc.sample.model.common.Address)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#setAddress(org.talframework.talui.mvc.sample.model.common.Address)
 	 */
 	public void setAddress(Address address) {
 		this.address = address;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#getPreviousCrn()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#getPreviousCrn()
 	 */
 	public String getPreviousCrn() {
 		return previousCrn;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Contact#setPreviousCrn(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Contact#setPreviousCrn(java.lang.String)
 	 */
 	public void setPreviousCrn(String previousCrn) {
 		this.previousCrn = previousCrn;

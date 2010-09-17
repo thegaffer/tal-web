@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html;
+package org.talframework.talui.template.compiler.html;
 
-import org.tpspencer.tal.template.compiler.FragmentMold;
-import org.tpspencer.tal.template.compiler.html.fragments.ActionFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.ChildrenFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.FormGroupFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.InputFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.LabelFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.MemberFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.TableGroupFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.TableMemberFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.TemplateFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.ValueFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.WrapperFragment;
+import org.talframework.talui.template.compiler.FragmentMold;
+import org.talframework.talui.template.compiler.html.fragments.ActionFragment;
+import org.talframework.talui.template.compiler.html.fragments.ChildrenFragment;
+import org.talframework.talui.template.compiler.html.fragments.FormGroupFragment;
+import org.talframework.talui.template.compiler.html.fragments.InputFragment;
+import org.talframework.talui.template.compiler.html.fragments.LabelFragment;
+import org.talframework.talui.template.compiler.html.fragments.MemberFragment;
+import org.talframework.talui.template.compiler.html.fragments.TableGroupFragment;
+import org.talframework.talui.template.compiler.html.fragments.TableMemberFragment;
+import org.talframework.talui.template.compiler.html.fragments.TemplateFragment;
+import org.talframework.talui.template.compiler.html.fragments.ValueFragment;
+import org.talframework.talui.template.compiler.html.fragments.WrapperFragment;
 
 public class DefaultHtmlFragmentFactory implements HtmlFragmentFactory {
 	private static HtmlFragmentFactory INSTANCE = new DefaultHtmlFragmentFactory();

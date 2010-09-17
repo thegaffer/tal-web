@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.servlet;
+package org.talframework.talui.template.servlet;
 
 import java.io.BufferedInputStream;
 

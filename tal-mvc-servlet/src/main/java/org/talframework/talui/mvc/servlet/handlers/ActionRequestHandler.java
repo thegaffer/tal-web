@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.handlers;
+package org.talframework.talui.mvc.servlet.handlers;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,18 +26,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.config.PageEventConfig;
-import org.tpspencer.tal.mvc.input.InputModel;
-import org.tpspencer.tal.mvc.input.WebInputModel;
-import org.tpspencer.tal.mvc.model.StandardModel;
-import org.tpspencer.tal.mvc.process.ActionProcessor;
-import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
-import org.tpspencer.tal.mvc.servlet.MVCRequestHandler;
-import org.tpspencer.tal.mvc.servlet.RequestCoordinates;
-import org.tpspencer.tal.mvc.servlet.UrlGenerator;
-import org.tpspencer.tal.mvc.servlet.util.RequestLogUtils;
-import org.tpspencer.tal.mvc.servlet.util.ServletUrlGenerator;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.config.PageEventConfig;
+import org.talframework.talui.mvc.input.InputModel;
+import org.talframework.talui.mvc.input.WebInputModel;
+import org.talframework.talui.mvc.model.StandardModel;
+import org.talframework.talui.mvc.process.ActionProcessor;
+import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
+import org.talframework.talui.mvc.servlet.MVCRequestHandler;
+import org.talframework.talui.mvc.servlet.RequestCoordinates;
+import org.talframework.talui.mvc.servlet.UrlGenerator;
+import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
+import org.talframework.talui.mvc.servlet.util.ServletUrlGenerator;
 
 /**
  * This servlet helper handles action requests on a window.

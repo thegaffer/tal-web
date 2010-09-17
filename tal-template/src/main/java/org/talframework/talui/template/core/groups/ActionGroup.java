@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.groups;
+package org.talframework.talui.template.core.groups;
 
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.behaviour.CommandElement;
-import org.tpspencer.tal.template.behaviour.supporting.ReferenceElement;
-import org.tpspencer.tal.template.behaviour.supporting.ResourceProperty;
-import org.tpspencer.tal.template.core.BaseElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.behaviour.CommandElement;
+import org.talframework.talui.template.behaviour.supporting.ReferenceElement;
+import org.talframework.talui.template.behaviour.supporting.ResourceProperty;
+import org.talframework.talui.template.core.BaseElement;
 
 public class ActionGroup extends SimpleGroup implements CommandElement, ResourceProperty, ReferenceElement {
 
@@ -151,7 +151,7 @@ public class ActionGroup extends SimpleGroup implements CommandElement, Resource
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.template.core.groups.SimpleGroup#getType()
+	 * @see org.talframework.talui.template.core.groups.SimpleGroup#getType()
 	 */
 	@Override
 	public String getType() {
@@ -160,7 +160,7 @@ public class ActionGroup extends SimpleGroup implements CommandElement, Resource
 	
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.template.core.groups.SimpleGroup#toString()
+	 * @see org.talframework.talui.template.core.groups.SimpleGroup#toString()
 	 */
 	@Override
 	public String toString() {

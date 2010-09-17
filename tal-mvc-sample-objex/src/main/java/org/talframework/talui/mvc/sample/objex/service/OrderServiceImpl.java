@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.objex.service;
+package org.talframework.talui.mvc.sample.objex.service;
 
 import org.talframework.objexj.Container;
 import org.talframework.objexj.ObjexObj;
-import org.tpspencer.tal.mvc.commons.repository.RepositoryHolder;
-import org.tpspencer.tal.mvc.sample.model.order.Order;
-import org.tpspencer.tal.mvc.sample.service.OrderService;
-import org.tpspencer.tal.mvc.sample.service.transfer.SaveOrderResult;
+import org.talframework.talui.mvc.commons.repository.RepositoryHolder;
+import org.talframework.talui.mvc.sample.model.order.Order;
+import org.talframework.talui.mvc.sample.service.OrderService;
+import org.talframework.talui.mvc.sample.service.transfer.SaveOrderResult;
 import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.config;
+package org.talframework.talui.mvc.config;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,10 +23,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.mvc.Window;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.window.WindowCompiler;
+import org.talframework.talui.mvc.Window;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.window.WindowCompiler;
 
 /**
  * This configuration class represents a page inside an 

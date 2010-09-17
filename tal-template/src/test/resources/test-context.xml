@@ -24,12 +24,12 @@
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd" >
 			
-	<import resource="classpath:/org/tpspencer/tal/template/web-template-context.xml" />
+	<import resource="classpath:/org/talframework/talui/template/web-template-context.xml" />
 
 	<!-- Static list of country codes for testing purposes -->
-	<bean class="org.tpspencer.tal.template.render.codes.SimpleCodeTypeFactory" >
+	<bean class="org.talframework.talui.template.render.codes.SimpleCodeTypeFactory" >
 		<constructor-arg>
-			<bean class="org.tpspencer.tal.template.render.codes.SimpleCodeType">
+			<bean class="org.talframework.talui.template.render.codes.SimpleCodeType">
 				<constructor-arg value="countryCodeList" />
 				<constructor-arg>
 					<map>
@@ -42,7 +42,7 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="testForm" class="org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration" init-method="init" >
+	<bean id="testForm" class="org.talframework.talui.template.core.xml.XmlTemplateConfiguration" init-method="init" >
 		<property name="name" value="TestResources" />
 		<property name="templateResource" value="/testTemplate.xml" />
 		<property name="rootTemplate" value="form" />
@@ -55,7 +55,7 @@
 		</property>
 	</bean>
 	
-	<bean id="testResults" class="org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration" init-method="init">
+	<bean id="testResults" class="org.talframework.talui.template.core.xml.XmlTemplateConfiguration" init-method="init">
 		<property name="name" value="TestResources" />
 		<property name="templateResource" value="/testTemplate.xml" />
 		<property name="rootTemplate" value="results" />
@@ -66,7 +66,7 @@
 		</property>
 	</bean>
 	
-	<bean id="simpleForm" class="org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration" init-method="init">
+	<bean id="simpleForm" class="org.talframework.talui.template.core.xml.XmlTemplateConfiguration" init-method="init">
 		<property name="name" value="TestResources" />
 		<property name="templateResource" value="/simpleTemplate.xml" />
 		<property name="rootTemplate" value="form" />

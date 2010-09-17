@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.controller;
+package org.talframework.talui.mvc.spring.controller;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,11 +24,11 @@ import org.springframework.beans.MutablePropertyValues;
 import org.springframework.validation.DataBinder;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.controller.InputBinder;
-import org.tpspencer.tal.mvc.input.InputModel;
-import org.tpspencer.tal.mvc.model.message.ClientMessageImpl;
-import org.tpspencer.tal.mvc.spring.bind.ObjectDataBinder;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.controller.InputBinder;
+import org.talframework.talui.mvc.input.InputModel;
+import org.talframework.talui.mvc.model.message.ClientMessageImpl;
+import org.talframework.talui.mvc.spring.bind.ObjectDataBinder;
 
 /**
  * This class implements the Web MVC InputBinder interface

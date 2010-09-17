@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.process;
+package org.talframework.talui.mvc.process;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.ModelConfiguration;
 
 /**
  * This class very simply holds model attributes inside a

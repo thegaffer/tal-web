@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.special;
+package org.talframework.talui.template.render.elements.special;
 
 import java.io.IOException;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.RenderModel;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.RenderModel;
 
 /**
  * This render element is used in rare circumstances where

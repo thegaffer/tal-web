@@ -24,14 +24,14 @@
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 	
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-context-overrides.xml"/>
+	<import resource="classpath:/org/talframework/talui/mvc/sample/objex/sample-context-overrides.xml"/>
 	
 	<!-- Don't like this being GAE in test -->
 	<bean id="objexMiddlewareFactory" class="org.talframework.objexj.runtime.gae.GAEMiddlewareFactory" />
 			
-	<bean id="accountRepository" class="org.tpspencer.tal.mvc.commons.repository.PrototypeRepository">
+	<bean id="accountRepository" class="org.talframework.talui.mvc.commons.repository.PrototypeRepository">
 		<property name="objects"><map>
-			<entry key="123456"><bean p:id="123456" p:company="Test Inc" class="org.tpspencer.tal.mvc.sample.model.account.AccountBean" /></entry>
+			<entry key="123456"><bean p:id="123456" p:company="Test Inc" class="org.talframework.talui.mvc.sample.model.account.AccountBean" /></entry>
 		</map></property>
 	</bean>
 	

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.contact.controllers;
+package org.talframework.talui.mvc.sample.contact.controllers;
 
 import java.util.Map;
 
-import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.Controller;
-import org.tpspencer.tal.mvc.controller.annotations.Input;
-import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
-import org.tpspencer.tal.mvc.sample.model.contact.Caller;
-import org.tpspencer.tal.mvc.sample.service.ContactService;
-import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
+import org.talframework.talui.mvc.controller.annotations.Action;
+import org.talframework.talui.mvc.controller.annotations.Controller;
+import org.talframework.talui.mvc.controller.annotations.Input;
+import org.talframework.talui.mvc.controller.annotations.ModelInput;
+import org.talframework.talui.mvc.sample.model.contact.Caller;
+import org.talframework.talui.mvc.sample.service.ContactService;
+import org.talframework.talui.mvc.sample.service.transfer.SaveContactResult;
 
 /**
  * Event handler when shared caller is updated. This

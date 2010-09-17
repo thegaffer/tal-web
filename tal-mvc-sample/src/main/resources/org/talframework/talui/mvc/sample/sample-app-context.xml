@@ -28,7 +28,7 @@
 	<context:annotation-config />
 	
 	<!-- Binder to use -->
-	<bean class="org.tpspencer.tal.mvc.spring.controller.SpringInputBinder" />
+	<bean class="org.talframework.talui.mvc.spring.controller.SpringInputBinder" />
 	
 	<!-- Test App Configuration -->
 	<mvc:app id="test" pages="orderPage, contactPage_app, viewCallerPage_app" model-ref="testAppModel">
@@ -46,10 +46,10 @@
 	<mvc:page id="viewCallerPage_app" parent="viewCallerPage" template="/pages/viewCaller.jsp" />
 	
 	
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-menu.xml"/>
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/order/order-page-context.xml"/>
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/contact/contact-page-context.xml"/>
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/complaint/complaint-page-context.xml"/>
+	<import resource="classpath:/org/talframework/talui/mvc/sample/sample-app-menu.xml"/>
+	<import resource="classpath:/org/talframework/talui/mvc/sample/order/order-page-context.xml"/>
+	<import resource="classpath:/org/talframework/talui/mvc/sample/contact/contact-page-context.xml"/>
+	<import resource="classpath:/org/talframework/talui/mvc/sample/complaint/complaint-page-context.xml"/>
 	
 	<!-- Old Config -->
 	

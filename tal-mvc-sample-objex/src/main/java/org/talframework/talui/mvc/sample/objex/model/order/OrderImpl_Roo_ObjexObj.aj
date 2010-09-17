@@ -1,4 +1,4 @@
-package org.tpspencer.tal.mvc.sample.objex.model.order;
+package org.talframework.talui.mvc.sample.objex.model.order;
 
 import java.lang.String;
 import java.util.Date;
@@ -8,8 +8,8 @@ import org.talframework.objexj.ValidationRequest;
 import org.talframework.objexj.object.BaseObjexObj;
 import org.talframework.objexj.object.ObjectUtils;
 import org.talframework.objexj.object.StateBeanUtils;
-import org.tpspencer.tal.mvc.sample.model.common.Address;
-import org.tpspencer.tal.mvc.sample.objex.model.order.OrderBean;
+import org.talframework.talui.mvc.sample.model.common.Address;
+import org.talframework.talui.mvc.sample.objex.model.order.OrderBean;
 
 privileged aspect OrderImpl_Roo_ObjexObj {
     

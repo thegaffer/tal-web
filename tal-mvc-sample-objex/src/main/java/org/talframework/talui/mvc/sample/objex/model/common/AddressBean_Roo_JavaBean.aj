@@ -1,4 +1,4 @@
-package org.tpspencer.tal.mvc.sample.objex.model.common;
+package org.talframework.talui.mvc.sample.objex.model.common;
 
 import java.lang.String;
 

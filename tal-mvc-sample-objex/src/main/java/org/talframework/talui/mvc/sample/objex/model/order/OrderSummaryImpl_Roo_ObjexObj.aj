@@ -1,4 +1,4 @@
-package org.tpspencer.tal.mvc.sample.objex.model.order;
+package org.talframework.talui.mvc.sample.objex.model.order;
 
 import java.lang.String;
 import java.util.Date;
@@ -6,7 +6,7 @@ import org.talframework.objexj.ObjexObjStateBean;
 import org.talframework.objexj.ValidationRequest;
 import org.talframework.objexj.object.BaseObjexObj;
 import org.talframework.objexj.object.StateBeanUtils;
-import org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryBean;
+import org.talframework.talui.mvc.sample.objex.model.order.OrderSummaryBean;
 
 privileged aspect OrderSummaryImpl_Roo_ObjexObj {
     

@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html;
+package org.talframework.talui.template.compiler.html;
 
-import org.tpspencer.tal.template.compiler.FragmentMold;
-import org.tpspencer.tal.template.compiler.SimpleTemplateElementMold;
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMold;
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMoldFactory;
+import org.talframework.talui.template.compiler.FragmentMold;
+import org.talframework.talui.template.compiler.SimpleTemplateElementMold;
+import org.talframework.talui.template.compiler.TemplateElementRenderMold;
+import org.talframework.talui.template.compiler.TemplateElementRenderMoldFactory;
 
 public class HtmlTemplateElementRenderMoldFactory implements TemplateElementRenderMoldFactory {
 	private static final HtmlTemplateElementRenderMoldFactory INSTANCE = new HtmlTemplateElementRenderMoldFactory();

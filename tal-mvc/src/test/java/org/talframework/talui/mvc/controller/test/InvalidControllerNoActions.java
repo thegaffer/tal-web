@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller.test;
+package org.talframework.talui.mvc.controller.test;
 
-import org.tpspencer.tal.mvc.controller.annotations.Controller;
-import org.tpspencer.tal.mvc.controller.annotations.Input;
-import org.tpspencer.tal.mvc.input.InputModel;
+import org.talframework.talui.mvc.controller.annotations.Controller;
+import org.talframework.talui.mvc.controller.annotations.Input;
+import org.talframework.talui.mvc.input.InputModel;
 
 /**
  * This interface cannot be a controller because it has no

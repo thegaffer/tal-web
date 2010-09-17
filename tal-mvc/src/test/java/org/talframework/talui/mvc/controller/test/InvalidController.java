@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller.test;
+package org.talframework.talui.mvc.controller.test;
 
 /**
  * This class is invalid as a controller because it has validation

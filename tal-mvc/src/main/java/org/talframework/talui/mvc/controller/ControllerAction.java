@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller;
+package org.talframework.talui.mvc.controller;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.input.InputModel;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.input.InputModel;
 
 /**
  * This class represents an action to perform as part

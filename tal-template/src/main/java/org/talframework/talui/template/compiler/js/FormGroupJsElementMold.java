@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.js;
+package org.talframework.talui.template.compiler.js;
 
 /**
  * Special mold when compiling JS renderers to ensure inner

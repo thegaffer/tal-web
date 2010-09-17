@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core;
+package org.talframework.talui.template.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,18 +22,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.template.Compiler;
-import org.tpspencer.tal.template.Renderer;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.core.groups.CompositeGroup;
-import org.tpspencer.tal.template.core.groups.FormGroup;
-import org.tpspencer.tal.template.core.groups.GridGroup;
-import org.tpspencer.tal.template.core.groups.MessageGroup;
-import org.tpspencer.tal.template.core.groups.SimpleGroup;
-import org.tpspencer.tal.template.core.memberprops.MemberProperty;
-import org.tpspencer.tal.template.core.props.CommandProperty;
+import org.talframework.talui.template.Compiler;
+import org.talframework.talui.template.Renderer;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.core.groups.CompositeGroup;
+import org.talframework.talui.template.core.groups.FormGroup;
+import org.talframework.talui.template.core.groups.GridGroup;
+import org.talframework.talui.template.core.groups.MessageGroup;
+import org.talframework.talui.template.core.groups.SimpleGroup;
+import org.talframework.talui.template.core.memberprops.MemberProperty;
+import org.talframework.talui.template.core.props.CommandProperty;
 
 /**
  * This class implements the template configuration interface.

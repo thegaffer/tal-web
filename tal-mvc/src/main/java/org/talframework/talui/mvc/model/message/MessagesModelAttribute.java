@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model.message;
+package org.talframework.talui.mvc.model.message;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,8 +22,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.model.ModelAttribute;
 
 /**
  * This special model attribute class represents the

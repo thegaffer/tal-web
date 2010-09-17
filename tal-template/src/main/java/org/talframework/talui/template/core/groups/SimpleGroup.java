@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.groups;
+package org.talframework.talui.template.core.groups;
 
 import java.util.List;
 
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.GroupElement;
-import org.tpspencer.tal.template.behaviour.supporting.ContainerElement;
-import org.tpspencer.tal.template.core.BaseElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.GroupElement;
+import org.talframework.talui.template.behaviour.supporting.ContainerElement;
+import org.talframework.talui.template.core.BaseElement;
 
 /**
  * This class represents a single group of other elements

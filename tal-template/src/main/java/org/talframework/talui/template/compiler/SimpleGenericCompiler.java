@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler;
+package org.talframework.talui.template.compiler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,13 +24,13 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Renderer;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.render.ModelRenderer;
-import org.tpspencer.tal.template.render.TemplateRenderer;
-import org.tpspencer.tal.template.render.elements.special.EmptyElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Renderer;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.render.ModelRenderer;
+import org.talframework.talui.template.render.TemplateRenderer;
+import org.talframework.talui.template.render.elements.special.EmptyElement;
 
 /**
  * This class is a generic render compiler. An instance of

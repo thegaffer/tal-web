@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.js;
+package org.talframework.talui.template.compiler.js;
 
-import org.tpspencer.tal.template.compiler.BasicTemplateRenderMold;
-import org.tpspencer.tal.template.compiler.SimpleGenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMoldFactory;
+import org.talframework.talui.template.compiler.BasicTemplateRenderMold;
+import org.talframework.talui.template.compiler.SimpleGenericCompiler;
+import org.talframework.talui.template.compiler.TemplateElementRenderMoldFactory;
 
 /**
  * This class extends the SimpleGenericCompiler to provide a

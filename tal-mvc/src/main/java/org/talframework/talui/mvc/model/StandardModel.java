@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,8 +25,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
 
 /**
  * This class implements the {@link Model} interfaice, but it

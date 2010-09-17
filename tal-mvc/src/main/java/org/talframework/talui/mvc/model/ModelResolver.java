@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
-import org.tpspencer.tal.mvc.Model;
+import org.talframework.talui.mvc.Model;
 
 /**
  * This interface represents something that is capable of 

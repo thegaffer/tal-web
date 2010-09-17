@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views.menu;
+package org.talframework.talui.mvc.commons.views.menu;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -29,13 +29,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tpspencer.tal.mvc.commons.views.menu.MenuView;
-import org.tpspencer.tal.mvc.render.BasicRenderModel;
-import org.tpspencer.tal.mvc.render.RenderModel;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.render.SpringRenderNodeFactory;
-import org.tpspencer.tal.template.render.TestUrlGenerator;
-import org.tpspencer.tal.template.render.apacheel.ApacheELExpressionEvaluator;
+import org.talframework.talui.mvc.commons.views.menu.MenuView;
+import org.talframework.talui.mvc.render.BasicRenderModel;
+import org.talframework.talui.mvc.render.RenderModel;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.render.SpringRenderNodeFactory;
+import org.talframework.talui.template.render.TestUrlGenerator;
+import org.talframework.talui.template.render.apacheel.ApacheELExpressionEvaluator;
 
 /**
  * Tests the menu view renders correctly
@@ -69,7 +69,7 @@ public class TestMenuView {
 		TemplateConfiguration config = (TemplateConfiguration)model.getAttribute("templateConfig");
 		
 		StringWriter writer = new StringWriter();
-		org.tpspencer.tal.template.render.SimpleRenderModel renderModel = new org.tpspencer.tal.template.render.SimpleRenderModel(writer, new TestUrlGenerator());
+		org.talframework.talui.template.render.SimpleRenderModel renderModel = new org.talframework.talui.template.render.SimpleRenderModel(writer, new TestUrlGenerator());
 		renderModel.setEvaluator(new ApacheELExpressionEvaluator());
 		renderModel.setNodeFactory(SpringRenderNodeFactory.getInstance());
 		// if( config.getResourceBundleBaseName() != null ) renderModel.setBundle(ResourceBundle.getBundle(config.getResourceBundleBaseName()));

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller.test;
+package org.talframework.talui.mvc.controller.test;
 
 import java.util.Date;
 import java.util.List;
 
-import org.tpspencer.tal.mvc.controller.InputBinder;
-import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.BindInput;
-import org.tpspencer.tal.mvc.controller.annotations.Controller;
-import org.tpspencer.tal.mvc.controller.annotations.ErrorInput;
-import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
+import org.talframework.talui.mvc.controller.InputBinder;
+import org.talframework.talui.mvc.controller.annotations.Action;
+import org.talframework.talui.mvc.controller.annotations.BindInput;
+import org.talframework.talui.mvc.controller.annotations.Controller;
+import org.talframework.talui.mvc.controller.annotations.ErrorInput;
+import org.talframework.talui.mvc.controller.annotations.ModelBindInput;
 
 /**
  * A controller that uses bindings

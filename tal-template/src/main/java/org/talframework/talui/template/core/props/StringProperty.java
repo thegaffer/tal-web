@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.props;
+package org.talframework.talui.template.core.props;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.behaviour.property.TextProperty;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.behaviour.property.TextProperty;
 
 /**
  * This class extends simple property to provide

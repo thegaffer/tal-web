@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller;
+package org.talframework.talui.mvc.controller;
 
-import org.tpspencer.tal.mvc.controller.annotations.BindInput;
+import org.talframework.talui.mvc.controller.annotations.BindInput;
 
 /**
  * This exception indicates there was a problem creating

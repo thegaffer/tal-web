@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements;
+package org.talframework.talui.template.render.elements;
 
-import org.tpspencer.tal.template.RenderElement;
+import org.talframework.talui.template.RenderElement;
 
 /**
  * This class is a base class for any render element that does

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.window;
+package org.talframework.talui.mvc.window;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,11 +22,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.View;
-import org.tpspencer.tal.mvc.input.InputModel;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.View;
+import org.talframework.talui.mvc.input.InputModel;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
 import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**

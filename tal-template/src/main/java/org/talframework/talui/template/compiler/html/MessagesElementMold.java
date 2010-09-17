@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html;
+package org.talframework.talui.template.compiler.html;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMold;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.render.elements.RenderParameter;
-import org.tpspencer.tal.template.render.elements.html.Div;
-import org.tpspencer.tal.template.render.elements.special.CollectionElement;
-import org.tpspencer.tal.template.render.elements.special.MapElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateElementRenderMold;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.render.elements.RenderParameter;
+import org.talframework.talui.template.render.elements.html.Div;
+import org.talframework.talui.template.render.elements.special.CollectionElement;
+import org.talframework.talui.template.render.elements.special.MapElement;
 
 /**
  * This mold specifically works against a message group element.

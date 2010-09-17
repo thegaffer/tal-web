@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.config;
+package org.talframework.talui.mvc.config;
 
 /**
  * This class represents a page event. Page events

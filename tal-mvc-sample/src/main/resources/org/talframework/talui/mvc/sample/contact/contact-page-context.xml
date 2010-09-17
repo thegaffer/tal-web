@@ -21,14 +21,14 @@
 		</mvc:model>
 	</mvc:page>
 	
-	<bean id="currentCallerResolver" p:repository-ref="callerRepository" p:modelAttribute="callerId" class="org.tpspencer.tal.mvc.commons.repository.RepositoryFindResolver" />
+	<bean id="currentCallerResolver" p:repository-ref="callerRepository" p:modelAttribute="callerId" class="org.talframework.talui.mvc.commons.repository.RepositoryFindResolver" />
 
 	
 	<mvc:page id="contactPage" windows="contactWindow=con, callerLookupWindow=clrs, accountLookupWindow=accs">
 		<mvc:model>
-			<mvc:simpleAttribute name="contact" type="org.tpspencer.tal.mvc.sample.model.contact.Contact" flash="true" eventable="true" />
-			<mvc:simpleAttribute name="caller" type="org.tpspencer.tal.mvc.sample.model.contact.Caller" flash="true" eventable="true" />
-			<mvc:simpleAttribute name="account" type="org.tpspencer.tal.mvc.sample.model.account.Account" flash="true" eventable="true" />
+			<mvc:simpleAttribute name="contact" type="org.talframework.talui.mvc.sample.model.contact.Contact" flash="true" eventable="true" />
+			<mvc:simpleAttribute name="caller" type="org.talframework.talui.mvc.sample.model.contact.Caller" flash="true" eventable="true" />
+			<mvc:simpleAttribute name="account" type="org.talframework.talui.mvc.sample.model.account.Account" flash="true" eventable="true" />
 		</mvc:model>
 	</mvc:page>
 	
@@ -39,17 +39,17 @@
 	
 	
 	<!-- Contact Window -->
-	<bean id="contactWindow" class="org.tpspencer.tal.mvc.sample.contact.ContactWindow" />
+	<bean id="contactWindow" class="org.talframework.talui.mvc.sample.contact.ContactWindow" />
 	
 	<mvc:model id="contactWindowModel">
 		<mvc:simpleAttribute name="selectedContact" />
 		<mvc:resolvedAttribute name="currentContact" resolver="currentContactResolver" />
 	</mvc:model>
 	
-	<bean id="currentContactResolver" p:repository-ref="contactRepository" p:modelAttribute="selectedContact" class="org.tpspencer.tal.mvc.commons.repository.RepositoryFindResolver" />
+	<bean id="currentContactResolver" p:repository-ref="contactRepository" p:modelAttribute="selectedContact" class="org.talframework.talui.mvc.commons.repository.RepositoryFindResolver" />
 	
 	<!-- Caller Lookup Window -->
-	<bean id="callerLookupWindow" class="org.tpspencer.tal.mvc.sample.contact.CallerLookupWindow" />
+	<bean id="callerLookupWindow" class="org.talframework.talui.mvc.sample.contact.CallerLookupWindow" />
 	
 	<mvc:model id="callerLookupWindowModel">
 		<mvc:simpleAttribute name="firstName" />
@@ -57,18 +57,18 @@
 		<mvc:resolvedAttribute name="callers" resolver="callerSearchResolver" />
 	</mvc:model>
 	
-	<bean id="callerSearchResolver" class="org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResolver">
+	<bean id="callerSearchResolver" class="org.talframework.talui.mvc.commons.service.search.SimpleSearchResolver">
 		<property name="searchCriteriaAttributes">
 			<list><value>firstName</value><value>lastName</value></list>
 		</property>
 		<property name="searchService">
-			<bean p:repository-ref="callerRepository" class="org.tpspencer.tal.mvc.commons.service.search.PrototypeSearchService" />
+			<bean p:repository-ref="callerRepository" class="org.talframework.talui.mvc.commons.service.search.PrototypeSearchService" />
 		</property>
 	</bean>
 	
 	
 	<!-- Account Lookup Window -->
-	<bean id="accountLookupWindow" class="org.tpspencer.tal.mvc.sample.contact.AccountLookupWindow" />
+	<bean id="accountLookupWindow" class="org.talframework.talui.mvc.sample.contact.AccountLookupWindow" />
 	
 	<mvc:model id="accountLookupWindowModel">
 		<mvc:simpleAttribute name="accountId" />
@@ -76,12 +76,12 @@
 		<mvc:resolvedAttribute name="accounts" resolver="accountSearchResolver" />
 	</mvc:model>
 	
-	<bean id="accountSearchResolver" class="org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResolver">
+	<bean id="accountSearchResolver" class="org.talframework.talui.mvc.commons.service.search.SimpleSearchResolver">
 		<property name="searchCriteriaAttributes">
 			<list><value>accountId</value><value>companyName</value></list>
 		</property>
 		<property name="searchService">
-			<bean p:repository-ref="accountRepository" class="org.tpspencer.tal.mvc.commons.service.search.PrototypeSearchService">
+			<bean p:repository-ref="accountRepository" class="org.talframework.talui.mvc.commons.service.search.PrototypeSearchService">
 				<property name="criteriaNameMapping"><map>
 					<entry key="accountId" value="id" />
 					<entry key="companyName" value="company" />
@@ -93,39 +93,39 @@
 	
 	
 	<!-- Contact Form -->
-	<bean id="contactView" class="org.tpspencer.tal.mvc.commons.views.form.FormView" init-method="init"
+	<bean id="contactView" class="org.talframework.talui.mvc.commons.views.form.FormView" init-method="init"
 		p:viewName="contact" p:initialFormBean="currentContact"
 		p:model-ref="contactViewModel"
-		p:primaryBean="org.tpspencer.tal.mvc.sample.model.contact.Contact"
-		p:templateFile="/org/tpspencer/tal/mvc/sample/contact/Contact.xml" />
+		p:primaryBean="org.talframework.talui.mvc.sample.model.contact.Contact"
+		p:templateFile="/org/talframework/talui/mvc/sample/contact/Contact.xml" />
 	
 	<mvc:model id="contactViewModel">
-		<mvc:simpleAttribute name="contact" flash="true" default-class="org.tpspencer.tal.mvc.sample.model.contact.ContactBean" />
+		<mvc:simpleAttribute name="contact" flash="true" default-class="org.talframework.talui.mvc.sample.model.contact.ContactBean" />
 	</mvc:model>
 	
-	<bean id="submitContactController" p:service-ref="contactService" class="org.tpspencer.tal.mvc.sample.contact.controllers.SubmitContactController" />
-	<bean id="callerSelectedController" p:service-ref="contactService" class="org.tpspencer.tal.mvc.sample.contact.controllers.CallerSelectedController" />
-	<bean id="accountSelectedController" p:service-ref="contactService" class="org.tpspencer.tal.mvc.sample.contact.controllers.AccountSelectedController" />
+	<bean id="submitContactController" p:service-ref="contactService" class="org.talframework.talui.mvc.sample.contact.controllers.SubmitContactController" />
+	<bean id="callerSelectedController" p:service-ref="contactService" class="org.talframework.talui.mvc.sample.contact.controllers.CallerSelectedController" />
+	<bean id="accountSelectedController" p:service-ref="contactService" class="org.talframework.talui.mvc.sample.contact.controllers.AccountSelectedController" />
 	
 
 	
 	<!-- Account Lookup -->
-	<bean id="accountLookupView" class="org.tpspencer.tal.mvc.sample.contact.views.AccountLookupView" />
+	<bean id="accountLookupView" class="org.talframework.talui.mvc.sample.contact.views.AccountLookupView" />
 	
-	<bean id="selectAccountController" p:repository-ref="accountRepository" p:modelAttribute="account" p:result="accountSelected" class="org.tpspencer.tal.mvc.commons.repository.RepositorySelectController" />
-	<bean id="accountContactUpdatedController" class="org.tpspencer.tal.mvc.sample.contact.controllers.AccountContactUpdatedController" />
+	<bean id="selectAccountController" p:repository-ref="accountRepository" p:modelAttribute="account" p:result="accountSelected" class="org.talframework.talui.mvc.commons.repository.RepositorySelectController" />
+	<bean id="accountContactUpdatedController" class="org.talframework.talui.mvc.sample.contact.controllers.AccountContactUpdatedController" />
 	
 
 	
 	<!-- Caller Lookup -->
-	<bean id="callerLookupView" class="org.tpspencer.tal.mvc.sample.contact.views.CallerLookupView" />
+	<bean id="callerLookupView" class="org.talframework.talui.mvc.sample.contact.views.CallerLookupView" />
 	
-	<bean id="selectCallerController" p:repository-ref="callerRepository" p:modelAttribute="caller" p:result="callerSelected" class="org.tpspencer.tal.mvc.commons.repository.RepositorySelectController" />
-	<bean id="callerContactUpdatedController" class="org.tpspencer.tal.mvc.sample.contact.controllers.CallerContactUpdatedController" />
+	<bean id="selectCallerController" p:repository-ref="callerRepository" p:modelAttribute="caller" p:result="callerSelected" class="org.talframework.talui.mvc.commons.repository.RepositorySelectController" />
+	<bean id="callerContactUpdatedController" class="org.talframework.talui.mvc.sample.contact.controllers.CallerContactUpdatedController" />
 	
 	
 	
 	<!-- Caller View -->
-	<bean id="callerView" class="org.tpspencer.tal.mvc.sample.contact.views.CallerView" />
+	<bean id="callerView" class="org.talframework.talui.mvc.sample.contact.views.CallerView" />
 
 </beans>

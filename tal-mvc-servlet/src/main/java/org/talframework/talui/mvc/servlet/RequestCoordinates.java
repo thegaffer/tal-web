@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet;
+package org.talframework.talui.mvc.servlet;
 
-import org.tpspencer.tal.mvc.config.AppConfig;
-import org.tpspencer.tal.mvc.config.PageConfig;
-import org.tpspencer.tal.mvc.config.WindowConfig;
+import org.talframework.talui.mvc.config.AppConfig;
+import org.talframework.talui.mvc.config.PageConfig;
+import org.talframework.talui.mvc.config.WindowConfig;
 
 /**
  * This class holds the coordinates of any incoming request.

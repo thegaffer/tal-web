@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 import java.util.ArrayList;
 import java.util.Collection;

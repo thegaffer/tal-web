@@ -7,7 +7,7 @@
 
 <templates>
 
-<template templateClass="org.tpspencer.tal.mvc.sample.model.account.Account" autoDiscover="false">
+<template templateClass="org.talframework.talui.mvc.sample.model.account.Account" autoDiscover="false">
 	<image-group name="icon" resource="resource/org/tpspencer/tal/mvc/sample/contact/account.png" />
 	<action-group name="account" action="selectAccount" params="id=${this.id}">
 		<string-prop name="id" />

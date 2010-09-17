@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.xml;
+package org.talframework.talui.template.core.xml;
 
-import org.tpspencer.tal.template.core.BasicTemplateConfiguration;
+import org.talframework.talui.template.core.BasicTemplateConfiguration;
 
 /**
  * This simple class implementats the template configuration

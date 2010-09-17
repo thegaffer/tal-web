@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.apacheel;
+package org.talframework.talui.template.render.apacheel;
 
 import java.beans.FeatureDescriptor;
 import java.util.Iterator;
@@ -25,7 +25,7 @@ import javax.el.ELResolver;
 import javax.el.PropertyNotFoundException;
 import javax.el.PropertyNotWritableException;
 
-import org.tpspencer.tal.template.RenderNode;
+import org.talframework.talui.template.RenderNode;
 
 /**
  * This class is an ELResolver that resolvers the current node.

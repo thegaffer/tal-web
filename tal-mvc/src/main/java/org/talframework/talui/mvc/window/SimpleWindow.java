@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.window;
+package org.talframework.talui.mvc.window;
 
 import org.tpspencer.tal.util.aspects.annotations.Trace;
 

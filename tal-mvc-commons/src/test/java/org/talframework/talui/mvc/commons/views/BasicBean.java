@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views;
+package org.talframework.talui.mvc.commons.views;
 
 /**
  * 

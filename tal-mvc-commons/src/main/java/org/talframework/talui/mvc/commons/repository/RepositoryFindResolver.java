@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.repository;
+package org.talframework.talui.mvc.commons.repository;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.model.ModelResolver;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.model.ModelResolver;
 
 /**
  * This class implements the ModelResolver to get a particular

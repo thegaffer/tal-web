@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html;
+package org.talframework.talui.template.compiler.html;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -27,21 +27,21 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.compiler.BasicTemplateRenderMold;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.SimpleTemplateElementMold;
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMold;
-import org.tpspencer.tal.template.compiler.html.fragments.ChildrenFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.LabelFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.MemberFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.ValueFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.WrapperFragment;
-import org.tpspencer.tal.util.htmlhelper.AttributeAdaptor;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.compiler.BasicTemplateRenderMold;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.SimpleTemplateElementMold;
+import org.talframework.talui.template.compiler.TemplateElementRenderMold;
+import org.talframework.talui.template.compiler.html.fragments.ChildrenFragment;
+import org.talframework.talui.template.compiler.html.fragments.LabelFragment;
+import org.talframework.talui.template.compiler.html.fragments.MemberFragment;
+import org.talframework.talui.template.compiler.html.fragments.ValueFragment;
+import org.talframework.talui.template.compiler.html.fragments.WrapperFragment;
+import org.talframework.talui.util.htmlhelper.AttributeAdaptor;
+import org.talframework.talui.util.htmlhelper.GenericElement;
 
 /**
  * Tests the main HTML render template.

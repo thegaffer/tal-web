@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml.helper;
+package org.talframework.talui.mvc.spring.xml.helper;
 
 import java.util.Iterator;
 import java.util.List;
@@ -22,8 +22,8 @@ import java.util.List;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.ManagedList;
 import org.springframework.util.xml.DomUtils;
-import org.tpspencer.tal.mvc.config.EventConfig;
-import org.tpspencer.tal.mvc.config.PageEventConfig;
+import org.talframework.talui.mvc.config.EventConfig;
+import org.talframework.talui.mvc.config.PageEventConfig;
 import org.w3c.dom.Element;
 
 /**

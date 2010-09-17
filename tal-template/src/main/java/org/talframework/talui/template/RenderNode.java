@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template;
+package org.talframework.talui.template;
 
 /**
  * This class represents the current node we are

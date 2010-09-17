@@ -7,7 +7,7 @@
 
 <templates>
 
-<template templateClass="org.tpspencer.tal.mvc.sample.model.contact.Caller" autoDiscover="false">
+<template templateClass="org.talframework.talui.mvc.sample.model.contact.Caller" autoDiscover="false">
 	<image-group name="icon" resource="resource/org/tpspencer/tal/mvc/sample/contact/caller.png" />
 	<action-group name="caller" action="selectCaller" params="id=${this.id}" referencePage="viewCallerPage" referenceParams="callerId=${this.id}">
 		<string-prop name="firstName" />

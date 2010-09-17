@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller.annotations;
+package org.talframework.talui.mvc.controller.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

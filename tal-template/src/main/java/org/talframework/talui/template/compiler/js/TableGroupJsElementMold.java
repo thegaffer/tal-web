@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.js;
+package org.talframework.talui.template.compiler.js;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
 
 /**
  * Special mold when compiling JS renderers to ensure inner

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.render;
+package org.talframework.talui.mvc.render;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,7 @@ public final class BasicRenderModel implements RenderModel {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.render.RenderModel#getTemplate()
+	 * @see org.talframework.talui.mvc.render.RenderModel#getTemplate()
 	 */
 	public String getTemplate() {
 		return template;
@@ -43,7 +43,7 @@ public final class BasicRenderModel implements RenderModel {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.render.RenderModel#setTemplate(java.lang.String)
+	 * @see org.talframework.talui.mvc.render.RenderModel#setTemplate(java.lang.String)
 	 */
 	public void setTemplate(String template) {
 		this.template = template;
@@ -58,7 +58,7 @@ public final class BasicRenderModel implements RenderModel {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.render.RenderModel#getAttribute(java.lang.String)
+	 * @see org.talframework.talui.mvc.render.RenderModel#getAttribute(java.lang.String)
 	 */
 	public Object getAttribute(String name) {
 		if( attributes == null ) return null;
@@ -67,7 +67,7 @@ public final class BasicRenderModel implements RenderModel {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.render.RenderModel#removeAttribute(java.lang.String)
+	 * @see org.talframework.talui.mvc.render.RenderModel#removeAttribute(java.lang.String)
 	 */
 	public void removeAttribute(String name) {
 		if( attributes == null ) return;
@@ -76,7 +76,7 @@ public final class BasicRenderModel implements RenderModel {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.render.RenderModel#setAttribute(java.lang.String, java.lang.Object)
+	 * @see org.talframework.talui.mvc.render.RenderModel#setAttribute(java.lang.String, java.lang.Object)
 	 */
 	public void setAttribute(String name, Object attr) {
 		if( attributes == null ) attributes = new HashMap<String, Object>();

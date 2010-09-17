@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html;
+package org.talframework.talui.template.compiler.html;
 
 
 /**

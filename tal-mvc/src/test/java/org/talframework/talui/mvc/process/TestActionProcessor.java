@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.process;
+package org.talframework.talui.mvc.process;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -31,21 +31,21 @@ import org.jmock.api.Invocation;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.View;
-import org.tpspencer.tal.mvc.Window;
-import org.tpspencer.tal.mvc.config.AppConfig;
-import org.tpspencer.tal.mvc.config.EventConfig;
-import org.tpspencer.tal.mvc.config.PageConfig;
-import org.tpspencer.tal.mvc.config.PageEventConfig;
-import org.tpspencer.tal.mvc.config.WindowConfig;
-import org.tpspencer.tal.mvc.input.InputModel;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
-import org.tpspencer.tal.mvc.process.ActionProcessor;
-import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
-import org.tpspencer.tal.mvc.process.NoViewException;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.View;
+import org.talframework.talui.mvc.Window;
+import org.talframework.talui.mvc.config.AppConfig;
+import org.talframework.talui.mvc.config.EventConfig;
+import org.talframework.talui.mvc.config.PageConfig;
+import org.talframework.talui.mvc.config.PageEventConfig;
+import org.talframework.talui.mvc.config.WindowConfig;
+import org.talframework.talui.mvc.input.InputModel;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.process.ActionProcessor;
+import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
+import org.talframework.talui.mvc.process.NoViewException;
 
 /**
  * This class tests the action process

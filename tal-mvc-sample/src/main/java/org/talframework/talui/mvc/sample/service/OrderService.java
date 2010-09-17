@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.service;
+package org.talframework.talui.mvc.sample.service;
 
-import org.tpspencer.tal.mvc.sample.model.order.Order;
-import org.tpspencer.tal.mvc.sample.service.transfer.SaveOrderResult;
+import org.talframework.talui.mvc.sample.model.order.Order;
+import org.talframework.talui.mvc.sample.service.transfer.SaveOrderResult;
 
 /**
  * The service interface for orders

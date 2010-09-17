@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
 import java.io.IOException;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.render.elements.html.attributes.IDAttribute;
-import org.tpspencer.tal.util.htmlhelper.HtmlConstants;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.render.elements.html.attributes.IDAttribute;
+import org.talframework.talui.util.htmlhelper.HtmlConstants;
 
 /**
  * This class generates out a Html label element

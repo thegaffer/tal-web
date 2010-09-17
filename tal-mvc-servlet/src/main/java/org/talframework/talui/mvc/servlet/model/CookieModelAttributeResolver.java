@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.model;
+package org.talframework.talui.mvc.servlet.model;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -26,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
 
 /**
  * This class implements the ModelLayerResolver interface

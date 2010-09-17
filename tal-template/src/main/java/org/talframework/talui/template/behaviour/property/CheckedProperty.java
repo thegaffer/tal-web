@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.behaviour.property;
+package org.talframework.talui.template.behaviour.property;
 
-import org.tpspencer.tal.template.behaviour.DynamicProperty;
+import org.talframework.talui.template.behaviour.DynamicProperty;
 
 /**
  * This interface represents a checked property, which is

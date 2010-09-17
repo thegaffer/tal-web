@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html.form;
+package org.talframework.talui.template.compiler.html.form;
 
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.behaviour.DynamicProperty;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.SimpleTemplateElementMold;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.compiler.html.fragments.ChildrenFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.InputFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.LabelFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.MemberFragment;
-import org.tpspencer.tal.template.compiler.html.fragments.WrapperFragment;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.behaviour.DynamicProperty;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.SimpleTemplateElementMold;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.compiler.html.fragments.ChildrenFragment;
+import org.talframework.talui.template.compiler.html.fragments.InputFragment;
+import org.talframework.talui.template.compiler.html.fragments.LabelFragment;
+import org.talframework.talui.template.compiler.html.fragments.MemberFragment;
+import org.talframework.talui.template.compiler.html.fragments.WrapperFragment;
 
 /**
  * Tests that we generate a form element correctly.

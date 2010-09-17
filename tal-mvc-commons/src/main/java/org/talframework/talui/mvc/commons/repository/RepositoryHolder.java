@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.repository;
+package org.talframework.talui.mvc.commons.repository;
 
 /**
  * This simple class can be used as the base for any 

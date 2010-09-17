@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.util;
+package org.talframework.talui.mvc.servlet.util;
 
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.tpspencer.tal.mvc.config.AppConfig;
-import org.tpspencer.tal.mvc.config.PageConfig;
-import org.tpspencer.tal.mvc.config.WindowConfig;
-import org.tpspencer.tal.mvc.model.StandardModel;
-import org.tpspencer.tal.mvc.servlet.RequestCoordinates;
+import org.talframework.talui.mvc.config.AppConfig;
+import org.talframework.talui.mvc.config.PageConfig;
+import org.talframework.talui.mvc.config.WindowConfig;
+import org.talframework.talui.mvc.model.StandardModel;
+import org.talframework.talui.mvc.servlet.RequestCoordinates;
 
 /**
  * This helper class is used by the servlet helpers to

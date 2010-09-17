@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.testapp.integrationtest;
+package org.talframework.talui.testapp.integrationtest;
 
 import java.util.Iterator;
 import java.util.Map;

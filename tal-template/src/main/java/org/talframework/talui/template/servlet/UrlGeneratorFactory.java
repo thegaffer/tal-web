@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.servlet;
+package org.talframework.talui.template.servlet;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.tpspencer.tal.template.render.UrlGenerator;
+import org.talframework.talui.template.render.UrlGenerator;
 
 /**
  * The WebTemplateServlet needs a mechanism to get hold of

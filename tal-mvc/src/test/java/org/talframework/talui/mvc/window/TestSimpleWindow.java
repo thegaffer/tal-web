@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.window;
+package org.talframework.talui.mvc.window;
 
 import static org.junit.Assert.*;
 
@@ -28,13 +28,13 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.Controller;
-import org.tpspencer.tal.mvc.View;
-import org.tpspencer.tal.mvc.config.EventConfig;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
-import org.tpspencer.tal.mvc.window.SimpleWindow;
+import org.talframework.talui.mvc.Controller;
+import org.talframework.talui.mvc.View;
+import org.talframework.talui.mvc.config.EventConfig;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.window.SimpleWindow;
 
 /**
  * This class tests that a simple window operates

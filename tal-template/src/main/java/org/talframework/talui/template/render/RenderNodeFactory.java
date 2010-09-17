@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render;
+package org.talframework.talui.template.render;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.RenderNode;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.RenderNode;
 
 /**
  * This interface represents a service that can create

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.RenderNode;
-import org.tpspencer.tal.util.htmlhelper.HtmlConstants;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.RenderNode;
+import org.talframework.talui.util.htmlhelper.HtmlConstants;
 
 public class Row extends AbstractHtmlElement {
 

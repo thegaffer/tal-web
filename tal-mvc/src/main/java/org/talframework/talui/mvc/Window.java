@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc;
+package org.talframework.talui.mvc;
 
 import java.util.List;
 
-import org.tpspencer.tal.mvc.config.EventConfig;
-import org.tpspencer.tal.mvc.input.InputModel;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
+import org.talframework.talui.mvc.config.EventConfig;
+import org.talframework.talui.mvc.input.InputModel;
+import org.talframework.talui.mvc.model.ModelConfiguration;
 
 
 /**

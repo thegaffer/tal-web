@@ -1,11 +1,11 @@
-package org.tpspencer.tal.mvc.sample.objex.model.common;
+package org.talframework.talui.mvc.sample.objex.model.common;
 
 import java.lang.String;
 import org.talframework.objexj.ObjexObjStateBean;
 import org.talframework.objexj.ValidationRequest;
 import org.talframework.objexj.object.BaseObjexObj;
 import org.talframework.objexj.object.StateBeanUtils;
-import org.tpspencer.tal.mvc.sample.objex.model.common.AddressBean;
+import org.talframework.talui.mvc.sample.objex.model.common.AddressBean;
 
 privileged aspect AddressImpl_Roo_ObjexObj {
     

@@ -26,9 +26,9 @@
 </template>
 
 <!-- Auto Template for BeanA -->
-<template templateClass="org.tpspencer.tal.template.test.SimpleBeanA" fieldOrder="active address amount currency date"/>
+<template templateClass="org.talframework.talui.template.test.SimpleBeanA" fieldOrder="active address amount currency date"/>
 
 <!-- Auto Template for BeanB -->
-<template templateClass="org.tpspencer.tal.template.test.SimpleBeanB" fieldOrder="address1 postCode country" />
+<template templateClass="org.talframework.talui.template.test.SimpleBeanB" fieldOrder="address1 postCode country" />
 
 </templates>

@@ -38,20 +38,20 @@
 		<constructor-arg value="Callers" />
 		<constructor-arg value="Caller" />
 		<constructor-arg><list>
-			<bean p:typeName="Caller" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
+			<bean p:typeName="Caller" p:stateClass="org.talframework.talui.mvc.sample.objex.model.contact.CallerBean" p:objexClass="org.talframework.talui.mvc.sample.objex.model.contact.CallerImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
 		</list></constructor-arg>
 		<property name="namedQueries">
 			<map>
 				<entry key="callers">
 					<bean id="callersSearch" class="org.talframework.objexj.runtime.gae.query.GAEFixedQuery">
-						<property name="kind" value="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerBean" />
+						<property name="kind" value="org.talframework.talui.mvc.sample.objex.model.contact.CallerBean" />
 						<property name="mandatoryParameters"><map><entry key="lastName" value="="/></map></property>
 						<property name="parameters"><map><entry key="firstName" value="="/></map></property>
 					</bean>
 				</entry>
 				<entry key="caller">
 					<bean id="callerSearch" class="org.talframework.objexj.runtime.gae.query.GAEFixedQuery">
-						<property name="kind" value="org.tpspencer.tal.mvc.sample.objex.model.contact.CallerBean" />
+						<property name="kind" value="org.talframework.talui.mvc.sample.objex.model.contact.CallerBean" />
 						<property name="parameters"><map>
 							<entry key="firstName" value="="/>
 							<entry key="lastName" value="="/>
@@ -64,7 +64,7 @@
 		<property name="eventHandlers">
 			<map>
 				<entry key="onContactUpdate">
-					<bean p:factory-ref="callersContainerFactory" class="org.tpspencer.tal.mvc.sample.objex.container.caller.UpdateCallersEvent" />
+					<bean p:factory-ref="callersContainerFactory" class="org.talframework.talui.mvc.sample.objex.container.caller.UpdateCallersEvent" />
 				</entry>
 			</map>
 		</property>

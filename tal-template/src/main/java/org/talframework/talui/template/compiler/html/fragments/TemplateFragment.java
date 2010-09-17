@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html.fragments;
+package org.talframework.talui.template.compiler.html.fragments;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.InnerTemplateElement;
-import org.tpspencer.tal.template.compiler.FragmentMold;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.InnerTemplateElement;
+import org.talframework.talui.template.compiler.FragmentMold;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
 
 /**
  * This specialised fragment is for elements that have an inner 

@@ -7,7 +7,7 @@
 
 <templates>
 
-<template templateClass="org.tpspencer.tal.mvc.sample.model.order.OrderSummary" autoDiscover="false">
+<template templateClass="org.talframework.talui.mvc.sample.model.order.OrderSummary" autoDiscover="false">
 	<image-group name="icon" resource="resource/org/tpspencer/tal/mvc/sample/order/order.png" />
 	<string-prop name="accountId" />
 	<date-prop name="orderDate" />

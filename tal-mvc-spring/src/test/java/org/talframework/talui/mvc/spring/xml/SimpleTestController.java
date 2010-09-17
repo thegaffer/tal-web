@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml;
+package org.talframework.talui.mvc.spring.xml;
 
-import org.tpspencer.tal.mvc.input.InputModel;
+import org.talframework.talui.mvc.input.InputModel;
 
 /**
  * This is a simple controller class for use in testing.

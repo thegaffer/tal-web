@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc;
+package org.talframework.talui.mvc;
 
 import java.util.Map;
 

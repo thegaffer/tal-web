@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.util;
+package org.talframework.talui.mvc.servlet.util;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.tpspencer.tal.template.render.UrlGenerator;
-import org.tpspencer.tal.template.servlet.UrlGeneratorFactory;
+import org.talframework.talui.template.render.UrlGenerator;
+import org.talframework.talui.template.servlet.UrlGeneratorFactory;
 
 /**
  * The default url generator factory for use with the std template

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.objex.model.contact;
+package org.talframework.talui.mvc.sample.objex.model.contact;
 
 import org.talframework.objexj.annotations.ObjexObj;
-import org.tpspencer.tal.mvc.sample.model.common.Address;
-import org.tpspencer.tal.mvc.sample.model.contact.Contact;
+import org.talframework.talui.mvc.sample.model.common.Address;
+import org.talframework.talui.mvc.sample.model.contact.Contact;
 
 @ObjexObj(ContactBean.class)
 public class ContactImpl implements Contact {

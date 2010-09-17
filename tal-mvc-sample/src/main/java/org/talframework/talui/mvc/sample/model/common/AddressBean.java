@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.model.common;
+package org.talframework.talui.mvc.sample.model.common;
 
 /**
  * Simple bean for sample app
@@ -29,49 +29,49 @@ public class AddressBean implements Address {
 	private String country = null;
 	
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.common.Address#getAddress()
+	 * @see org.talframework.talui.mvc.sample.model.common.Address#getAddress()
 	 */
 	public String getAddress() {
 		return address;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.common.Address#setAddress(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.common.Address#setAddress(java.lang.String)
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.common.Address#getTown()
+	 * @see org.talframework.talui.mvc.sample.model.common.Address#getTown()
 	 */
 	public String getTown() {
 		return town;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.common.Address#setTown(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.common.Address#setTown(java.lang.String)
 	 */
 	public void setTown(String town) {
 		this.town = town;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.common.Address#getPostCode()
+	 * @see org.talframework.talui.mvc.sample.model.common.Address#getPostCode()
 	 */
 	public String getPostCode() {
 		return postCode;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.common.Address#setPostCode(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.common.Address#setPostCode(java.lang.String)
 	 */
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.common.Address#getCountry()
+	 * @see org.talframework.talui.mvc.sample.model.common.Address#getCountry()
 	 */
 	public String getCountry() {
 		return country;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.common.Address#setCountry(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.common.Address#setCountry(java.lang.String)
 	 */
 	public void setCountry(String country) {
 		this.country = country;

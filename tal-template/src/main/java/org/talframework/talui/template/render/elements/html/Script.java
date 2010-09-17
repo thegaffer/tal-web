@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
 import java.io.IOException;
 import java.io.Writer;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.render.elements.SimpleRenderElementBase;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.render.elements.SimpleRenderElementBase;
+import org.talframework.talui.util.htmlhelper.GenericElement;
 
 public class Script extends SimpleRenderElementBase {
 

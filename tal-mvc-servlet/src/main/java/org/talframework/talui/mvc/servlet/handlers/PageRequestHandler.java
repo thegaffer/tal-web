@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.handlers;
+package org.talframework.talui.mvc.servlet.handlers;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -25,13 +25,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.mvc.model.StandardModel;
-import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
-import org.tpspencer.tal.mvc.servlet.MVCRequestHandler;
-import org.tpspencer.tal.mvc.servlet.RequestCoordinates;
-import org.tpspencer.tal.mvc.servlet.model.CookieModelAttributeResolver;
-import org.tpspencer.tal.mvc.servlet.util.RequestAttributeUtils;
-import org.tpspencer.tal.mvc.servlet.util.RequestLogUtils;
+import org.talframework.talui.mvc.model.StandardModel;
+import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
+import org.talframework.talui.mvc.servlet.MVCRequestHandler;
+import org.talframework.talui.mvc.servlet.RequestCoordinates;
+import org.talframework.talui.mvc.servlet.model.CookieModelAttributeResolver;
+import org.talframework.talui.mvc.servlet.util.RequestAttributeUtils;
+import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
 
 /**
  * This class aids the dispatching servlet to render

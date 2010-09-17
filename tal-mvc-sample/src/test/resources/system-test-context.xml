@@ -24,7 +24,7 @@
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-context.xml"/>
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/sample-app-testdata.xml"/>
+	<import resource="classpath:/org/talframework/talui/mvc/sample/sample-app-context.xml"/>
+	<import resource="classpath:/org/talframework/talui/mvc/sample/sample-app-testdata.xml"/>
 
 </beans>

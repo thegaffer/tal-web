@@ -42,79 +42,79 @@
 		<mvc:simpleAttribute name="selectedOrder" />
 		<mvc:resolvedAttribute name="currentOrder" resolver="sample.order.currentOrderResolver" />
 	</mvc:model>
-	<bean id="sample.order.currentOrderResolver" class="org.tpspencer.tal.mvc.sample.order.CurrentOrderResolver" />
+	<bean id="sample.order.currentOrderResolver" class="org.talframework.talui.mvc.sample.order.CurrentOrderResolver" />
 	
 	
 	
 	<!-- Model for the Order Window  -->
-	<bean id="sample.order.orderWindow" class="org.tpspencer.tal.mvc.sample.order.OrderWindow" />
+	<bean id="sample.order.orderWindow" class="org.talframework.talui.mvc.sample.order.OrderWindow" />
 	<mvc:model id="sample.order.orderWindowModel">
 		<mvc:simpleAttribute name="state" /> <!-- TODO: Default this, like errors! -->
 		<mvc:resolvedAttribute name="orders" resolver="sample.order.ordersResolver"/>
 	</mvc:model>
-	<bean id="sample.order.ordersResolver" class="org.tpspencer.tal.mvc.sample.order.OrdersResolver" />
+	<bean id="sample.order.ordersResolver" class="org.talframework.talui.mvc.sample.order.OrdersResolver" />
 	
 	<!-- 
-	<bean id="sample.order.orderViewWindow" class="org.tpspencer.tal.mvc.sample.order.OrderViewWindow" />
-	<bean id="sample.order.orderEditWindow" class="org.tpspencer.tal.mvc.sample.order.OrderEditWindow" />
-	<bean id="sample.order.orderCreateWindow" class="org.tpspencer.tal.mvc.sample.order.OrderCreateWindow" />
+	<bean id="sample.order.orderViewWindow" class="org.talframework.talui.mvc.sample.order.OrderViewWindow" />
+	<bean id="sample.order.orderEditWindow" class="org.talframework.talui.mvc.sample.order.OrderEditWindow" />
+	<bean id="sample.order.orderCreateWindow" class="org.talframework.talui.mvc.sample.order.OrderCreateWindow" />
 	-->
 	
 	
 	<!-- Order List View -->
-	<bean id="sample.order.orderList" class="org.tpspencer.tal.mvc.sample.order.views.OrderListView" />
-	<bean id="sample.order.selectOrderViewController" p:parameter="id" p:attribute="selectedOrder" p:result="viewOrder" class="org.tpspencer.tal.mvc.commons.controllers.SelectController" />
-	<bean id="sample.order.selectOrderEditController" p:parameter="id" p:attribute="selectedOrder" p:result="editOrder" class="org.tpspencer.tal.mvc.commons.controllers.SelectController" />
-	<bean id="sample.order.selectCreateOrderController" p:result="createOrder" class="org.tpspencer.tal.mvc.commons.controllers.SimpleController" />
+	<bean id="sample.order.orderList" class="org.talframework.talui.mvc.sample.order.views.OrderListView" />
+	<bean id="sample.order.selectOrderViewController" p:parameter="id" p:attribute="selectedOrder" p:result="viewOrder" class="org.talframework.talui.mvc.commons.controllers.SelectController" />
+	<bean id="sample.order.selectOrderEditController" p:parameter="id" p:attribute="selectedOrder" p:result="editOrder" class="org.talframework.talui.mvc.commons.controllers.SelectController" />
+	<bean id="sample.order.selectCreateOrderController" p:result="createOrder" class="org.talframework.talui.mvc.commons.controllers.SimpleController" />
 	
 	
 	
 	<!-- Order View -->
-	<bean id="sample.order.orderView" class="org.tpspencer.tal.mvc.commons.views.form.FormView" init-method="init"
+	<bean id="sample.order.orderView" class="org.talframework.talui.mvc.commons.views.form.FormView" init-method="init"
 		p:viewName="orderView" p:initialFormBean="currentOrder" p:asForm="false"
 		p:model-ref="sample.order.orderViewModel"
-		p:primaryBean="org.tpspencer.tal.mvc.sample.model.order.Order"
-		p:templateFile="/org/tpspencer/tal/mvc/sample/order/OrderForm.xml"
-		p:templateName="org/tpspencer/tal/mvc/sample/order/OrderView"
-		p:resourceBase="org.tpspencer.tal.mvc.sample.order.OrderForm" />
+		p:primaryBean="org.talframework.talui.mvc.sample.model.order.Order"
+		p:templateFile="/org/talframework/talui/mvc/sample/order/OrderForm.xml"
+		p:templateName="org/talframework/talui/mvc/sample/order/OrderView"
+		p:resourceBase="org.talframework.talui.mvc.sample.order.OrderForm" />
 	
 	<mvc:model id="sample.order.orderViewModel">
-		<mvc:simpleAttribute name="form" flash="true" default-class="org.tpspencer.tal.mvc.sample.model.order.OrderBean" />
+		<mvc:simpleAttribute name="form" flash="true" default-class="org.talframework.talui.mvc.sample.model.order.OrderBean" />
 	</mvc:model>
 	
-	<bean id="sample.order.closeOrderViewController" p:result="orderCancelled" class="org.tpspencer.tal.mvc.commons.controllers.SimpleController" />
+	<bean id="sample.order.closeOrderViewController" p:result="orderCancelled" class="org.talframework.talui.mvc.commons.controllers.SimpleController" />
 	
 	
 	
 	<!-- Order Form View -->
-	<bean id="sample.order.orderForm" class="org.tpspencer.tal.mvc.commons.views.form.FormView" init-method="init"
+	<bean id="sample.order.orderForm" class="org.talframework.talui.mvc.commons.views.form.FormView" init-method="init"
 		p:viewName="orderForm" p:initialFormBean="currentOrder"
 		p:model-ref="sample.order.orderFormModel"
-		p:primaryBean="org.tpspencer.tal.mvc.sample.model.order.Order"
-		p:templateFile="/org/tpspencer/tal/mvc/sample/order/OrderForm.xml"
-		p:templateName="org/tpspencer/tal/mvc/sample/order/OrderForm"
-		p:resourceBase="org.tpspencer.tal.mvc.sample.order.OrderForm" />
+		p:primaryBean="org.talframework.talui.mvc.sample.model.order.Order"
+		p:templateFile="/org/talframework/talui/mvc/sample/order/OrderForm.xml"
+		p:templateName="org/talframework/talui/mvc/sample/order/OrderForm"
+		p:resourceBase="org.talframework.talui.mvc.sample.order.OrderForm" />
 	
 	<mvc:model id="sample.order.orderFormModel">
-		<mvc:simpleAttribute name="form" default-class="org.tpspencer.tal.mvc.sample.model.order.OrderBean" />
+		<mvc:simpleAttribute name="form" default-class="org.talframework.talui.mvc.sample.model.order.OrderBean" />
 	</mvc:model>
 	
-	<bean id="sample.order.orderUpdateController" class="org.tpspencer.tal.mvc.sample.order.controllers.OrderUpdateController" />
+	<bean id="sample.order.orderUpdateController" class="org.talframework.talui.mvc.sample.order.controllers.OrderUpdateController" />
 	
 	
 	
 	<!-- New Order Form -->
-	<bean id="sample.order.newOrderForm" class="org.tpspencer.tal.mvc.commons.views.form.FormView" init-method="init"
+	<bean id="sample.order.newOrderForm" class="org.talframework.talui.mvc.commons.views.form.FormView" init-method="init"
 		p:viewName="orderView" p:viewBeanName="newOrder" 
 		p:model-ref="sample.order.newOrderFormModel"
-		p:primaryBean="org.tpspencer.tal.mvc.sample.model.order.Order"
-		p:templateFile="/org/tpspencer/tal/mvc/sample/order/OrderForm.xml"
-		p:templateName="org/tpspencer/tal/mvc/sample/order/NewOrderForm"
-		p:resourceBase="org.tpspencer.tal.mvc.sample.order.OrderForm" />
+		p:primaryBean="org.talframework.talui.mvc.sample.model.order.Order"
+		p:templateFile="/org/talframework/talui/mvc/sample/order/OrderForm.xml"
+		p:templateName="org/talframework/talui/mvc/sample/order/NewOrderForm"
+		p:resourceBase="org.talframework.talui.mvc.sample.order.OrderForm" />
 	
 	<mvc:model id="sample.order.newOrderFormModel">
-		<mvc:simpleAttribute name="newOrder" default-class="org.tpspencer.tal.mvc.sample.model.order.OrderBean" />
+		<mvc:simpleAttribute name="newOrder" default-class="org.talframework.talui.mvc.sample.model.order.OrderBean" />
 	</mvc:model>
 	
-	<bean id="sample.order.orderCreateController" class="org.tpspencer.tal.mvc.sample.order.controllers.OrderCreateController" />
+	<bean id="sample.order.orderCreateController" class="org.talframework.talui.mvc.sample.order.controllers.OrderCreateController" />
 </beans>

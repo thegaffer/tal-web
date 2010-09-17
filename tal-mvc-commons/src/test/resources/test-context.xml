@@ -21,20 +21,20 @@
        xsi:schemaLocation="
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 			
-	<import resource="classpath:/org/tpspencer/tal/template/web-template-context.xml" />
-	<import resource="classpath:/org/tpspencer/tal/mvc/commons/views/menu/menu-context.xml" />
+	<import resource="classpath:/org/talframework/talui/template/web-template-context.xml" />
+	<import resource="classpath:/org/talframework/talui/mvc/commons/views/menu/menu-context.xml" />
 
-	<bean id="menuView" class="org.tpspencer.tal.mvc.commons.views.menu.MenuView">
+	<bean id="menuView" class="org.talframework.talui.mvc.commons.views.menu.MenuView">
 		<constructor-arg value="menuView" />
 		<constructor-arg>
 			<list>
-				<bean class="org.tpspencer.tal.mvc.commons.views.menu.MenuItem">
+				<bean class="org.talframework.talui.mvc.commons.views.menu.MenuItem">
 					<constructor-arg value="Menu1" />
 					<constructor-arg value="Menu1" />
 					<constructor-arg value="onMenu" />
 					<constructor-arg value="menu1" />
 				</bean>
-				<bean class="org.tpspencer.tal.mvc.commons.views.menu.MenuItem">
+				<bean class="org.talframework.talui.mvc.commons.views.menu.MenuItem">
 					<constructor-arg value="Menu2" />
 					<constructor-arg value="Menu2" />
 					<constructor-arg value="onMenu" />

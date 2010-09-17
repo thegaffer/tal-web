@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core;
+package org.talframework.talui.template.core;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
@@ -26,15 +26,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.supporting.ContainerElement;
-import org.tpspencer.tal.template.core.groups.SimpleGroup;
-import org.tpspencer.tal.template.core.memberprops.MemberProperty;
-import org.tpspencer.tal.template.core.props.BooleanProperty;
-import org.tpspencer.tal.template.core.props.DateProperty;
-import org.tpspencer.tal.template.core.props.NumberProperty;
-import org.tpspencer.tal.template.core.props.StringProperty;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.supporting.ContainerElement;
+import org.talframework.talui.template.core.groups.SimpleGroup;
+import org.talframework.talui.template.core.memberprops.MemberProperty;
+import org.talframework.talui.template.core.props.BooleanProperty;
+import org.talframework.talui.template.core.props.DateProperty;
+import org.talframework.talui.template.core.props.NumberProperty;
+import org.talframework.talui.template.core.props.StringProperty;
 
 /**
  * This class represents a template that in turn holds

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.config;
+package org.talframework.talui.mvc.config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -26,11 +26,11 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.config.AppConfig;
-import org.tpspencer.tal.mvc.config.PageConfig;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.config.AppConfig;
+import org.talframework.talui.mvc.config.PageConfig;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
 
 /**
  * This class tests an app config

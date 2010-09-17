@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.service;
+package org.talframework.talui.mvc.sample.service;
 
-import org.tpspencer.tal.mvc.sample.model.account.Account;
-import org.tpspencer.tal.mvc.sample.model.contact.Caller;
-import org.tpspencer.tal.mvc.sample.model.contact.Contact;
-import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
+import org.talframework.talui.mvc.sample.model.account.Account;
+import org.talframework.talui.mvc.sample.model.contact.Caller;
+import org.talframework.talui.mvc.sample.model.contact.Contact;
+import org.talframework.talui.mvc.sample.service.transfer.SaveContactResult;
 
 /**
  * This interface represents the contact service that

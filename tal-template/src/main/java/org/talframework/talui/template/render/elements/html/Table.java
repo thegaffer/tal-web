@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
-import org.tpspencer.tal.util.htmlhelper.HtmlConstants;
+import org.talframework.talui.util.htmlhelper.HtmlConstants;
 
 public class Table extends AbstractHtmlElement {
 

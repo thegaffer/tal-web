@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render;
+package org.talframework.talui.template.render;
 
 import java.io.Writer;
 import java.security.Principal;
@@ -27,10 +27,10 @@ import java.util.ResourceBundle;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.RenderNode;
-import org.tpspencer.tal.util.htmlhelper.AttributeAdaptor;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.RenderNode;
+import org.talframework.talui.util.htmlhelper.AttributeAdaptor;
+import org.talframework.talui.util.htmlhelper.GenericElement;
 
 /**
  * This class is a basic implementation of the render model

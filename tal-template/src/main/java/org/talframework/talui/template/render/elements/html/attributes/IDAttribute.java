@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html.attributes;
+package org.talframework.talui.template.render.elements.html.attributes;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.util.htmlhelper.GenericElement;
 
 /**
  * Writes out an ID attribute

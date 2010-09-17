@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.model.account;
+package org.talframework.talui.mvc.sample.model.account;
 
-import org.tpspencer.tal.mvc.sample.model.common.Address;
+import org.talframework.talui.mvc.sample.model.common.Address;
 
 public class AccountBean implements Account {
 
@@ -33,37 +33,37 @@ public class AccountBean implements Account {
 	}
 	
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Account#getId()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Account#getId()
 	 */
 	public String getAccountNos() {
 		return accountNos;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Account#setId(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Account#setId(java.lang.String)
 	 */
 	public void setAccountNos(String id) {
 		this.accountNos = id;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Account#getCompany()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Account#getCompany()
 	 */
 	public String getCompany() {
 		return company;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Account#setCompany(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Account#setCompany(java.lang.String)
 	 */
 	public void setCompany(String company) {
 		this.company = company;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Account#getAddress()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Account#getAddress()
 	 */
 	public Address getAddress() {
 		return address;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Account#setAddress(org.tpspencer.tal.mvc.sample.model.common.Address)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Account#setAddress(org.talframework.talui.mvc.sample.model.common.Address)
 	 */
 	public void setAddress(Address address) {
 		this.address = address;

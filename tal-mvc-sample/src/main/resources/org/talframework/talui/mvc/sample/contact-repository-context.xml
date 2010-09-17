@@ -29,22 +29,22 @@
 	 | contact related repositories
 	 -->
 	
-	<bean id="contactService" p:repository-ref="contactRepository" p:accountRepository-ref="accountRepository" class="org.tpspencer.tal.mvc.sample.service.test.ContactServiceImpl" />
+	<bean id="contactService" p:repository-ref="contactRepository" p:accountRepository-ref="accountRepository" class="org.talframework.talui.mvc.sample.service.test.ContactServiceImpl" />
 	
-	<bean id="contactRepository" class="org.tpspencer.tal.mvc.commons.repository.PrototypeRepository" />
+	<bean id="contactRepository" class="org.talframework.talui.mvc.commons.repository.PrototypeRepository" />
 	
-	<bean id="callerRepository" class="org.tpspencer.tal.mvc.commons.repository.PrototypeRepository">
+	<bean id="callerRepository" class="org.talframework.talui.mvc.commons.repository.PrototypeRepository">
 		<property name="lastId" value="1000" />
 		<property name="objects"><map>
-			<entry key="1"><bean p:id="1" p:account="123456" p:firstName="Tom" p:lastName="Spencer" class="org.tpspencer.tal.mvc.sample.model.contact.CallerBean" /></entry>
-			<entry key="2"><bean p:id="2" p:account="123456" p:firstName="Anton" p:lastName="Spencer" class="org.tpspencer.tal.mvc.sample.model.contact.CallerBean" /></entry>
-			<entry key="3"><bean p:id="3" p:account="123456" p:firstName="Phillene" p:lastName="Nel" class="org.tpspencer.tal.mvc.sample.model.contact.CallerBean" /></entry>
+			<entry key="1"><bean p:id="1" p:account="123456" p:firstName="Tom" p:lastName="Spencer" class="org.talframework.talui.mvc.sample.model.contact.CallerBean" /></entry>
+			<entry key="2"><bean p:id="2" p:account="123456" p:firstName="Anton" p:lastName="Spencer" class="org.talframework.talui.mvc.sample.model.contact.CallerBean" /></entry>
+			<entry key="3"><bean p:id="3" p:account="123456" p:firstName="Phillene" p:lastName="Nel" class="org.talframework.talui.mvc.sample.model.contact.CallerBean" /></entry>
 		</map></property>
 	</bean>
 	
-	<bean id="accountRepository" class="org.tpspencer.tal.mvc.commons.repository.PrototypeRepository">
+	<bean id="accountRepository" class="org.talframework.talui.mvc.commons.repository.PrototypeRepository">
 		<property name="objects"><map>
-			<entry key="123456"><bean p:id="123456" p:company="Test Inc" class="org.tpspencer.tal.mvc.sample.model.account.AccountBean" /></entry>
+			<entry key="123456"><bean p:id="123456" p:company="Test Inc" class="org.talframework.talui.mvc.sample.model.account.AccountBean" /></entry>
 		</map></property>
 	</bean>
 	

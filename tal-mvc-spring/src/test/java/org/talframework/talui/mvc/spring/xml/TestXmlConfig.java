@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml;
+package org.talframework.talui.mvc.spring.xml;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -28,16 +28,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tpspencer.tal.mvc.Controller;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.View;
-import org.tpspencer.tal.mvc.Window;
-import org.tpspencer.tal.mvc.config.AppConfig;
-import org.tpspencer.tal.mvc.config.PageConfig;
-import org.tpspencer.tal.mvc.config.WindowConfig;
-import org.tpspencer.tal.mvc.input.InputModel;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.render.RenderModel;
+import org.talframework.talui.mvc.Controller;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.View;
+import org.talframework.talui.mvc.Window;
+import org.talframework.talui.mvc.config.AppConfig;
+import org.talframework.talui.mvc.config.PageConfig;
+import org.talframework.talui.mvc.config.WindowConfig;
+import org.talframework.talui.mvc.input.InputModel;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.render.RenderModel;
 
 public class TestXmlConfig {
 

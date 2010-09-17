@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.service.search;
+package org.talframework.talui.mvc.commons.service.search;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -27,7 +27,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.tpspencer.tal.mvc.commons.repository.RepositoryHolder;
+import org.talframework.talui.mvc.commons.repository.RepositoryHolder;
 
 /**
  * This class acts a simple search service for prototyping
@@ -187,21 +187,21 @@ public class PrototypeSearchService extends RepositoryHolder implements SimpleSe
 		}
 
 		/* (non-Javadoc)
-		 * @see org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResults#getPage()
+		 * @see org.talframework.talui.mvc.commons.service.search.SimpleSearchResults#getPage()
 		 */
 		public int getPage() {
 			return page;
 		}
 
 		/* (non-Javadoc)
-		 * @see org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResults#getPageSize()
+		 * @see org.talframework.talui.mvc.commons.service.search.SimpleSearchResults#getPageSize()
 		 */
 		public int getPageSize() {
 			return pageSize;
 		}
 		
 		/* (non-Javadoc)
-		 * @see org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResults#isEor()
+		 * @see org.talframework.talui.mvc.commons.service.search.SimpleSearchResults#isEor()
 		 */
 		public boolean isEor() {
 			if( pageSize < 0 ) return true;
@@ -210,14 +210,14 @@ public class PrototypeSearchService extends RepositoryHolder implements SimpleSe
 		}
 		
 		/* (non-Javadoc)
-		 * @see org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResults#getTotalResults()
+		 * @see org.talframework.talui.mvc.commons.service.search.SimpleSearchResults#getTotalResults()
 		 */
 		public int getTotalResults() {
 			return totalResults;
 		}
 		
 		/* (non-Javadoc)
-		 * @see org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResults#getMaxPage()
+		 * @see org.talframework.talui.mvc.commons.service.search.SimpleSearchResults#getMaxPage()
 		 */
 		public int getMaxPage() {
 			if( this.pageSize < 0 || this.totalResults < 0 ) return -1;
@@ -226,7 +226,7 @@ public class PrototypeSearchService extends RepositoryHolder implements SimpleSe
 		}
 
 		/* (non-Javadoc)
-		 * @see org.tpspencer.tal.mvc.commons.service.search.SimpleSearchResults#getResults()
+		 * @see org.talframework.talui.mvc.commons.service.search.SimpleSearchResults#getResults()
 		 */
 		public Object[] getResults() {
 			return results;

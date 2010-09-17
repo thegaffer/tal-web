@@ -7,7 +7,7 @@
 
 <templates>
 
-<template templateClass="org.tpspencer.tal.mvc.sample.model.contact.Contact" >
+<template templateClass="org.talframework.talui.mvc.sample.model.contact.Contact" >
 	<prop name="id" />
 	<group>
 		<string-prop name="firstName" />
@@ -19,7 +19,7 @@
 	<prop name="previousCrn" />
 </template>
 
-<template templateClass="org.tpspencer.tal.mvc.sample.model.common.Address">
+<template templateClass="org.talframework.talui.mvc.sample.model.common.Address">
 	<group name="address">
 		<string-prop name="address" maxLength="30" />
 		<choice-prop name="town" codeType="townCodeType" unbounded="true" />

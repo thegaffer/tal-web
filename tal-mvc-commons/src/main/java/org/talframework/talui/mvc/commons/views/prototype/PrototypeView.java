@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views.prototype;
+package org.talframework.talui.mvc.commons.views.prototype;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,13 +24,13 @@ import java.util.Map;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.render.RenderModel;
-import org.tpspencer.tal.mvc.view.AbstractView;
-import org.tpspencer.tal.template.Compiler;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.core.BasicTemplateConfiguration;
-import org.tpspencer.tal.template.core.xml.XmlTemplateReader;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.render.RenderModel;
+import org.talframework.talui.mvc.view.AbstractView;
+import org.talframework.talui.template.Compiler;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.core.BasicTemplateConfiguration;
+import org.talframework.talui.template.core.xml.XmlTemplateReader;
 
 /**
  * A prototype view is one which outputs a form,

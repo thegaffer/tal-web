@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.util.htmlhelper;
+package org.talframework.talui.util.htmlhelper;
 
 import java.util.Map;
 

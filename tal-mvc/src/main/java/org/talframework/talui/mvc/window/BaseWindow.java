@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.window;
+package org.talframework.talui.mvc.window;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,22 +22,22 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.mvc.Controller;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.View;
-import org.tpspencer.tal.mvc.Window;
-import org.tpspencer.tal.mvc.config.EventConfig;
-import org.tpspencer.tal.mvc.controller.GenericController;
-import org.tpspencer.tal.mvc.controller.compiler.ControllerCompiler;
-import org.tpspencer.tal.mvc.input.InputModel;
-import org.tpspencer.tal.mvc.model.ConfigModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.ModelResolver;
-import org.tpspencer.tal.mvc.model.ResolvedModelAttribute;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
-import org.tpspencer.tal.mvc.model.SimpleModelResolver;
-import org.tpspencer.tal.mvc.model.message.MessagesModelAttribute;
+import org.talframework.talui.mvc.Controller;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.View;
+import org.talframework.talui.mvc.Window;
+import org.talframework.talui.mvc.config.EventConfig;
+import org.talframework.talui.mvc.controller.GenericController;
+import org.talframework.talui.mvc.controller.compiler.ControllerCompiler;
+import org.talframework.talui.mvc.input.InputModel;
+import org.talframework.talui.mvc.model.ConfigModelAttribute;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.ModelResolver;
+import org.talframework.talui.mvc.model.ResolvedModelAttribute;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.model.SimpleModelResolver;
+import org.talframework.talui.mvc.model.message.MessagesModelAttribute;
 import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.error;
+package org.talframework.talui.mvc.servlet.error;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.mvc.servlet.util.RequestLogUtils;
+import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
 
 public class StandardExceptionResolver implements ServletExceptionResolver {
 	private static final Log logger = LogFactory.getLog(StandardExceptionResolver.class);

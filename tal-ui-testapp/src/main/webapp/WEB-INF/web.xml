@@ -13,24 +13,24 @@
 	
 	<servlet>
 		<servlet-name>mvc-dispatch-servlet</servlet-name>
-		<servlet-class>org.tpspencer.tal.mvc.servlet.DispatchingServlet</servlet-class>
+		<servlet-class>org.talframework.talui.mvc.servlet.DispatchingServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>web-template-servlet</servlet-name>
-		<servlet-class>org.tpspencer.tal.template.servlet.WebTemplateServlet</servlet-class>
+		<servlet-class>org.talframework.talui.template.servlet.WebTemplateServlet</servlet-class>
 		<init-param>
 			<description>The URL Generator Factory</description>
 			<param-name>urlGeneratorFactoryClass</param-name>
-			<param-value>org.tpspencer.tal.mvc.servlet.util.ServletUrlGeneratorFactory</param-value>
+			<param-value>org.talframework.talui.mvc.servlet.util.ServletUrlGeneratorFactory</param-value>
 		</init-param>
 	</servlet>
 	<servlet>
 		<servlet-name>web-resource-servlet</servlet-name>
-		<servlet-class>org.tpspencer.tal.template.servlet.ResourceServlet</servlet-class>
+		<servlet-class>org.talframework.talui.template.servlet.ResourceServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>web-search-servlet</servlet-name>
-		<servlet-class>org.tpspencer.tal.template.servlet.SearchServlet</servlet-class>
+		<servlet-class>org.talframework.talui.template.servlet.SearchServlet</servlet-class>
 	</servlet>
 	
 	<!-- Object Specifics -->

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views;
+package org.talframework.talui.mvc.commons.views;
 
 import java.util.ArrayList;
 
@@ -23,9 +23,9 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.commons.views.form.FormView;
-import org.tpspencer.tal.mvc.render.RenderModel;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.commons.views.form.FormView;
+import org.talframework.talui.mvc.render.RenderModel;
 
 /**
  * This class tests the form view
@@ -60,7 +60,7 @@ public class TestFormView {
 		context.checking(new Expectations() {{
 			oneOf(model).containsValueFor("form"); will(returnValue(false));
 			oneOf(renderModel).setAttribute(with("form"), with(anything()));
-			oneOf(renderModel).setTemplate("org/tpspencer/tal/mvc/commons/views/BasicBeanForm");
+			oneOf(renderModel).setTemplate("org/talframework/talui/mvc/commons/views/BasicBeanForm");
 		}});
 		
 		view.prepareRender(renderModel, model);

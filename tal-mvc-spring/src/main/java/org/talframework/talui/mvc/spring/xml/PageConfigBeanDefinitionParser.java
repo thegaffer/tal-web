@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml;
+package org.talframework.talui.mvc.spring.xml;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
@@ -22,10 +22,10 @@ import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.ManagedList;
 import org.springframework.beans.factory.support.ManagedMap;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
-import org.tpspencer.tal.mvc.config.PageConfig;
-import org.tpspencer.tal.mvc.spring.xml.helper.EventMapParserHelper;
-import org.tpspencer.tal.mvc.spring.xml.helper.ModelParserHelper;
-import org.tpspencer.tal.mvc.spring.xml.helper.ParserHelper;
+import org.talframework.talui.mvc.config.PageConfig;
+import org.talframework.talui.mvc.spring.xml.helper.EventMapParserHelper;
+import org.talframework.talui.mvc.spring.xml.helper.ModelParserHelper;
+import org.talframework.talui.mvc.spring.xml.helper.ParserHelper;
 import org.w3c.dom.Element;
 
 public class PageConfigBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {

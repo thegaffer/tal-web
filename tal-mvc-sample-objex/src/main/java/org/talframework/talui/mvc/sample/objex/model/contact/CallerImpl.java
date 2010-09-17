@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.objex.model.contact;
+package org.talframework.talui.mvc.sample.objex.model.contact;
 
 import org.talframework.objexj.annotations.ObjexObj;
-import org.tpspencer.tal.mvc.sample.model.contact.Caller;
+import org.talframework.talui.mvc.sample.model.contact.Caller;
 
 @ObjexObj(CallerBean.class)
 public class CallerImpl implements Caller {

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.test;
+package org.talframework.talui.template.test;
 
 import java.util.Date;
 

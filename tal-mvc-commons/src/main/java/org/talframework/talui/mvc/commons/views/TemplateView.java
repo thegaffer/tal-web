@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views;
+package org.talframework.talui.mvc.commons.views;
 
 import java.util.Iterator;
 import java.util.List;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.render.RenderModel;
-import org.tpspencer.tal.mvc.view.AbstractView;
-import org.tpspencer.tal.template.TemplateConfiguration;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.render.RenderModel;
+import org.talframework.talui.mvc.view.AbstractView;
+import org.talframework.talui.template.TemplateConfiguration;
 
 /**
  * This class represents a template view - a view which delegates

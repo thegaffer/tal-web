@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.util;
+package org.talframework.talui.mvc.servlet.util;
 
 import java.util.Enumeration;
 import java.util.Map;

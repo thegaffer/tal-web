@@ -2,13 +2,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	
     <parent>
-		<groupId>org.tpspencer.talui</groupId>
+		<groupId>org.talframework.talui</groupId>
 		<artifactId>tal-ui</artifactId>
 		<version>0.9-SNAPSHOT</version>
 	</parent>
   
-  	<groupId>org.tpspencer.talui</groupId>
   	<artifactId>tal-ui-release</artifactId>
+    
     <name>Tal UI Framework Release</name>
     <description>Releases the Tal UI Framework into a ZIP file for distribution</description>
     <packaging>pom</packaging>
@@ -19,33 +19,33 @@
     <dependencies>
     	<!--  Ideally just want these from parent! -->
     	<dependency>
-    		<groupId>org.tpspencer.talui</groupId>
+    		<groupId>org.talframework.talui</groupId>
 			<artifactId>tal-mvc</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-    		<groupId>org.tpspencer.talui</groupId>
+    		<groupId>org.talframework.talui</groupId>
 			<artifactId>tal-mvc-spring</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-    		<groupId>org.tpspencer.talui</groupId>
-			<artifactId>tal-mvc-commons</artifactId>
+    		<groupId>org.talframework.talui</groupId>
+    		<artifactId>tal-mvc-commons</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-    		<groupId>org.tpspencer.talui</groupId>
-			<artifactId>tal-mvc-servlet</artifactId>
+    		<groupId>org.talframework.talui</groupId>
+    		<artifactId>tal-mvc-servlet</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-    		<groupId>org.tpspencer.talui</groupId>
-			<artifactId>tal-template</artifactId>
+    		<groupId>org.talframework.talui</groupId>
+    		<artifactId>tal-template</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-    		<groupId>org.tpspencer.talui</groupId>
-			<artifactId>tal-ui-testapp</artifactId>
+    		<groupId>org.talframework.talui</groupId>
+    		<artifactId>tal-ui-testapp</artifactId>
 			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
@@ -72,8 +72,7 @@
 				</executions>
 				<dependencies>
 					<dependency>
-			    		<groupId>org.tpspencer.talui</groupId>
-						<artifactId>web-mvc-sample</artifactId>
+			    		<groupId>org.talframeorg.talframeorg.talframework.taluid>web-mvc-sample</artifactId>
 						<version>${project.version}</version>
 					</dependency>
 				</dependencies>

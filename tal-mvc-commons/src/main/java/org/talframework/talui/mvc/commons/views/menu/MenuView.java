@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views.menu;
+package org.talframework.talui.mvc.commons.views.menu;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,12 +22,12 @@ import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.render.RenderModel;
-import org.tpspencer.tal.mvc.view.AbstractView;
-import org.tpspencer.tal.template.Compiler;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.render.RenderModel;
+import org.talframework.talui.mvc.view.AbstractView;
+import org.talframework.talui.template.Compiler;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.core.xml.XmlTemplateConfiguration;
 
 /**
  * This view basically presents out a menu at render time.
@@ -51,10 +51,12 @@ import org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration;
  * is not made final so it could be derived from in other 
  * uses.</p>
  * 
+ * TODO: Remove internal app context!!!
+ * 
  * @author Tom Spencer
  */
 public final class MenuView extends AbstractView {
-	private static final ApplicationContext ctx = new ClassPathXmlApplicationContext("/org/tpspencer/tal/mvc/commons/views/menu/menu-context.xml");
+	private static final ApplicationContext ctx = new ClassPathXmlApplicationContext("/org/talframework/talui/mvc/commons/views/menu/menu-context.xml");
 	
 	/** Holds the name of the menu */
 	private final String name;
@@ -78,7 +80,7 @@ public final class MenuView extends AbstractView {
 		
 		XmlTemplateConfiguration config = new XmlTemplateConfiguration();
 		config.setName(name);
-		config.setTemplateResource("/org/tpspencer/tal/mvc/commons/views/menu/menuTemplate.xml");
+		config.setTemplateResource("/org/talframework/talui/mvc/commons/views/menu/menuTemplate.xml");
 		config.setRootTemplate("menu");
 		
 		Map<String, Compiler> compilers = new HashMap<String, Compiler>();

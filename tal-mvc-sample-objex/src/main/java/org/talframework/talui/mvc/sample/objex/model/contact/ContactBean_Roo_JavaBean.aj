@@ -1,4 +1,4 @@
-package org.tpspencer.tal.mvc.sample.objex.model.contact;
+package org.talframework.talui.mvc.sample.objex.model.contact;
 
 import java.lang.String;
 

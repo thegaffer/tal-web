@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views.form;
+package org.talframework.talui.mvc.commons.views.form;
 
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
@@ -22,13 +22,13 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.commons.views.AbstractTemplateView;
-import org.tpspencer.tal.mvc.controller.InterfaceAdaptor;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
-import org.tpspencer.tal.template.core.BasicTemplateConfiguration;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.commons.views.AbstractTemplateView;
+import org.talframework.talui.mvc.controller.InterfaceAdaptor;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.template.core.BasicTemplateConfiguration;
 
 /**
  * This class represents a form view. This class handles the basic

@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
-import static org.tpspencer.tal.util.htmlhelper.HtmlConstants.ATTR_ACCESS;
-import static org.tpspencer.tal.util.htmlhelper.HtmlConstants.ATTR_CLASS;
-import static org.tpspencer.tal.util.htmlhelper.HtmlConstants.ATTR_ID;
-import static org.tpspencer.tal.util.htmlhelper.HtmlConstants.ATTR_STYLE;
-import static org.tpspencer.tal.util.htmlhelper.HtmlConstants.ATTR_TAB;
-import static org.tpspencer.tal.util.htmlhelper.HtmlConstants.ATTR_TITLE;
+import static org.talframework.talui.util.htmlhelper.HtmlConstants.ATTR_ACCESS;
+import static org.talframework.talui.util.htmlhelper.HtmlConstants.ATTR_CLASS;
+import static org.talframework.talui.util.htmlhelper.HtmlConstants.ATTR_ID;
+import static org.talframework.talui.util.htmlhelper.HtmlConstants.ATTR_STYLE;
+import static org.talframework.talui.util.htmlhelper.HtmlConstants.ATTR_TAB;
+import static org.talframework.talui.util.htmlhelper.HtmlConstants.ATTR_TITLE;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,15 +29,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.render.elements.AbstractRenderElement;
-import org.tpspencer.tal.template.render.elements.html.attributes.ExpressionAttribute;
-import org.tpspencer.tal.template.render.elements.html.attributes.HtmlAttribute;
-import org.tpspencer.tal.template.render.elements.html.attributes.IDAttribute;
-import org.tpspencer.tal.template.render.elements.html.attributes.NameAttribute;
-import org.tpspencer.tal.template.render.elements.html.attributes.ResourceAttribute;
-import org.tpspencer.tal.template.render.elements.html.attributes.SimpleAttribute;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.render.elements.AbstractRenderElement;
+import org.talframework.talui.template.render.elements.html.attributes.ExpressionAttribute;
+import org.talframework.talui.template.render.elements.html.attributes.HtmlAttribute;
+import org.talframework.talui.template.render.elements.html.attributes.IDAttribute;
+import org.talframework.talui.template.render.elements.html.attributes.NameAttribute;
+import org.talframework.talui.template.render.elements.html.attributes.ResourceAttribute;
+import org.talframework.talui.template.render.elements.html.attributes.SimpleAttribute;
+import org.talframework.talui.util.htmlhelper.GenericElement;
 
 /**
  * This class is the foundation for most HTML render

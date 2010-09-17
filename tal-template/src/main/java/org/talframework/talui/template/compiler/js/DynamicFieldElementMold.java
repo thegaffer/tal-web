@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.js;
+package org.talframework.talui.template.compiler.js;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.DynamicProperty;
-import org.tpspencer.tal.template.behaviour.property.CodedProperty;
-import org.tpspencer.tal.template.behaviour.property.DateProperty;
-import org.tpspencer.tal.template.behaviour.property.NumberProperty;
-import org.tpspencer.tal.template.behaviour.property.TextProperty;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.render.elements.DynamicParameter;
-import org.tpspencer.tal.template.render.elements.ExpressionParameter;
-import org.tpspencer.tal.template.render.elements.RenderParameter;
-import org.tpspencer.tal.template.render.elements.js.DynamicFieldAttachment;
-import org.tpspencer.tal.template.render.elements.special.EmptyElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.DynamicProperty;
+import org.talframework.talui.template.behaviour.property.CodedProperty;
+import org.talframework.talui.template.behaviour.property.DateProperty;
+import org.talframework.talui.template.behaviour.property.NumberProperty;
+import org.talframework.talui.template.behaviour.property.TextProperty;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.render.elements.DynamicParameter;
+import org.talframework.talui.template.render.elements.ExpressionParameter;
+import org.talframework.talui.template.render.elements.RenderParameter;
+import org.talframework.talui.template.render.elements.js.DynamicFieldAttachment;
+import org.talframework.talui.template.render.elements.special.EmptyElement;
 
 /**
  * This mold is the default for any dynamic property. It will

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.input;
+package org.talframework.talui.mvc.input;
 
 import static org.junit.Assert.*;
 
@@ -23,7 +23,7 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.input.WebInputModel;
+import org.talframework.talui.mvc.input.WebInputModel;
 
 /**
  * This class tests an Input Model

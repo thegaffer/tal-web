@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet;
+package org.talframework.talui.mvc.servlet;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -30,17 +30,17 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.tpspencer.tal.mvc.config.AppConfig;
-import org.tpspencer.tal.mvc.servlet.error.ServletExceptionResolver;
-import org.tpspencer.tal.mvc.servlet.error.StandardExceptionResolver;
-import org.tpspencer.tal.mvc.servlet.handlers.ActionRequestHandler;
-import org.tpspencer.tal.mvc.servlet.handlers.AsyncActionRequestHandler;
-import org.tpspencer.tal.mvc.servlet.handlers.AsyncRenderRequestHandler;
-import org.tpspencer.tal.mvc.servlet.handlers.PageRequestHandler;
-import org.tpspencer.tal.mvc.servlet.handlers.RenderRequestHandler;
-import org.tpspencer.tal.mvc.servlet.model.CookieModelAttributeResolver;
-import org.tpspencer.tal.mvc.servlet.util.RequestAttributeUtils;
-import org.tpspencer.tal.mvc.servlet.util.ServletUrlGenerator;
+import org.talframework.talui.mvc.config.AppConfig;
+import org.talframework.talui.mvc.servlet.error.ServletExceptionResolver;
+import org.talframework.talui.mvc.servlet.error.StandardExceptionResolver;
+import org.talframework.talui.mvc.servlet.handlers.ActionRequestHandler;
+import org.talframework.talui.mvc.servlet.handlers.AsyncActionRequestHandler;
+import org.talframework.talui.mvc.servlet.handlers.AsyncRenderRequestHandler;
+import org.talframework.talui.mvc.servlet.handlers.PageRequestHandler;
+import org.talframework.talui.mvc.servlet.handlers.RenderRequestHandler;
+import org.talframework.talui.mvc.servlet.model.CookieModelAttributeResolver;
+import org.talframework.talui.mvc.servlet.util.RequestAttributeUtils;
+import org.talframework.talui.mvc.servlet.util.ServletUrlGenerator;
 
 /**
  * This is the main WebMVC servlet. This servlet then 

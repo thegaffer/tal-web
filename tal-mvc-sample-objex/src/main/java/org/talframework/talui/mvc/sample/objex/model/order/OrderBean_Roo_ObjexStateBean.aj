@@ -1,4 +1,4 @@
-package org.tpspencer.tal.mvc.sample.objex.model.order;
+package org.talframework.talui.mvc.sample.objex.model.order;
 
 import java.lang.Object;
 import java.lang.String;

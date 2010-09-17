@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 public class NestedResolvedAttributeException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

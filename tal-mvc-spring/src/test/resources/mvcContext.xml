@@ -82,8 +82,8 @@
 		</mvc:results>
 	</mvc:complexWindow>
 	
-	<bean id="ctrl1" class="org.tpspencer.tal.mvc.spring.xml.BasicTestController" />
-	<bean id="ctrl2" class="org.tpspencer.tal.mvc.spring.xml.BasicTestController" />
+	<bean id="ctrl1" class="org.talframework.talui.mvc.spring.xml.BasicTestController" />
+	<bean id="ctrl2" class="org.talframework.talui.mvc.spring.xml.BasicTestController" />
 	
 	<mvc:templateView id="someView" />
 	<mvc:templateView id="anotherView" />
@@ -91,9 +91,9 @@
 	<!-- Controllers -->
 	<!-- <mvc:genericController id="simpleCtrl" controller="ctrl3" binder="beanBinder" /> -->
 	
-	<bean id="beanBinder" class="org.tpspencer.tal.mvc.spring.controller.SpringInputBinder" />
+	<bean id="beanBinder" class="org.talframework.talui.mvc.spring.controller.SpringInputBinder" />
 	
-	<bean id="ctrl3" class="org.tpspencer.tal.mvc.spring.xml.SimpleTestController" />
+	<bean id="ctrl3" class="org.talframework.talui.mvc.spring.xml.SimpleTestController" />
 	
 	<mvc:model id="testModel">
 		<mvc:simpleAttribute name="attr1" />

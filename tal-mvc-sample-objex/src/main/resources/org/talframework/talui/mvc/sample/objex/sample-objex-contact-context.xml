@@ -37,8 +37,8 @@
 		<constructor-arg value="Contact" />
 		<constructor-arg value="Contact" />
 		<constructor-arg><list>
-			<bean p:typeName="Contact" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.contact.ContactBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.contact.ContactImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
-			<bean p:typeName="Address" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.common.AddressBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.common.AddressImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
+			<bean p:typeName="Contact" p:stateClass="org.talframework.talui.mvc.sample.objex.model.contact.ContactBean" p:objexClass="org.talframework.talui.mvc.sample.objex.model.contact.ContactImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
+			<bean p:typeName="Address" p:stateClass="org.talframework.talui.mvc.sample.objex.model.common.AddressBean" p:objexClass="org.talframework.talui.mvc.sample.objex.model.common.AddressImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
 		</list></constructor-arg>
 		<property name="standardListeners">
 			<list>

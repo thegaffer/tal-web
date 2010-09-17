@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml;
+package org.talframework.talui.mvc.spring.xml;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.ManagedList;
 import org.springframework.beans.factory.support.ManagedMap;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
-import org.tpspencer.tal.mvc.spring.xml.helper.ActionMapParserHelper;
-import org.tpspencer.tal.mvc.spring.xml.helper.ControllerMapParserHelper;
-import org.tpspencer.tal.mvc.spring.xml.helper.EventMapParserHelper;
-import org.tpspencer.tal.mvc.spring.xml.helper.ModelParserHelper;
-import org.tpspencer.tal.mvc.spring.xml.helper.ViewMapParserHelper;
-import org.tpspencer.tal.mvc.window.MultiViewWindow;
+import org.talframework.talui.mvc.spring.xml.helper.ActionMapParserHelper;
+import org.talframework.talui.mvc.spring.xml.helper.ControllerMapParserHelper;
+import org.talframework.talui.mvc.spring.xml.helper.EventMapParserHelper;
+import org.talframework.talui.mvc.spring.xml.helper.ModelParserHelper;
+import org.talframework.talui.mvc.spring.xml.helper.ViewMapParserHelper;
+import org.talframework.talui.mvc.window.MultiViewWindow;
 import org.w3c.dom.Element;
 
 public class MultiViewWindowBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {

@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render;
+package org.talframework.talui.template.render;
 
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.Renderer;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.Renderer;
 
 public class TemplateRenderer implements Renderer {
 	

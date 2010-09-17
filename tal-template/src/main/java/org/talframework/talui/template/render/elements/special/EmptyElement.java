@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.special;
+package org.talframework.talui.template.render.elements.special;
 
-import org.tpspencer.tal.template.render.elements.AbstractRenderElement;
+import org.talframework.talui.template.render.elements.AbstractRenderElement;
 
 /**
  * This class is an empty render element. It's job is to 

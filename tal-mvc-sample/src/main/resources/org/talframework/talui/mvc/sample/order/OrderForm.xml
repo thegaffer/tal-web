@@ -7,7 +7,7 @@
 
 <templates>
 
-<template templateClass="org.tpspencer.tal.mvc.sample.model.order.Order">
+<template templateClass="org.talframework.talui.mvc.sample.model.order.Order">
 	<prop name="id" />
 	<composite-group name="collectionAddress" label="label.Order.collectionAddress">
 		<member-prop name="collection" template="Address" />
@@ -27,7 +27,7 @@
 	<choice-prop name="service" codeType="serviceCodeType" dynamic="true" fieldShowId="true" fieldMinChars="0" />
 </template>
 
-<template templateClass="org.tpspencer.tal.mvc.sample.model.common.Address">
+<template templateClass="org.talframework.talui.mvc.sample.model.common.Address">
 	<string-prop name="address" maxLength="30" />
 	<choice-prop name="town" codeType="townCodeType" unbounded="true" />
 	<string-prop name="postCode" format="(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})" />

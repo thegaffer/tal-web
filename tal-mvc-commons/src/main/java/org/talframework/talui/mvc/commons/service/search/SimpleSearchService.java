@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.service.search;
+package org.talframework.talui.mvc.commons.service.search;
 
 /**
  * This interface represents a simple search service and paging

@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core;
+package org.talframework.talui.template.core;
 
 import java.util.List;
 
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.InnerTemplateElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.InnerTemplateElement;
 
 /**
  * This element is not really a property as such. It is

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.groups;
+package org.talframework.talui.template.core.groups;
 
 /**
  * This group is a specialised group that represents a form.

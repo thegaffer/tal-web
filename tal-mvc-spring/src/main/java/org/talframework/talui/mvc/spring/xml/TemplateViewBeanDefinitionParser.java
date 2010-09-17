@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml;
+package org.talframework.talui.mvc.spring.xml;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
-import org.tpspencer.tal.mvc.spring.xml.helper.ModelParserHelper;
-import org.tpspencer.tal.mvc.spring.xml.helper.ParserHelper;
-import org.tpspencer.tal.mvc.view.TemplateView;
+import org.talframework.talui.mvc.spring.xml.helper.ModelParserHelper;
+import org.talframework.talui.mvc.spring.xml.helper.ParserHelper;
+import org.talframework.talui.mvc.view.TemplateView;
 import org.w3c.dom.Element;
 
 public class TemplateViewBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {

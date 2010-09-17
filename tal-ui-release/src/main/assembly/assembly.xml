@@ -12,17 +12,17 @@
   	<dependencySet>
   		<outputDirectory>/bin</outputDirectory>
   		<includes>
-  			<include>org.tpspencer.talui:tal-ui-testapp</include>
+  			<include>org.talframework.talui:tal-ui-testapp</include>
   		</includes>
   	</dependencySet>
   	<dependencySet>
   		<outputDirectory>/lib</outputDirectory>
   		<includes>
-  			<include>org.tpspencer.talui:tal-template</include>
-  			<include>org.tpspencer.talui:tal-mvc</include>
-  			<include>org.tpspencer.talui:tal-mvc-spring</include>
-  			<include>org.tpspencer.talui:tal-mvc-commons</include>
-  			<include>org.tpspencer.talui:tal-mvc-servlet</include>
+  			<include>org.talframework.talui:tal-template</include>
+  			<include>org.talframework.talui:tal-mvc</include>
+  			<include>org.talframework.talui:tal-mvc-spring</include>
+  			<include>org.talframework.talui:tal-mvc-commons</include>
+  			<include>org.talframework.talui:tal-mvc-servlet</include>
   		</includes>
   	</dependencySet>
   </dependencySets>

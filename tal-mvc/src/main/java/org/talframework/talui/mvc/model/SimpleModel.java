@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import org.tpspencer.tal.mvc.Model;
+import org.talframework.talui.mvc.Model;
 
 /**
  * This class implements the model interface to provide access

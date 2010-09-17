@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core;
+package org.talframework.talui.template.core;
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -22,7 +22,7 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.TemplateConfiguration;
+import org.talframework.talui.template.TemplateConfiguration;
 
 /**
  * This class holds all known instances of the template

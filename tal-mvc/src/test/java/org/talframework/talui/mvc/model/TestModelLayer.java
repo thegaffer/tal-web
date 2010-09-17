@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 import static org.junit.Assert.*;
 
@@ -25,10 +25,10 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.ModelLayer;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.ModelLayer;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
 
 /**
  * This class tests the model layer value object

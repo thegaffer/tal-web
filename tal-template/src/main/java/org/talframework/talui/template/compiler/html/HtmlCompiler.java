@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html;
+package org.talframework.talui.template.compiler.html;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.compiler.BasicTemplateRenderMold;
-import org.tpspencer.tal.template.compiler.SimpleGenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMoldFactory;
-import org.tpspencer.tal.template.render.elements.html.Script;
-import org.tpspencer.tal.template.render.elements.html.StyleImport;
-import org.tpspencer.tal.template.render.elements.html.TemplateScript;
-import org.tpspencer.tal.template.render.elements.special.EmptyElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.compiler.BasicTemplateRenderMold;
+import org.talframework.talui.template.compiler.SimpleGenericCompiler;
+import org.talframework.talui.template.compiler.TemplateElementRenderMoldFactory;
+import org.talframework.talui.template.render.elements.html.Script;
+import org.talframework.talui.template.render.elements.html.StyleImport;
+import org.talframework.talui.template.render.elements.html.TemplateScript;
+import org.talframework.talui.template.render.elements.special.EmptyElement;
 
 /**
  * This class extends the SimpleGenericCompiler to provide a

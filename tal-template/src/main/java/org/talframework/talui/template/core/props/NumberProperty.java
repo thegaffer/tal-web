@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.props;
+package org.talframework.talui.template.core.props;
 
 import java.text.NumberFormat;
 
-import org.tpspencer.tal.template.RenderModel;
+import org.talframework.talui.template.RenderModel;
 
 /**
  * Extends simple property to provide common handling
@@ -26,7 +26,7 @@ import org.tpspencer.tal.template.RenderModel;
  * 
  * @author Tom Spencer
  */
-public class NumberProperty extends SimpleProperty implements org.tpspencer.tal.template.behaviour.property.NumberProperty {
+public class NumberProperty extends SimpleProperty implements org.talframework.talui.template.behaviour.property.NumberProperty {
 
 	/** Holds the min value the number can take on */
 	private Number minimum = null;

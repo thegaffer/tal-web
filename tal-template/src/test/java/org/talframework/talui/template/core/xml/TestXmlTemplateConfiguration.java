@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.xml;
+package org.talframework.talui.template.core.xml;
 
 import static org.junit.Assert.assertNotNull;
 
 import java.util.HashMap;
 
 import org.junit.Test;
-import org.tpspencer.tal.template.Compiler;
-import org.tpspencer.tal.template.Renderer;
-import org.tpspencer.tal.template.compiler.html.HtmlCompiler;
-import org.tpspencer.tal.template.core.xml.XmlTemplateConfiguration;
+import org.talframework.talui.template.Compiler;
+import org.talframework.talui.template.Renderer;
+import org.talframework.talui.template.compiler.html.HtmlCompiler;
+import org.talframework.talui.template.core.xml.XmlTemplateConfiguration;
 
 /**
  * This test, which is more of a system test accross

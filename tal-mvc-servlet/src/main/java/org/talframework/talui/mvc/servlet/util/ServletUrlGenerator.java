@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.util;
+package org.talframework.talui.mvc.servlet.util;
 
 import java.util.Iterator;
 
@@ -24,10 +24,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.tpspencer.tal.mvc.config.AppConfig;
-import org.tpspencer.tal.mvc.servlet.RequestCoordinates;
-import org.tpspencer.tal.mvc.servlet.UrlGenerator;
-import org.tpspencer.tal.util.htmlhelper.UrlCharStripper;
+import org.talframework.talui.mvc.config.AppConfig;
+import org.talframework.talui.mvc.servlet.RequestCoordinates;
+import org.talframework.talui.mvc.servlet.UrlGenerator;
+import org.talframework.talui.util.htmlhelper.UrlCharStripper;
 
 /**
  * This class implements the url generator for a normal

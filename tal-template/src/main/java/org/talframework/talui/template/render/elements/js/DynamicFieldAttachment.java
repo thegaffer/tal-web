@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.js;
+package org.talframework.talui.template.render.elements.js;
 
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.render.elements.RenderParameter;
-import org.tpspencer.tal.template.render.elements.SimpleRenderElementBase;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.render.elements.RenderParameter;
+import org.talframework.talui.template.render.elements.SimpleRenderElementBase;
 
 /**
  * The render element generates the Javascript neccessary to

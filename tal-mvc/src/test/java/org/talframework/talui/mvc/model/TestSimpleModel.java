@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,14 +28,14 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.ModelResolver;
-import org.tpspencer.tal.mvc.model.NestedResolvedAttributeException;
-import org.tpspencer.tal.mvc.model.ResolvedModelAttribute;
-import org.tpspencer.tal.mvc.model.SimpleModel;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.ModelResolver;
+import org.talframework.talui.mvc.model.NestedResolvedAttributeException;
+import org.talframework.talui.mvc.model.ResolvedModelAttribute;
+import org.talframework.talui.mvc.model.SimpleModel;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
 
 /**
  * Tests that {@link SimpleModel} works correctly.

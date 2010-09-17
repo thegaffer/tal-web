@@ -36,7 +36,7 @@
 		<constructor-arg value="Accounts" />
 		<constructor-arg value="Account" />
 		<constructor-arg><list>
-			<bean p:typeName="Account" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.contact.AccountBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.contact.AccountImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
+			<bean p:typeName="Account" p:stateClass="org.talframework.talui.mvc.sample.objex.model.contact.AccountBean" p:objexClass="org.talframework.talui.mvc.sample.objex.model.contact.AccountImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
 		</list></constructor-arg>
 	</bean>
 	

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.xml;
+package org.talframework.talui.template.core.xml;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
@@ -34,26 +34,26 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.core.SimpleTemplate;
-import org.tpspencer.tal.template.core.TemplateProp;
-import org.tpspencer.tal.template.core.groups.ActionGroup;
-import org.tpspencer.tal.template.core.groups.CompositeGroup;
-import org.tpspencer.tal.template.core.groups.FormGroup;
-import org.tpspencer.tal.template.core.groups.GridGroup;
-import org.tpspencer.tal.template.core.groups.ImageGroup;
-import org.tpspencer.tal.template.core.groups.SimpleGroup;
-import org.tpspencer.tal.template.core.memberprops.MemberProperty;
-import org.tpspencer.tal.template.core.props.BooleanProperty;
-import org.tpspencer.tal.template.core.props.ChoiceProperty;
-import org.tpspencer.tal.template.core.props.CommandProperty;
-import org.tpspencer.tal.template.core.props.DateProperty;
-import org.tpspencer.tal.template.core.props.MemoProperty;
-import org.tpspencer.tal.template.core.props.NumberProperty;
-import org.tpspencer.tal.template.core.props.SimpleChoiceProperty;
-import org.tpspencer.tal.template.core.props.SimpleProperty;
-import org.tpspencer.tal.template.core.props.StringProperty;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.core.SimpleTemplate;
+import org.talframework.talui.template.core.TemplateProp;
+import org.talframework.talui.template.core.groups.ActionGroup;
+import org.talframework.talui.template.core.groups.CompositeGroup;
+import org.talframework.talui.template.core.groups.FormGroup;
+import org.talframework.talui.template.core.groups.GridGroup;
+import org.talframework.talui.template.core.groups.ImageGroup;
+import org.talframework.talui.template.core.groups.SimpleGroup;
+import org.talframework.talui.template.core.memberprops.MemberProperty;
+import org.talframework.talui.template.core.props.BooleanProperty;
+import org.talframework.talui.template.core.props.ChoiceProperty;
+import org.talframework.talui.template.core.props.CommandProperty;
+import org.talframework.talui.template.core.props.DateProperty;
+import org.talframework.talui.template.core.props.MemoProperty;
+import org.talframework.talui.template.core.props.NumberProperty;
+import org.talframework.talui.template.core.props.SimpleChoiceProperty;
+import org.talframework.talui.template.core.props.SimpleProperty;
+import org.talframework.talui.template.core.props.StringProperty;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;

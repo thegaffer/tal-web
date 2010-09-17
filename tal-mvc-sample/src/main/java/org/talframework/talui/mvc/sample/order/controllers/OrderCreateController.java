@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.order.controllers;
+package org.talframework.talui.mvc.sample.order.controllers;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.tpspencer.tal.mvc.controller.InputBinder;
-import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.Controller;
-import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
-import org.tpspencer.tal.mvc.sample.model.order.Order;
-import org.tpspencer.tal.mvc.sample.service.OrderService;
+import org.talframework.talui.mvc.controller.InputBinder;
+import org.talframework.talui.mvc.controller.annotations.Action;
+import org.talframework.talui.mvc.controller.annotations.Controller;
+import org.talframework.talui.mvc.controller.annotations.ModelBindInput;
+import org.talframework.talui.mvc.sample.model.order.Order;
+import org.talframework.talui.mvc.sample.service.OrderService;
 
 @Controller(binder="binder")
 public class OrderCreateController {

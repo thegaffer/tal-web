@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml.helper;
+package org.talframework.talui.mvc.spring.xml.helper;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

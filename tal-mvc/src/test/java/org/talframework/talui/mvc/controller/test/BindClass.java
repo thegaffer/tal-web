@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller.test;
+package org.talframework.talui.mvc.controller.test;
 
 /**
  * Test class that implements the BindInterface

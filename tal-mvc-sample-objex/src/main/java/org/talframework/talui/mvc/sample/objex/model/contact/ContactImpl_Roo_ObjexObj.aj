@@ -1,4 +1,4 @@
-package org.tpspencer.tal.mvc.sample.objex.model.contact;
+package org.talframework.talui.mvc.sample.objex.model.contact;
 
 import java.lang.String;
 import org.talframework.objexj.ObjexObj;
@@ -7,8 +7,8 @@ import org.talframework.objexj.ValidationRequest;
 import org.talframework.objexj.object.BaseObjexObj;
 import org.talframework.objexj.object.ObjectUtils;
 import org.talframework.objexj.object.StateBeanUtils;
-import org.tpspencer.tal.mvc.sample.model.common.Address;
-import org.tpspencer.tal.mvc.sample.objex.model.contact.ContactBean;
+import org.talframework.talui.mvc.sample.model.common.Address;
+import org.talframework.talui.mvc.sample.objex.model.contact.ContactBean;
 
 privileged aspect ContactImpl_Roo_ObjexObj {
     

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.model.order;
+package org.talframework.talui.mvc.sample.model.order;
 
 import java.util.Date;
 
-import org.tpspencer.tal.mvc.sample.model.common.Address;
+import org.talframework.talui.mvc.sample.model.common.Address;
 
 /**
  * Simple Bean for prototyping

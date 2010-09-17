@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.repository;
+package org.talframework.talui.mvc.commons.repository;
 
 import java.beans.PropertyDescriptor;
 import java.util.Hashtable;
@@ -24,7 +24,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.tpspencer.tal.mvc.commons.util.ObjectCreator;
+import org.talframework.talui.mvc.commons.util.ObjectCreator;
 
 /**
  * The PrototyeRepository implements the {@link SimpleRepository}

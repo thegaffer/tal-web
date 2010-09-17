@@ -33,10 +33,10 @@
 		- objexMiddlewareFactory - Factory for the middleware at runtime 
 	 -->
 
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-objex-account-context.xml" />
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-objex-caller-context.xml" />
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-objex-contact-context.xml" />
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-objex-order-context.xml" />
+	<import resource="classpath:/org/talframework/talui/mvc/sample/objex/sample-objex-account-context.xml" />
+	<import resource="classpath:/org/talframework/talui/mvc/sample/objex/sample-objex-caller-context.xml" />
+	<import resource="classpath:/org/talframework/talui/mvc/sample/objex/sample-objex-contact-context.xml" />
+	<import resource="classpath:/org/talframework/talui/mvc/sample/objex/sample-objex-order-context.xml" />
 	
 	<bean class="org.talframework.objexj.locator.SingletonContainerLocator" factory-method="getInstance">
 		<property name="factories"><map>

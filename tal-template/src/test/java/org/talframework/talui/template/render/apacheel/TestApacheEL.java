@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.apacheel;
+package org.talframework.talui.template.render.apacheel;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -28,9 +28,9 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.template.RenderNode;
-import org.tpspencer.tal.template.render.apacheel.ApacheELExpressionEvaluator;
-import org.tpspencer.tal.template.test.SimpleBeanB;
+import org.talframework.talui.template.RenderNode;
+import org.talframework.talui.template.render.apacheel.ApacheELExpressionEvaluator;
+import org.talframework.talui.template.test.SimpleBeanB;
 
 /**
  * This class tests the operation of the Apache based

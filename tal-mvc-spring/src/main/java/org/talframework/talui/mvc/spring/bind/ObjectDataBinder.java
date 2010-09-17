@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.bind;
+package org.talframework.talui.mvc.spring.bind;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Proxy;
@@ -31,7 +31,7 @@ import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyAccessor;
 import org.springframework.beans.PropertyValue;
 import org.springframework.validation.DataBinder;
-import org.tpspencer.tal.mvc.controller.InterfaceAdaptor;
+import org.talframework.talui.mvc.controller.InterfaceAdaptor;
 
 /**
  * With Spring there is a DataBinder that will bind from an input

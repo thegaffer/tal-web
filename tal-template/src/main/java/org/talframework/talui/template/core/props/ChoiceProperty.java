@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.props;
+package org.talframework.talui.template.core.props;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.behaviour.property.CodedProperty;
-import org.tpspencer.tal.template.render.codes.CodeType;
-import org.tpspencer.tal.template.render.codes.CodeTypeFactoryLocator;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.behaviour.property.CodedProperty;
+import org.talframework.talui.template.render.codes.CodeType;
+import org.talframework.talui.template.render.codes.CodeTypeFactoryLocator;
 
 /**
  * This class extends simple property to provide a 

@@ -1,4 +1,20 @@
-package org.tpspencer.tal.mvc.commons.objex;
+/*
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.talframework.talui.mvc.commons.objex;
 
 import java.util.Map;
 
@@ -6,7 +22,7 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.talframework.objexj.Container;
 import org.talframework.objexj.locator.ContainerFactory;
-import org.tpspencer.tal.mvc.Model;
+import org.talframework.talui.mvc.Model;
 
 /**
  * This is a helper class that finds a container.
@@ -40,7 +56,7 @@ public class ContainerLocatorImpl implements ContainerLocator {
 	}
 	
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.commons.objex.ContainerLocator#getContainer(java.lang.Object)
+	 * @see org.talframework.talui.mvc.commons.objex.ContainerLocator#getContainer(java.lang.Object)
 	 */
 	public Container getContainer(Object obj) {
 		String id = getContainerId(obj);
@@ -48,7 +64,7 @@ public class ContainerLocatorImpl implements ContainerLocator {
 	}
 	
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.commons.objex.ContainerLocator#getEditableContainer(java.lang.Object)
+	 * @see org.talframework.talui.mvc.commons.objex.ContainerLocator#getEditableContainer(java.lang.Object)
 	 */
 	public Container getOpenContainer(Object obj) {
 		String id = getContainerId(obj);

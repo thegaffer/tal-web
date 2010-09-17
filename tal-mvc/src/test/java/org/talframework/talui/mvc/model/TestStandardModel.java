@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -28,18 +28,18 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.Model.ModelCleanupTask;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
-import org.tpspencer.tal.mvc.model.ModelEvent;
-import org.tpspencer.tal.mvc.model.ModelResolver;
-import org.tpspencer.tal.mvc.model.NestedResolvedAttributeException;
-import org.tpspencer.tal.mvc.model.ResolvedModelAttribute;
-import org.tpspencer.tal.mvc.model.SimpleModelAttribute;
-import org.tpspencer.tal.mvc.model.StandardModel;
-import org.tpspencer.tal.mvc.model.UnsupportedModelAttributeException;
-import org.tpspencer.tal.mvc.process.SimpleModelAttributeResolver;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.Model.ModelCleanupTask;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.model.ModelEvent;
+import org.talframework.talui.mvc.model.ModelResolver;
+import org.talframework.talui.mvc.model.NestedResolvedAttributeException;
+import org.talframework.talui.mvc.model.ResolvedModelAttribute;
+import org.talframework.talui.mvc.model.SimpleModelAttribute;
+import org.talframework.talui.mvc.model.StandardModel;
+import org.talframework.talui.mvc.model.UnsupportedModelAttributeException;
+import org.talframework.talui.mvc.process.SimpleModelAttributeResolver;
 
 /**
  * Tests the StandardModel class and its behaviour

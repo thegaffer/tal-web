@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render;
+package org.talframework.talui.template.render;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.RenderNode;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.RenderNode;
 
 /**
  * This class implements the render node factory interface using

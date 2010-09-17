@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views.menu;
+package org.talframework.talui.mvc.commons.views.menu;
 
 import java.util.HashMap;
 import java.util.Map;

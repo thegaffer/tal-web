@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.config;
+package org.talframework.talui.mvc.config;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import org.tpspencer.tal.mvc.config.EventConfig;
+import org.talframework.talui.mvc.config.EventConfig;
 
 /**
  * Tests the basic operation of the EventConfig 

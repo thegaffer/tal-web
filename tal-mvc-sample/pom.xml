@@ -2,13 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-    <groupId>org.tpspencer.talui</groupId>
+    <groupId>org.talframework.talui</groupId>
     <artifactId>tal-ui-parent</artifactId>
     <version>0.9-SNAPSHOT</version>
   </parent>
   
-  <groupId>org.tpspencer.talui</groupId>
   <artifactId>tal-mvc-sample</artifactId>
+  
   <name>Tal MVC Sample</name>
   <description>Sample App using the Tal MVC (&amp; Commons)</description>
   
@@ -18,17 +18,17 @@
   
   <dependencies>
   	<dependency>
-  		<groupId>org.tpspencer.talui</groupId>
+  		<groupId>org.talframework.talui</groupId>
   		<artifactId>tal-mvc</artifactId>
   		<version>${project.version}</version>
   	</dependency>
   	<dependency>
-  		<groupId>org.tpspencer.talui</groupId>
+  		<groupId>org.talframework.talui</groupId>
   		<artifactId>tal-mvc-commons</artifactId>
   		<version>${project.version}</version>
   	</dependency>
   	<dependency>
-  		<groupId>org.tpspencer.talui</groupId>
+  		<groupId>org.talframework.talui</groupId>
   		<artifactId>tal-mvc-spring</artifactId>
   		<version>${project.version}</version>
   	</dependency>

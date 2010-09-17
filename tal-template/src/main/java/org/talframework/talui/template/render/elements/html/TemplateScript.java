@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
-import org.tpspencer.tal.template.RenderModel;
+import org.talframework.talui.template.RenderModel;
 
 public final class TemplateScript extends Script {
 	

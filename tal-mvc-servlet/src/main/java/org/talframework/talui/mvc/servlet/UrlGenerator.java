@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet;
+package org.talframework.talui.mvc.servlet;
 
 import java.util.Map;
 
-public interface UrlGenerator extends org.tpspencer.tal.template.render.UrlGenerator {
+public interface UrlGenerator extends org.talframework.talui.template.render.UrlGenerator {
 
 	/**
 	 * Call to generate any custom url referring to an app, page

@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.behaviour.DynamicProperty;
-import org.tpspencer.tal.template.render.elements.DynamicParameter;
-import org.tpspencer.tal.template.render.elements.RenderParameter;
-import org.tpspencer.tal.template.render.elements.html.attributes.NameAttribute;
-import org.tpspencer.tal.template.render.elements.html.attributes.SimpleAttribute;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
-import org.tpspencer.tal.util.htmlhelper.HtmlConstants;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.behaviour.DynamicProperty;
+import org.talframework.talui.template.render.elements.DynamicParameter;
+import org.talframework.talui.template.render.elements.RenderParameter;
+import org.talframework.talui.template.render.elements.html.attributes.NameAttribute;
+import org.talframework.talui.template.render.elements.html.attributes.SimpleAttribute;
+import org.talframework.talui.util.htmlhelper.GenericElement;
+import org.talframework.talui.util.htmlhelper.HtmlConstants;
 
 /**
  * This class renders out a html input field based on

@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements;
+package org.talframework.talui.template.render.elements;
 
 import java.lang.reflect.Method;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.TemplateElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.TemplateElement;
 
 /**
  * A dynamic parameter is one which is obtained

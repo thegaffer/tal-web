@@ -39,22 +39,22 @@
 	 -->
 	
 	<!-- Simple HTML Compiler, everything is just divs and spans (tables are still allow) -->
-	<bean id="tpsweb.htmlCompiler" class="org.tpspencer.tal.template.compiler.html.HtmlCompiler" depends-on="tpsweb.htmlMoldFactory">
+	<bean id="tpsweb.htmlCompiler" class="org.talframework.talui.template.compiler.html.HtmlCompiler" depends-on="tpsweb.htmlMoldFactory">
 		<constructor-arg value="false" />
 	</bean>
 	
 	<!-- Form HTML Compiler, will output forms if found -->
-	<bean id="tpsweb.htmlFormCompiler" class="org.tpspencer.tal.template.compiler.html.HtmlCompiler" depends-on="tpsweb.htmlMoldFactory">
+	<bean id="tpsweb.htmlFormCompiler" class="org.talframework.talui.template.compiler.html.HtmlCompiler" depends-on="tpsweb.htmlMoldFactory">
 		<constructor-arg value="true" />
 	</bean>
 	
 	<!-- Simple JS Compiler -->
-	<bean id="tpsweb.jsCompiler" class="org.tpspencer.tal.template.compiler.js.JsCompiler">
+	<bean id="tpsweb.jsCompiler" class="org.talframework.talui.template.compiler.js.JsCompiler">
 		<constructor-arg value="false" />
 	</bean>
 	
 	<!-- Form Javascript Compiler -->
-	<bean id="tpsweb.jsFormCompiler" class="org.tpspencer.tal.template.compiler.js.JsCompiler">
+	<bean id="tpsweb.jsFormCompiler" class="org.talframework.talui.template.compiler.js.JsCompiler">
 		<constructor-arg value="true" />
 	</bean>
 	
@@ -66,7 +66,7 @@
 	 | behaviour of the HTML compilers above
 	 -->
 	
-	<bean id="tpsweb.htmlMoldFactory" class="org.tpspencer.tal.template.compiler.html.HtmlTemplateElementRenderMoldFactory" factory-method="getInstance" depends-on="tpsweb.htmlFragmentFactory">
+	<bean id="tpsweb.htmlMoldFactory" class="org.talframework.talui.template.compiler.html.HtmlTemplateElementRenderMoldFactory" factory-method="getInstance" depends-on="tpsweb.htmlFragmentFactory">
 		<!-- Provides the molds. -->
 		<!-- See TemplateElementRenderMoldFactory for each mold supported -->
 		<!-- There is a setter for each getter -->
@@ -75,7 +75,7 @@
 		<!-- <property name="defaultMold"><bean class="your.mold" /></property> -->
 	</bean>
 	
-	<bean id="tpsweb.htmlFragmentFactory" class="org.tpspencer.tal.template.compiler.html.DefaultHtmlFragmentFactory" factory-method="getInstance">
+	<bean id="tpsweb.htmlFragmentFactory" class="org.talframework.talui.template.compiler.html.DefaultHtmlFragmentFactory" factory-method="getInstance">
 		<!-- Provides the individual fragments that the default molds use -->
 		<!-- See HtmlFragmentFactory for each mold supported -->
 		<!-- There is a setter for each getter -->
@@ -92,7 +92,7 @@
 	 | behaviour of the Js compilers above
 	 -->
 
-	<bean id="tpsweb.jsMoldFactory" class="org.tpspencer.tal.template.compiler.js.JsTemplateElementRenderMoldFactory" factory-method="getInstance">
+	<bean id="tpsweb.jsMoldFactory" class="org.talframework.talui.template.compiler.js.JsTemplateElementRenderMoldFactory" factory-method="getInstance">
 		<!-- Provides the molds. -->
 		<!-- See TemplateElementRenderMoldFactory for each mold supported -->
 		<!-- There is a setter for each getter -->

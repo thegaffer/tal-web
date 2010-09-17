@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views.table;
+package org.talframework.talui.mvc.commons.views.table;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.CommandElement;
-import org.tpspencer.tal.template.behaviour.supporting.ResourceProperty;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.CommandElement;
+import org.talframework.talui.template.behaviour.supporting.ResourceProperty;
 
 /**
  * Represents an individual table action
@@ -136,7 +136,7 @@ public class TableAction implements CommandElement, ResourceProperty {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.template.behaviour.ResourceProperty#getResource()
+	 * @see org.talframework.talui.template.behaviour.ResourceProperty#getResource()
 	 */
 	public String getResource() {
 		if( message == null ) return "label.action." + getName().toLowerCase();
@@ -145,7 +145,7 @@ public class TableAction implements CommandElement, ResourceProperty {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.template.behaviour.CommandElement#getAction(org.tpspencer.tal.template.RenderModel)
+	 * @see org.talframework.talui.template.behaviour.CommandElement#getAction(org.talframework.talui.template.RenderModel)
 	 */
 	public String getAction(RenderModel model) {
 		return action;
@@ -153,7 +153,7 @@ public class TableAction implements CommandElement, ResourceProperty {
 	
 	/*
 	 * (non-Javadoc)
-	 * @see org.tpspencer.tal.template.behaviour.CommandElement#getActionParameters(org.tpspencer.tal.template.RenderModel)
+	 * @see org.talframework.talui.template.behaviour.CommandElement#getActionParameters(org.talframework.talui.template.RenderModel)
 	 */
 	public Map<String, String> getActionParameters(RenderModel model) {
 		// Add on ID of row if this is a row

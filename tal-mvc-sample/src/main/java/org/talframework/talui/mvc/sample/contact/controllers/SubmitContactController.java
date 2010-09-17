@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.contact.controllers;
+package org.talframework.talui.mvc.sample.contact.controllers;
 
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.tpspencer.tal.mvc.controller.InputBinder;
-import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.Controller;
-import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
-import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
-import org.tpspencer.tal.mvc.sample.model.contact.Contact;
-import org.tpspencer.tal.mvc.sample.service.ContactService;
-import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
+import org.talframework.talui.mvc.controller.InputBinder;
+import org.talframework.talui.mvc.controller.annotations.Action;
+import org.talframework.talui.mvc.controller.annotations.Controller;
+import org.talframework.talui.mvc.controller.annotations.ModelBindInput;
+import org.talframework.talui.mvc.controller.annotations.ModelInput;
+import org.talframework.talui.mvc.sample.model.contact.Contact;
+import org.talframework.talui.mvc.sample.service.ContactService;
+import org.talframework.talui.mvc.sample.service.transfer.SaveContactResult;
 
 /**
  * This controller handles a submit of the contact form.

@@ -1,4 +1,20 @@
-package org.tpspencer.tal.mvc.controller.compiler;
+/*
+ * Copyright 2009 Thomas Spencer
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.talframework.talui.mvc.controller.compiler;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -8,15 +24,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.mvc.controller.ControllerAction;
-import org.tpspencer.tal.mvc.controller.GenericController;
-import org.tpspencer.tal.mvc.controller.ParameterBinding;
-import org.tpspencer.tal.mvc.controller.annotations.Action;
-import org.tpspencer.tal.mvc.controller.annotations.BindInput;
-import org.tpspencer.tal.mvc.controller.annotations.Controller;
-import org.tpspencer.tal.mvc.controller.annotations.ErrorInput;
-import org.tpspencer.tal.mvc.controller.annotations.ModelBindInput;
-import org.tpspencer.tal.mvc.controller.annotations.ModelInput;
+import org.talframework.talui.mvc.controller.ControllerAction;
+import org.talframework.talui.mvc.controller.GenericController;
+import org.talframework.talui.mvc.controller.ParameterBinding;
+import org.talframework.talui.mvc.controller.annotations.Action;
+import org.talframework.talui.mvc.controller.annotations.BindInput;
+import org.talframework.talui.mvc.controller.annotations.Controller;
+import org.talframework.talui.mvc.controller.annotations.ErrorInput;
+import org.talframework.talui.mvc.controller.annotations.ModelBindInput;
+import org.talframework.talui.mvc.controller.annotations.ModelInput;
 
 /**
  * This class compiles a GenericController given an annotated
@@ -121,13 +137,13 @@ public final class ControllerCompiler {
 	 */
 	private Class<?> determineController(Object possibleController) {
 		Class<?> ctrlClass = possibleController.getClass();
-		if( ctrlClass.getAnnotation(org.tpspencer.tal.mvc.controller.annotations.Controller.class) != null ) return ctrlClass;
+		if( ctrlClass.getAnnotation(org.talframework.talui.mvc.controller.annotations.Controller.class) != null ) return ctrlClass;
 		
 		// Otherwise check interfaces, return first one with the controller annotation
 		Class<?>[] interfaces = possibleController.getClass().getInterfaces();
 		if( interfaces != null ) {
 			for( int i = 0 ; i < interfaces.length ; i++ ) {
-				if( interfaces[i].getAnnotation(org.tpspencer.tal.mvc.controller.annotations.Controller.class) != null ) {
+				if( interfaces[i].getAnnotation(org.talframework.talui.mvc.controller.annotations.Controller.class) != null ) {
 					return interfaces[i];
 				}
 			}

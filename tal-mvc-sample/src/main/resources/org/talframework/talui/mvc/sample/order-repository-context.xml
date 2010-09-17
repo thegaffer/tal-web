@@ -28,23 +28,23 @@
 	 | The Spring Context contains the default objects in the
 	 | order related repositories
 	 |
-	 | <bean p:id="" p:account="" p:collectionDate="" p:collectionTime="" p:goodsType="" p:goodsWeight="" p:goodsNumber="" p:service="" class="org.tpspencer.tal.mvc.sample.model.order.OrderBeanImpl">
-	 | <bean p:address="" p:town="" p:postCode="" p:country="" class="org.tpspencer.tal.mvc.sample.model.common.AddressBean" />
+	 | <bean p:id="" p:account="" p:collectionDate="" p:collectionTime="" p:goodsType="" p:goodsWeight="" p:goodsNumber="" p:service="" class="org.talframework.talui.mvc.sample.model.order.OrderBeanImpl">
+	 | <bean p:address="" p:town="" p:postCode="" p:country="" class="org.talframework.talui.mvc.sample.model.common.AddressBean" />
 	 -->
 	
-	<bean id="orderService" p:repository-ref="orderRepository" class="org.tpspencer.tal.mvc.sample.service.test.OrderServiceImpl" />
+	<bean id="orderService" p:repository-ref="orderRepository" class="org.talframework.talui.mvc.sample.service.test.OrderServiceImpl" />
 	
-	<bean id="orderRepository" class="org.tpspencer.tal.mvc.sample.model.order.OrderRepository" factory-method="getInstance">
+	<bean id="orderRepository" class="org.talframework.talui.mvc.sample.model.order.OrderRepository" factory-method="getInstance">
 		<property name="lastId" value="1000" />
 		<property name="objects"><map>
 			<entry key="101">
-				<bean p:id="101" p:account="123456" p:goodsType="Docs" p:goodsNumber="2" p:service="Sameday" class="org.tpspencer.tal.mvc.sample.model.order.OrderBean">
-					<property name="collection"><bean p:address="2a High Street" p:town="" p:postCode="B45 7JK" p:country="UK" class="org.tpspencer.tal.mvc.sample.model.common.AddressBean" /></property>
+				<bean p:id="101" p:account="123456" p:goodsType="Docs" p:goodsNumber="2" p:service="Sameday" class="org.talframework.talui.mvc.sample.model.order.OrderBean">
+					<property name="collection"><bean p:address="2a High Street" p:town="" p:postCode="B45 7JK" p:country="UK" class="org.talframework.talui.mvc.sample.model.common.AddressBean" /></property>
 				</bean>
 			</entry>
 			<entry key="102">
-				<bean p:id="102" p:account="987654" p:goodsType="Non-Docs" p:goodsNumber="3" p:service="Next Day" class="org.tpspencer.tal.mvc.sample.model.order.OrderBean">
-					<property name="collection"><bean p:address="143 Long Street" p:town="" p:postCode="LE3 6HG" p:country="UK" class="org.tpspencer.tal.mvc.sample.model.common.AddressBean" /></property>
+				<bean p:id="102" p:account="987654" p:goodsType="Non-Docs" p:goodsNumber="3" p:service="Next Day" class="org.talframework.talui.mvc.sample.model.order.OrderBean">
+					<property name="collection"><bean p:address="143 Long Street" p:town="" p:postCode="LE3 6HG" p:country="UK" class="org.talframework.talui.mvc.sample.model.common.AddressBean" /></property>
 				</bean>
 			</entry>
 		</map></property>

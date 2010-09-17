@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.util.htmlhelper;
+package org.talframework.talui.util.htmlhelper;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 
 import org.junit.Test;
-import org.tpspencer.tal.util.htmlhelper.HtmlCharStripper;
+import org.talframework.talui.util.htmlhelper.HtmlCharStripper;
 
 import junit.framework.Assert;
 

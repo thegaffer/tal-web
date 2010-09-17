@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.servlet;
+package org.talframework.talui.template.servlet;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -29,13 +29,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.Renderer;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.core.TemplateConfigurationLocator;
-import org.tpspencer.tal.template.render.SimpleRenderModel;
-import org.tpspencer.tal.template.render.SpringRenderNodeFactory;
-import org.tpspencer.tal.template.render.UrlGenerator;
-import org.tpspencer.tal.template.render.apacheel.ApacheELExpressionEvaluator;
+import org.talframework.talui.template.Renderer;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.core.TemplateConfigurationLocator;
+import org.talframework.talui.template.render.SimpleRenderModel;
+import org.talframework.talui.template.render.SpringRenderNodeFactory;
+import org.talframework.talui.template.render.UrlGenerator;
+import org.talframework.talui.template.render.apacheel.ApacheELExpressionEvaluator;
 
 /**
  * This class is the base template servlet. It will serve up web templates

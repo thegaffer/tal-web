@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet;
+package org.talframework.talui.mvc.servlet;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.tpspencer.tal.mvc.process.ModelLayerAttributesResolver;
+import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
 
 /**
  * This interface represents an object that can handle a

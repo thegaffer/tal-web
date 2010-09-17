@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.js;
+package org.talframework.talui.template.compiler.js;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.supporting.ReferenceElement;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.render.elements.js.ReferencePageAttachment;
-import org.tpspencer.tal.template.render.elements.special.EmptyElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.supporting.ReferenceElement;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.render.elements.js.ReferencePageAttachment;
+import org.talframework.talui.template.render.elements.special.EmptyElement;
 
 /**
  * The default mold is used for all elements by default and

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.bind;
+package org.talframework.talui.mvc.spring.bind;
 
 import org.springframework.beans.PropertyValue;
 

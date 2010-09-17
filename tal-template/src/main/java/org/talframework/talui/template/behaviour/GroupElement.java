@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.behaviour;
+package org.talframework.talui.template.behaviour;
 
 /**
  * This interface represents a template element that is simply

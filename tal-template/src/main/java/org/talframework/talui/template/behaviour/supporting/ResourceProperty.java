@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.behaviour.supporting;
+package org.talframework.talui.template.behaviour.supporting;
 
-import org.tpspencer.tal.template.TemplateElement;
+import org.talframework.talui.template.TemplateElement;
 
 /**
  * This behaviour is exhibited by an element that should

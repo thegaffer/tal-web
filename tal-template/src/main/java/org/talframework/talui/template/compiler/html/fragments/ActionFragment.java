@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html.fragments;
+package org.talframework.talui.template.compiler.html.fragments;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.CommandElement;
-import org.tpspencer.tal.template.behaviour.supporting.ContainerElement;
-import org.tpspencer.tal.template.behaviour.supporting.ReferenceElement;
-import org.tpspencer.tal.template.behaviour.supporting.ResourceProperty;
-import org.tpspencer.tal.template.compiler.FragmentMold;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.compiler.html.HtmlElementConstants;
-import org.tpspencer.tal.template.render.elements.DynamicParameter;
-import org.tpspencer.tal.template.render.elements.ResourceParameter;
-import org.tpspencer.tal.template.render.elements.html.Cell;
-import org.tpspencer.tal.template.render.elements.html.Div;
-import org.tpspencer.tal.template.render.elements.html.Link;
-import org.tpspencer.tal.template.render.elements.html.attributes.RenderParameterAttribute;
-import org.tpspencer.tal.template.render.elements.special.WrappingRenderElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.CommandElement;
+import org.talframework.talui.template.behaviour.supporting.ContainerElement;
+import org.talframework.talui.template.behaviour.supporting.ReferenceElement;
+import org.talframework.talui.template.behaviour.supporting.ResourceProperty;
+import org.talframework.talui.template.compiler.FragmentMold;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.compiler.html.HtmlElementConstants;
+import org.talframework.talui.template.render.elements.DynamicParameter;
+import org.talframework.talui.template.render.elements.ResourceParameter;
+import org.talframework.talui.template.render.elements.html.Cell;
+import org.talframework.talui.template.render.elements.html.Div;
+import org.talframework.talui.template.render.elements.html.Link;
+import org.talframework.talui.template.render.elements.html.attributes.RenderParameterAttribute;
+import org.talframework.talui.template.render.elements.special.WrappingRenderElement;
 
 /**
  * This fragment acts as the wrapper for a group or property

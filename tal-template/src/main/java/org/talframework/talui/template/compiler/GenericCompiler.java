@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler;
+package org.talframework.talui.template.compiler;
 
-import org.tpspencer.tal.template.Compiler;
-import org.tpspencer.tal.template.RenderElement;
+import org.talframework.talui.template.Compiler;
+import org.talframework.talui.template.RenderElement;
 
 /**
  * This class is a generic render compiler. An instance of

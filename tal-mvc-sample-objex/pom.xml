@@ -2,19 +2,19 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-    <groupId>org.tpspencer.talui</groupId>
+    <groupId>org.talframework.talui</groupId>
     <artifactId>tal-ui-parent</artifactId>
     <version>0.9-SNAPSHOT</version>
   </parent>
   
-  <groupId>org.tpspencer.talui</groupId>
   <artifactId>tal-mvc-sample-objex</artifactId>
+  
   <name>Tal MVC Objex Sample</name>
   <description>Extends the Sample App to use an Objex generated Model</description>
   
   <dependencies>
   	<dependency>
-  		<groupId>org.tpspencer.talui</groupId>
+  		<groupId>org.talframework.talui</groupId>
   		<artifactId>tal-mvc-sample</artifactId>
   		<version>${project.version}</version>
   	</dependency>

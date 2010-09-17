@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements.html;
+package org.talframework.talui.template.render.elements.html;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,11 +26,11 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.behaviour.DynamicProperty;
-import org.tpspencer.tal.template.render.elements.html.Input;
-import org.tpspencer.tal.util.htmlhelper.AttributeAdaptor;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.behaviour.DynamicProperty;
+import org.talframework.talui.template.render.elements.html.Input;
+import org.talframework.talui.util.htmlhelper.AttributeAdaptor;
+import org.talframework.talui.util.htmlhelper.GenericElement;
 
 public class TestInput {
 

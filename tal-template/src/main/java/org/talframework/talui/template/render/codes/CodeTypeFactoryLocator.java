@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.codes;
+package org.talframework.talui.template.render.codes;
 
 import java.security.Principal;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import org.tpspencer.tal.template.RenderModel;
+import org.talframework.talui.template.RenderModel;
 
 /**
  * This class holds a reference to all known code type

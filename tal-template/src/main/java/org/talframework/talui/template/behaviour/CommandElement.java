@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.behaviour;
+package org.talframework.talui.template.behaviour;
 
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.TemplateElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.TemplateElement;
 
 /**
  * This interface represents an element that in turns

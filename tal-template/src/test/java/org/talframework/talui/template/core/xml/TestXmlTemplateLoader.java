@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.xml;
+package org.talframework.talui.template.core.xml;
 
 import static org.junit.Assert.*;
 
 import java.util.List;
 
 import org.junit.Test;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.core.xml.XmlTemplateReader;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.core.xml.XmlTemplateReader;
 
 /**
  * This class tests that we can load XML based template

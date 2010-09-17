@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.props;
+package org.talframework.talui.template.core.props;
 
 import java.util.List;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.DynamicProperty;
-import org.tpspencer.tal.template.core.BaseElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.DynamicProperty;
+import org.talframework.talui.template.core.BaseElement;
 
 /**
  * This class represents a single simple property

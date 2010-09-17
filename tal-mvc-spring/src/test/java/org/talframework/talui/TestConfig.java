@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal;
+package org.talframework.talui;
 
 import static org.junit.Assert.*;
 
@@ -22,7 +22,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tpspencer.tal.mvc.config.AppConfig;
+import org.talframework.talui.mvc.config.AppConfig;
 
 /**
  * This test loads a Web MVC model from a spring

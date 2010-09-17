@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html.fragments;
+package org.talframework.talui.template.compiler.html.fragments;
 
 import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.supporting.ContainerElement;
-import org.tpspencer.tal.template.compiler.FragmentMold;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.compiler.html.HtmlElementConstants;
-import org.tpspencer.tal.template.render.elements.special.EmptyElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.supporting.ContainerElement;
+import org.talframework.talui.template.compiler.FragmentMold;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.compiler.html.HtmlElementConstants;
+import org.talframework.talui.template.render.elements.special.EmptyElement;
 
 /**
  * This class is a fragment that invokes compilation of

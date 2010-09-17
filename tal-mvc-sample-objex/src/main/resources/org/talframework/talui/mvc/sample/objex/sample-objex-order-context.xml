@@ -35,8 +35,8 @@
 		<constructor-arg value="Order" />
 		<constructor-arg value="Order" />
 		<constructor-arg><list>
-			<bean p:typeName="Order" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.order.OrderBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.order.OrderImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
-			<bean p:typeName="Address" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.common.AddressBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.common.AddressImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
+			<bean p:typeName="Order" p:stateClass="org.talframework.talui.mvc.sample.objex.model.order.OrderBean" p:objexClass="org.talframework.talui.mvc.sample.objex.model.order.OrderImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
+			<bean p:typeName="Address" p:stateClass="org.talframework.talui.mvc.sample.objex.model.common.AddressBean" p:objexClass="org.talframework.talui.mvc.sample.objex.model.common.AddressImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
 		</list></constructor-arg>
 		<property name="standardListeners">
 			<list>
@@ -55,13 +55,13 @@
 		<constructor-arg value="Orders" />
 		<constructor-arg value="OrderSummary" />
 		<constructor-arg><list>
-			<bean p:typeName="OrderSummary" p:stateClass="org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryBean" p:objexClass="org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
+			<bean p:typeName="OrderSummary" p:stateClass="org.talframework.talui.mvc.sample.objex.model.order.OrderSummaryBean" p:objexClass="org.talframework.talui.mvc.sample.objex.model.order.OrderSummaryImpl" class="org.talframework.objexj.object.SimpleObjectStrategy" />
 		</list></constructor-arg>
 		<property name="namedQueries">
 			<map>
 				<entry key="accountOrders">
 					<bean class="org.talframework.objexj.runtime.gae.query.GAEFixedQuery">
-						<property name="kind" value="org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryBean" />
+						<property name="kind" value="org.talframework.talui.mvc.sample.objex.model.order.OrderSummaryBean" />
 						<property name="parameters"><map>
 							<entry key="accountId" value="="/>
 						</map></property>
@@ -69,7 +69,7 @@
 				</entry>
 				<entry key="order">
 					<bean class="org.talframework.objexj.runtime.gae.query.GAEFixedQuery">
-						<property name="kind" value="org.tpspencer.tal.mvc.sample.objex.model.order.OrderSummaryBean" />
+						<property name="kind" value="org.talframework.talui.mvc.sample.objex.model.order.OrderSummaryBean" />
 						<property name="mandatoryParameters"><map>
 							<entry key="orderId" value="="/>
 						</map></property>
@@ -80,7 +80,7 @@
 		<property name="eventHandlers">
 			<map>
 				<entry key="onOrderUpdate">
-					<bean class="org.tpspencer.tal.mvc.sample.objex.container.order.UpdateOrderEvent" />
+					<bean class="org.talframework.talui.mvc.sample.objex.container.order.UpdateOrderEvent" />
 				</entry>
 			</map>
 		</property>

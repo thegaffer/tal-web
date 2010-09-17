@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.servlet.error;
+package org.talframework.talui.mvc.servlet.error;
 
 import java.io.IOException;
 

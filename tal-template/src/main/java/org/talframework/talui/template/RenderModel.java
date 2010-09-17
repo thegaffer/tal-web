@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template;
+package org.talframework.talui.template;
 
 import java.io.Writer;
 import java.security.Principal;
 import java.util.Locale;
 
-import org.tpspencer.tal.template.render.UrlGenerator;
-import org.tpspencer.tal.util.htmlhelper.GenericElement;
+import org.talframework.talui.template.render.UrlGenerator;
+import org.talframework.talui.util.htmlhelper.GenericElement;
 
 /**
  * This interface represents the model that is

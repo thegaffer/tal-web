@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.js;
+package org.talframework.talui.template.compiler.js;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -32,14 +32,15 @@ import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.Renderer;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateConfiguration;
-import org.tpspencer.tal.template.compiler.js.JsCompiler;
-import org.tpspencer.tal.template.core.xml.XmlTemplateReader;
-import org.tpspencer.tal.template.render.MockStringBufferAction;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.Renderer;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateConfiguration;
+import org.talframework.talui.template.compiler.js.JsCompiler;
+import org.talframework.talui.template.core.xml.XmlTemplateReader;
+import org.talframework.talui.template.render.MockStringBufferAction;
 
 /**
  * This class tests the JrCompiler against the templates in
@@ -84,6 +85,7 @@ public class TestJsCompiler {
 	}
 	
 	@Test
+	@Ignore
 	public void basic() throws IOException {
 		Renderer r = compiler.compile(config);
 		r.render(model);

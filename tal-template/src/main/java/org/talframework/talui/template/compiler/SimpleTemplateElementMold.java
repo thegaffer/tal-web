@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler;
+package org.talframework.talui.template.compiler;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
 
 /**
  * This configurable class turns any Template Element into a set

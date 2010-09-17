@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.views.table;
+package org.talframework.talui.mvc.commons.views.table;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.tpspencer.tal.mvc.commons.views.AbstractTemplateView;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.core.BasicTemplateConfiguration;
+import org.talframework.talui.mvc.commons.views.AbstractTemplateView;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.core.BasicTemplateConfiguration;
 
 /**
  * This class represents a table view in a window. It will 

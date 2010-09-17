@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 import java.util.Arrays;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.model.def.FixedDefaultResolver;
-import org.tpspencer.tal.mvc.model.def.SimpleDefaultResolver;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.model.def.FixedDefaultResolver;
+import org.talframework.talui.mvc.model.def.SimpleDefaultResolver;
 
 /**
  * This abstract class is a basic implementation for any kind

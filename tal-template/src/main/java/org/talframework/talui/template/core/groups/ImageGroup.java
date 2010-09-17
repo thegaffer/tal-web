@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.groups;
+package org.talframework.talui.template.core.groups;
 
-import org.tpspencer.tal.template.RenderModel;
-import org.tpspencer.tal.template.behaviour.supporting.ImageElement;
+import org.talframework.talui.template.RenderModel;
+import org.talframework.talui.template.behaviour.supporting.ImageElement;
 
 public class ImageGroup extends SimpleGroup implements ImageElement {
 	

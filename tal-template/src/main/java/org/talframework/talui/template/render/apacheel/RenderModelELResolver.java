@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.apacheel;
+package org.talframework.talui.template.render.apacheel;
 
 import java.beans.FeatureDescriptor;
 import java.util.Iterator;

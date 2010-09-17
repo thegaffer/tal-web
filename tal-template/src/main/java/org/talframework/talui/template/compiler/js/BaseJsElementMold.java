@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.js;
+package org.talframework.talui.template.compiler.js;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderElement;
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.behaviour.InnerTemplateElement;
-import org.tpspencer.tal.template.behaviour.MemberProperty;
-import org.tpspencer.tal.template.behaviour.supporting.ContainerElement;
-import org.tpspencer.tal.template.compiler.GenericCompiler;
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMold;
-import org.tpspencer.tal.template.compiler.TemplateRenderMold;
-import org.tpspencer.tal.template.render.elements.js.DynamicHandlerAttachment;
-import org.tpspencer.tal.template.render.elements.special.EmptyElement;
+import org.talframework.talui.template.RenderElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.behaviour.InnerTemplateElement;
+import org.talframework.talui.template.behaviour.MemberProperty;
+import org.talframework.talui.template.behaviour.supporting.ContainerElement;
+import org.talframework.talui.template.compiler.GenericCompiler;
+import org.talframework.talui.template.compiler.TemplateElementRenderMold;
+import org.talframework.talui.template.compiler.TemplateRenderMold;
+import org.talframework.talui.template.render.elements.js.DynamicHandlerAttachment;
+import org.talframework.talui.template.render.elements.special.EmptyElement;
 
 /**
  * This class is the base class for any Javascript element mold.

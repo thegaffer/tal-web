@@ -33,7 +33,7 @@
 </template>
 
 <!-- Template for BeanA -->
-<template templateClass="org.tpspencer.tal.template.test.SimpleBeanA">
+<template templateClass="org.talframework.talui.template.test.SimpleBeanA">
 	<member-prop name="address" template="SimpleBeanB" headings="a b c"/>
 	
 	<group name="value">
@@ -45,7 +45,7 @@
 </template>
 
 <!-- Template for BeanB -->
-<template templateClass="org.tpspencer.tal.template.test.SimpleBeanB">
+<template templateClass="org.talframework.talui.template.test.SimpleBeanB">
 	<prop name="address1" />
 	<prop name="postCode" valueOnDblClick="onPostCodeDblClick"/>
 	<choice-prop name="country" codeType="countryCodeList" />

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.html;
+package org.talframework.talui.template.compiler.html;
 
-import org.tpspencer.tal.template.compiler.FragmentMold;
+import org.talframework.talui.template.compiler.FragmentMold;
 
 /**
  * This interface represents the class that creates all the 

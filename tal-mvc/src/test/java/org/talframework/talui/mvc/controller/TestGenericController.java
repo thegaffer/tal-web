@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller;
+package org.talframework.talui.mvc.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,19 +28,19 @@ import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.controller.GenericController;
-import org.tpspencer.tal.mvc.controller.compiler.ControllerCompiler;
-import org.tpspencer.tal.mvc.controller.test.BasicController;
-import org.tpspencer.tal.mvc.controller.test.BindClass;
-import org.tpspencer.tal.mvc.controller.test.BindInterface;
-import org.tpspencer.tal.mvc.controller.test.BindingController;
-import org.tpspencer.tal.mvc.controller.test.ComplexController;
-import org.tpspencer.tal.mvc.controller.test.InputBinderStub;
-import org.tpspencer.tal.mvc.controller.test.InvalidController;
-import org.tpspencer.tal.mvc.controller.test.InvalidControllerNoActions;
-import org.tpspencer.tal.mvc.controller.test.InvalidControllerNoValidation;
-import org.tpspencer.tal.mvc.input.InputModel;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.controller.GenericController;
+import org.talframework.talui.mvc.controller.compiler.ControllerCompiler;
+import org.talframework.talui.mvc.controller.test.BasicController;
+import org.talframework.talui.mvc.controller.test.BindClass;
+import org.talframework.talui.mvc.controller.test.BindInterface;
+import org.talframework.talui.mvc.controller.test.BindingController;
+import org.talframework.talui.mvc.controller.test.ComplexController;
+import org.talframework.talui.mvc.controller.test.InputBinderStub;
+import org.talframework.talui.mvc.controller.test.InvalidController;
+import org.talframework.talui.mvc.controller.test.InvalidControllerNoActions;
+import org.talframework.talui.mvc.controller.test.InvalidControllerNoValidation;
+import org.talframework.talui.mvc.input.InputModel;
 
 /**
  * This class tests the generic controller

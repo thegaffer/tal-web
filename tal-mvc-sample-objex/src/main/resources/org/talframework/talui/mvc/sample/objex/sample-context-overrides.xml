@@ -26,37 +26,37 @@
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
 			http://www.tpspencer.org/schema/mvc http://www.tpspencer.org/schema/mvc/mvc.xsd">
 	
-	<import resource="classpath:/org/tpspencer/tal/mvc/sample/objex/sample-objex-context.xml"/>
+	<import resource="classpath:/org/talframework/talui/mvc/sample/objex/sample-objex-context.xml"/>
 	
 	<!-- Contact -->
-	<bean id="contactService" p:factory-ref="contactContainerFactory" p:accountRepository-ref="accountRepository" class="org.tpspencer.tal.mvc.sample.objex.service.ContactServiceImpl" />
+	<bean id="contactService" p:factory-ref="contactContainerFactory" p:accountRepository-ref="accountRepository" class="org.talframework.talui.mvc.sample.objex.service.ContactServiceImpl" />
 	
-	<bean id="currentContactResolver" p:containerAttribute="selectedContact" p:factory-ref="contactContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
-	<bean id="editContactResolver" p:containerAttribute="selectedContact" p:editable="true" p:createIfEmpty="true" p:factory-ref="contactContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
+	<bean id="currentContactResolver" p:containerAttribute="selectedContact" p:factory-ref="contactContainerFactory" class="org.talframework.talui.mvc.commons.objex.ObjexObjResolver" />
+	<bean id="editContactResolver" p:containerAttribute="selectedContact" p:editable="true" p:createIfEmpty="true" p:factory-ref="contactContainerFactory" class="org.talframework.talui.mvc.commons.objex.ObjexObjResolver" />
 	
 	<mvc:model id="contactViewModel">
 		<mvc:resolvedAttribute name="contact" resolver="editContactResolver" />
 	</mvc:model>
 	
 	<!-- Callers -->
-	<bean id="callerSearchResolver" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjSearchResolver"
+	<bean id="callerSearchResolver" class="org.talframework.talui.mvc.commons.objex.ObjexObjSearchResolver"
 		p:factory-ref="callersContainerFactory"
 		p:containerAttribute="Callers" p:fixedContainer="true"
 		p:queryName="callers" p:searchAttributes="firstName,lastName" />
 		
 	<!-- Order -->
-	<bean id="orderService" class="org.tpspencer.tal.mvc.sample.objex.service.OrderServiceImpl" />
+	<bean id="orderService" class="org.talframework.talui.mvc.sample.objex.service.OrderServiceImpl" />
 	
-	<bean id="sample.order.ordersResolver" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjSearchResolver"
+	<bean id="sample.order.ordersResolver" class="org.talframework.talui.mvc.commons.objex.ObjexObjSearchResolver"
 		p:factory-ref="ordersContainerFactory"
 		p:containerAttribute="Orders" p:fixedContainer="true"
 		p:queryName="accountOrders" p:searchAttributes="currentAccount">
 		<property name="searchParameters"><map><entry key="currentAccount" value="accountId" /></map></property>
 	</bean>
 		
-	<bean id="sample.order.currentOrderResolver" p:containerAttribute="selectedOrder" p:factory-ref="orderContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
-	<bean id="editOrderResolver" p:containerAttribute="selectedOrder" p:editable="true" p:factory-ref="orderContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
-	<bean id="newOrderResolver" p:containerAttribute="selectedOrder" p:editable="true" p:createIfEmpty="true" p:factory-ref="orderContainerFactory" class="org.tpspencer.tal.mvc.commons.objex.ObjexObjResolver" />
+	<bean id="sample.order.currentOrderResolver" p:containerAttribute="selectedOrder" p:factory-ref="orderContainerFactory" class="org.talframework.talui.mvc.commons.objex.ObjexObjResolver" />
+	<bean id="editOrderResolver" p:containerAttribute="selectedOrder" p:editable="true" p:factory-ref="orderContainerFactory" class="org.talframework.talui.mvc.commons.objex.ObjexObjResolver" />
+	<bean id="newOrderResolver" p:containerAttribute="selectedOrder" p:editable="true" p:createIfEmpty="true" p:factory-ref="orderContainerFactory" class="org.talframework.talui.mvc.commons.objex.ObjexObjResolver" />
 	
 	<mvc:model id="sample.order.orderViewModel">
 		<mvc:resolvedAttribute name="form" resolver="sample.order.currentOrderResolver" />

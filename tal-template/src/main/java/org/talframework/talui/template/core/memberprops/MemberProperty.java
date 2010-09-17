@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.memberprops;
+package org.talframework.talui.template.core.memberprops;
 
 import java.beans.PropertyDescriptor;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.tpspencer.tal.template.Template;
-import org.tpspencer.tal.template.TemplateElement;
-import org.tpspencer.tal.template.core.BaseElement;
+import org.talframework.talui.template.Template;
+import org.talframework.talui.template.TemplateElement;
+import org.talframework.talui.template.core.BaseElement;
 
-public class MemberProperty extends BaseElement implements org.tpspencer.tal.template.behaviour.MemberProperty {
+public class MemberProperty extends BaseElement implements org.talframework.talui.template.behaviour.MemberProperty {
 	
 	/** Holds the name of the template to delegate rendering to */
 	private String template = null;

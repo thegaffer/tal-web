@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.servlet;
+package org.talframework.talui.template.servlet;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -28,8 +28,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.render.codes.CodeType;
-import org.tpspencer.tal.template.render.codes.CodeTypeFactoryLocator;
+import org.talframework.talui.template.render.codes.CodeType;
+import org.talframework.talui.template.render.codes.CodeTypeFactoryLocator;
 
 /**
  * This standard servlet serves up code types dynamically given

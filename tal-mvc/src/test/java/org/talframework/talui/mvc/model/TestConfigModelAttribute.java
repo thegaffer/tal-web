@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model;
+package org.talframework.talui.mvc.model;
 
 import static org.junit.Assert.*;
 
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Test;
-import org.tpspencer.tal.mvc.model.ConfigModelAttribute;
-import org.tpspencer.tal.mvc.model.ModelAttribute;
-import org.tpspencer.tal.mvc.model.SimpleModelResolver;
+import org.talframework.talui.mvc.model.ConfigModelAttribute;
+import org.talframework.talui.mvc.model.ModelAttribute;
+import org.talframework.talui.mvc.model.SimpleModelResolver;
 
 /**
  * This class tests the basic ModelAttribute value object

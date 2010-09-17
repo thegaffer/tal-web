@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.model.contact;
+package org.talframework.talui.mvc.sample.model.contact;
 
 public class CallerBean implements Caller {
 
@@ -23,13 +23,13 @@ public class CallerBean implements Caller {
 	private String lastName = null;
 	private String account = null;
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Caller#getId()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Caller#getId()
 	 */
 	public Object getId() {
 		return id;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Caller#setId(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Caller#setId(java.lang.String)
 	 */
 	public void setId(Object id) {
 		if( id == null ) this.id = null;
@@ -37,37 +37,37 @@ public class CallerBean implements Caller {
 		else this.id = id.toString();
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Caller#getFirstName()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Caller#getFirstName()
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Caller#setFirstName(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Caller#setFirstName(java.lang.String)
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Caller#getLastName()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Caller#getLastName()
 	 */
 	public String getLastName() {
 		return lastName;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Caller#setLastName(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Caller#setLastName(java.lang.String)
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Caller#getAccount()
+	 * @see org.talframework.talui.mvc.sample.model.contact.Caller#getAccount()
 	 */
 	public String getAccount() {
 		return account;
 	}
 	/* (non-Javadoc)
-	 * @see org.tpspencer.tal.mvc.sample.model.contact.Caller#setAccount(java.lang.String)
+	 * @see org.talframework.talui.mvc.sample.model.contact.Caller#setAccount(java.lang.String)
 	 */
 	public void setAccount(String account) {
 		this.account = account;

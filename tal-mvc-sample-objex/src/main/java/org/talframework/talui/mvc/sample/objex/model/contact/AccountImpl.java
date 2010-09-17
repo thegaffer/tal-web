@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.objex.model.contact;
+package org.talframework.talui.mvc.sample.objex.model.contact;
 
 import org.talframework.objexj.annotations.ObjexObj;
-import org.tpspencer.tal.mvc.sample.model.account.Account;
-import org.tpspencer.tal.mvc.sample.model.common.Address;
+import org.talframework.talui.mvc.sample.model.account.Account;
+import org.talframework.talui.mvc.sample.model.common.Address;
 
 @ObjexObj(AccountBean.class)
 public class AccountImpl implements Account {

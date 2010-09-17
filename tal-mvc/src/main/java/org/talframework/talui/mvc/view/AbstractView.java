@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.view;
+package org.talframework.talui.mvc.view;
 
 import java.util.Iterator;
 import java.util.List;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.View;
-import org.tpspencer.tal.mvc.model.ModelConfiguration;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.View;
+import org.talframework.talui.mvc.model.ModelConfiguration;
 
 /**
  * This class is a base for a custom view. The AbstractView

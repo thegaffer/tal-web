@@ -2,24 +2,24 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-  	<groupId>org.tpspencer.talui</groupId>
+  	<groupId>org.talframework.talui</groupId>
   	<artifactId>tal-ui-parent</artifactId>
   	<version>0.9-SNAPSHOT</version>
   </parent>
   
-  <groupId>org.tpspencer.talui</groupId>
   <artifactId>tal-mvc-servlet</artifactId>
+  
   <name>Tal MVC Servlet</name>
   <description>Servlet that uses the Tal MVC Framework to bind a Web App</description>
   
   <dependencies>
   	<dependency>
-  	  <groupId>org.tpspencer.talui</groupId>
+  	  <groupId>org.talframework.talui</groupId>
   	  <artifactId>tal-mvc-spring</artifactId>
   	  <version>${project.version}</version>
   	</dependency>
   	<dependency>
-  	  <groupId>org.tpspencer.talui</groupId>
+  	  <groupId>org.talframework.talui</groupId>
   	  <artifactId>tal-template</artifactId>
   	  <version>${project.version}</version>
   	</dependency>

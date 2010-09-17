@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render;
+package org.talframework.talui.template.render;
 
 import java.util.Map;
 
-import org.tpspencer.tal.template.RenderNode;
+import org.talframework.talui.template.RenderNode;
 
 /**
  * This interface represents a service that can evaluate

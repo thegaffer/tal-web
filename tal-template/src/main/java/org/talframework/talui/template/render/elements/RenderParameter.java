@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.render.elements;
+package org.talframework.talui.template.render.elements;
 
-import org.tpspencer.tal.template.RenderModel;
+import org.talframework.talui.template.RenderModel;
 
 /**
  * A Render Parameter is a value used by the RenderElement at

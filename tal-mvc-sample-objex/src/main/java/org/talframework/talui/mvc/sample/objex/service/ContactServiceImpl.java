@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.objex.service;
+package org.talframework.talui.mvc.sample.objex.service;
 
 
 import org.talframework.objexj.Container;
 import org.talframework.objexj.ObjexObj;
 import org.talframework.objexj.locator.ContainerFactory;
-import org.tpspencer.tal.mvc.commons.repository.SimpleRepository;
-import org.tpspencer.tal.mvc.sample.model.account.Account;
-import org.tpspencer.tal.mvc.sample.model.account.AccountBean;
-import org.tpspencer.tal.mvc.sample.model.contact.Caller;
-import org.tpspencer.tal.mvc.sample.model.contact.Contact;
-import org.tpspencer.tal.mvc.sample.service.ContactService;
-import org.tpspencer.tal.mvc.sample.service.transfer.SaveContactResult;
+import org.talframework.talui.mvc.commons.repository.SimpleRepository;
+import org.talframework.talui.mvc.sample.model.account.Account;
+import org.talframework.talui.mvc.sample.model.account.AccountBean;
+import org.talframework.talui.mvc.sample.model.contact.Caller;
+import org.talframework.talui.mvc.sample.model.contact.Contact;
+import org.talframework.talui.mvc.sample.service.ContactService;
+import org.talframework.talui.mvc.sample.service.transfer.SaveContactResult;
 import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**

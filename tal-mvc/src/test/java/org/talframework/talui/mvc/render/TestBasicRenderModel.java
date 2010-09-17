@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.render;
+package org.talframework.talui.mvc.render;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -22,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 import junit.framework.Assert;
 
 import org.junit.Test;
-import org.tpspencer.tal.mvc.render.BasicRenderModel;
+import org.talframework.talui.mvc.render.BasicRenderModel;
 
 public class TestBasicRenderModel {
 

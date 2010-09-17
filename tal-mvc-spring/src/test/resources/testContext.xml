@@ -22,14 +22,14 @@
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 	<!-- The Application -->
-	<bean name="app" class="org.tpspencer.tal.mvc.config.AppConfig" init-method="init">
+	<bean name="app" class="org.talframework.talui.mvc.config.AppConfig" init-method="init">
 		<constructor-arg value="app" />
 		<constructor-arg>
-			<bean class="org.tpspencer.tal.mvc.model.ModelConfiguration">
+			<bean class="org.talframework.talui.mvc.model.ModelConfiguration">
 				<constructor-arg value="appModel" />
 				<constructor-arg>
 					<list>
-						<bean class="org.tpspencer.tal.mvc.model.SimpleModelAttribute">
+						<bean class="org.talframework.talui.mvc.model.SimpleModelAttribute">
 							<constructor-arg value="test" />
 						</bean>
 					</list>
@@ -42,21 +42,21 @@
 	</bean>
 	
 	<!-- Welcome Page -->
-	<bean name="welcomePage" class="org.tpspencer.tal.mvc.config.PageConfig" lazy-init="false">
+	<bean name="welcomePage" class="org.talframework.talui.mvc.config.PageConfig" lazy-init="false">
 		<property name="name" value="welcomePage" />
 		<property name="template" value="welcomePage.jsp" />
 	</bean>
 	
 	<!-- Selected Account Page -->
-	<bean name="accountPage" class="org.tpspencer.tal.mvc.config.PageConfig" lazy-init="false">
+	<bean name="accountPage" class="org.talframework.talui.mvc.config.PageConfig" lazy-init="false">
 		<property name="name" value="accountPage" />
 		<property name="template" value="accountPage.jsp" />
 		<property name="model">
-			<bean class="org.tpspencer.tal.mvc.model.ModelConfiguration">
+			<bean class="org.talframework.talui.mvc.model.ModelConfiguration">
 				<constructor-arg value="accountPageModel" />
 				<constructor-arg>
 					<list>
-						<bean class="org.tpspencer.tal.mvc.model.SimpleModelAttribute">
+						<bean class="org.talframework.talui.mvc.model.SimpleModelAttribute">
 							<constructor-arg value="selectedAccount" />
 						</bean>
 					</list>

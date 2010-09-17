@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.spring.xml;
+package org.talframework.talui.mvc.spring.xml;
 
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
-import org.tpspencer.tal.mvc.controller.GenericController;
-import org.tpspencer.tal.mvc.spring.xml.helper.ParserHelper;
+import org.talframework.talui.mvc.controller.GenericController;
+import org.talframework.talui.mvc.spring.xml.helper.ParserHelper;
 import org.w3c.dom.Element;
 
 public class GenericControllerBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {

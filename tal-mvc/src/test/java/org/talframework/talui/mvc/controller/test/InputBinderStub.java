@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.controller.test;
+package org.talframework.talui.mvc.controller.test;
 
 import java.util.List;
 
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.controller.InputBinder;
-import org.tpspencer.tal.mvc.input.InputModel;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.controller.InputBinder;
+import org.talframework.talui.mvc.input.InputModel;
 
 /**
  * A stub for the input binder. This has to be a stub as it is

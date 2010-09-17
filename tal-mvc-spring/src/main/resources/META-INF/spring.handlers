@@ -1,1 +1,1 @@
-http\://www.tpspencer.org/schema/mvc=org.tpspencer.tal.mvc.spring.xml.WebMvcNamespaceHandler
+http\://www.tpspencer.org/schema/mvc=org.talframework.talui.mvc.spring.xml.WebMvcNamespaceHandler

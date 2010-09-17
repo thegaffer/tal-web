@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.core.props;
+package org.talframework.talui.template.core.props;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,7 +23,7 @@ import java.util.Locale;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.template.RenderModel;
+import org.talframework.talui.template.RenderModel;
 
 /**
  * Extends simple property for date fields allowing 
@@ -32,7 +32,7 @@ import org.tpspencer.tal.template.RenderModel;
  * 
  * @author Tom Spencer
  */
-public class DateProperty extends SimpleProperty implements org.tpspencer.tal.template.behaviour.property.DateProperty {
+public class DateProperty extends SimpleProperty implements org.talframework.talui.template.behaviour.property.DateProperty {
 	private static final Log logger = LogFactory.getLog(DateProperty.class);
 
 	/** Holds the date style to output (if -1 date is not output) */

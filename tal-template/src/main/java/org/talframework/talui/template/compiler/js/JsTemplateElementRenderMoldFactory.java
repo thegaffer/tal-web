@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.compiler.js;
+package org.talframework.talui.template.compiler.js;
 
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMold;
-import org.tpspencer.tal.template.compiler.TemplateElementRenderMoldFactory;
+import org.talframework.talui.template.compiler.TemplateElementRenderMold;
+import org.talframework.talui.template.compiler.TemplateElementRenderMoldFactory;
 
 /**
  * Implements the template element factory. Also acts a singleton that 

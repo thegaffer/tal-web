@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template.behaviour.supporting;
+package org.talframework.talui.template.behaviour.supporting;
 
 import java.util.List;
 
-import org.tpspencer.tal.template.TemplateElement;
+import org.talframework.talui.template.TemplateElement;
 
 /**
  * This interface represents that the element contains

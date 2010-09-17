@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.template;
+package org.talframework.talui.template;
 
 import java.io.IOException;
 

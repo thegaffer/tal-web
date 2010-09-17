@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.model.notification;
+package org.talframework.talui.mvc.sample.model.notification;
 
 public class CallbackBean implements Callback {
 

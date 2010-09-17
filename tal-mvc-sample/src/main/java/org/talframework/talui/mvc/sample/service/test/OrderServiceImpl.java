@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.sample.service.test;
+package org.talframework.talui.mvc.sample.service.test;
 
+import org.talframework.talui.mvc.commons.repository.RepositoryHolder;
+import org.talframework.talui.mvc.commons.util.SimpleObjectCloner;
+import org.talframework.talui.mvc.sample.model.order.Order;
+import org.talframework.talui.mvc.sample.model.order.OrderBean;
+import org.talframework.talui.mvc.sample.service.OrderService;
+import org.talframework.talui.mvc.sample.service.transfer.SaveOrderResult;
 import org.tpspencer.tal.util.aspects.annotations.Trace;
-import org.tpspencer.tal.mvc.commons.repository.RepositoryHolder;
-import org.tpspencer.tal.mvc.commons.util.SimpleObjectCloner;
-import org.tpspencer.tal.mvc.sample.model.order.Order;
-import org.tpspencer.tal.mvc.sample.model.order.OrderBean;
-import org.tpspencer.tal.mvc.sample.service.OrderService;
-import org.tpspencer.tal.mvc.sample.service.transfer.SaveOrderResult;
 
 /**
  * Simple implementation of the order service using the

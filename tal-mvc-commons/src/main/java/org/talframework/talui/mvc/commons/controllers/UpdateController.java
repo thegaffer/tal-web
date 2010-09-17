@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.controllers;
+package org.talframework.talui.mvc.commons.controllers;
 
 import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tpspencer.tal.mvc.Controller;
-import org.tpspencer.tal.mvc.Model;
-import org.tpspencer.tal.mvc.input.InputModel;
+import org.talframework.talui.mvc.Controller;
+import org.talframework.talui.mvc.Model;
+import org.talframework.talui.mvc.input.InputModel;
 
 /**
  * This class is a more configurable version of the select

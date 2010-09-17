@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.model.message;
+package org.talframework.talui.mvc.model.message;
 
 import java.io.Serializable;
 import java.util.Arrays;

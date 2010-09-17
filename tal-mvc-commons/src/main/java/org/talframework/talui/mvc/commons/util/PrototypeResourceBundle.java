@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tpspencer.tal.mvc.commons.util;
+package org.talframework.talui.mvc.commons.util;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
