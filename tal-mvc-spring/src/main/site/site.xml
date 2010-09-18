@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Objex Core">
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-application-skin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </skin>
+  
+  <bannerLeft>
+    <name>TAL Framework - UI</name>
+    <src>images/talui-project.png</src>
+    <href>http://www.tpspencer.com/site/talui/index.html</href>
+  </bannerLeft>
+  <bannerRight>
+    <src>images/tal-project.png</src>
+  </bannerRight>
+  
+  <body>
+    <links>
+      <item name="Tom Spencer" href="http://www.tpspencer.com/" />
+      <item name="Objex" href="http://www.tpspencer.com/site/objexj/" />
+      <item name="Tal UI" href="http://www.tpspencer.com/site/talui/" />
+    </links>
+
+	<menu name="Tal UI Module">
+    	<item name="Welcome" href="../index.html" />
+    </menu>
+    
+    <menu ref="reports"/>
+  </body>
+</project>
