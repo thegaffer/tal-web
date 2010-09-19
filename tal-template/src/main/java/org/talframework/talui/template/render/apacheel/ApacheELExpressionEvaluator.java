@@ -30,12 +30,11 @@ import javax.el.MapELResolver;
 import javax.el.ValueExpression;
 import javax.el.VariableMapper;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.el.ExpressionFactoryImpl;
 import org.apache.el.lang.FunctionMapperImpl;
 import org.apache.el.lang.VariableMapperImpl;
 import org.talframework.tal.aspects.annotations.Trace;
+import org.talframework.tal.aspects.annotations.TraceWarn;
 import org.talframework.talui.template.RenderNode;
 import org.talframework.talui.template.render.ExpressionEvaluator;
 
@@ -53,7 +52,6 @@ import org.talframework.talui.template.render.ExpressionEvaluator;
  * @author Tom Spencer
  */
 public class ApacheELExpressionEvaluator implements ExpressionEvaluator {
-	private static final Log logger = LogFactory.getLog(ApacheELExpressionEvaluator.class);
 	
 	private ExpressionFactory factory = new ExpressionFactoryImpl();
 	/** Member holds the context which is created on first use */
@@ -100,9 +98,17 @@ public class ApacheELExpressionEvaluator implements ExpressionEvaluator {
 			return expression.getValue(context);
 		}
 		catch( Exception e ) {
-			logger.error("!!! Failure to process expression: " + expr);
-			if( logger.isDebugEnabled() ) e.printStackTrace();
+		    expressionFail(expr, e);
 			return null;
 		}
+	}
+
+	/**
+	 * Called when we fail to evaluate an expression so the
+	 * trace aspects will log it.
+	 */
+	@TraceWarn
+	private void expressionFail(String expr, Exception e) {
+	    
 	}
 }

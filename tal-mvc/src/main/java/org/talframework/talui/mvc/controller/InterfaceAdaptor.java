@@ -21,8 +21,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.TraceWarn;
 
 /**
  * This class is used to create bind objects to an interface
@@ -33,7 +32,6 @@ import org.apache.commons.logging.LogFactory;
  * @author Tom Spencer
  */
 public class InterfaceAdaptor implements InvocationHandler {
-	private static final Log logger = LogFactory.getLog(InterfaceAdaptor.class);
 
 	/** Member holds the properties of the interface */
 	private Map<String, Object> props = null;
@@ -77,7 +75,7 @@ public class InterfaceAdaptor implements InvocationHandler {
 			return props != null ? props.equals(args[0]) : false;
 		}
 		else {
-			logger.warn("!!! Unable to process method [" + method + "] in proxy, get a standard one");
+		    cannotProcessMethod(method);
 			return null;
 		}
 		
@@ -107,5 +105,12 @@ public class InterfaceAdaptor implements InvocationHandler {
 		}
 		
 		return ret;
+	}
+
+	/**
+	 * Method is present to call so the aspect loggers can log it.
+	 */
+	@TraceWarn
+	private void cannotProcessMethod(Method method) {
 	}
 }

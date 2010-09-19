@@ -25,8 +25,7 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.TraceWarn;
 import org.talframework.talui.template.RenderModel;
 import org.talframework.talui.template.RenderNode;
 import org.talframework.talui.util.htmlhelper.AttributeAdaptor;
@@ -69,7 +68,6 @@ import org.talframework.talui.util.htmlhelper.GenericElement;
  * @author Tom Spencer
  */
 public class SimpleRenderModel implements RenderModel, AttributeAdaptor {
-	private static final Log logger = LogFactory.getLog(SimpleRenderModel.class);
 	
 	private final Writer writer;
 	private final UrlGenerator urlGenerator;
@@ -174,12 +172,19 @@ public class SimpleRenderModel implements RenderModel, AttributeAdaptor {
 				ret = bundle.getString(key);
 			}
 			catch( MissingResourceException e ) {
-				logger.warn("!!! Missing resource [" + key + "] in bundle: " + bundle.toString());
+			    missingResource(key, bundle.toString());
 				ret = def;
 			}
 		}
 		
 		return ret;
+	}
+
+	/**
+	 * Helper to call for the tracing aspects to log it
+	 */
+	@TraceWarn
+	private void missingResource(String key, String bundle) {
 	}
 
 	/**

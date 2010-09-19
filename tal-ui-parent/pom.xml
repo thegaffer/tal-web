@@ -27,6 +27,14 @@
   </properties>
   
   <dependencies>
+  	<!-- This + Exclusions ensure no direct logging use -->
+  	<dependency>
+		<groupId>commons-logging</groupId>
+		<artifactId>commons-logging</artifactId>
+		<version>${dep.commons-logging}</version>
+		<scope>runtime</scope>
+	</dependency>
+		
   	<!-- All Projects should use TAL Test for Testing (brings in JUnit) -->
   	<dependency>
   		<groupId>org.talframework.tal</groupId>
@@ -42,15 +50,14 @@
 			<groupId>org.talframework.tal</groupId>
   			<artifactId>tal-aspects</artifactId>
 			<version>${dep.tal.aspect}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+  					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		
-  		<!-- Commons Logging Version -->
-  		<dependency>
-  			<groupId>commons-logging</groupId>
-  			<artifactId>commons-logging</artifactId>
-  			<version>${dep.commons-logging}</version>
-  		</dependency>
-  		
   		<!-- Log4J Version -->
   		<dependency>
   			<groupId>log4j</groupId>
@@ -70,26 +77,56 @@
 	  		<groupId>org.springframework</groupId>
 	  		<artifactId>spring-context</artifactId>
 	  		<version>${dep.spring}</version>
+	  		<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+  					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 	  	</dependency>
 	  	<dependency>
 	  		<groupId>org.springframework</groupId>
 	  		<artifactId>spring-beans</artifactId>
 	  		<version>${dep.spring}</version>
+	  		<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+  					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 	  	</dependency>
 	  	<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${dep.spring}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+  					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 	    </dependency>
 	    <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${dep.spring}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+  					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 	    </dependency>
 	    <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 			<version>${dep.spring}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+  					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 	    </dependency>
 
 		<!-- Jasper EL Expression Evaluation -->	    
@@ -132,7 +169,6 @@
 	  		<artifactId>tal-objex-annotations</artifactId>
 	  		<version>${dep.objex}</version>
 	  		<optional>true</optional>
-	  		<scope>provided</scope>
 	  	</dependency>
 	  	<dependency>
 	  		<groupId>org.talframework.objex</groupId>
