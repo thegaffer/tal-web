@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.RenderElement;
 import org.talframework.talui.template.Template;
 import org.talframework.talui.template.TemplateElement;
@@ -55,6 +56,7 @@ public class SimpleTemplateElementMold implements TemplateElementRenderMold {
 	 * Simply outputs the wrapper followed by any other configured
 	 * fragment molds if they are interested.
 	 */
+	@Trace
 	public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
 		if( this.wrapper.isInterested(compiler, template, element) ) {
 			String[] styles = applyStyles(compiler);

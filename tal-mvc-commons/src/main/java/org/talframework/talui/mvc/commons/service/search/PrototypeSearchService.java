@@ -23,10 +23,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.talframework.tal.aspects.annotations.PrototypeObject;
 import org.talframework.talui.mvc.commons.repository.RepositoryHolder;
 
 /**
@@ -42,21 +41,14 @@ import org.talframework.talui.mvc.commons.repository.RepositoryHolder;
  * 
  * @author Tom Spencer
  */
+@PrototypeObject
 public class PrototypeSearchService extends RepositoryHolder implements SimpleSearchService {
-	private static final Log logger = LogFactory.getLog(PrototypeSearchService.class);
 	
 	/** Member holds the mapping of search criteria to bean proeprty name */
 	private Map<String, String> criteriaNameMapping = null;
 	/** Member holds settings that determine how fields are compared */
 	private Map<String, String> searchTypes = null;
 	
-	/**
-	 * Default constructor - warns on usage
-	 */
-	public PrototypeSearchService() {
-		logger.warn("*** Prototype Search Results in use - ensure this is replaced in Production Environment");
-	}
-
 	public SimpleSearchResults search(SimpleSearchRequest request) {
 		if( request.getPage() > 0 && request.getPageSize() <= 0 ) throw new IllegalArgumentException("Cannot ask for search with a page number without providing page size");
 		

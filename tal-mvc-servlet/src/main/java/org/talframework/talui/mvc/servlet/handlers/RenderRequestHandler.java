@@ -26,8 +26,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.View;
 import org.talframework.talui.mvc.Window;
 import org.talframework.talui.mvc.config.AppConfig;
@@ -42,7 +41,6 @@ import org.talframework.talui.mvc.servlet.MVCRequestHandler;
 import org.talframework.talui.mvc.servlet.RequestCoordinates;
 import org.talframework.talui.mvc.servlet.UrlGenerator;
 import org.talframework.talui.mvc.servlet.util.RequestAttributeUtils;
-import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
 import org.talframework.talui.mvc.servlet.util.ServletUrlGenerator;
 import org.talframework.talui.template.core.TemplateConfigurationLocator;
 import org.talframework.talui.util.htmlhelper.GenericElement;
@@ -57,7 +55,6 @@ import org.talframework.talui.util.htmlhelper.HtmlConstants;
  * @author Tom Spencer
  */
 public class RenderRequestHandler implements MVCRequestHandler {
-	private static final Log logger = LogFactory.getLog(RenderRequestHandler.class);
 	
 	/**
 	 * Always returns false
@@ -84,9 +81,8 @@ public class RenderRequestHandler implements MVCRequestHandler {
 	 * If this returns a template then the template is included.
 	 */
 	@SuppressWarnings("unchecked")
+	@Trace
 	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelLayerAttributesResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
-		RequestLogUtils.traceRequestAttributes(req, logger);
-		
 		StandardModel model = null;
 		WindowConfig window = null;
 		View view = null;
@@ -156,6 +152,7 @@ public class RenderRequestHandler implements MVCRequestHandler {
 	 * @param resp
 	 * @param model
 	 */
+	@Trace
 	private void dispatchView(HttpServletRequest req, HttpServletResponse resp, BasicRenderModel model) throws IOException, ServletException {
 		String template = model.getTemplate();
 		
@@ -164,7 +161,6 @@ public class RenderRequestHandler implements MVCRequestHandler {
 			template = "/template/" + template + ".html"; 
 		}
 		
-		if( logger.isTraceEnabled() ) logger.trace("\tIncluding template: " + template);
 		req.getRequestDispatcher(template).include(req, resp);
 	}
 	

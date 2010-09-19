@@ -16,6 +16,7 @@
 
 package org.talframework.talui.mvc.sample.service;
 
+import org.talframework.tal.aspects.annotations.Profile;
 import org.talframework.talui.mvc.sample.model.account.Account;
 import org.talframework.talui.mvc.sample.model.contact.Caller;
 import org.talframework.talui.mvc.sample.model.contact.Contact;
@@ -35,7 +36,8 @@ public interface ContactService {
 	 * @param contact The contact to create or update
 	 * @return The contact
 	 */
-	public SaveContactResult saveContact(Contact contact);
+	@Profile
+    public SaveContactResult saveContact(Contact contact);
 
 	/**
 	 * Updates the contact with given account details.
@@ -43,7 +45,8 @@ public interface ContactService {
 	 * @param id The ID of the contact to update (or null if we should create)
 	 * @param account The account to update with
 	 */
-	public SaveContactResult updateContactAccount(String contactId, Account account);
+	@Profile
+    public SaveContactResult updateContactAccount(String contactId, Account account);
 	
 	/**
 	 * Updates the contact with given caller details.
@@ -51,5 +54,6 @@ public interface ContactService {
 	 * @param id The ID of the contact to update (or null if we should create)
 	 * @param caller The caller to update with
 	 */
-	public SaveContactResult updateContactCaller(String contactId, Caller caller);
+	@Profile
+    public SaveContactResult updateContactCaller(String contactId, Caller caller);
 }

@@ -35,6 +35,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.el.ExpressionFactoryImpl;
 import org.apache.el.lang.FunctionMapperImpl;
 import org.apache.el.lang.VariableMapperImpl;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.RenderNode;
 import org.talframework.talui.template.render.ExpressionEvaluator;
 
@@ -60,6 +61,7 @@ public class ApacheELExpressionEvaluator implements ExpressionEvaluator {
 	/** Member holds the single node resolver set against the ELContext above */
 	private RenderNodeELResolver nodeResolver = null;
 
+	@Trace
 	public Object evaluateExpression(Map<String, Object> model, RenderNode node, String expr, Class<?> expected) {
 		if( context == null ) {
 			nodeResolver = new RenderNodeELResolver();

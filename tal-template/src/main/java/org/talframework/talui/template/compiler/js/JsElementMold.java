@@ -16,6 +16,7 @@
 
 package org.talframework.talui.template.compiler.js;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.RenderElement;
 import org.talframework.talui.template.Template;
 import org.talframework.talui.template.TemplateElement;
@@ -61,7 +62,8 @@ public class JsElementMold extends BaseJsElementMold {
 	/**
 	 * The default only checks for events assigned to the wrapper
 	 */
-	public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
+	@Trace
+    public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
 		RenderElement ret = super.compile(compiler, templateMold, template, element);
 		
 		// Attach Handlers to wrappers, label and value elements

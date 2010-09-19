@@ -24,8 +24,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.config.PageEventConfig;
 import org.talframework.talui.mvc.input.InputModel;
@@ -36,7 +35,6 @@ import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
 import org.talframework.talui.mvc.servlet.MVCRequestHandler;
 import org.talframework.talui.mvc.servlet.RequestCoordinates;
 import org.talframework.talui.mvc.servlet.UrlGenerator;
-import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
 import org.talframework.talui.mvc.servlet.util.ServletUrlGenerator;
 
 /**
@@ -49,7 +47,6 @@ import org.talframework.talui.mvc.servlet.util.ServletUrlGenerator;
  * @author Tom Spencer
  */
 public class ActionRequestHandler implements MVCRequestHandler {
-	private final static Log logger = LogFactory.getLog(ActionRequestHandler.class);
 	
 	/**
 	 * Always returns true
@@ -72,9 +69,8 @@ public class ActionRequestHandler implements MVCRequestHandler {
 	 * been invoked and passes on to the performAction method.
 	 */
 	@SuppressWarnings("unchecked")
+	@Trace
 	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelLayerAttributesResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
-		RequestLogUtils.debugRequestParameters(req, logger);
-		
 		String forward = null; // The page to redirect to
 		
 		InputModel input = new WebInputModel(req.getParameterMap());
@@ -84,38 +80,13 @@ public class ActionRequestHandler implements MVCRequestHandler {
 		
 		UrlGenerator urlGenerator = ServletUrlGenerator.getUrlGenerator(req);
 		if( pageEvent != null ) {
-			if( logger.isTraceEnabled() ) logger.trace("\tFiring page event: " + pageEvent);
-			
-			StandardModel model = new StandardModel(resolver, false);
-			model.pushLayer(coords.getApp().getModel());
-			model.pushLayer(coords.getPage().getModel());
-			
-			switch(pageEvent.getType()) {
-			case PageEventConfig.TYPE_NORMAL:
-				if( pageEvent.getAction() != null ) forward = ServletUrlGenerator.generateActionUrl(urlGenerator, coords, pageEvent.getPage(), pageEvent.getWindow(), pageEvent.getAction(), getEventActionParameters(pageEvent, model));
-				else forward = ServletUrlGenerator.generatePageUrl(urlGenerator, coords, pageEvent.getPage());
-				break;
-				
-			case PageEventConfig.TYPE_SELECT:
-				String selectPage = "page"; // get the select page 
-				String selectWindow = "window"; // get the select window
-				String selectAction = "action"; // get the select action
-				forward = ServletUrlGenerator.generateActionUrl(urlGenerator, coords, selectPage, selectWindow, selectAction, getEventActionParameters(pageEvent, model));
-				break;
-				
-			case PageEventConfig.TYPE_BACK:
-				String backPage = "back"; // Get the back page
-				forward = ServletUrlGenerator.generatePageUrl(urlGenerator, coords, backPage);
-				break;
-			}
+		    firePageEvent(coords, resolver, urlGenerator, pageEvent);
 		}
 		else {
 			forward = urlGenerator.generateCustomUrl("page", coords.getApp().getName(), coords.getPage().getName(), null, null, null);
 		}
 		
-		RequestLogUtils.debugSessionAttributes(req, logger);
-		if( logger.isTraceEnabled() ) logger.trace("\tRedirecting to page: " + forward);
-		resp.sendRedirect(forward);
+		redirect(resp, forward);
 	}
 	
 	/**
@@ -142,5 +113,39 @@ public class ActionRequestHandler implements MVCRequestHandler {
 		}
 		
 		return ret;
+	}
+	
+	@Trace
+	private String firePageEvent(RequestCoordinates coords, ModelLayerAttributesResolver resolver, UrlGenerator urlGenerator, PageEventConfig pageEvent) {
+	    StandardModel model = new StandardModel(resolver, false);
+        model.pushLayer(coords.getApp().getModel());
+        model.pushLayer(coords.getPage().getModel());
+        
+        String forward = null;
+        switch(pageEvent.getType()) {
+        case PageEventConfig.TYPE_NORMAL:
+            if( pageEvent.getAction() != null ) forward = ServletUrlGenerator.generateActionUrl(urlGenerator, coords, pageEvent.getPage(), pageEvent.getWindow(), pageEvent.getAction(), getEventActionParameters(pageEvent, model));
+            else forward = ServletUrlGenerator.generatePageUrl(urlGenerator, coords, pageEvent.getPage());
+            break;
+            
+        case PageEventConfig.TYPE_SELECT:
+            String selectPage = "page"; // get the select page 
+            String selectWindow = "window"; // get the select window
+            String selectAction = "action"; // get the select action
+            forward = ServletUrlGenerator.generateActionUrl(urlGenerator, coords, selectPage, selectWindow, selectAction, getEventActionParameters(pageEvent, model));
+            break;
+            
+        case PageEventConfig.TYPE_BACK:
+            String backPage = "back"; // Get the back page
+            forward = ServletUrlGenerator.generatePageUrl(urlGenerator, coords, backPage);
+            break;
+        }
+        
+        return forward;
+	}
+	
+	@Trace
+	private void redirect(HttpServletResponse resp, String forward) throws IOException {
+	    resp.sendRedirect(forward);
 	}
 }

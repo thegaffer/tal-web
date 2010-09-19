@@ -24,8 +24,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.model.ModelAttribute;
 import org.talframework.talui.mvc.model.ModelConfiguration;
 
@@ -39,7 +38,6 @@ import org.talframework.talui.mvc.model.ModelConfiguration;
  * @author Tom Spencer
  */
 public class CookieModelAttributeResolver extends SessionModelAttributeResolver {
-	private final static Log logger = LogFactory.getLog(CookieModelAttributeResolver.class);
 	
 	private final HttpServletRequest request;
 	private final HttpServletResponse response;
@@ -142,8 +140,7 @@ public class CookieModelAttributeResolver extends SessionModelAttributeResolver 
 			// Save the cookie away
 			Cookie cookie = new Cookie(model.getName(), buf != null ? buf.toString() : "");
 			cookie.setPath(request.getContextPath() + request.getServletPath());
-			if( logger.isTraceEnabled() ) logger.trace("\t Adding cookie [" + cookie.getPath() + "/" + cookie.getName() + "] = " + cookie.getValue());
-			response.addCookie(cookie);
+			addCookie(response, cookie);
 		}
 	}
 	
@@ -164,5 +161,10 @@ public class CookieModelAttributeResolver extends SessionModelAttributeResolver 
 				}
 			}
 		}
+	}
+	
+	@Trace
+	private void addCookie(HttpServletResponse response, Cookie cookie) {
+	    response.addCookie(cookie);
 	}
 }

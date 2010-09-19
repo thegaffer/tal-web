@@ -25,14 +25,14 @@ import org.talframework.objexj.events.EventHandler;
 import org.talframework.objexj.locator.ContainerFactory;
 import org.talframework.objexj.query.DefaultQueryRequest;
 import org.talframework.objexj.query.QueryResult;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.sample.model.contact.Caller;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
-@Trace
 public class UpdateCallersEvent implements EventHandler {
     
     private ContainerFactory factory;
 
+    @Trace
     public void execute(Container container, Event event) {
         String firstName = event.getPayload("firstName");
         String lastName = event.getPayload("lastName");

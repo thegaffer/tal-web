@@ -16,15 +16,12 @@
 
 package org.talframework.talui.mvc.commons.views.form;
 
-import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.commons.views.AbstractTemplateView;
-import org.talframework.talui.mvc.controller.InterfaceAdaptor;
+import org.talframework.talui.mvc.controller.ObjectCreator;
 import org.talframework.talui.mvc.model.ModelAttribute;
 import org.talframework.talui.mvc.model.ModelConfiguration;
 import org.talframework.talui.mvc.model.SimpleModelAttribute;
@@ -48,7 +45,6 @@ import org.talframework.talui.template.core.BasicTemplateConfiguration;
  * @author Tom Spencer
  */
 public class FormView extends AbstractTemplateView {
-	private static final Log logger = LogFactory.getLog(FormView.class);
 	
 	/** Holds the primary action to submit form under */
 	private String primaryAction = null;
@@ -188,20 +184,7 @@ public class FormView extends AbstractTemplateView {
 		}
 		
 		if( ret == null ) {
-			try {
-				if( getPrimaryBean().isInterface() ) {
-					ret = Proxy.newProxyInstance(
-							Thread.currentThread().getContextClassLoader(), 
-							new Class[]{getPrimaryBean()}, 
-							new InterfaceAdaptor());
-				}
-				else {
-					ret = getPrimaryBean().newInstance();
-				}
-			}
-			catch( Exception e ) {
-				logger.warn("Unable to create instance of form bean in prepareRender: " + e.getMessage());
-			}
+		    ret = ObjectCreator.createObject(getPrimaryBean());
 		}
 	
 		return ret;

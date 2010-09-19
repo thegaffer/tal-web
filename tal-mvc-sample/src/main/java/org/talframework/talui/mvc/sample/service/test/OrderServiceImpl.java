@@ -16,13 +16,13 @@
 
 package org.talframework.talui.mvc.sample.service.test;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.commons.repository.RepositoryHolder;
 import org.talframework.talui.mvc.commons.util.SimpleObjectCloner;
 import org.talframework.talui.mvc.sample.model.order.Order;
 import org.talframework.talui.mvc.sample.model.order.OrderBean;
 import org.talframework.talui.mvc.sample.service.OrderService;
 import org.talframework.talui.mvc.sample.service.transfer.SaveOrderResult;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * Simple implementation of the order service using the
@@ -30,14 +30,14 @@ import org.tpspencer.tal.util.aspects.annotations.Trace;
  * 
  * @author Tom Spencer
  */
-@Trace
 public class OrderServiceImpl extends RepositoryHolder implements OrderService {
 
 	/**
 	 * Simply uses the repository to create the order
 	 * and then copies the supplied order into it.
 	 */
-	public SaveOrderResult createOrder(Order order) {
+    @Trace
+    public SaveOrderResult createOrder(Order order) {
 		OrderBean bean = getRepository().create(OrderBean.class);
 		SimpleObjectCloner.getInstance().clone(order, bean, "id");
 		return new SaveOrderResult(bean.getId(), bean);
@@ -48,7 +48,8 @@ public class OrderServiceImpl extends RepositoryHolder implements OrderService {
 	 * it from order. If order is the object from the repo
 	 * then nothing happens.
 	 */
-	public SaveOrderResult updateOrder(Order order) {
+    @Trace
+    public SaveOrderResult updateOrder(Order order) {
 		OrderBean bean = getRepository().findById(order.getId(), OrderBean.class);
 		if( !bean.equals(order) ) SimpleObjectCloner.getInstance().clone(order, bean, "id");
 		return new SaveOrderResult(bean.getId(), bean);

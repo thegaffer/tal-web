@@ -19,8 +19,8 @@ package org.talframework.talui.mvc.commons.controllers;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.PrototypeObject;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.Controller;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.input.InputModel;
@@ -39,8 +39,8 @@ import org.talframework.talui.mvc.input.InputModel;
  * 
  * @author Tom Spencer
  */
+@PrototypeObject
 public final class PrototypeController implements Controller {
-	private final static Log logger = LogFactory.getLog(PrototypeController.class);
 	
 	/** Holds the default result */
 	private String defaultResult = null;
@@ -50,18 +50,13 @@ public final class PrototypeController implements Controller {
 	private Map<String, String> modelMappings = null;
 	
 	public PrototypeController() {
-		logger.warn("*** Prototype Controller in use - ensure this is replaced in Production Environment");
 	}
 	
 	public PrototypeController(String defaultResult) {
-		logger.warn("*** Prototype Controller in use - ensure this is replaced in Production Environment");
-		
 		this.defaultResult = defaultResult;
 	}
 	
 	public PrototypeController(String defaultResult, Map<String, String> customResults) {
-		logger.warn("*** Prototype Controller in use - ensure this is replaced in Production Environment");
-		
 		this.defaultResult = defaultResult;
 		this.customResults = customResults;
 	}
@@ -73,7 +68,8 @@ public final class PrototypeController implements Controller {
 	 * or there are no customResults then the defaultResult
 	 * is returned.
 	 */
-	public String performAction(Model model, InputModel input) {
+	@Trace
+    public String performAction(Model model, InputModel input) {
 		// Set any model attributes as configured
 		if( modelMappings != null ) {
 			Iterator<String> it = modelMappings.keySet().iterator();

@@ -23,7 +23,7 @@
   	<dep.objex>0.9</dep.objex>
   	<dep.tal.beans>0.9</dep.tal.beans>
   	<dep.tal.test>0.9</dep.tal.test>
-  	<dep.tal.aspect>0.9</dep.tal.aspect>
+  	<dep.tal.aspect>1.0-SNAPSHOT</dep.tal.aspect>
   </properties>
   
   <dependencies>
@@ -39,8 +39,8 @@
   <dependencyManagement>
   	<dependencies>
 	  	<dependency>
-			<groupId>org.tpspencer.tal</groupId>
-			<artifactId>tal-aspects</artifactId>
+			<groupId>org.talframework.tal</groupId>
+  			<artifactId>tal-aspects</artifactId>
 			<version>${dep.tal.aspect}</version>
 		</dependency>
 		

@@ -16,14 +16,12 @@
 
 package org.talframework.talui.mvc.window;
 
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * This window implementation supports only a single view.
  * 
  * @author Tom Spencer
  */
-@Trace
 public final class SimpleWindow extends BaseWindow {
 	
 	/**

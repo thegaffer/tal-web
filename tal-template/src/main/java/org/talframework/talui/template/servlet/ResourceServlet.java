@@ -17,7 +17,6 @@
 package org.talframework.talui.template.servlet;
 
 import java.io.BufferedInputStream;
-
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,8 +29,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.HttpTrace;
 
 /**
  * This servlet serves up resources from JAR files directly.
@@ -45,7 +43,6 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ResourceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static Log logger = LogFactory.getLog(ResourceServlet.class);
 	
 	/** Member holds valid file extensions for resources we will serve up */
 	private String[] validExtensions = new String[]{".css", ".js", ".properties", ".xml", ".png", ".gif", ".jpg"};
@@ -63,27 +60,24 @@ public class ResourceServlet extends HttpServlet {
 	/**
 	 * Overridden to serve up the resource 
 	 */
+	@HttpTrace
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    String path = request.getPathInfo();
-	    if( logger.isTraceEnabled() ) logger.trace(">>> Starting resource request: " + path);
         
         /* failure conditions */
         if( path == null ) {
-        	if( logger.isWarnEnabled() ) logger.warn("!!! No resource request");
         	response.sendError(406, "no path");
         	return;
         }
         else if( !isValidExtension(path) ) {
-        	if( logger.isWarnEnabled() ) logger.warn("!!! Resource not allowed: " + path);
-            response.sendError(403, path + " denied");
+        	response.sendError(403, path + " denied");
             return;
         }
         
         /* find the resource */
         URL resource = Thread.currentThread().getContextClassLoader().getResource(path.substring(1));
         if (resource == null) {
-        	if( logger.isWarnEnabled() ) logger.warn("!!! Resource not found: " + path);
-            response.sendError(404, path + " not found on classpath");
+        	response.sendError(404, path + " not found on classpath");
             return;
         } 
         else {
@@ -111,10 +105,7 @@ public class ResourceServlet extends HttpServlet {
                 }
             }
         }
-        
-        if( logger.isDebugEnabled() ) logger.debug("*** Served up resource: " + path);
-        if( logger.isTraceEnabled() ) logger.trace("<<< Ending resource request: " + path);
-	}
+    }
 	
 	/**
 	 * Overridden to determine if neccessary to get the resource

@@ -22,19 +22,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
+import org.talframework.tal.aspects.annotations.HttpTrace;
 
+/**
+ * This class is the simple exception resolver that turns an 
+ * exception into a {@link ServletException}. It also uses the
+ * http trace annotation to log out its usage and the request.
+ *
+ * @author Tom Spencer
+ */
 public class StandardExceptionResolver implements ServletExceptionResolver {
-	private static final Log logger = LogFactory.getLog(StandardExceptionResolver.class);
-
+	
+    @HttpTrace
 	public void handleException(HttpServletRequest req, HttpServletResponse resp, Exception e) throws ServletException, IOException {
-		logger.error("!!! An exception has occured processing the request: " + req.getContextPath() + req.getServletPath() + req.getPathInfo());
-		RequestLogUtils.errorRequestParameters(req, logger);
-		RequestLogUtils.errorRequestAttributes(req, logger);
-		RequestLogUtils.errorSessionAttributes(req, logger);
-		
 		if( e instanceof IOException ) {
 			throw (IOException)e;
 		}

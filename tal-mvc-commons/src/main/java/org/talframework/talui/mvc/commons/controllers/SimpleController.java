@@ -16,6 +16,7 @@
 
 package org.talframework.talui.mvc.commons.controllers;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.Controller;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.input.InputModel;
@@ -46,7 +47,8 @@ public final class SimpleController implements Controller {
 	/**
 	 * Simply returns the result
 	 */
-	public String performAction(Model model, InputModel input) {
+	@Trace
+    public String performAction(Model model, InputModel input) {
 		return result;
 	}
 	

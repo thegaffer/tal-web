@@ -20,8 +20,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.ResourceBundle;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.PrototypeObject;
 
 /**
  * This class is resource bundle that provides default
@@ -34,15 +33,11 @@ import org.apache.commons.logging.LogFactory;
  * 
  * @author Tom Spencer
  */
+@PrototypeObject
 public class PrototypeResourceBundle extends ResourceBundle {
-	private static final Log logger = LogFactory.getLog(PrototypeResourceBundle.class);
 	
 	private Hashtable<String, String> requestedKeys = new Hashtable<String, String>();
 	
-	public PrototypeResourceBundle() {
-		logger.warn("*** Prototype Resource Bundle in use - ensure this is replaced in Production Environment");
-	}
-
 	@Override
 	public Enumeration<String> getKeys() {
 		return requestedKeys.keys();

@@ -14,17 +14,21 @@
  * limitations under the License.
  */
 
-package org.talframework.talui.mvc.commons.util;
+package org.talframework.talui.mvc.controller;
 
 import java.lang.reflect.Proxy;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.talframework.talui.mvc.controller.InterfaceAdaptor;
+import org.talframework.tal.aspects.annotations.Trace;
 
+/**
+ * This class creates a new instance of the given bean or if
+ * it is an interface, creates a proxy around it.
+ *
+ * @author Tom Spencer
+ */
 public class ObjectCreator {
-	private final static Log logger = LogFactory.getLog(ObjectCreator.class);
-
+	
+	@Trace
 	public static <T> T createObject(Class<T> expected) {
 		try {
 			if( expected.isInterface() ) {
@@ -38,14 +42,10 @@ public class ObjectCreator {
 			}
 		}
 		catch( IllegalAccessException e ) {
-			if( logger.isDebugEnabled() ) logger.debug("!!! Failed to create object due to access error: " + e.getMessage());
-			if( logger.isDebugEnabled() ) e.printStackTrace();
+		    throw new IllegalArgumentException("Cannot create object [" + expected + "] due to access exception", e);
 		}
 		catch( InstantiationException e ) {
-			if( logger.isDebugEnabled() ) logger.debug("!!! Failed to create object due to instantiation error: " + e.getMessage());
-			if( logger.isDebugEnabled() ) e.printStackTrace();
+		    throw new IllegalArgumentException("Cannot create object [" + expected + "] due to instantiation exception", e);
 		}
-		
-		return null;
 	}
 }

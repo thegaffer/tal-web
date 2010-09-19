@@ -21,8 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.talframework.talui.template.RenderModel;
 
 /**
@@ -33,8 +31,7 @@ import org.talframework.talui.template.RenderModel;
  * @author Tom Spencer
  */
 public class DateProperty extends SimpleProperty implements org.talframework.talui.template.behaviour.property.DateProperty {
-	private static final Log logger = LogFactory.getLog(DateProperty.class);
-
+	
 	/** Holds the date style to output (if -1 date is not output) */
 	private String dateStyle = "short";
 	/** The converted date style */
@@ -93,7 +90,6 @@ public class DateProperty extends SimpleProperty implements org.talframework.tal
 			else {
 				int style = dateFormatStyle;
 				if( style < 0 ) {
-					logger.info("A date value has been requested at render time, but no date format is set: " + getName());
 					style = DateFormat.SHORT;
 				}
 				DateFormat df = DateFormat.getDateInstance(style, l);
@@ -119,7 +115,6 @@ public class DateProperty extends SimpleProperty implements org.talframework.tal
 			else {
 				int style = timeFormatStyle;
 				if( style < 0 ) {
-					logger.info("A time value has been requested at render time, but no time format is set: " + getName());
 					style = DateFormat.SHORT;
 				}
 				DateFormat df = DateFormat.getTimeInstance(style, l);

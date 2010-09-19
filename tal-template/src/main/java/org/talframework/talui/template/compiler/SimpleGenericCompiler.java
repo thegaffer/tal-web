@@ -22,8 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.RenderElement;
 import org.talframework.talui.template.Renderer;
 import org.talframework.talui.template.Template;
@@ -44,7 +43,6 @@ import org.talframework.talui.template.render.elements.special.EmptyElement;
  * @author Tom Spencer
  */
 public class SimpleGenericCompiler implements GenericCompiler {
-	private static final Log logger = LogFactory.getLog(SimpleGenericCompiler.class);
 	
 	/** If true the compiler will always recurse all templates in compilation */
 	private boolean recurseTemplates = false;
@@ -69,6 +67,7 @@ public class SimpleGenericCompiler implements GenericCompiler {
 	 * are rendered as well. The map of render templates produced
 	 * is returned.
 	 */
+	@Trace
 	public Renderer compile(TemplateConfiguration config) {
 		// reset run elements
 		this.modelTemplates = config.getTemplates();
@@ -90,10 +89,7 @@ public class SimpleGenericCompiler implements GenericCompiler {
 		
 		// Start with only the 1 template
 		else {
-			if( logger.isDebugEnabled() ) logger.debug(">>> Starting template compilation: " + config.getMainTemplate());
 			RenderElement renderedRootTemplate = compileTemplate(config.getMainTemplate(), null, null);
-			if( logger.isDebugEnabled() ) logger.debug("<<< Ending template compilation: " + config.getMainTemplate());
-			
 			ret = new ModelRenderer(swapRootTemplate(config, renderedRootTemplate));
 		}
 		
@@ -258,6 +254,7 @@ public class SimpleGenericCompiler implements GenericCompiler {
 	 * exist). Then it sees if we have already rendered this template.
 	 * If so returns it's name, otherwise starts compiling it.
 	 */
+	@Trace
 	public RenderElement compileTemplate(Template template, String[] styles, String[] innerTemplateStyles) {
 		// Set the new styles
 		List<String> removeStyles = new ArrayList<String>();
@@ -284,8 +281,7 @@ public class SimpleGenericCompiler implements GenericCompiler {
 			if( ret == null ) {
 				ret = createTemplateElement(template);
 				renderedTemplates.put(name, ret);
-				if( logger.isDebugEnabled() ) logger.debug("\tCreated render element for template [" + name + "]: " + ret);
-			
+				
 				RenderElement root = mold.compile(this, template);
 				ret.addElement(root);
 			}

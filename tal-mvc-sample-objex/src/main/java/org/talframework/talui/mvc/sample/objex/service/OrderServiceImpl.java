@@ -18,11 +18,11 @@ package org.talframework.talui.mvc.sample.objex.service;
 
 import org.talframework.objexj.Container;
 import org.talframework.objexj.ObjexObj;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.commons.repository.RepositoryHolder;
 import org.talframework.talui.mvc.sample.model.order.Order;
 import org.talframework.talui.mvc.sample.service.OrderService;
 import org.talframework.talui.mvc.sample.service.transfer.SaveOrderResult;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * Simple implementation of the order service using the
@@ -30,14 +30,14 @@ import org.tpspencer.tal.util.aspects.annotations.Trace;
  * 
  * @author Tom Spencer
  */
-@Trace
 public class OrderServiceImpl extends RepositoryHolder implements OrderService {
 
 	/**
 	 * Simply uses the repository to create the order
 	 * and then copies the supplied order into it.
 	 */
-	public SaveOrderResult createOrder(Order order) {
+    @Trace
+    public SaveOrderResult createOrder(Order order) {
 	    return updateOrder(order);
 	}
 	
@@ -46,7 +46,8 @@ public class OrderServiceImpl extends RepositoryHolder implements OrderService {
 	 * it from order. If order is the object from the repo
 	 * then nothing happens.
 	 */
-	public SaveOrderResult updateOrder(Order order) {
+    @Trace
+    public SaveOrderResult updateOrder(Order order) {
 	    if( !(order instanceof ObjexObj) ) throw new IllegalArgumentException("Cannot save order as provided order is not from a container");
         
         Container c = ((ObjexObj)order).getContainer();

@@ -22,8 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.RenderElement;
 import org.talframework.talui.template.Template;
 import org.talframework.talui.template.TemplateElement;
@@ -65,7 +64,6 @@ import org.talframework.talui.template.render.elements.special.EmptyElement;
  * @author Tom Spencer
  */
 public class BasicTemplateRenderMold implements TemplateRenderMold {
-	private static final Log logger = LogFactory.getLog(GenericCompiler.class);
 	
 	/** Member holds the default render template to use */
 	private TemplateElementRenderMold defaultMold = null;
@@ -209,6 +207,7 @@ public class BasicTemplateRenderMold implements TemplateRenderMold {
 	 * with just the elements type against typedTemplates.</li>
 	 * </ul>
 	 */
+	@Trace
 	public RenderElement compileChild(GenericCompiler compiler, Template template, TemplateElement child) {
 		TemplateElementRenderMold mold = getCorrectMold(compiler, child, namedMolds);
 		if( mold == null ) mold = getCorrectMold(compiler, child, styledMolds);
@@ -231,7 +230,8 @@ public class BasicTemplateRenderMold implements TemplateRenderMold {
 	 * 
 	 * @return The mold if one is found
 	 */
-	private TemplateElementRenderMold getCorrectMold(GenericCompiler compiler, TemplateElement element, List<? extends MatchedMold> possibleMolds) {
+	@Trace
+    private TemplateElementRenderMold getCorrectMold(GenericCompiler compiler, TemplateElement element, List<? extends MatchedMold> possibleMolds) {
 		if( possibleMolds == null ) return null;
 		
 		MatchResult result = new MatchResult();
@@ -256,7 +256,8 @@ public class BasicTemplateRenderMold implements TemplateRenderMold {
 	 * @param group
 	 * @param baseElement
 	 */
-	protected void evaluateChildren(GenericCompiler compiler, Template template, RenderElement baseElement) {
+	@Trace
+    protected void evaluateChildren(GenericCompiler compiler, Template template, RenderElement baseElement) {
 		List<TemplateElement> elements = template.getElements();
 		if( elements == null || elements.size() == 0 ) return;
 		
@@ -264,9 +265,7 @@ public class BasicTemplateRenderMold implements TemplateRenderMold {
 		while( it.hasNext() ) {
 			TemplateElement elem = it.next();
 			
-			if( logger.isTraceEnabled() ) logger.trace("\tStarting child compilation: " + elem.getName());
 			RenderElement child = compileChild(compiler, template, elem);
-			if( logger.isTraceEnabled() ) logger.trace("\tEnding child [" + elem.getName() + "] compilation: " + child);
 			
 			if( child != null ) baseElement.addElement(child);
 		}

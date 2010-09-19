@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.RenderElement;
 import org.talframework.talui.template.Template;
 import org.talframework.talui.template.TemplateElement;
@@ -69,7 +70,8 @@ public class BaseJsElementMold implements TemplateElementRenderMold {
 	/**
 	 * Simple tells the template mold to compile any children
 	 */
-	public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
+	@Trace
+    public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
 		RenderElement ret = null;
 		
 		String[] styles = applyStyles(compiler);

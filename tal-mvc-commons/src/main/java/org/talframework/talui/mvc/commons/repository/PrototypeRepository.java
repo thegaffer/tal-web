@@ -20,11 +20,10 @@ import java.beans.PropertyDescriptor;
 import java.util.Hashtable;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.talframework.talui.mvc.commons.util.ObjectCreator;
+import org.talframework.tal.aspects.annotations.PrototypeObject;
+import org.talframework.talui.mvc.controller.ObjectCreator;
 
 /**
  * The PrototyeRepository implements the {@link SimpleRepository}
@@ -56,8 +55,8 @@ import org.talframework.talui.mvc.commons.util.ObjectCreator;
  *
  * @param <T> The type of object to work with
  */
+@PrototypeObject
 public class PrototypeRepository implements SimpleRepository {
-	private final static Log logger = LogFactory.getLog(PrototypeRepository.class);
 	
 	/** Holds the name of the getId method */
 	private final String idAttribute;
@@ -71,8 +70,6 @@ public class PrototypeRepository implements SimpleRepository {
 	 * Default constructor. ID attribute will be 'id'
 	 */
 	public PrototypeRepository() {
-		logger.warn("*** Prototype Repository in use - ensure this is replaced in Production Environment");
-		
 		idAttribute = "id";
 	}
 	
@@ -83,8 +80,6 @@ public class PrototypeRepository implements SimpleRepository {
 	 * @param id The name of the ID attribute of all members
 	 */
 	public PrototypeRepository(String id) {
-		logger.warn("*** Prototype Repository in use - ensure this is replaced in Production Environment");
-		
 		if( id == null || id.length() == 0 ) throw new IllegalArgumentException("You cannot supply a null ID attribute for the prototype repository");
 		idAttribute = id;
 	}

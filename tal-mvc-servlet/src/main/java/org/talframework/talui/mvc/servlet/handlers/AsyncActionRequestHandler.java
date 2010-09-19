@@ -23,8 +23,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.config.PageEventConfig;
 import org.talframework.talui.mvc.input.InputModel;
 import org.talframework.talui.mvc.input.WebInputModel;
@@ -33,7 +32,6 @@ import org.talframework.talui.mvc.process.ActionProcessor;
 import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
 import org.talframework.talui.mvc.servlet.MVCRequestHandler;
 import org.talframework.talui.mvc.servlet.RequestCoordinates;
-import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
 
 /**
  * This handler handles async action requests. These are 
@@ -47,7 +45,6 @@ import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
  * @author Tom Spencer
  */
 public class AsyncActionRequestHandler implements MVCRequestHandler {
-	private final static Log logger = LogFactory.getLog(AsyncActionRequestHandler.class);
 	
 	/**
 	 * Always returns true
@@ -70,9 +67,8 @@ public class AsyncActionRequestHandler implements MVCRequestHandler {
 	 * been invoked and passes on to the performAction method.
 	 */
 	@SuppressWarnings("unchecked")
+	@Trace
 	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelLayerAttributesResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
-		RequestLogUtils.debugRequestParameters(req, logger);
-		
 		//String forward = null; // The page to redirect to
 		
 		InputModel input = new WebInputModel(req.getParameterMap());

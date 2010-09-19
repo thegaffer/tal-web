@@ -21,8 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.View;
 import org.talframework.talui.mvc.Window;
@@ -37,7 +36,6 @@ import org.talframework.talui.mvc.model.ModelConfiguration;
 import org.talframework.talui.mvc.model.ModelEvent;
 import org.talframework.talui.mvc.model.SimpleModel;
 import org.talframework.talui.mvc.model.StandardModel;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * This class processes the input. It initially gets
@@ -47,10 +45,8 @@ import org.tpspencer.tal.util.aspects.annotations.Trace;
  * 
  * @author Tom Spencer
  */
-@Trace
 public final class ActionProcessor {
-	private static final Log logger = LogFactory.getLog(ActionProcessor.class);
-
+	
 	/** Holds the app we should operate on */
 	private final AppConfig app;
 	/** Holds the page we should operate on */
@@ -91,6 +87,7 @@ public final class ActionProcessor {
 	 * @param window The window to operate on
 	 * @param action The action that has been requested
 	 */
+	@Trace
 	public PageEventConfig processAction(InputModel input, WindowConfig window, String action) {
 		if( window == null ) throw new IllegalArgumentException("You must supply the window to perform action upon");
 		if( action == null ) throw new IllegalArgumentException("You must supply the action to perform");
@@ -140,7 +137,6 @@ public final class ActionProcessor {
 		
 		if( events != null && events.size() > 0 ) {
 			if( tries <= 0 ) {
-				if( logger.isWarnEnabled() ) logger.warn("!!! Events looping more than 3 times, action processor is stopping");
 				return;
 			}
 			
@@ -162,7 +158,8 @@ public final class ActionProcessor {
 	 * @param events The events
 	 * @param sourceWindow The source window
 	 */
-	private void processEvent(ModelEvent event) {
+	@Trace
+    private void processEvent(ModelEvent event) {
 		String sourceWindow = event.getSource();
 		String name = event.getEventName();
 			
@@ -172,8 +169,6 @@ public final class ActionProcessor {
 			if( sourceWindow == null || !window.getName().equals(sourceWindow) ) {
 				EventConfig e = window.getEventConfig(name);
 				if( e != null ) {
-					if( logger.isTraceEnabled() ) logger.trace("\tFiring event [" + e + "] on window: " + window);
-					
 					Map<String, Object> params = new HashMap<String, Object>();
 					if( event.getNewValue() != null ) {
 						params.put(e.getNewValueName(), event.getNewValue());
@@ -201,7 +196,8 @@ public final class ActionProcessor {
 	 * @param action The action to perform
 	 * @return The result that occurred
 	 */
-	private String processWindowAction(WindowConfig config, InputModel input, String action) {
+	@Trace
+    private String processWindowAction(WindowConfig config, InputModel input, String action) {
 		Window window = config.getWindow();
 		model.pushLayer(config.getModel());
 		
@@ -235,7 +231,8 @@ public final class ActionProcessor {
 	 * @param result The result from the action processing (passed to exitView)
 	 * @return The view we are now in
 	 */
-	private View postActionProcess(Window window, View oldView, String result) {
+	@Trace
+    private View postActionProcess(Window window, View oldView, String result) {
 		View newView = window.getCurrentState(model);
 		if( newView == null ) throw new NoViewException("No view found given result [" + result + "] on window: " + window);
 		

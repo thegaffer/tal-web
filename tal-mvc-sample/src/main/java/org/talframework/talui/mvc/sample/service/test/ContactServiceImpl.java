@@ -17,6 +17,7 @@
 package org.talframework.talui.mvc.sample.service.test;
 
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.commons.repository.RepositoryHolder;
 import org.talframework.talui.mvc.commons.repository.SimpleRepository;
 import org.talframework.talui.mvc.commons.util.SimpleObjectCloner;
@@ -27,13 +28,11 @@ import org.talframework.talui.mvc.sample.model.contact.Contact;
 import org.talframework.talui.mvc.sample.model.contact.ContactBean;
 import org.talframework.talui.mvc.sample.service.ContactService;
 import org.talframework.talui.mvc.sample.service.transfer.SaveContactResult;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * 
  * @author Tom Spencer
  */
-@Trace
 public class ContactServiceImpl extends RepositoryHolder implements ContactService {
 
 	/** Holds the account repository */
@@ -42,6 +41,7 @@ public class ContactServiceImpl extends RepositoryHolder implements ContactServi
 	/**
 	 * Simply adds or updates the contact in the repository
 	 */
+	@Trace
 	public SaveContactResult saveContact(Contact contact) {
 		ContactBean bean = findOrCreateContact(contact.getId() != null ? contact.getId().toString() : null);
 		if( !bean.equals(contact) ) SimpleObjectCloner.getInstance().clone(contact, bean, "id");
@@ -51,7 +51,8 @@ public class ContactServiceImpl extends RepositoryHolder implements ContactServi
 	/**
 	 * Obtains (or creates) contact and updates it with account info
 	 */
-	public SaveContactResult updateContactAccount(String contactId, Account account) {
+	@Trace
+    public SaveContactResult updateContactAccount(String contactId, Account account) {
 		ContactBean bean = findOrCreateContact(contactId);
 		
 		// Update
@@ -65,7 +66,8 @@ public class ContactServiceImpl extends RepositoryHolder implements ContactServi
 	/**
 	 * Obtains (or creates) contact and updates it with caller info
 	 */
-	public SaveContactResult updateContactCaller(String contactId, Caller caller) {
+	@Trace
+    public SaveContactResult updateContactCaller(String contactId, Caller caller) {
 		ContactBean bean = findOrCreateContact(contactId);
 		
 		// Update

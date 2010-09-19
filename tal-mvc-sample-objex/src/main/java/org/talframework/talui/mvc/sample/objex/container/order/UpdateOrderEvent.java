@@ -26,14 +26,14 @@ import org.talframework.objexj.events.EventHandler;
 import org.talframework.objexj.locator.SingletonContainerLocator;
 import org.talframework.objexj.query.DefaultQueryRequest;
 import org.talframework.objexj.query.QueryResult;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.sample.model.common.Address;
 import org.talframework.talui.mvc.sample.model.order.Order;
 import org.talframework.talui.mvc.sample.model.order.OrderSummary;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
-@Trace
 public class UpdateOrderEvent implements EventHandler {
     
+    @Trace
     public void execute(Container container, Event event) {
         Container orderContainer = SingletonContainerLocator.getInstance().get(event.getSourceContainer());
         Order order = orderContainer.getRootObject().getBehaviour(Order.class);

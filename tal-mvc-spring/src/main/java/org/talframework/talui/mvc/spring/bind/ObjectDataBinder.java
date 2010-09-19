@@ -17,7 +17,6 @@
 package org.talframework.talui.mvc.spring.bind;
 
 import java.lang.reflect.Array;
-import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -25,13 +24,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyAccessor;
 import org.springframework.beans.PropertyValue;
 import org.springframework.validation.DataBinder;
-import org.talframework.talui.mvc.controller.InterfaceAdaptor;
+import org.talframework.tal.aspects.annotations.Trace;
+import org.talframework.talui.mvc.controller.ObjectCreator;
 
 /**
  * With Spring there is a DataBinder that will bind from an input
@@ -48,8 +46,7 @@ import org.talframework.talui.mvc.controller.InterfaceAdaptor;
  * @author Tom Spencer
  */
 public class ObjectDataBinder extends DataBinder {
-	private static final Log logger = LogFactory.getLog(ObjectDataBinder.class);
-
+	
 	/** Member holds the prefix for hidden fields, used to indicate existence of field that might not be submitted */
 	private String fieldMarkerPrefix = "_";
 	/** Map holds the name of any fields to combined together with the combined field name */
@@ -68,21 +65,13 @@ public class ObjectDataBinder extends DataBinder {
 	 * Overridden doBind method will hunt out any embedded properties 
 	 * and ensure they exist on the command object
 	 */
+	@Trace
 	protected void doBind(MutablePropertyValues mpvs) {
-		try {
-			checkFieldMarkers(mpvs);
-			checkMembersExist(mpvs);
-			combineFields(mpvs);
-					
-			super.doBind(mpvs);
-		}
-		catch( Exception e ) {
-			if( logger.isDebugEnabled() ) logger.debug("!!! Failed to bind an object");
-			if( logger.isDebugEnabled() ) e.printStackTrace();
-			
-			if( e instanceof RuntimeException ) throw (RuntimeException)e;
-			else throw new IllegalArgumentException("The input caused the binder to fail: " + e.getMessage());
-		}
+	    checkFieldMarkers(mpvs);
+        checkMembersExist(mpvs);
+        combineFields(mpvs);
+                
+        super.doBind(mpvs);
 	}
 	
 	/**
@@ -238,7 +227,7 @@ public class ObjectDataBinder extends DataBinder {
 			
 			Object[] arr = (Object[])Array.newInstance(expectedClass.getComponentType(), dims);
 			for( int i = 0 ; i < dims ; i++ ) {
-				arr[i] = createObject(expectedClass.getComponentType());
+				arr[i] = ObjectCreator.createObject(expectedClass.getComponentType());
 			}
 			accessor.setPropertyValue(member, arr);
 		}
@@ -255,42 +244,8 @@ public class ObjectDataBinder extends DataBinder {
 		
 		// Normal member
 		else {
-			accessor.setPropertyValue(member, createObject(expectedClass));
+			accessor.setPropertyValue(member, ObjectCreator.createObject(expectedClass));
 		}
-	}
-	
-	/**
-	 * Creates instances of specified objects. Rather than
-	 * just create the instance it instead will lookup any
-	 * substitutions that have been set. Also when in test
-	 * mode if the expected class is an interface it will
-	 * create a dynamic proxy for the interface.
-	 * 
-	 * @param expected The expected class
-	 * @return The object
-	 */
-	private Object createObject(Class<?> expected) {
-		try {
-			if( expected.isInterface() ) {
-				return Proxy.newProxyInstance(
-						Thread.currentThread().getContextClassLoader(), 
-						new Class[]{expected}, 
-						new InterfaceAdaptor());
-			}
-			else {
-				return expected.newInstance();
-			}
-		}
-		catch( IllegalAccessException e ) {
-			if( logger.isDebugEnabled() ) logger.debug("!!! Failed to create member due to access error: " + e.getMessage());
-			if( logger.isDebugEnabled() ) e.printStackTrace();
-		}
-		catch( InstantiationException e ) {
-			if( logger.isDebugEnabled() ) logger.debug("!!! Failed to create member due to instantiation error: " + e.getMessage());
-			if( logger.isDebugEnabled() ) e.printStackTrace();
-		}
-		
-		return null;
 	}
 	
 	/**

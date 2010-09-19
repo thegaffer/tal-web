@@ -20,8 +20,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.TemplateConfiguration;
 
 /**
@@ -35,8 +34,7 @@ import org.talframework.talui.template.TemplateConfiguration;
  */
 public class TemplateConfigurationLocator {
 	private static final TemplateConfigurationLocator INSTANCE = new TemplateConfigurationLocator();
-	private static final Log logger = LogFactory.getLog(TemplateConfigurationLocator.class);
-
+	
 	private Map<String, TemplateConfiguration> config = new HashMap<String, TemplateConfiguration>();
 	
 	/**
@@ -102,7 +100,8 @@ public class TemplateConfigurationLocator {
 	 * @param name The name of the template
 	 * @param config The template
 	 */
-	public void setTemplateWhenRunning(String name, TemplateConfiguration config) {
+	@Trace
+    public void setTemplateWhenRunning(String name, TemplateConfiguration config) {
 		Map<String, TemplateConfiguration> configMap = null;
 		
 		synchronized (this) {
@@ -110,7 +109,6 @@ public class TemplateConfigurationLocator {
 			configMap.put(name, config);
 		}
 		
-		logger.warn("The template config locator has switched to a hashtable config for the following template: " + name);
 		this.config = configMap;
 	}
 }

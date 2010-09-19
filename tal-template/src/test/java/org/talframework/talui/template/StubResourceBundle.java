@@ -20,9 +20,6 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.ResourceBundle;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 /**
  * Very simple stub resource bundle that works like a
  * prototype resource bundle supplying sensible defaults
@@ -30,14 +27,9 @@ import org.apache.commons.logging.LogFactory;
  * @author Tom Spencer
  */
 public class StubResourceBundle extends ResourceBundle {
-	private static final Log logger = LogFactory.getLog(StubResourceBundle.class);
 	
 	private Hashtable<String, String> requestedKeys = new Hashtable<String, String>();
 	
-	public StubResourceBundle() {
-		logger.warn("*** Prototype Resource Bundle in use - ensure this is replaced in Production Environment");
-	}
-
 	@Override
 	public Enumeration<String> getKeys() {
 		return requestedKeys.keys();

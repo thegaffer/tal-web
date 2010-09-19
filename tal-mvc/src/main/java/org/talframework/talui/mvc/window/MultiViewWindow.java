@@ -22,12 +22,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.View;
 import org.talframework.talui.mvc.input.InputModel;
 import org.talframework.talui.mvc.model.ModelAttribute;
 import org.talframework.talui.mvc.model.SimpleModelAttribute;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * This window supports the use of a multiple views.
@@ -48,7 +48,6 @@ import org.tpspencer.tal.util.aspects.annotations.Trace;
  * 
  * @author Tom Spencer
  */
-@Trace
 public class MultiViewWindow extends BaseWindow {
 
 	/** Holds the additional views in this window */
@@ -150,7 +149,8 @@ public class MultiViewWindow extends BaseWindow {
 	 * state
 	 */
 	@Override
-	public String processAction(Model model, InputModel input, String action) {
+	@Trace
+    public String processAction(Model model, InputModel input, String action) {
 		String result = super.processAction(model, input, action);
 		if( actionMappings.containsKey(result) ) {
 			model.setAttribute(stateAttribute, actionMappings.get(result));

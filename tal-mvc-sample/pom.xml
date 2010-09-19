@@ -39,7 +39,7 @@
 		<version>1.0</version>
 	</dependency>
 	<dependency>
-		<groupId>org.tpspencer.tal</groupId>
+		<groupId>org.talframework.tal</groupId>
 		<artifactId>tal-aspects</artifactId>
 	</dependency>  	
   	
@@ -66,7 +66,7 @@
             <complianceLevel>1.5</complianceLevel>
             <aspectLibraries>
                 <aspectLibrary>
-                    <groupId>org.tpspencer.tal</groupId>
+                    <groupId>org.talframework.tal</groupId>
                     <artifactId>tal-aspects</artifactId>
                 </aspectLibrary>
             </aspectLibraries>
@@ -75,6 +75,7 @@
             <execution>
                 <goals>
                     <goal>compile</goal>
+                    <goal>test-compile</goal>
                 </goals>
             </execution>
         </executions>

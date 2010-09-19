@@ -16,6 +16,7 @@
 
 package org.talframework.talui.template.compiler.html;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.RenderElement;
 import org.talframework.talui.template.RenderModel;
 import org.talframework.talui.template.Template;
@@ -37,7 +38,8 @@ import org.talframework.talui.template.render.elements.special.MapElement;
  */
 public class MessagesElementMold implements TemplateElementRenderMold {
 
-	public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
+    @Trace
+    public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
 		String errorsAttribute = element.getSetting("errorsAttribute", String.class);
 		String warningsAttribute = element.getSetting("warningsAttribute", String.class);
 		String messagesAttribute = element.getSetting("messagesAttribute", String.class);

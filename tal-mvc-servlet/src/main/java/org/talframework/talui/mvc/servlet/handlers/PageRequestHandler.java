@@ -23,15 +23,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.model.StandardModel;
 import org.talframework.talui.mvc.process.ModelLayerAttributesResolver;
 import org.talframework.talui.mvc.servlet.MVCRequestHandler;
 import org.talframework.talui.mvc.servlet.RequestCoordinates;
 import org.talframework.talui.mvc.servlet.model.CookieModelAttributeResolver;
 import org.talframework.talui.mvc.servlet.util.RequestAttributeUtils;
-import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
 
 /**
  * This class aids the dispatching servlet to render
@@ -40,7 +38,6 @@ import org.talframework.talui.mvc.servlet.util.RequestLogUtils;
  * @author Tom Spencer
  */
 public class PageRequestHandler implements MVCRequestHandler {
-	private static final Log logger = LogFactory.getLog(PageRequestHandler.class);
 	
 	/**
 	 * Always returns false
@@ -59,9 +56,8 @@ public class PageRequestHandler implements MVCRequestHandler {
 	 * Simply forwards request to the page template
 	 */
 	@SuppressWarnings("unchecked")
+	@Trace
 	public void handleRequest(HttpServletRequest req, HttpServletResponse resp, ModelLayerAttributesResolver resolver, RequestCoordinates coords) throws ServletException, IOException {
-		RequestLogUtils.traceRequestParameters(req, logger);
-		
 		StandardModel model = null;
 		
 		try {
@@ -86,7 +82,6 @@ public class PageRequestHandler implements MVCRequestHandler {
 			}
 			
 			String template = coords.getPage().getTemplate();
-			if( logger.isTraceEnabled() ) logger.trace("\tIncluding page template: " + template);
 			req.getRequestDispatcher(template).forward(req, resp);
 		}
 		finally {

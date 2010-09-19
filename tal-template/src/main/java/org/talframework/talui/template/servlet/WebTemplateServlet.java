@@ -17,8 +17,6 @@
 package org.talframework.talui.template.servlet;
 
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.ServletConfig;
@@ -27,8 +25,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.HttpTrace;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.Renderer;
 import org.talframework.talui.template.TemplateConfiguration;
 import org.talframework.talui.template.core.TemplateConfigurationLocator;
@@ -84,7 +82,6 @@ import org.talframework.talui.template.render.apacheel.ApacheELExpressionEvaluat
  */
 public class WebTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static Log logger = LogFactory.getLog(WebTemplateServlet.class);
 	
 	/** The configured URL Generator Factory */
 	private UrlGeneratorFactory urlGeneratorFactory = null;
@@ -109,11 +106,10 @@ public class WebTemplateServlet extends HttpServlet {
 	 * (non-Javadoc)
 	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
+	@HttpTrace
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = getTemplatePath(req);
-		if( logger.isDebugEnabled() ) logger.debug(">>> Starting Template request: " + path);
 		
 		String name = getTemplateName(path);
 		String renderType = getRenderType(path);
@@ -145,46 +141,8 @@ public class WebTemplateServlet extends HttpServlet {
 			renderer.render(renderModel);
 		}
 		catch( Exception ex ) {
-			logger.error("!!! Failure during template render: " + ex.getMessage());
-			if( logger.isDebugEnabled() ) {
-				StringBuilder buf = new StringBuilder();
-				buf.append("Template Parameters: ");
-				
-				buf.append("\n\t**** Request Attributes ****");
-				Enumeration e = req.getAttributeNames();
-				while( e.hasMoreElements() ) {
-					String k = (String)e.nextElement();
-					buf.append("\n\t").append(k).append("=").append(req.getAttribute(k));
-				}
-				buf.append("\n\t**** End Contents ****");
-				
-				buf.append("\n\t**** Request Attributes ****");
-				e = req.getParameterNames();
-				while( e.hasMoreElements() ) {
-					String k = (String)e.nextElement();
-					buf.append("\n\t").append(k).append("=").append(req.getParameter(k));
-				}
-				buf.append("\n\t**** End Contents ****");
-				
-				if( model != null ) {
-					buf.append("\n\t**** Model Attributes ****");
-					Iterator<String> it = model.keySet().iterator();
-					while( it.hasNext() ) {
-						String k = it.next();
-						buf.append("\n\t").append(k).append("=").append(model.get(k));
-					}
-					buf.append("\n\t**** End Contents ****");
-				}
-				
-				logger.debug(buf.toString());
-				
-				ex.printStackTrace();
-			}
-			
 			throw new ServletException(ex);
 		}
-		
-		if( logger.isDebugEnabled() ) logger.debug("<<< Ending Template request: " + name);
 	}
 	
 	/**
@@ -196,7 +154,8 @@ public class WebTemplateServlet extends HttpServlet {
 	 * @throws IllegalArgumentException If the model is not found
 	 */
 	@SuppressWarnings("unchecked")
-	protected Map<String, Object> getModel(HttpServletRequest req) {
+	@Trace
+    protected Map<String, Object> getModel(HttpServletRequest req) {
 		Map<String, Object> model = (Map<String, Object>)req.getAttribute("renderModel");
 		//if( model == null ) throw new IllegalArgumentException("The template servlet cannot find the renderModel, you must re-direct to this template");
 		return model;
@@ -213,7 +172,8 @@ public class WebTemplateServlet extends HttpServlet {
 	 * @return The template config
 	 * @throws IllegalArgumentException If the config is not found
 	 */
-	protected TemplateConfiguration getTemplateConfig(HttpServletRequest req, String name) {
+	@Trace
+    protected TemplateConfiguration getTemplateConfig(HttpServletRequest req, String name) {
 		name = stripPath(name);
 		TemplateConfiguration config = TemplateConfigurationLocator.getInstance().getTemplate(name);
 		if( config == null ) {
@@ -233,11 +193,10 @@ public class WebTemplateServlet extends HttpServlet {
 	 * @param req The request
 	 * @return The namespace if any
 	 */
-	protected String getNamespace(HttpServletRequest req) {
+	@Trace
+    protected String getNamespace(HttpServletRequest req) {
 		String namespace = (String)req.getAttribute("namespace");
 		if( namespace == null ) namespace = req.getParameter("namespace");
-		
-		if( namespace == null ) logger.debug("No namespace for template");
 		return namespace;
 	}
 	
@@ -250,7 +209,8 @@ public class WebTemplateServlet extends HttpServlet {
 	 * @param req 
 	 * @return
 	 */
-	public String getTemplatePath(HttpServletRequest req) {
+	@Trace
+    public String getTemplatePath(HttpServletRequest req) {
 		String path = (String)req.getAttribute("javax.servlet.include.path_info");
 		if( path == null ) path = req.getPathInfo();
 		if( path == null ) throw new IllegalArgumentException("Failed to find path from request, this is like a config or major error");
@@ -264,7 +224,8 @@ public class WebTemplateServlet extends HttpServlet {
 	 * @param path The full path containing template name and renderer
 	 * @return The template name
 	 */
-	public String getTemplateName(String path) {
+	@Trace
+    public String getTemplateName(String path) {
 		int index = path.lastIndexOf('.');
 		if( index < 0 ) throw new IllegalArgumentException("Unable to determine template name given path: " + path);
 		return path.substring(0, index);
@@ -276,7 +237,8 @@ public class WebTemplateServlet extends HttpServlet {
 	 * @param path The full path containing template name and renderer
 	 * @return The render type
 	 */
-	public String getRenderType(String path) {
+	@Trace
+    public String getRenderType(String path) {
 		int index = path.lastIndexOf('.');
 		if( index < 0 ) throw new IllegalArgumentException("Unable to determine render type given path: " + path);
 		return path.substring(index + 1);

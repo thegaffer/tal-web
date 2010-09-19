@@ -19,8 +19,6 @@ package org.talframework.talui.template.compiler.html.fragments;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.talframework.talui.template.RenderElement;
 import org.talframework.talui.template.Template;
 import org.talframework.talui.template.TemplateElement;
@@ -38,7 +36,6 @@ import org.talframework.talui.template.render.elements.special.EmptyElement;
  * @author Tom Spencer
  */
 public class ChildrenFragment implements FragmentMold {
-	private static final Log logger = LogFactory.getLog(ChildrenFragment.class);
 
 	/**
 	 * Returns true if the element is a container element
@@ -67,9 +64,7 @@ public class ChildrenFragment implements FragmentMold {
 		while( it.hasNext() ) {
 			TemplateElement elem = it.next();
 			
-			if( logger.isTraceEnabled() ) logger.trace("\tStarting child compilation: " + elem.getName());
 			RenderElement child = templateMold.compileChild(compiler, template, elem);
-			if( logger.isTraceEnabled() ) logger.trace("\tEnding child [" + elem.getName() + "] compilation: " + child);
 			
 			ret.addElement(child);
 		}

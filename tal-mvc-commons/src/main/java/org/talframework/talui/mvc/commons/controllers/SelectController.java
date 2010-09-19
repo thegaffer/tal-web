@@ -16,8 +16,7 @@
 
 package org.talframework.talui.mvc.commons.controllers;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.Controller;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.input.InputModel;
@@ -30,8 +29,7 @@ import org.talframework.talui.mvc.input.InputModel;
  * @author Tom Spencer
  */
 public final class SelectController implements Controller {
-	private static final Log logger = LogFactory.getLog(SelectController.class);
-
+	
 	/** The incoming parameter holding the ID */
 	private String parameter = null;
 	/** The attribute on model to save ID into */
@@ -75,7 +73,6 @@ public final class SelectController implements Controller {
 			return result;
 		}
 		else {
-			logger.debug("Select controller chose failure result because parameter was not present in input");
 			return failureResult;
 		}
 	}
@@ -83,6 +80,7 @@ public final class SelectController implements Controller {
 	/**
 	 * Simply sets the parameter to the attribute and returns result
 	 */
+	@Trace
 	public String performAction(Model model, InputModel input) {
 		return SelectController.perform(parameter, attribute, result, failureResult, model, input);
 	}

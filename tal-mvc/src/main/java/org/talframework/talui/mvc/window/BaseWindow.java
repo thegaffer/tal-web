@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.Controller;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.View;
@@ -38,7 +39,6 @@ import org.talframework.talui.mvc.model.ResolvedModelAttribute;
 import org.talframework.talui.mvc.model.SimpleModelAttribute;
 import org.talframework.talui.mvc.model.SimpleModelResolver;
 import org.talframework.talui.mvc.model.message.MessagesModelAttribute;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * This abstract class is the base for the internal
@@ -60,7 +60,6 @@ import org.tpspencer.tal.util.aspects.annotations.Trace;
  * 
  * @author Tom Spencer
  */
-@Trace
 public abstract class BaseWindow implements Window {
 	/** The name of the window */
 	private String name = null;
@@ -222,7 +221,8 @@ public abstract class BaseWindow implements Window {
 	 * 
 	 * @throws IllegalArgumentException if action in unrecognised
 	 */
-	public String processAction(Model model, InputModel input, String action) {
+	@Trace
+    public String processAction(Model model, InputModel input, String action) {
 		if( controllers == null ) throw new UnsupportedOperationException("Cannot fire actions into a simple window with no mappings"); 
 		Controller ctrl = controllers.get(action);
 		if( ctrl == null ) throw new IllegalArgumentException("No controller for action: " + action);

@@ -26,10 +26,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.talframework.tal.aspects.annotations.HttpTrace;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.config.AppConfig;
 import org.talframework.talui.mvc.servlet.error.ServletExceptionResolver;
 import org.talframework.talui.mvc.servlet.error.StandardExceptionResolver;
@@ -70,7 +70,6 @@ import org.talframework.talui.mvc.servlet.util.ServletUrlGenerator;
  */
 public class DispatchingServlet extends HttpServlet {
 	private final static long serialVersionUID = 1L;
-	private final static Log logger = LogFactory.getLog(DispatchingServlet.class);
 	
 	/** Member holds the application config, obtained at startup */
 	protected WebApplicationContext ctx = null;
@@ -97,9 +96,8 @@ public class DispatchingServlet extends HttpServlet {
 	}
 	
 	@Override
+	@HttpTrace
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if( logger.isDebugEnabled() ) logger.debug(">>> Starting GET request: " + req.getContextPath() + req.getServletPath() + req.getPathInfo());
-		
 		RequestCoordinates coords = null;
 		try {
 			coords = getRequestCoordinates(req);
@@ -109,8 +107,6 @@ public class DispatchingServlet extends HttpServlet {
 			
 			handler.validate(req, coords);
 			handler.handleRequest(req, resp, new CookieModelAttributeResolver(req, resp), coords);
-			
-			if( logger.isDebugEnabled() ) logger.debug("<<< Ending GET request: " + req.getContextPath() + req.getServletPath() + req.getPathInfo());
 		}
 		catch( Exception e ) {
 			getExceptionResolver().handleException(req, resp, e);
@@ -118,9 +114,8 @@ public class DispatchingServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if( logger.isDebugEnabled() ) logger.debug(">>> Starting POST request: " + req.getContextPath() + req.getServletPath() + req.getPathInfo());
-		
+	@HttpTrace
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestCoordinates coords = null;
 		
 		try {
@@ -131,8 +126,6 @@ public class DispatchingServlet extends HttpServlet {
 			
 			handler.validate(req, coords);
 			handler.handleRequest(req, resp, new CookieModelAttributeResolver(req, resp), coords);
-			
-			if( logger.isDebugEnabled() ) logger.debug("<<< Ending POST request: " + req.getContextPath() + req.getServletPath() + req.getPathInfo());
 		}
 		catch( Exception e ) {
 			getExceptionResolver().handleException(req, resp, e);
@@ -150,6 +143,7 @@ public class DispatchingServlet extends HttpServlet {
 	 * @param req The request
 	 * @return The request coordinates
 	 */
+	@Trace
 	private RequestCoordinates getRequestCoordinates(HttpServletRequest req) {
 		RequestCoordinates coords = RequestAttributeUtils.getRequestCoordinates(req);
 		

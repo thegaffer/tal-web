@@ -32,8 +32,7 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.Template;
 import org.talframework.talui.template.TemplateElement;
 import org.talframework.talui.template.core.SimpleTemplate;
@@ -77,7 +76,6 @@ import org.w3c.dom.NodeList;
  * @author Tom Spencer
  */
 public class XmlTemplateReader {
-	private static final Log logger = LogFactory.getLog(XmlTemplateReader.class);
 	
 	/** The singleton instance that is used by default */
 	private static final XmlTemplateReader XML_READER = new XmlTemplateReader();
@@ -208,7 +206,8 @@ public class XmlTemplateReader {
 	 * @return The list of templates found
 	 * @throws IllegalArgumentException Is thrown if we come across errors in the XML file/mapping
 	 */
-	public List<Template> loadTemplates(String resource) {
+	@Trace
+    public List<Template> loadTemplates(String resource) {
 		if( resource == null || resource.length() == 0 ) throw new IllegalArgumentException("Cannot load a XML Doc with no resource");
 		
 		Document doc = null;
@@ -228,8 +227,6 @@ public class XmlTemplateReader {
 			}
 		}
 		catch( Exception e ) {
-			if( logger.isDebugEnabled() ) e.printStackTrace();
-			logger.error("!!! Failure reading Template XML File: " + e.getMessage());
 			throw new IllegalArgumentException("Unable to load the XML template file it appears to be invalid: " + e.getMessage());
 		}
 		
@@ -237,7 +234,8 @@ public class XmlTemplateReader {
 		return loadTemplates(root);
 	}
 	
-	private List<Template> loadTemplates(Element root) {
+	@Trace
+    private List<Template> loadTemplates(Element root) {
 		List<Template> ret = new ArrayList<Template>();
 	
 		NodeList children = root.getChildNodes();
@@ -247,13 +245,11 @@ public class XmlTemplateReader {
 				if( n.getNodeType() == Node.ELEMENT_NODE &&
 						"template".equals(n.getNodeName()) ) {
 					Template t = createTemplate();
-					if( logger.isTraceEnabled() ) logger.trace(">>> Starting new template (details at end)");
 					
 					mapElement((Element)n, t);
 					List<TemplateElement> nextChildren = loadTemplateElements(t, (Element)n);
 					t.init(nextChildren);
 					
-					if( logger.isDebugEnabled() ) logger.debug("<<< Loaded template: " + t);
 					ret.add(t);
 				}
 			}
@@ -262,7 +258,8 @@ public class XmlTemplateReader {
 		return ret;
 	}
 	
-	private List<TemplateElement> loadTemplateElements(Template template, Element parent) {
+	@Trace
+    private List<TemplateElement> loadTemplateElements(Template template, Element parent) {
 		List<TemplateElement> ret = new ArrayList<TemplateElement>();
 		
 		NodeList children = parent.getChildNodes();
@@ -275,7 +272,6 @@ public class XmlTemplateReader {
 					
 					List<TemplateElement> nextChildren = loadTemplateElements(template, (Element)n);
 					e.init(template, nextChildren);
-					if( logger.isTraceEnabled() ) logger.trace("\tFound template element: " + e);
 					ret.add(e);
 				}
 			}
@@ -284,23 +280,21 @@ public class XmlTemplateReader {
 		return ret.size() > 0 ? ret : null;
 	}
 	
-	private Template createTemplate() {
+	@Trace
+    private Template createTemplate() {
 		try {
 			return templateClass.newInstance();
 		}
 		catch( IllegalAccessException e ) {
-			if( logger.isDebugEnabled() ) e.printStackTrace();
-			logger.error("!!! Failed to create template class [" + templateClass + "]: " + e.getMessage()); 
 			throw new IllegalArgumentException("Failed to load specified file: " + e.getMessage());
 		}
 		catch( InstantiationException e ) {
-			if( logger.isDebugEnabled() ) e.printStackTrace();
-			logger.error("!!! Failed to create template class [" + templateClass + "]: " + e.getMessage());
 			throw new IllegalArgumentException("Failed to load specified file: " + e.getMessage());
 		}
 	}
 	
-	private TemplateElement createTemplateElement(String name) {
+	@Trace
+    private TemplateElement createTemplateElement(String name) {
 		Class<? extends TemplateElement> cls = mappings.get(name);
 		if( cls == null ) throw new IllegalArgumentException("No mapping for the element: " + name);
 		
@@ -308,13 +302,9 @@ public class XmlTemplateReader {
 			return cls.newInstance();
 		}
 		catch( IllegalAccessException e ) {
-			if( logger.isDebugEnabled() ) e.printStackTrace();
-			logger.error("!!! Failed to create template class [" + templateClass + "]: " + e.getMessage());
 			throw new IllegalArgumentException("Failed to load specified file: " + e.getMessage());
 		}
 		catch( InstantiationException e ) {
-			if( logger.isDebugEnabled() ) e.printStackTrace();
-			logger.error("!!! Failed to create template class [" + templateClass + "]: " + e.getMessage());
 			throw new IllegalArgumentException("Failed to load specified file: " + e.getMessage());
 		}
 	}

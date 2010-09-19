@@ -19,6 +19,7 @@ package org.talframework.talui.template.compiler.js;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.template.RenderElement;
 import org.talframework.talui.template.Template;
 import org.talframework.talui.template.TemplateElement;
@@ -64,7 +65,8 @@ public class DynamicFieldElementMold extends BaseJsElementMold {
 	 * This will attach a Dynamic JS RenderElement to dynamic property 
 	 * at the field level. If there are no 'fields' then we end.
 	 */
-	public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
+	@Trace
+    public RenderElement compile(GenericCompiler compiler, TemplateRenderMold templateMold, Template template, TemplateElement element) {
 		RenderElement ret = null; // We don't do children as only attached to props
 		
 		// Attach fields

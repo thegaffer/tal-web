@@ -26,8 +26,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.HttpTrace;
 import org.talframework.talui.template.render.codes.CodeType;
 import org.talframework.talui.template.render.codes.CodeTypeFactoryLocator;
 
@@ -39,13 +38,11 @@ import org.talframework.talui.template.render.codes.CodeTypeFactoryLocator;
  */
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static Log logger = LogFactory.getLog(SearchServlet.class);
 
 	@SuppressWarnings("unchecked")
 	@Override
+	@HttpTrace
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if( logger.isDebugEnabled() ) logger.debug(">>> Starting search request: " + req.getRequestURI());
-		
 		// Parameters
 		String prefix = req.getParameter("q");
 		String typeName = req.getPathInfo();
@@ -83,7 +80,5 @@ public class SearchServlet extends HttpServlet {
 		
 		resp.setContentType("application/json");
 		resp.getWriter().write(buf.toString());
-		
-		if( logger.isDebugEnabled() ) logger.debug("<<< Ending search request: " + req.getRequestURI());
 	}
 }

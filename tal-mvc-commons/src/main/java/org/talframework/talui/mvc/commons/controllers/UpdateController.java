@@ -19,8 +19,7 @@ package org.talframework.talui.mvc.commons.controllers;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.Controller;
 import org.talframework.talui.mvc.Model;
 import org.talframework.talui.mvc.input.InputModel;
@@ -36,8 +35,7 @@ import org.talframework.talui.mvc.input.InputModel;
  * @author Tom Spencer
  */
 public final class UpdateController implements Controller {
-	private final static Log logger = LogFactory.getLog(UpdateController.class);
-
+	
 	/** Holds the normal result code */
 	private String result = null;
 	/** Holds the input params to store on the model */
@@ -53,7 +51,8 @@ public final class UpdateController implements Controller {
 	 * Tests for any missing inputs and copies the input into the 
 	 * model.
 	 */
-	public String performAction(Model model, InputModel input) {
+	@Trace
+    public String performAction(Model model, InputModel input) {
 		String ret = null;
 
 		// Test the missing inputs
@@ -63,7 +62,6 @@ public final class UpdateController implements Controller {
 				String param = it.next();
 				if( !input.hasParameter(param) ) {
 					ret = missingInputResults.get(param);
-					logger.debug("The model UpdateController determined that a parameter [" + param + "] was missing so failed: " + ret);
 					if( ret != null ) break;
 				}
 			}
@@ -78,9 +76,6 @@ public final class UpdateController implements Controller {
 				if( param != null && attr != null && input.hasParameter(param) ) {
 					if( input.hasMultiValue(param) ) model.setAttribute(attr, input.getParameterValues(param));
 					else model.setAttribute(attr, input.getParameter(param));
-				}
-				else if( param != null && attr != null ) {
-					logger.trace("Failed to update parameter because the param did not exist in input: " + param);
 				}
 			}
 		}

@@ -20,6 +20,7 @@ package org.talframework.talui.mvc.sample.objex.service;
 import org.talframework.objexj.Container;
 import org.talframework.objexj.ObjexObj;
 import org.talframework.objexj.locator.ContainerFactory;
+import org.talframework.tal.aspects.annotations.Trace;
 import org.talframework.talui.mvc.commons.repository.SimpleRepository;
 import org.talframework.talui.mvc.sample.model.account.Account;
 import org.talframework.talui.mvc.sample.model.account.AccountBean;
@@ -27,13 +28,11 @@ import org.talframework.talui.mvc.sample.model.contact.Caller;
 import org.talframework.talui.mvc.sample.model.contact.Contact;
 import org.talframework.talui.mvc.sample.service.ContactService;
 import org.talframework.talui.mvc.sample.service.transfer.SaveContactResult;
-import org.tpspencer.tal.util.aspects.annotations.Trace;
 
 /**
  * 
  * @author Tom Spencer
  */
-@Trace
 public class ContactServiceImpl implements ContactService {
 
 	/** Holds the contact locator */
@@ -44,6 +43,7 @@ public class ContactServiceImpl implements ContactService {
 	/**
 	 * Simply adds or updates the contact in the repository
 	 */
+	@Trace
 	public SaveContactResult saveContact(Contact contact) {
 		if( !(contact instanceof ObjexObj) ) throw new IllegalArgumentException("Cannot save contact as provided contact is not from a container");
 		// SUGGEST: Could use id to open the container (or create!?!)
@@ -58,7 +58,8 @@ public class ContactServiceImpl implements ContactService {
 	/**
 	 * Obtains (or creates) contact and updates it with account info
 	 */
-	public SaveContactResult updateContactAccount(String contactId, Account account) {
+	@Trace
+    public SaveContactResult updateContactAccount(String contactId, Account account) {
 		Contact bean = findOrCreateContact(contactId);
 		
 		// Update
@@ -72,7 +73,8 @@ public class ContactServiceImpl implements ContactService {
 	/**
 	 * Obtains (or creates) contact and updates it with caller info
 	 */
-	public SaveContactResult updateContactCaller(String contactId, Caller caller) {
+	@Trace
+    public SaveContactResult updateContactCaller(String contactId, Caller caller) {
 		Contact bean = findOrCreateContact(contactId);
 		
 		// Update
