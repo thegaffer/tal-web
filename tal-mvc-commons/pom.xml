@@ -46,16 +46,6 @@
   	
   	<!-- Test -->
   	<dependency>
-  		<groupId>org.jmock</groupId>
-  		<artifactId>jmock-junit4</artifactId>
-  		<scope>test</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>log4j</groupId>
-  		<artifactId>log4j</artifactId>
-  		<scope>test</scope>
-  	</dependency>
-  	<dependency>
   		<groupId>org.apache.tomcat</groupId>
   		<artifactId>jasper-el</artifactId>
   		<scope>test</scope>

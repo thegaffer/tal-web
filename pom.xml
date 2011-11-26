@@ -16,6 +16,8 @@
   	<module>tal-ui-parent</module>
     <module>tal-template</module>
     <module>tal-mvc</module>
+    <module>tal-mvc-annotations</module>
+    <module>tal-mvc-core</module>
     <module>tal-mvc-spring</module>
     <module>tal-mvc-commons</module>
     <module>tal-mvc-servlet</module>

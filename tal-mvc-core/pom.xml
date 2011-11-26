@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.talframework.talui</groupId>
+    <artifactId>tal-ui-parent</artifactId>
+    <version>0.9-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>tal-mvc-core</artifactId>
+  
+  <name>Tal MVC Core</name>
+  <description>The core runtime of the Tal MVC Framework</description>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.talframework.talui</groupId>
+    	<artifactId>tal-mvc-annotations</artifactId>
+    	<version>${project.version}</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.talframework.tal</groupId>
+  		<artifactId>tal-aspects</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.talframework.tal</groupId>
+  		<artifactId>tal-util-beans</artifactId>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  	  <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>aspectj-maven-plugin</artifactId>
+        <configuration>
+            <complianceLevel>1.5</complianceLevel>
+            <aspectLibraries>
+                <aspectLibrary>
+                    <groupId>org.talframework.tal</groupId>
+                    <artifactId>tal-aspects</artifactId>
+                </aspectLibrary>
+            </aspectLibraries>
+        </configuration>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>compile</goal>
+                    <goal>test-compile</goal>
+                </goals>
+            </execution>
+        </executions>
+	  </plugin>
+  	</plugins>
+  </build>
+</project>

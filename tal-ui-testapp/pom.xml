@@ -44,9 +44,11 @@
   	</dependency>
   	
   	<dependency>
-  		<groupId>log4j</groupId>
-  		<artifactId>log4j</artifactId>
-  	</dependency>
+ 		<groupId>org.slf4j</groupId>
+ 		<artifactId>slf4j-log4j12</artifactId>
+ 		<version>${version.slf4j}</version>
+ 		<scope>runtime</scope>
+ 	</dependency>
   	
 	<!-- Provided Elements - Here also to reference in Jetty config -->
     <dependency>
