@@ -1,0 +1,17 @@
+TAL Web/UI; tal-web, tal-ui
+Copyright (C) Thomas Spencer, 1997-2011
+License: GPL v3, see LICENSE
+
+TAL Web explores two main ideas for creating Web Apps.
+
+The first is a more explicit template structure that allows you to separate
+the structure of content on a page, how it looks and how it behaves into
+completely separate concerns. 
+
+The second is an implementation of the MVC pattern - yes another one! My view
+is that the MVC pattern is never implemented in frameworks as per the 
+original MVC pattern, but has morphed into something else. TalUI (tal-oo-e)
+aims to implement a more pure MVC framework.
+
+Status: I consider this a personal project that I use to explore my ideas. 
+It is not currently a goal to "finish" this project.
